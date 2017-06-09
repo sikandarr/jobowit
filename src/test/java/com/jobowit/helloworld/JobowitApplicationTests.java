@@ -1,4 +1,4 @@
-package com.jobowit;
+package com.jobowit.helloworld;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

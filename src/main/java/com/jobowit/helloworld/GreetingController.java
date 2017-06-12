@@ -1,4 +1,4 @@
-package com.jobowit.helloworld;
+/*package com.jobowit.helloworld;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,4 +17,4 @@ public class GreetingController
 		return "greeting";
 	}
 
-}
+}*/

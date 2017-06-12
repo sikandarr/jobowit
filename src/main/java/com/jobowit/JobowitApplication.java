@@ -5,7 +5,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import com.jobowit.domain.BusinessAccount;
-import com.jobowit.repositories.BusinessAccountRepository;
 import com.jobowit.service.BusinessAccountService;
 
 //import org.slf4j.Logger;

@@ -10,11 +10,11 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name = "business_account")
-public class BusinessAccount
+public class Party
 {
-	public BusinessAccount()
+	public Party()
 	{}
-	public BusinessAccount(String name, String contactName)
+	public Party(String name, String contactName)
 	{
 		this.name = name;
 		this.contactName = contactName;

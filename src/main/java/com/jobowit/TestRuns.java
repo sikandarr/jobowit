@@ -16,8 +16,8 @@ import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.stereotype.Component;
 
-import com.jobowit.domain.BusinessAccount;
-import com.jobowit.service.BusinessAccountService;
+import com.jobowit.domain.Party;
+import com.jobowit.service.PartyService;
 
 @Component
 @ComponentScan
@@ -50,13 +50,13 @@ public class TestRuns
 	private void start()
 	{
 		ApplicationContext ctx = new AnnotationConfigApplicationContext(TestRuns.class);
-		BusinessAccountService bas = ctx.getBean(BusinessAccountService.class);
-		bas.saveBusinessAccount(new BusinessAccount("AJX Company Pvt Ltd", "John Flamigo"));
-		bas.saveBusinessAccount(new BusinessAccount("Bushra General Trading", "Mearaj Bhagad"));
-		bas.saveBusinessAccount(new BusinessAccount("Aprium General Trading", "Rais Bhagad"));
-		for (BusinessAccount bAccounts : bas.findAllBusinessAccounts())
+		PartyService partyService = ctx.getBean(PartyService.class);
+		partyService.saveParty(new Party("AJX Company Pvt Ltd", "John Flamigo"));
+		partyService.saveParty(new Party("Bushra General Trading", "Mearaj Bhagad"));
+		partyService.saveParty(new Party("Aprium General Trading", "Rais Bhagad"));
+		for (Party parties : partyService.findAllParties())
 		{
-			System.out.println(bAccounts.toString());
+			System.out.println(parties.toString());
 		}
 		((ConfigurableApplicationContext)ctx).close();
 	}

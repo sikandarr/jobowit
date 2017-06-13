@@ -4,11 +4,11 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.jobowit.domain.BusinessAccount;
+import com.jobowit.domain.Party;
 
 @Repository
-public interface BusinessAccountRepository  extends JpaRepository<BusinessAccount, Long>
+public interface PartyRepository  extends JpaRepository<Party, Long>
 {
-	List<BusinessAccount> findByContactName(String contactName);
-	BusinessAccount findByName(String name);
+	List<Party> findByContactName(String contactName);
+	Party findByName(String name);
 }

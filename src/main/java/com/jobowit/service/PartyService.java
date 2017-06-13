@@ -1,7 +1,7 @@
 package com.jobowit.service;
 
-import com.jobowit.domain.BusinessAccount;
-import com.jobowit.repositories.BusinessAccountRepository;
+import com.jobowit.domain.Party;
+import com.jobowit.repositories.PartyRepository;
 
 import java.util.List;
 
@@ -9,51 +9,51 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-@Service("BusinessAccountService")
+@Service("PartyService")
 @Transactional
-public class BusinessAccountService
+public class PartyService
 {
 	@Autowired
-	private BusinessAccountRepository businessAccountRepository;
+	private PartyRepository partyRepository;
 
-	public BusinessAccount findById(Long id)
+	public Party findById(Long id)
 	{
-		return businessAccountRepository.findOne(id);
+		return partyRepository.findOne(id);
 	}
 
-	public BusinessAccount findByName(String name)
+	public Party findByName(String name)
 	{
-		return businessAccountRepository.findByName(name);
+		return partyRepository.findByName(name);
 	}
 
-	public void saveBusinessAccount(BusinessAccount businessAccount)
+	public void saveParty(Party party)
 	{
-		businessAccountRepository.save(businessAccount);
+		partyRepository.save(party);
 	}
 
-	public void updateBusinessAccount(BusinessAccount businessAccount)
+	public void updateParty(Party party)
 	{
-		saveBusinessAccount(businessAccount);
+		saveParty(party);
 	}
 
-	public void deleteBusinessAccountById(Long id)
+	public void deletePartyById(Long id)
 	{
-		businessAccountRepository.delete(id);
+		partyRepository.delete(id);
 	}
 
-	public void deleteAllBusinessAccounts()
+	public void deleteAllParties()
 	{
-		businessAccountRepository.deleteAll();
+		partyRepository.deleteAll();
 	}
 
-	public List<BusinessAccount> findAllBusinessAccounts()
+	public List<Party> findAllParties()
 	{
-		return businessAccountRepository.findAll();
+		return partyRepository.findAll();
 	}
 
-	public boolean isBusinessAccountExist(BusinessAccount businessAccount)
+	public boolean isPartyExist(Party party)
 	{
-		return findByName(businessAccount.getName()) != null;
+		return findByName(party.getName()) != null;
 	}
 
 }

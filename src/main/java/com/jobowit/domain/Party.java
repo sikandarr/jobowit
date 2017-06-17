@@ -6,10 +6,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-@Table(name = "business_account")
+@Table(name = "Party")
 public class Party
 {
 	public Party()
@@ -26,12 +28,12 @@ public class Party
 	
 	@NotEmpty
 	@Column(nullable = false)
+	@NotNull(message = "Party name is required")
 	private String name;
 	
 	@Column(name = "contact_name")
 	private String contactName;
 	
-	@Column(name = "phone")
 	private String phone;
 	
 	@Column(name = "mobile")

@@ -1,6 +1,6 @@
 # Static
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.1.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.1. You need to install nodejs before ruunnig this project, then Run 'npm install' from the command line. This will download all the required dependencies.
 
 ## Development server
 
@@ -12,7 +12,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory by default. For this project build artifacts will be stored in `static/` folder. You need to copy index.html file from `static` folder to `templates` folder of this jobowit spring project. Use the `-prod` flag for a production build.
 
 ## Running unit tests
 

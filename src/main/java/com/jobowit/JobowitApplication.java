@@ -24,9 +24,15 @@ public class JobowitApplication
 	public CommandLineRunner demo(PartyService partyService) {
 		return (args) -> 
 		{
-			partyService.saveParty(new Party("AJX Company Pvt Ltd", "John Flamigo"));
-			partyService.saveParty(new Party("Bushra General Trading", "Mearaj Bhagad"));
-			partyService.saveParty(new Party("Aprium General Trading", "Rais Bhagad"));
+			Party p1 = new Party("AJX Company Pvt Ltd", "John Flamigo");
+			p1.setPhone("1234567");
+			Party p2 = new Party("Bushra General Trading", "Mearaj Bhagad");
+			p2.setPhone("89101112");
+			Party p3 = new Party("Aprium General Trading", "Rais Bhagad");
+			p3.setPhone("13141516");
+			partyService.saveParty(p1);
+			partyService.saveParty(p2);
+			partyService.saveParty(p3);
 			for (Party parties : partyService.findAllParties())
 			{
 				System.out.println(parties.toString());

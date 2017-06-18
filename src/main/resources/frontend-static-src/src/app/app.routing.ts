@@ -14,13 +14,10 @@ import {SchedulerComponent} from "./components/scheduler/scheduler.component";
 import {TimesheetsComponent} from "./components/timesheets/timesheets.component";
 import {SuppliersComponent} from "./components/suppliers/suppliers.component";
 import {SettingsComponent} from "./components/settings/settings.component";
+import {AddCustomerComponent} from "./components/customers/add-customer/add-customer.component";
 
 export const routes: Routes = [
-  {
-    path: '',
-    redirectTo: 'dashboard',
-    pathMatch: 'full',
-  },
+
   {
     path: '',
     component: FullLayoutComponent,
@@ -28,65 +25,93 @@ export const routes: Routes = [
       title: 'Home'
     },
     children: [
-      {
-        path: 'dashboard',
-        component: DashboardComponent
-      },
-      {
-        path: 'customers',
-        component: CustomersComponent
-      },
-      {
-        path: 'jobs',
-        component: JobsComponent
-      },
-      {
-        path: 'map',
-        component: MapComponent
-      },
-      {
-        path: 'invoices',
-        component: InvoicesComponent
-      },
-      {
-        path: 'quotes',
-        component: QuotesComponent
-      },
-      {
-        path: 'purchases',
-        component: PurchasesComponent
-      },
-      {
-        path: 'scheduler',
-        component: SchedulerComponent
-      },
-      {
-        path: 'timesheets',
-        component: TimesheetsComponent
-      },
-      {
-        path: 'suppliers',
-        component: SuppliersComponent
-      },
-      {
-        path: 'settings',
-        component: SettingsComponent
-      },
+
     ]
   },
   {
-    path: 'pages',
-    component: FullLayoutComponent,
+    path: 'dashboard',
+    component: DashboardComponent,
     data: {
-      title: 'Pages'
+      title: 'Dashboard'
     },
-    children: [
-      {
-        path: '',
-        loadChildren: './pages/pages.module#PagesModule',
-      }
-    ]
-  }
+  },
+  {
+    path: 'customers',
+    component: CustomersComponent,
+    data: {
+      title: 'Customers'
+    },
+  },
+  {
+    path: 'customers/add-customer',
+    component: AddCustomerComponent,
+    data: {
+      title: 'Add Customer'
+    },
+  },
+  {
+    path: 'jobs',
+    component: JobsComponent,
+    data: {
+      title: 'Jobs'
+    },
+  },
+  {
+    path: 'map',
+    component: MapComponent,
+    data: {
+      title: 'Map'
+    },
+  },
+  {
+    path: 'invoices',
+    component: InvoicesComponent,
+    data: {
+      title: 'Invoices'
+    },
+  },
+  {
+    path: 'quotes',
+    component: QuotesComponent,
+    data: {
+      title: 'Quotes'
+    },
+  },
+  {
+    path: 'purchases',
+    component: PurchasesComponent,
+    data: {
+      title: 'Purchases'
+    },
+  },
+  {
+    path: 'scheduler',
+    component: SchedulerComponent,
+    data: {
+      title: 'Scheduler'
+    },
+  },
+  {
+    path: 'timesheets',
+    component: TimesheetsComponent,
+    data: {
+      title: 'Timesheets'
+    },
+  },
+  {
+    path: 'suppliers',
+    component: SuppliersComponent,
+    data: {
+      title: 'Suppliers'
+    },
+  },
+  {
+    path: 'settings',
+    component: SettingsComponent,
+    data: {
+      title: 'Settings'
+    },
+  },
 ];
 
 @NgModule({

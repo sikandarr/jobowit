@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import defaultComponents from '../../models/components.model';
+import defaultComponents from '../../models/components';
 
 @Component({
-  selector: 'app-dashboard',
+  selector: 'app-full-layout',
   templateUrl: './full-layout.component.html',
   styleUrls: ['./full-layout.component.scss']
 })

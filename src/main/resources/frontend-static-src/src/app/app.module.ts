@@ -24,6 +24,8 @@ import { SchedulerComponent } from './components/scheduler/scheduler.component';
 import { TimesheetsComponent } from './components/timesheets/timesheets.component';
 import { SuppliersComponent } from './components/suppliers/suppliers.component';
 import { SettingsComponent } from './components/settings/settings.component';
+import { DisplayCustomersComponent } from './components/customers/display-customers/display-customers.component';
+import { AddCustomerComponent } from './components/customers/add-customer/add-customer.component';
 
 
 @NgModule({
@@ -48,7 +50,9 @@ import { SettingsComponent } from './components/settings/settings.component';
     SchedulerComponent,
     TimesheetsComponent,
     SuppliersComponent,
-    SettingsComponent
+    SettingsComponent,
+    DisplayCustomersComponent,
+    AddCustomerComponent
   ],
   providers: [],
   bootstrap: [ AppComponent ]

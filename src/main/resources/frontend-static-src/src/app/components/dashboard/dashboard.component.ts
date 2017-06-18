@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import defaultComponents from '../../models/components.model';
+import defaultComponents from '../../models/components';
 import { Router } from '@angular/router';
 
 @Component({
+  selector: 'app-dashboard',
   templateUrl: 'dashboard.component.html',
   styleUrls: ['dashboard.component.scss']
 })

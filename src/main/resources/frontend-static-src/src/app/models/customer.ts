@@ -1,10 +1,10 @@
-export default {
-  id: "ID",
-  name: "Name",
-  contactName: "Contact Name",
-  phone: "Phone",
-  mobile: "Mobile"
-}
+export default [
+  "Name",
+  "Contact Name",
+  "Phone",
+  "Mobile",
+  "Email"
+];
 
 export class Customer {
   id: string;

@@ -1,3 +1,14 @@
 .general {
   opacity: .3;
+  text-align: center;
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
+.no-border-bottom.navbar-brand, .app-header {
+  border: none;
+}
+.nav-link {
+  color: white;
+  opacity: 1;
 }

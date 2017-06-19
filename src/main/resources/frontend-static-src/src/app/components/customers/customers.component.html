@@ -2,9 +2,13 @@
   <a
     class="btn-primary brand-primary btn"
     type="button"
-    routerLink="/customers/add-customer">
-    Add Customer
+    (click)="createCustomer()">
+    Create Customer
   </a>
 </div>
-<router-outlet></router-outlet>
-<router-outlet></router-outlet>
+<app-create-customer
+  [hidden]="!createCustomerClicked"
+  (informParent)="getInformed()"></app-create-customer>
+<app-display-customers
+  [parentSubject]="parentSubject"
+  [hidden]="createCustomerClicked"></app-display-customers>

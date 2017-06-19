@@ -5,3 +5,12 @@
     </div>
   </div>
 </div>
+<div class="grid">
+  <div class="row" *ngFor="let eachCustomer of allCustomers">
+    <div class="col">{{eachCustomer.name}}</div>
+    <div class="col">{{eachCustomer.contactName}}</div>
+    <div class="col">{{eachCustomer.phone}}</div>
+    <div class="col">{{eachCustomer.mobile}}</div>
+    <div class="col">{{eachCustomer.email}}</div>
+  </div>
+</div>

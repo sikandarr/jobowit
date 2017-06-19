@@ -25,13 +25,19 @@ import { TimesheetsComponent } from './components/timesheets/timesheets.componen
 import { SuppliersComponent } from './components/suppliers/suppliers.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { DisplayCustomersComponent } from './components/customers/display-customers/display-customers.component';
-import { AddCustomerComponent } from './components/customers/add-customer/add-customer.component';
+import { CreateCustomerComponent } from './components/customers/create-customer/create-customer.component';
+import { HttpModule } from "@angular/http";
+import {ServerService} from "./services/ServerService";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    HttpModule,
+    ReactiveFormsModule
   ],
   declarations: [
     AppComponent,
@@ -52,9 +58,9 @@ import { AddCustomerComponent } from './components/customers/add-customer/add-cu
     SuppliersComponent,
     SettingsComponent,
     DisplayCustomersComponent,
-    AddCustomerComponent
+    CreateCustomerComponent
   ],
-  providers: [],
+  providers: [ServerService],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

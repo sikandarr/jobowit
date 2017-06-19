@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {ServerService} from "./services/ServerService";
 
 @Component({
   // tslint:disable-next-line

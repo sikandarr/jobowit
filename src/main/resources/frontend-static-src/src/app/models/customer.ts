@@ -7,10 +7,10 @@ export default [
 ];
 
 export class Customer {
-  id: string;
-  name: string;
-  contactName: string;
-  phone: number;
-  mobile: number;
-  email: string;
+  'id': string;
+  'name': string;
+  'contactName': string;
+  'phone': string;
+  'mobile': string;
+  'email': string;
 }

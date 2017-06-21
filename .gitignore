@@ -1,7 +1,7 @@
 .gradle
 /build/
 !gradle/wrapper/gradle-wrapper.jar
-/src/main/resources/frontend-static-src/
+src/main/resources/frontend-static-src
 
 ### STS ###
 .apt_generated

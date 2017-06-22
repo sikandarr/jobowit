@@ -1,70 +1,79 @@
 package com.jobowit.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
+import java.io.Serializable;
+import javax.persistence.*;
+import java.util.List;
 
-import org.hibernate.validator.constraints.NotEmpty;
-
+/**
+ * The persistent class for the party database table.
+ * 
+ */
 @Entity
-@Table(name = "Party")
-public class Party
+@Table(name = "party")
+@NamedQuery(name = "Party.findAll", query = "SELECT p FROM Party p")
+public class Party implements Serializable
 {
-	public Party()
-	{}
-	public Party(String name, String contactName)
-	{
-		this.name = name;
-		this.contactName = contactName;
-	}
+	private static final long serialVersionUID = 1L;
+
 	@Id
-	//@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
-	
-	@NotEmpty
-	@Column(nullable = false)
-	@NotNull(message = "Party name is required")
-	private String name;
-	
-	@Column(name = "contact_name")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "party_id", unique = true, nullable = false)
+	private int partyId;
+
+	@Column(name = "contact_name", length = 100)
 	private String contactName;
-	
-	private String phone;
-	
-	@Column(name = "mobile")
-	private String mobile;
-	
-	@Column(name = "email")
+
+	@Column(length = 50)
 	private String email;
 
-	public Long getId()
+	@Column(length = 45)
+	private String mobile;
+
+	@Column(nullable = false, length = 100)
+	private String name;
+
+	@Column(length = 45)
+	private String phone;
+
+	// bi-directional many-to-one association to Bill
+	@OneToMany(mappedBy = "party")
+	private List<Bill> bills;
+
+	// bi-directional many-to-one association to Comment
+	@OneToMany(mappedBy = "party")
+	private List<Comment> comments;
+
+	// bi-directional many-to-one association to Job
+	@OneToMany(mappedBy = "party")
+	private List<Job> jobs;
+
+	// bi-directional many-to-one association to Address
+	@ManyToOne
+	@JoinColumn(name = "mailing_address_id", nullable = false)
+	private Address address1;
+
+	// bi-directional many-to-one association to Address
+	@ManyToOne
+	@JoinColumn(name = "physical_address_id", nullable = false)
+	private Address address2;
+
+	public Party()
 	{
-		return id;
 	}
 
-	public void setId(Long id)
+	public int getPartyId()
 	{
-		this.id = id;
+		return this.partyId;
 	}
 
-	public String getName()
+	public void setPartyId(int partyId)
 	{
-		return name;
-	}
-
-	public void setName(String name)
-	{
-		this.name = name;
+		this.partyId = partyId;
 	}
 
 	public String getContactName()
 	{
-		return contactName;
+		return this.contactName;
 	}
 
 	public void setContactName(String contactName)
@@ -72,19 +81,19 @@ public class Party
 		this.contactName = contactName;
 	}
 
-	public String getPhone()
+	public String getEmail()
 	{
-		return phone;
+		return this.email;
 	}
 
-	public void setPhone(String phone)
+	public void setEmail(String email)
 	{
-		this.phone = phone;
+		this.email = email;
 	}
 
 	public String getMobile()
 	{
-		return mobile;
+		return this.mobile;
 	}
 
 	public void setMobile(String mobile)
@@ -92,19 +101,122 @@ public class Party
 		this.mobile = mobile;
 	}
 
-	public String getEmail()
+	public String getName()
 	{
-		return email;
+		return this.name;
 	}
 
-	public void setEmail(String email)
+	public void setName(String name)
 	{
-		this.email = email;
+		this.name = name;
 	}
-	
-	@Override
-	public String toString()
+
+	public String getPhone()
 	{
-		return getName() + " " + getContactName();
+		return this.phone;
 	}
+
+	public void setPhone(String phone)
+	{
+		this.phone = phone;
+	}
+
+	public List<Bill> getBills()
+	{
+		return this.bills;
+	}
+
+	public void setBills(List<Bill> bills)
+	{
+		this.bills = bills;
+	}
+
+	public Bill addBill(Bill bill)
+	{
+		getBills().add(bill);
+		bill.setParty(this);
+
+		return bill;
+	}
+
+	public Bill removeBill(Bill bill)
+	{
+		getBills().remove(bill);
+		bill.setParty(null);
+
+		return bill;
+	}
+
+	public List<Comment> getComments()
+	{
+		return this.comments;
+	}
+
+	public void setComments(List<Comment> comments)
+	{
+		this.comments = comments;
+	}
+
+	public Comment addComment(Comment comment)
+	{
+		getComments().add(comment);
+		comment.setParty(this);
+
+		return comment;
+	}
+
+	public Comment removeComment(Comment comment)
+	{
+		getComments().remove(comment);
+		comment.setParty(null);
+
+		return comment;
+	}
+
+	public List<Job> getJobs()
+	{
+		return this.jobs;
+	}
+
+	public void setJobs(List<Job> jobs)
+	{
+		this.jobs = jobs;
+	}
+
+	public Job addJob(Job job)
+	{
+		getJobs().add(job);
+		job.setParty(this);
+
+		return job;
+	}
+
+	public Job removeJob(Job job)
+	{
+		getJobs().remove(job);
+		job.setParty(null);
+
+		return job;
+	}
+
+	public Address getAddress1()
+	{
+		return this.address1;
+	}
+
+	public void setAddress1(Address address1)
+	{
+		this.address1 = address1;
+	}
+
+	public Address getAddress2()
+	{
+		return this.address2;
+	}
+
+	public void setAddress2(Address address2)
+	{
+		this.address2 = address2;
+	}
+
 }

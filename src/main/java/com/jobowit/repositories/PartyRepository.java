@@ -6,7 +6,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import com.jobowit.domain.Party;
 
 @RepositoryRestResource
-public interface PartyRepository  extends JpaRepository<Party, Long>
+public interface PartyRepository  extends JpaRepository<Party, Integer>
 {
 	List<Party> findByContactName(String contactName);
 	Party findByName(String name);

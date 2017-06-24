@@ -25,20 +25,17 @@ public class Address implements Serializable
 	@Column(length = 45)
 	private String country;
 
-	@Column(name = "post_code", length = 12)
+	@Column(name = "post_code", length = 4)
 	private String postCode;
 
 	@Column(length = 45)
 	private String state;
 	
-	@Column(name = "state_code", length = 3)
-	private String stateCode;
+	@Column(name = "state_abr", length = 4)
+	private String stateAbr;
 
 	@Column(length = 150)
 	private String street1;
-
-	@Column(length = 150)
-	private String street2;
 
 	public Address()
 	{
@@ -102,16 +99,6 @@ public class Address implements Serializable
 	public void setStreet1(String street1)
 	{
 		this.street1 = street1;
-	}
-
-	public String getStreet2()
-	{
-		return this.street2;
-	}
-
-	public void setStreet2(String street2)
-	{
-		this.street2 = street2;
 	}
 
 }

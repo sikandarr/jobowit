@@ -31,7 +31,7 @@ public class Bill implements Serializable {
 	private String ref;
 
 	@Column(name="tax_inclusive")
-	private byte taxInclusive;
+	private boolean taxInclusive;
 
 	//bi-directional many-to-one association to Job
 	@ManyToOne
@@ -82,11 +82,11 @@ public class Bill implements Serializable {
 		this.ref = ref;
 	}
 
-	public byte getTaxInclusive() {
+	public boolean getTaxInclusive() {
 		return this.taxInclusive;
 	}
 
-	public void setTaxInclusive(byte taxInclusive) {
+	public void setTaxInclusive(boolean taxInclusive) {
 		this.taxInclusive = taxInclusive;
 	}
 

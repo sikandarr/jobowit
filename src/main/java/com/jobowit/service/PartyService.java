@@ -16,7 +16,7 @@ public class PartyService
 	@Autowired
 	private PartyRepository partyRepository;
 
-	public Party findById(Long id)
+	public Party findById(Integer id)
 	{
 		return partyRepository.findOne(id);
 	}
@@ -36,7 +36,7 @@ public class PartyService
 		saveParty(party);
 	}
 
-	public void deletePartyById(Long id)
+	public void deletePartyById(Integer id)
 	{
 		partyRepository.delete(id);
 	}

@@ -19,7 +19,7 @@ public class InvoiceLineItem implements Serializable {
 	@Column(name="invoice_line_item_id", unique=true, nullable=false)
 	private int invoiceLineItemId;
 
-	@Lob
+	@Column(columnDefinition = "MEDIUMTEXT")
 	private String description;
 
 	private int quantity;

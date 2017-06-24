@@ -26,7 +26,7 @@ public class RecurringAvailability implements Serializable {
 	@Column(name="to_tm", nullable=false)
 	private Time toTm;
 
-	@Column(nullable=false, length=1)
+	@Column(nullable=false, length=1, columnDefinition="enum")
 	private String weekday;
 
 	//bi-directional many-to-one association to Staff

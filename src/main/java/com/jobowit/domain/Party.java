@@ -47,7 +47,7 @@ public class Party implements Serializable
 	private String phone;
 
 	// bi-directional many-to-one association to Bill
-	@OneToMany(mappedBy = "party")
+	@OneToMany(mappedBy = "supplier")
 	private List<Bill> bills;
 
 	// bi-directional many-to-one association to Comment

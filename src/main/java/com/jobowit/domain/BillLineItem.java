@@ -20,7 +20,7 @@ public class BillLineItem implements Serializable {
 	@Column(name="line_item_id", unique=true, nullable=false)
 	private int lineItemId;
 
-	@Lob
+	@Column(columnDefinition = "MEDIUMTEXT")
 	private String description;
 
 	private int quantity;

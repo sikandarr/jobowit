@@ -20,7 +20,7 @@ public class QuotationLineItem implements Serializable {
 	@Column(name="line_item_id", unique=true, nullable=false)
 	private int lineItemId;
 
-	@Lob
+	@Column(columnDefinition = "MEDIUMTEXT")
 	private String details;
 
 	@Column(name="unit_price", precision=10, scale=2)

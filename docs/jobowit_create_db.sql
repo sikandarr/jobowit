@@ -490,7 +490,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `jobowit_db`.`invoice` ;
 
 CREATE TABLE IF NOT EXISTS `jobowit_db`.`invoice` (
-  `invoice_id` INT NOT NULL,
+  `invoice_id` INT NOT NULL AUTO_INCREMENT,
   `job_job_id` INT NOT NULL,
   `invoice_dt` DATE NULL,
   `invoice_due_dt` DATE NULL,

@@ -1,5 +1,7 @@
 -- MySQL Workbench Forward Engineering
 
+DROP DATABASE IF EXISTS `jobowit_db`;
+
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
@@ -22,10 +24,10 @@ DROP TABLE IF EXISTS `jobowit_db`.`address` ;
 CREATE TABLE IF NOT EXISTS `jobowit_db`.`address` (
   `address_id` INT NOT NULL AUTO_INCREMENT,
   `street1` VARCHAR(150) NULL,
-  `street2` VARCHAR(150) NULL,
   `city` VARCHAR(50) NULL,
   `state` VARCHAR(45) NULL,
-  `post_code` VARCHAR(12) NULL,
+  `state_abr` VARCHAR(4) NULL,
+  `post_code` VARCHAR(4) NULL,
   `country` VARCHAR(45) NULL,
   PRIMARY KEY (`address_id`))
 ENGINE = InnoDB;
@@ -89,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`staff` (
 DROP TABLE IF EXISTS `jobowit_db`.`job_type` ;
 
 CREATE TABLE IF NOT EXISTS `jobowit_db`.`job_type` (
-  `job_type_id` INT NOT NULL AUTO_INCREMENT,
+  `job_type_id` INT NOT NULL,
   `description` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`job_type_id`))
 ENGINE = InnoDB;
@@ -126,6 +128,7 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`job` (
   `initial_type` INT NOT NULL,
   `current_type` INT NOT NULL,
   `job_status_id` INT NOT NULL,
+  `job_dt` DATETIME NULL,
   PRIMARY KEY (`job_id`),
   INDEX `fk_job_party1_idx` (`customer_id` ASC),
   INDEX `fk_job_job_type1_idx` (`initial_type` ASC),
@@ -163,8 +166,8 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`comment` (
   `comment_id` INT NOT NULL AUTO_INCREMENT,
   `details` LONGTEXT NULL,
   `party_id` INT NULL,
-  `job_id` INT NOT NULL,
-  `comment_dtm` TIMESTAMP NULL,
+  `job_id` INT NULL,
+  `comment_dtm` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
   `staff_id` INT NOT NULL,
   PRIMARY KEY (`comment_id`),
   INDEX `fk_comment_Party1_idx` (`party_id` ASC),
@@ -233,6 +236,7 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`quotation` (
   `quotation_id` INT NOT NULL AUTO_INCREMENT,
   `job_id` INT NOT NULL,
   `billable` TINYINT(1) NOT NULL DEFAULT 0,
+  `quotation_dt` DATE NULL,
   PRIMARY KEY (`quotation_id`),
   INDEX `fk_quotation_job1_idx` (`job_id` ASC),
   CONSTRAINT `fk_quotation_job1`
@@ -270,8 +274,8 @@ DROP TABLE IF EXISTS `jobowit_db`.`bill` ;
 
 CREATE TABLE IF NOT EXISTS `jobowit_db`.`bill` (
   `bill_id` INT NOT NULL AUTO_INCREMENT,
-  `bill_dt` TIMESTAMP NULL,
-  `due_dt` TIMESTAMP NULL,
+  `bill_dt` DATE NULL,
+  `due_dt` DATE NULL,
   `ref` VARCHAR(45) NULL,
   `tax_inclusive` TINYINT(1) NULL,
   `job_id` INT NOT NULL,
@@ -321,8 +325,8 @@ DROP TABLE IF EXISTS `jobowit_db`.`job_schedule` ;
 
 CREATE TABLE IF NOT EXISTS `jobowit_db`.`job_schedule` (
   `job_schedule_id` INT NOT NULL,
-  `start_dtm` TIMESTAMP NULL,
-  `finish_dtm` TIMESTAMP NULL,
+  `start_dtm` DATETIME NULL,
+  `finish_dtm` DATETIME NULL,
   `job_id` INT NOT NULL,
   `field_staff_id` INT NOT NULL,
   PRIMARY KEY (`job_schedule_id`),
@@ -488,6 +492,8 @@ DROP TABLE IF EXISTS `jobowit_db`.`invoice` ;
 CREATE TABLE IF NOT EXISTS `jobowit_db`.`invoice` (
   `invoice_id` INT NOT NULL,
   `job_job_id` INT NOT NULL,
+  `invoice_dt` DATE NULL,
+  `invoice_due_dt` DATE NULL,
   PRIMARY KEY (`invoice_id`),
   INDEX `fk_invoice_job1_idx` (`job_job_id` ASC),
   CONSTRAINT `fk_invoice_job1`
@@ -518,8 +524,23 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`invoice_line_item` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+USE `jobowit_db`;
+
+DELIMITER $$
+
+USE `jobowit_db`$$
+DROP TRIGGER IF EXISTS `jobowit_db`.`invoice_BEFORE_INSERT` $$
+USE `jobowit_db`$$
+CREATE DEFINER = CURRENT_USER TRIGGER `jobowit_db`.`invoice_BEFORE_INSERT` BEFORE INSERT ON `invoice` FOR EACH ROW
+BEGIN
+if ( isnull(new.invoice_dt) ) then
+ set new.invoice_dt=curdate();
+end if;
+END$$
+
+
+DELIMITER ;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-

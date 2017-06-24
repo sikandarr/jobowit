@@ -41,7 +41,7 @@ public class Bill implements Serializable {
 	//bi-directional many-to-one association to Party
 	@ManyToOne
 	@JoinColumn(name="supplier_id", nullable=false)
-	private Party party;
+	private Party supplier;
 
 	//bi-directional many-to-one association to BillLineItem
 	@OneToMany(mappedBy="bill")
@@ -98,12 +98,12 @@ public class Bill implements Serializable {
 		this.job = job;
 	}
 
-	public Party getParty() {
-		return this.party;
+	public Party getSupplier() {
+		return this.supplier;
 	}
 
-	public void setParty(Party party) {
-		this.party = party;
+	public void setSupplier(Party supplier) {
+		this.supplier = supplier;
 	}
 
 	public List<BillLineItem> getBillLineItems() {

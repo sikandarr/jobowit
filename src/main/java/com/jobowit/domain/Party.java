@@ -2,6 +2,12 @@ package com.jobowit.domain;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+
+import org.hibernate.validator.constraints.NotBlank;
+
+import com.jobowit.domain.constraint.Constants;
 import java.util.List;
 
 /**
@@ -24,15 +30,20 @@ public class Party implements Serializable
 	private String contactName;
 
 	@Column(length = 50)
+	@Pattern(regexp = Constants.EMAILREGEXPATTERN, flags = Pattern.Flag.CASE_INSENSITIVE, message="Invalid email address")
 	private String email;
 
 	@Column(length = 45)
+	@Pattern(regexp = "^04?\\d{8}$", message = "Not a valid Australian mobile number")
 	private String mobile;
 
 	@Column(nullable = false, length = 100)
+	@NotNull(message = "Please provide name")
+	@NotBlank(message = "Name can not be blank")
 	private String name;
 
 	@Column(length = 45)
+	@Pattern(regexp = "^(0(2|3|7|8))?\\d{8}$", message = "Not a valid Australian phone number")
 	private String phone;
 
 	// bi-directional many-to-one association to Bill
@@ -50,12 +61,12 @@ public class Party implements Serializable
 	// bi-directional many-to-one association to Address
 	@ManyToOne
 	@JoinColumn(name = "mailing_address_id", nullable = false)
-	private Address address1;
+	private Address mailingAddress;
 
 	// bi-directional many-to-one association to Address
 	@ManyToOne
 	@JoinColumn(name = "physical_address_id", nullable = false)
-	private Address address2;
+	private Address physicalAddress;
 
 	public Party()
 	{
@@ -85,7 +96,7 @@ public class Party implements Serializable
 	{
 		return this.email;
 	}
-
+	
 	public void setEmail(String email)
 	{
 		this.email = email;
@@ -134,7 +145,7 @@ public class Party implements Serializable
 	public Bill addBill(Bill bill)
 	{
 		getBills().add(bill);
-		bill.setParty(this);
+		bill.setSupplier(this);
 
 		return bill;
 	}
@@ -142,7 +153,7 @@ public class Party implements Serializable
 	public Bill removeBill(Bill bill)
 	{
 		getBills().remove(bill);
-		bill.setParty(null);
+		bill.setSupplier(null);
 
 		return bill;
 	}
@@ -199,24 +210,24 @@ public class Party implements Serializable
 		return job;
 	}
 
-	public Address getAddress1()
+	public Address getMailingAddress()
 	{
-		return this.address1;
+		return this.mailingAddress;
 	}
 
-	public void setAddress1(Address address1)
+	public void setMailingAddress(Address mailingAddress)
 	{
-		this.address1 = address1;
+		this.mailingAddress = mailingAddress;
 	}
 
-	public Address getAddress2()
+	public Address getPhysicalAddress()
 	{
-		return this.address2;
+		return this.physicalAddress;
 	}
 
-	public void setAddress2(Address address2)
+	public void setPhysicalAddress(Address physicalAddress)
 	{
-		this.address2 = address2;
+		this.physicalAddress = physicalAddress;
 	}
 
 }

@@ -51,9 +51,6 @@ public class TestRuns
 	{
 		ApplicationContext ctx = new AnnotationConfigApplicationContext(TestRuns.class);
 		PartyService partyService = ctx.getBean(PartyService.class);
-		partyService.saveParty(new Party("AJX Company Pvt Ltd", "John Flamigo"));
-		partyService.saveParty(new Party("Bushra General Trading", "Mearaj Bhagad"));
-		partyService.saveParty(new Party("Aprium General Trading", "Rais Bhagad"));
 		for (Party parties : partyService.findAllParties())
 		{
 			System.out.println(parties.toString());

@@ -2,6 +2,8 @@
 /build/
 !gradle/wrapper/gradle-wrapper.jar
 src/main/resources/frontend-static-src
+src/main/resources/frontend-static-src-old
+src/main/resources/jobowit-users-frontend
 
 ### STS ###
 .apt_generated

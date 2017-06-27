@@ -1,6 +1,6 @@
--- MySQL Workbench Forward Engineering
-
 DROP DATABASE IF EXISTS `jobowit_db`;
+
+-- MySQL Workbench Forward Engineering
 
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
@@ -106,6 +106,7 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`job_status` (
   `job_status_id` INT NOT NULL AUTO_INCREMENT,
   `description` VARCHAR(45) NOT NULL,
   `job_type_id` INT NOT NULL,
+  `is_active` TINYINT(1) NULL DEFAULT 1,
   PRIMARY KEY (`job_status_id`),
   INDEX `fk_job_status_job_type1_idx` (`job_type_id` ASC),
   CONSTRAINT `fk_job_status_job_type1`
@@ -128,7 +129,7 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`job` (
   `initial_type` INT NOT NULL,
   `current_type` INT NOT NULL,
   `job_status_id` INT NOT NULL,
-  `job_dt` DATETIME NULL,
+  `job_dt` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`job_id`),
   INDEX `fk_job_party1_idx` (`customer_id` ASC),
   INDEX `fk_job_job_type1_idx` (`initial_type` ASC),

@@ -2,118 +2,141 @@ package com.jobowit.domain;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import java.util.List;
 
 /**
  * The persistent class for the job_type database table.
  * 
  */
 @Entity
-@Table(name="job_type")
-@NamedQuery(name="JobType.findAll", query="SELECT j FROM JobType j")
-public class JobType implements Serializable {
+@Table(name = "job_type")
+@NamedQuery(name = "JobType.findAll", query = "SELECT j FROM JobType j")
+public class JobType implements Serializable
+{
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="job_type_id", unique=true, nullable=false)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "job_type_id", unique = true, nullable = false)
 	private int jobTypeId;
 
-	@Column(nullable=false, length=45)
+	@Column(nullable = false, length = 45)
 	private String description;
 
-	//bi-directional many-to-one association to Job
-	@OneToMany(mappedBy="jobType1")
-	private List<Job> jobs1;
+	// bi-directional many-to-one association to Job
+	@OneToMany(mappedBy = "initialType")
+	@JsonIgnore
+	private List<Job> initialJobs;
 
-	//bi-directional many-to-one association to Job
-	@OneToMany(mappedBy="jobType2")
-	private List<Job> jobs2;
+	// bi-directional many-to-one association to Job
+	@OneToMany(mappedBy = "currentType")
+	@JsonIgnore
+	private List<Job> currentJobs;
 
-	//bi-directional many-to-one association to JobStatus
-	@OneToMany(mappedBy="jobType")
+	// bi-directional many-to-one association to JobStatus
+	@OneToMany(mappedBy = "jobType")
+	@JsonIgnore
 	private List<JobStatus> jobStatuses;
 
-	public JobType() {
+	public JobType()
+	{
 	}
 
-	public int getJobTypeId() {
+	public int getJobTypeId()
+	{
 		return this.jobTypeId;
 	}
 
-	public void setJobTypeId(int jobTypeId) {
+	public void setJobTypeId(int jobTypeId)
+	{
 		this.jobTypeId = jobTypeId;
 	}
 
-	public String getDescription() {
+	public String getDescription()
+	{
 		return this.description;
 	}
 
-	public void setDescription(String description) {
+	public void setDescription(String description)
+	{
 		this.description = description;
 	}
 
-	public List<Job> getJobs1() {
-		return this.jobs1;
+	public List<Job> getInitialJobs()
+	{
+		return this.initialJobs;
 	}
 
-	public void setJobs1(List<Job> jobs1) {
-		this.jobs1 = jobs1;
+	public void setInitialJobs(List<Job> initialJobs)
+	{
+		this.initialJobs = initialJobs;
 	}
 
-	public Job addJobs1(Job jobs1) {
-		getJobs1().add(jobs1);
-		jobs1.setJobType1(this);
+	public Job addInitialJobs(Job job)
+	{
+		getInitialJobs().add(job);
+		job.setInitialType(this);
 
-		return jobs1;
+		return job;
 	}
 
-	public Job removeJobs1(Job jobs1) {
-		getJobs1().remove(jobs1);
-		jobs1.setJobType1(null);
+	public Job removeInitialJobs(Job job)
+	{
+		getInitialJobs().remove(job);
+		job.setInitialType(null);
 
-		return jobs1;
+		return job;
 	}
 
-	public List<Job> getJobs2() {
-		return this.jobs2;
+	public List<Job> getCurrentJobs()
+	{
+		return this.currentJobs;
 	}
 
-	public void setJobs2(List<Job> jobs2) {
-		this.jobs2 = jobs2;
+	public void setCurrentJobs(List<Job> currentJobs)
+	{
+		this.currentJobs = currentJobs;
 	}
 
-	public Job addJobs2(Job jobs2) {
-		getJobs2().add(jobs2);
-		jobs2.setJobType2(this);
+	public Job addCurrentJobs(Job job)
+	{
+		getCurrentJobs().add(job);
+		job.setCurrentType(this);
 
-		return jobs2;
+		return job;
 	}
 
-	public Job removeJobs2(Job jobs2) {
-		getJobs2().remove(jobs2);
-		jobs2.setJobType2(null);
+	public Job removeCurrentJobs(Job job)
+	{
+		getCurrentJobs().remove(job);
+		job.setCurrentType(null);
 
-		return jobs2;
+		return job;
 	}
 
-	public List<JobStatus> getJobStatuses() {
+	public List<JobStatus> getJobStatuses()
+	{
 		return this.jobStatuses;
 	}
 
-	public void setJobStatuses(List<JobStatus> jobStatuses) {
+	public void setJobStatuses(List<JobStatus> jobStatuses)
+	{
 		this.jobStatuses = jobStatuses;
 	}
 
-	public JobStatus addJobStatus(JobStatus jobStatus) {
+	public JobStatus addJobStatus(JobStatus jobStatus)
+	{
 		getJobStatuses().add(jobStatus);
 		jobStatus.setJobType(this);
 
 		return jobStatus;
 	}
 
-	public JobStatus removeJobStatus(JobStatus jobStatus) {
+	public JobStatus removeJobStatus(JobStatus jobStatus)
+	{
 		getJobStatuses().remove(jobStatus);
 		jobStatus.setJobType(null);
 

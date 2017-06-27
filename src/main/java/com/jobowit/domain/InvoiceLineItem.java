@@ -3,6 +3,8 @@ package com.jobowit.domain;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 /**
  * The persistent class for the invoice_line_item database table.
@@ -30,6 +32,7 @@ public class InvoiceLineItem implements Serializable {
 	//bi-directional many-to-one association to Invoice
 	@ManyToOne
 	@JoinColumn(name="invoice_id", nullable=false)
+	@JsonIgnore
 	private Invoice invoice;
 
 	public InvoiceLineItem() {

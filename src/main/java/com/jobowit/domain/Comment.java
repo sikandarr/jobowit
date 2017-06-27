@@ -2,6 +2,11 @@ package com.jobowit.domain;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import java.sql.Timestamp;
 
 
@@ -12,6 +17,7 @@ import java.sql.Timestamp;
 @Entity
 @Table(name="comment")
 @NamedQuery(name="Comment.findAll", query="SELECT c FROM Comment c")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "commentId")
 public class Comment implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -29,6 +35,7 @@ public class Comment implements Serializable {
 	//bi-directional many-to-one association to Job
 	@ManyToOne
 	@JoinColumn(name="job_id", nullable=false)
+	@JsonManagedReference
 	private Job job;
 
 	//bi-directional many-to-one association to Party
@@ -39,6 +46,7 @@ public class Comment implements Serializable {
 	//bi-directional many-to-one association to Staff
 	@ManyToOne
 	@JoinColumn(name="staff_id", nullable=false)
+	@JsonManagedReference
 	private Staff staff;
 
 	public Comment() {

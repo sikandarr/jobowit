@@ -3,6 +3,8 @@ package com.jobowit.domain;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 
 /**
  * The persistent class for the operation_staff_in_job database table.
@@ -22,11 +24,13 @@ public class OperationStaffInJob implements Serializable {
 	//bi-directional many-to-one association to Job
 	@ManyToOne
 	@JoinColumn(name="job_id", nullable=false)
+	@JsonManagedReference
 	private Job job;
 
 	//bi-directional many-to-one association to Staff
 	@ManyToOne
 	@JoinColumn(name="operation_staff_id", nullable=false)
+	@JsonManagedReference
 	private Staff staff;
 
 	public OperationStaffInJob() {

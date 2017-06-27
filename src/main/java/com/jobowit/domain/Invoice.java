@@ -2,6 +2,9 @@ package com.jobowit.domain;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import java.util.List;
 
 
@@ -23,6 +26,7 @@ public class Invoice implements Serializable {
 	//bi-directional many-to-one association to Job
 	@ManyToOne
 	@JoinColumn(name="job_job_id", nullable=false)
+	@JsonManagedReference
 	private Job job;
 
 	//bi-directional many-to-one association to InvoiceLineItem

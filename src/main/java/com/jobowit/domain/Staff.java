@@ -2,6 +2,9 @@ package com.jobowit.domain;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import java.util.Date;
 import java.util.List;
 
@@ -39,34 +42,42 @@ public class Staff implements Serializable {
 
 	//bi-directional many-to-one association to Comment
 	@OneToMany(mappedBy="staff")
+	@JsonBackReference
 	private List<Comment> comments;
 
 	//bi-directional many-to-one association to ExtraAvailability
 	@OneToMany(mappedBy="staff")
+	@JsonBackReference
 	private List<ExtraAvailability> extraAvailabilities;
 
 	//bi-directional many-to-one association to FieldWork
 	@OneToMany(mappedBy="staff")
+	@JsonBackReference
 	private List<FieldWork> fieldWorks;
 
 	//bi-directional many-to-one association to JobSchedule
 	@OneToMany(mappedBy="staff")
+	@JsonBackReference
 	private List<JobSchedule> jobSchedules;
 
 	//bi-directional many-to-one association to NonAvailability
 	@OneToMany(mappedBy="staff")
+	@JsonBackReference
 	private List<NonAvailability> nonAvailabilities;
 
 	//bi-directional many-to-one association to OperationStaffInJob
 	@OneToMany(mappedBy="staff")
+	@JsonBackReference
 	private List<OperationStaffInJob> operationStaffInJobs;
 
 	//bi-directional many-to-one association to RecurringAvailability
 	@OneToMany(mappedBy="staff")
+	@JsonBackReference
 	private List<RecurringAvailability> recurringAvailabilities;
 
 	//bi-directional many-to-one association to SalesStaffInJob
 	@OneToMany(mappedBy="staff")
+	@JsonBackReference
 	private List<SalesStaffInJob> salesStaffInJobs;
 
 	//bi-directional many-to-one association to Address
@@ -76,6 +87,7 @@ public class Staff implements Serializable {
 
 	//bi-directional many-to-one association to StaffRole
 	@OneToMany(mappedBy="staff")
+	@JsonBackReference
 	private List<StaffRole> staffRoles;
 
 	public Staff() {

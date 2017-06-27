@@ -21,9 +21,9 @@ public class PartyService
 		return partyRepository.findOne(id);
 	}
 
-	public Party findByName(String name)
+	public List<Party> findByName(String name)
 	{
-		return partyRepository.findByName(name);
+		return partyRepository.findByNameContaining(name);
 	}
 
 	public void saveParty(Party party)

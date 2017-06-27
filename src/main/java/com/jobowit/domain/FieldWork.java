@@ -2,6 +2,9 @@ package com.jobowit.domain;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import java.util.Date;
 
 
@@ -31,11 +34,13 @@ public class FieldWork implements Serializable {
 	//bi-directional many-to-one association to Job
 	@ManyToOne
 	@JoinColumn(name="job_id", nullable=false)
+	@JsonManagedReference
 	private Job job;
 
 	//bi-directional many-to-one association to Staff
 	@ManyToOne
 	@JoinColumn(name="field_staff_id", nullable=false)
+	@JsonManagedReference
 	private Staff staff;
 
 	public FieldWork() {

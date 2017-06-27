@@ -2,6 +2,9 @@ package com.jobowit.domain;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.math.BigDecimal;
 
 
@@ -29,6 +32,7 @@ public class QuotationLineItem implements Serializable {
 	//bi-directional many-to-one association to Quotation
 	@ManyToOne
 	@JoinColumn(name="quotation_id", nullable=false)
+	@JsonIgnore
 	private Quotation quotation;
 
 	public QuotationLineItem() {

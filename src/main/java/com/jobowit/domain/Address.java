@@ -100,5 +100,11 @@ public class Address implements Serializable
 	{
 		this.street1 = street1;
 	}
+	
+	@Override
+	public String toString()
+	{
+		return street1 + " " + city + " " + state + " " + postCode;
+	}
 
 }

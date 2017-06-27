@@ -7,6 +7,11 @@ import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.NotBlank;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.jobowit.domain.constraint.Constants;
 import java.util.List;
 
@@ -16,7 +21,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "party")
-@NamedQuery(name = "Party.findAll", query = "SELECT p FROM Party p")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "party_id")
 public class Party implements Serializable
 {
 	private static final long serialVersionUID = 1L;
@@ -30,7 +35,7 @@ public class Party implements Serializable
 	private String contactName;
 
 	@Column(length = 50)
-	@Pattern(regexp = Constants.EMAILREGEXPATTERN, flags = Pattern.Flag.CASE_INSENSITIVE, message="Invalid email address")
+	@Pattern(regexp = Constants.EMAILREGEXPATTERN, flags = Pattern.Flag.CASE_INSENSITIVE, message = "Invalid email address")
 	private String email;
 
 	@Column(length = 45)
@@ -48,6 +53,7 @@ public class Party implements Serializable
 
 	// bi-directional many-to-one association to Bill
 	@OneToMany(mappedBy = "supplier")
+	@JsonBackReference
 	private List<Bill> bills;
 
 	// bi-directional many-to-one association to Comment
@@ -96,7 +102,7 @@ public class Party implements Serializable
 	{
 		return this.email;
 	}
-	
+
 	public void setEmail(String email)
 	{
 		this.email = email;
@@ -210,24 +216,33 @@ public class Party implements Serializable
 		return job;
 	}
 
+	@JsonIgnore
 	public Address getMailingAddress()
 	{
 		return this.mailingAddress;
 	}
 
+	@JsonProperty
 	public void setMailingAddress(Address mailingAddress)
 	{
 		this.mailingAddress = mailingAddress;
 	}
 
+	@JsonIgnore
 	public Address getPhysicalAddress()
 	{
 		return this.physicalAddress;
 	}
 
+	@JsonProperty
 	public void setPhysicalAddress(Address physicalAddress)
 	{
 		this.physicalAddress = physicalAddress;
+	}
+
+	public long getActiveJobCount()
+	{
+		return this.getJobs().stream().filter(job -> job.getJobStatus().isActive() == true).count();	
 	}
 
 }

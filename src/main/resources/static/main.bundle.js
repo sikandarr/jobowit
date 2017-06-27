@@ -92,7 +92,7 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_customers_customers_component__ = __webpack_require__("../../../../../src/app/components/customers/customers.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_parties_parties_component__ = __webpack_require__("../../../../../src/app/components/parties/parties.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_routing__ = __webpack_require__("../../../../../src/app/app.routing.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_server_service__ = __webpack_require__("../../../../../src/app/services/server-service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
@@ -122,7 +122,7 @@ AppModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
         declarations: [
             __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */],
-            __WEBPACK_IMPORTED_MODULE_4__components_customers_customers_component__["a" /* CustomersComponent */],
+            __WEBPACK_IMPORTED_MODULE_4__components_parties_parties_component__["a" /* PartiesComponent */],
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -146,7 +146,7 @@ AppModule = __decorate([
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_customers_customers_component__ = __webpack_require__("../../../../../src/app/components/customers/customers.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_parties_parties_component__ = __webpack_require__("../../../../../src/app/components/parties/parties.component.ts");
 /* unused harmony export routes */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppRoutingModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -160,7 +160,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 var routes = [
     { path: '', redirectTo: 'customers', pathMatch: 'full' },
-    { path: 'customers', component: __WEBPACK_IMPORTED_MODULE_2__components_customers_customers_component__["a" /* CustomersComponent */] }
+    { path: 'customers', component: __WEBPACK_IMPORTED_MODULE_2__components_parties_parties_component__["a" /* PartiesComponent */] }
 ];
 var AppRoutingModule = (function () {
     function AppRoutingModule() {
@@ -178,14 +178,14 @@ AppRoutingModule = __decorate([
 
 /***/ }),
 
-/***/ "../../../../../src/app/components/customers/customers.component.html":
+/***/ "../../../../../src/app/components/parties/parties.component.html":
 /***/ (function(module, exports) {
 
 module.exports = "<ag-grid-angular #agGrid style=\"width: 100%; height: 350px; transition: all 0.5s ease-in-out\" class=\"ag-fresh\"\n\n[gridOptions]=\"gridOptions\"\n[columnDefs]=\"columnDefs\"\n[showToolPanel]=\"showToolPanel\"\n[rowData]=\"rowData\"\n\nenableColResize\nenableSorting\nenableFilter\n\nrowHeight=\"22\"\nrowSelection=\"multiple\"\n\n(modelUpdated)=\"onModelUpdated()\"\n(cellClicked)=\"onCellClicked($event)\"\n(cellDoubleClicked)=\"onCellDoubleClicked($event)\">\n\n</ag-grid-angular>\n\n"
 
 /***/ }),
 
-/***/ "../../../../../src/app/components/customers/customers.component.scss":
+/***/ "../../../../../src/app/components/parties/parties.component.scss":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
@@ -203,7 +203,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ "../../../../../src/app/components/customers/customers.component.ts":
+/***/ "../../../../../src/app/components/parties/parties.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -211,7 +211,7 @@ module.exports = module.exports.toString();
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_server_service__ = __webpack_require__("../../../../../src/app/services/server-service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_customer__ = __webpack_require__("../../../../../src/app/models/customer.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_nav_bar_service__ = __webpack_require__("../../../../../src/app/services/nav-bar.service.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CustomersComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PartiesComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -225,19 +225,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var CustomersComponent = (function () {
-    function CustomersComponent(serverService, navBarService, changeDetectorRef) {
+var PartiesComponent = (function () {
+    function PartiesComponent(serverService, navBarService, changeDetectorRef) {
         this.serverService = serverService;
         this.navBarService = navBarService;
         this.changeDetectorRef = changeDetectorRef;
         this.customerColumns = __WEBPACK_IMPORTED_MODULE_2__models_customer__["a" /* default */];
         this.columnDefs = [
-            { headerName: "Customer Name", field: 'customerName' },
+            { headerName: "Party Name", field: 'customerName' },
             { headerName: "Address", field: "address" },
             { headerName: "Contact Name", field: "contactName" },
-            { headerName: "Phone", field: "phone" },
-            { headerName: "Mobile", field: "mobile" },
-            { headerName: "Email", field: "email" }
         ];
         this.rowData = [
             { customerName: "Bushra General Trading LLC",
@@ -260,9 +257,9 @@ var CustomersComponent = (function () {
                 email: "mearajbhagad@gmail.com" }
         ];
     }
-    CustomersComponent.prototype.ngOnInit = function () {
+    PartiesComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.serverService.getAllCustomers()
+        this.serverService.getAllParties()
             .subscribe(function (response) {
             console.log(response);
         }, function (error) {
@@ -282,33 +279,33 @@ var CustomersComponent = (function () {
             }, 1000);
         });
     };
-    CustomersComponent.prototype.newCustomer = function () {
+    PartiesComponent.prototype.newCustomer = function () {
     };
-    CustomersComponent.prototype.onModelUpdated = function () {
+    PartiesComponent.prototype.onModelUpdated = function () {
         console.log("onModeUpdated");
     };
-    CustomersComponent.prototype.onCellClicked = function ($event) {
+    PartiesComponent.prototype.onCellClicked = function ($event) {
         console.log($event);
     };
-    CustomersComponent.prototype.onCellDoubleClicked = function ($event) {
+    PartiesComponent.prototype.onCellDoubleClicked = function ($event) {
         console.log($event);
     };
-    CustomersComponent.prototype.ngAfterViewInit = function () {
+    PartiesComponent.prototype.ngAfterViewInit = function () {
         this.gridOptions.api.sizeColumnsToFit();
     };
-    return CustomersComponent;
+    return PartiesComponent;
 }());
-CustomersComponent = __decorate([
+PartiesComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-customers',
-        template: __webpack_require__("../../../../../src/app/components/customers/customers.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/components/customers/customers.component.scss")]
+        template: __webpack_require__("../../../../../src/app/components/parties/parties.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/components/parties/parties.component.scss")]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_server_service__["a" /* ServerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_server_service__["a" /* ServerService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__services_nav_bar_service__["a" /* NavBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_nav_bar_service__["a" /* NavBarService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"]) === "function" && _c || Object])
-], CustomersComponent);
+], PartiesComponent);
 
 var _a, _b, _c;
-//# sourceMappingURL=customers.component.js.map
+//# sourceMappingURL=parties.component.js.map
 
 /***/ }),
 
@@ -316,19 +313,19 @@ var _a, _b, _c;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* unused harmony export Customer */
+/* unused harmony export Party */
 /* harmony default export */ __webpack_exports__["a"] = ([
-    "Customer Name",
+    "Party Name",
     "Address ",
     "Contact Name",
     "Phone",
     "Mobile",
     "Email"
 ]);
-var Customer = (function () {
-    function Customer() {
+var Party = (function () {
+    function Party() {
     }
-    return Customer;
+    return Party;
 }());
 
 //# sourceMappingURL=customer.js.map
@@ -402,7 +399,7 @@ var ServerService = (function () {
         console.log(customer);
         return this.http.post('http://localhost:8080/setParty', customer);
     };
-    ServerService.prototype.getAllCustomers = function () {
+    ServerService.prototype.getAllParties = function () {
         return this.http.get('http://localhost:8080/api/parties')
             .map(function (response) {
             console.log(response);

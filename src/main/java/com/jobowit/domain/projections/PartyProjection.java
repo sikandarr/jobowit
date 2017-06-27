@@ -5,7 +5,7 @@ import org.springframework.data.rest.core.config.Projection;
 
 import com.jobowit.domain.Party;
 
-@Projection(name = "partyProjection", types = { Party.class }) 
+@Projection(name = "partyProjection", types = { Party.class })
 public interface PartyProjection
 {
 	String getName();

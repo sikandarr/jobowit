@@ -17,7 +17,7 @@ import java.sql.Timestamp;
 @Entity
 @Table(name="comment")
 @NamedQuery(name="Comment.findAll", query="SELECT c FROM Comment c")
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "commentId")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "comment_id")
 public class Comment implements Serializable {
 	private static final long serialVersionUID = 1L;
 

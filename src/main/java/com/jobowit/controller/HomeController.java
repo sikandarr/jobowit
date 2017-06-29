@@ -15,7 +15,7 @@ import java.util.List;
 public class HomeController {
 
   /* This reflects the  static routing config of frontend*/
-  @RequestMapping(value={"/", "/customers"})
+  @RequestMapping(value={"/", "/parties", "/party", "/party/**"})
   public String index() {
     return "index";
   }

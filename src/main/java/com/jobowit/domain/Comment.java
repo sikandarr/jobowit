@@ -6,7 +6,6 @@ import javax.persistence.*;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-
 import java.sql.Timestamp;
 
 
@@ -16,7 +15,6 @@ import java.sql.Timestamp;
  */
 @Entity
 @Table(name="comment")
-@NamedQuery(name="Comment.findAll", query="SELECT c FROM Comment c")
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "comment_id")
 public class Comment implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -30,17 +28,19 @@ public class Comment implements Serializable {
 	private Timestamp commentDtm;
 
 	@Lob
-	private String details;
+	@Column(name="details")
+	private String comment;
 
 	//bi-directional many-to-one association to Job
 	@ManyToOne
-	@JoinColumn(name="job_id", nullable=false)
+	@JoinColumn(name="job_id")
 	@JsonManagedReference
 	private Job job;
 
 	//bi-directional many-to-one association to Party
 	@ManyToOne
 	@JoinColumn(name="party_id")
+	@JsonManagedReference
 	private Party party;
 
 	//bi-directional many-to-one association to Staff
@@ -68,12 +68,12 @@ public class Comment implements Serializable {
 		this.commentDtm = commentDtm;
 	}
 
-	public String getDetails() {
-		return this.details;
+	public String getComment() {
+		return this.comment;
 	}
 
-	public void setDetails(String details) {
-		this.details = details;
+	public void setComment(String details) {
+		this.comment = details;
 	}
 
 	public Job getJob() {

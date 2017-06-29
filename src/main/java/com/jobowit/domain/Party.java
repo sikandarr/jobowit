@@ -6,8 +6,6 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.NotBlank;
-import org.springframework.data.rest.core.annotation.RestResource;
-
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -58,22 +56,24 @@ public class Party implements Serializable
 
 	// bi-directional many-to-one association to Comment
 	@OneToMany(mappedBy = "party")
+	@JsonBackReference
 	private List<Comment> comments;
 
 	// bi-directional many-to-one association to Job
 	@OneToMany(mappedBy = "party")
+	@JsonBackReference
 	private List<Job> jobs;
 
 	// one-to-one association to Address
 	@OneToOne(optional = false, cascade = CascadeType.ALL)
 	@JoinColumn(name = "mailing_address_id")
-	@RestResource(exported = false)
+	//@RestResource(exported = false)
 	private Address mailingAddress;
 
 	// one-to-one association to Address
 	@OneToOne(optional = false, cascade = CascadeType.ALL)
 	@JoinColumn(name = "physical_address_id")
-	@RestResource(exported = false)
+	//@RestResource(exported = false)
 	private Address physicalAddress;
 
 	public Party()

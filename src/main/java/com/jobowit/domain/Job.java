@@ -69,6 +69,7 @@ public class Job implements Serializable
 	// bi-directional many-to-one association to Party
 	@ManyToOne
 	@JoinColumn(name = "customer_id", nullable = false)
+	@JsonManagedReference
 	private Party party;
 
 	// bi-directional many-to-one association to JobSchedule

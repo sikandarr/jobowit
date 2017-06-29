@@ -8,7 +8,6 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "address")
-@Embeddable
 public class Address implements Serializable
 {
 	private static final long serialVersionUID = 1L;

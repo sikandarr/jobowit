@@ -12,6 +12,7 @@ public interface PartyProjection
 	String getContactName();
 	String getMobile();
 	String getPhone();
+	String getEmail();
 	
 	@Value("#{target.physicalAddress.toString()}")
 	String getPhysicalAddress();

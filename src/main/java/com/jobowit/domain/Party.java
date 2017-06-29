@@ -6,10 +6,10 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.data.rest.core.annotation.RestResource;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.jobowit.domain.constraint.Constants;
@@ -64,14 +64,16 @@ public class Party implements Serializable
 	@OneToMany(mappedBy = "party")
 	private List<Job> jobs;
 
-	// bi-directional many-to-one association to Address
-	@ManyToOne
-	@JoinColumn(name = "mailing_address_id", nullable = false)
+	// one-to-one association to Address
+	@OneToOne(optional = false, cascade = CascadeType.ALL)
+	@JoinColumn(name = "mailing_address_id")
+	@RestResource(exported = false)
 	private Address mailingAddress;
 
-	// bi-directional many-to-one association to Address
-	@ManyToOne
-	@JoinColumn(name = "physical_address_id", nullable = false)
+	// one-to-one association to Address
+	@OneToOne(optional = false, cascade = CascadeType.ALL)
+	@JoinColumn(name = "physical_address_id")
+	@RestResource(exported = false)
 	private Address physicalAddress;
 
 	public Party()
@@ -216,7 +218,6 @@ public class Party implements Serializable
 		return job;
 	}
 
-	@JsonIgnore
 	public Address getMailingAddress()
 	{
 		return this.mailingAddress;
@@ -228,7 +229,6 @@ public class Party implements Serializable
 		this.mailingAddress = mailingAddress;
 	}
 
-	@JsonIgnore
 	public Address getPhysicalAddress()
 	{
 		return this.physicalAddress;

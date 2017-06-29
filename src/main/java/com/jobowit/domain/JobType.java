@@ -3,8 +3,7 @@ package com.jobowit.domain;
 import java.io.Serializable;
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.util.List;
 
 /**
@@ -13,7 +12,6 @@ import java.util.List;
  */
 @Entity
 @Table(name = "job_type")
-@NamedQuery(name = "JobType.findAll", query = "SELECT j FROM JobType j")
 public class JobType implements Serializable
 {
 	private static final long serialVersionUID = 1L;
@@ -23,22 +21,12 @@ public class JobType implements Serializable
 	@Column(name = "job_type_id", unique = true, nullable = false)
 	private int jobTypeId;
 
-	@Column(nullable = false, length = 45)
-	private String description;
-
-	// bi-directional many-to-one association to Job
-	@OneToMany(mappedBy = "initialType")
-	@JsonIgnore
-	private List<Job> initialJobs;
-
-	// bi-directional many-to-one association to Job
-	@OneToMany(mappedBy = "currentType")
-	@JsonIgnore
-	private List<Job> currentJobs;
+	@Column(name="description", nullable = false, length = 45)
+	private String jobType;
 
 	// bi-directional many-to-one association to JobStatus
 	@OneToMany(mappedBy = "jobType")
-	@JsonIgnore
+	@JsonBackReference
 	private List<JobStatus> jobStatuses;
 
 	public JobType()
@@ -55,66 +43,14 @@ public class JobType implements Serializable
 		this.jobTypeId = jobTypeId;
 	}
 
-	public String getDescription()
+	public String getJobType()
 	{
-		return this.description;
+		return jobType;
 	}
 
-	public void setDescription(String description)
+	public void setJobType(String jobType)
 	{
-		this.description = description;
-	}
-
-	public List<Job> getInitialJobs()
-	{
-		return this.initialJobs;
-	}
-
-	public void setInitialJobs(List<Job> initialJobs)
-	{
-		this.initialJobs = initialJobs;
-	}
-
-	public Job addInitialJobs(Job job)
-	{
-		getInitialJobs().add(job);
-		job.setInitialType(this);
-
-		return job;
-	}
-
-	public Job removeInitialJobs(Job job)
-	{
-		getInitialJobs().remove(job);
-		job.setInitialType(null);
-
-		return job;
-	}
-
-	public List<Job> getCurrentJobs()
-	{
-		return this.currentJobs;
-	}
-
-	public void setCurrentJobs(List<Job> currentJobs)
-	{
-		this.currentJobs = currentJobs;
-	}
-
-	public Job addCurrentJobs(Job job)
-	{
-		getCurrentJobs().add(job);
-		job.setCurrentType(this);
-
-		return job;
-	}
-
-	public Job removeCurrentJobs(Job job)
-	{
-		getCurrentJobs().remove(job);
-		job.setCurrentType(null);
-
-		return job;
+		this.jobType = jobType;
 	}
 
 	public List<JobStatus> getJobStatuses()

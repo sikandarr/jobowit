@@ -2,14 +2,13 @@ package com.jobowit.domain;
 
 import java.io.Serializable;
 import javax.persistence.*;
-
 /**
  * The persistent class for the address database table.
  * 
  */
 @Entity
 @Table(name = "address")
-@NamedQuery(name = "Address.findAll", query = "SELECT a FROM Address a")
+@Embeddable
 public class Address implements Serializable
 {
 	private static final long serialVersionUID = 1L;
@@ -39,6 +38,14 @@ public class Address implements Serializable
 
 	public Address()
 	{
+	}
+	
+	public Address(String s)
+	{
+		street1 = "8 willsmore street";
+		city = "beverley";
+		state = "SA";
+		country = "Australia";
 	}
 
 	public int getAddressId()

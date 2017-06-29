@@ -2,10 +2,10 @@ package com.jobowit.repositories;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
-import com.jobowit.domain.Address;
+import com.jobowit.domain.RecurringAvailability;
 
 @RepositoryRestResource
-public interface AddressRepository extends PagingAndSortingRepository<Address, Integer>
+public interface RecurringAvailabilityRepository extends PagingAndSortingRepository<RecurringAvailability, Integer>
 {
 
 }

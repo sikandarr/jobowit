@@ -9,9 +9,15 @@ import com.jobowit.domain.Party;
 public interface PartyProjection
 {
 	String getName();
+	String getContactName();
+	String getMobile();
+	String getPhone();
 	
 	@Value("#{target.physicalAddress.toString()}")
 	String getPhysicalAddress();
+	
+	@Value("#{target.mailingAddress.toString()}")
+	String getMailingAddress();
 	
 	long getActiveJobCount();
 }

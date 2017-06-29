@@ -52,11 +52,13 @@ public class Job implements Serializable
 	// bi-directional many-to-one association to JobStatus
 	@ManyToOne
 	@JoinColumn(name = "job_status_id", nullable = false)
+	@JsonManagedReference
 	private JobStatus jobStatus;
 
 	// bi-directional many-to-one association to JobType
 	@ManyToOne
 	@JoinColumn(name = "initial_type", nullable = false)
+	@JsonManagedReference
 	private JobType initialType;
 
 	// bi-directional many-to-one association to JobType

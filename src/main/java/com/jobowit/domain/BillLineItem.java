@@ -3,8 +3,6 @@ package com.jobowit.domain;
 import java.io.Serializable;
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import java.math.BigDecimal;
 
 /**
@@ -37,7 +35,6 @@ public class BillLineItem implements Serializable
 	// bi-directional many-to-one association to Bill
 	@ManyToOne
 	@JoinColumn(name = "bill_id", nullable = false)
-	@JsonIgnore
 	private Bill bill;
 
 	public BillLineItem()

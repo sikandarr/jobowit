@@ -2,6 +2,7 @@ package com.jobowit.domain;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
 /**
  * The persistent class for the address database table.
  * 
@@ -28,23 +29,26 @@ public class Address implements Serializable
 
 	@Column(length = 45)
 	private String state;
-	
+
 	@Column(name = "state_abr", length = 4)
 	private String stateAbr;
 
 	@Column(length = 150)
 	private String street1;
 
-	public Address()
+	public Address(){}
+
+	public Address(String address)
 	{
-	}
-	
-	public Address(String s)
-	{
-		street1 = "8 willsmore street";
-		city = "beverley";
-		state = "SA";
-		country = "Australia";
+		String[] addr = address.split(":");
+
+		if (addr.length != 5) throw new IllegalArgumentException("invalid address string: " + address);
+
+		this.street1 = addr[0];
+		this.city = addr[1];
+		this.state = addr[2];
+		this.postCode = addr[3];
+		this.country = addr[4];
 	}
 
 	public int getAddressId()
@@ -106,7 +110,7 @@ public class Address implements Serializable
 	{
 		this.street1 = street1;
 	}
-	
+
 	@Override
 	public String toString()
 	{

@@ -3,8 +3,6 @@ package com.jobowit.domain;
 import java.io.Serializable;
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -39,13 +37,11 @@ public class Bill implements Serializable {
 	//bi-directional many-to-one association to Job
 	@ManyToOne
 	@JoinColumn(name="job_id", nullable=false)
-	@JsonManagedReference
 	private Job job;
 
 	//bi-directional many-to-one association to Party
 	@ManyToOne
 	@JoinColumn(name="supplier_id", nullable=false)
-	@JsonManagedReference
 	private Party supplier;
 
 	//bi-directional many-to-one association to BillLineItem

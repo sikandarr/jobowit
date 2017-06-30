@@ -2,8 +2,6 @@ package com.jobowit.domain;
 
 import java.io.Serializable;
 import javax.persistence.*;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.util.List;
 
 /**
@@ -26,7 +24,6 @@ public class JobType implements Serializable
 
 	// bi-directional many-to-one association to JobStatus
 	@OneToMany(mappedBy = "jobType")
-	@JsonBackReference
 	private List<JobStatus> jobStatuses;
 
 	public JobType()

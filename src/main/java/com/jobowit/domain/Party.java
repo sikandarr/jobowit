@@ -6,7 +6,6 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.NotBlank;
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -51,17 +50,14 @@ public class Party implements Serializable
 
 	// bi-directional many-to-one association to Bill
 	@OneToMany(mappedBy = "supplier")
-	@JsonBackReference
 	private List<Bill> bills;
 
 	// bi-directional many-to-one association to Comment
 	@OneToMany(mappedBy = "party")
-	@JsonBackReference
 	private List<Comment> comments;
 
 	// bi-directional many-to-one association to Job
 	@OneToMany(mappedBy = "party")
-	@JsonBackReference
 	private List<Job> jobs;
 
 	// one-to-one association to Address

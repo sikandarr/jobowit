@@ -3,7 +3,6 @@ package com.jobowit.domain;
 import java.io.Serializable;
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -31,34 +30,28 @@ public class Job implements Serializable
 
 	// bi-directional many-to-one association to Bill
 	@OneToMany(mappedBy = "job")
-	@JsonBackReference
 	private List<Bill> bills;
 
 	// bi-directional many-to-one association to Comment
 	@OneToMany(mappedBy = "job")
-	@JsonBackReference
 	private List<Comment> comments;
 
 	// bi-directional many-to-one association to FieldWork
 	@OneToMany(mappedBy = "job")
-	@JsonBackReference
 	private List<FieldWork> fieldWorks;
 
 	// bi-directional many-to-one association to Invoice
 	@OneToMany(mappedBy = "job")
-	@JsonBackReference
 	private List<Invoice> invoices;
 
 	// bi-directional many-to-one association to JobStatus
 	@ManyToOne
 	@JoinColumn(name = "job_status_id", nullable = false)
-	@JsonManagedReference
 	private JobStatus jobStatus;
 
 	// bi-directional many-to-one association to JobType
 	@ManyToOne
 	@JoinColumn(name = "initial_type", nullable = false)
-	@JsonManagedReference
 	private JobType initialType;
 
 	// bi-directional many-to-one association to JobType
@@ -74,22 +67,18 @@ public class Job implements Serializable
 
 	// bi-directional many-to-one association to JobSchedule
 	@OneToMany(mappedBy = "job")
-	@JsonBackReference
 	private List<JobSchedule> jobSchedules;
 
 	// bi-directional many-to-one association to OperationStaffInJob
 	@OneToMany(mappedBy = "job")
-	@JsonBackReference
 	private List<OperationStaffInJob> operationStaffInJobs;
 
 	// bi-directional many-to-one association to Quotation
 	@OneToMany(mappedBy = "job")
-	@JsonBackReference
 	private List<Quotation> quotations;
 
 	// bi-directional many-to-one association to SalesStaffInJob
 	@OneToMany(mappedBy = "job")
-	@JsonBackReference
 	private List<SalesStaffInJob> salesStaffInJobs;
 
 	public Job()

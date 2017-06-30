@@ -4,7 +4,6 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.sql.Timestamp;
 
@@ -34,19 +33,16 @@ public class Comment implements Serializable {
 	//bi-directional many-to-one association to Job
 	@ManyToOne
 	@JoinColumn(name="job_id")
-	@JsonManagedReference
 	private Job job;
 
 	//bi-directional many-to-one association to Party
 	@ManyToOne
 	@JoinColumn(name="party_id")
-	@JsonManagedReference
 	private Party party;
 
 	//bi-directional many-to-one association to Staff
 	@ManyToOne
 	@JoinColumn(name="staff_id", nullable=false)
-	@JsonManagedReference
 	private Staff staff;
 
 	public Comment() {

@@ -1,1 +1,0 @@
-curl -v -X POST --data '{"name":"Red & Blue Enterprises","contactName":"Stephen Local"}' "localhost:8080/parties" --header "Content-Type:application/json"

@@ -18,10 +18,10 @@ public class PartyService
 
 	public Party findById(Integer id)
 	{
-		return partyRepository.findOne(id);
+		return partyRepository.findOneByPartyId(id);
 	}
 
-	public List<Party> findByName(String name)
+	public Party findByName(String name)
 	{
 		return partyRepository.findByNameContaining(name);
 	}

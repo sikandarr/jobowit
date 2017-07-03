@@ -45,8 +45,8 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`party` (
   `email` VARCHAR(50) NULL,
   `phone` VARCHAR(45) NULL,
   `mobile` VARCHAR(45) NULL,
-  `mailing_address_id` INT NOT NULL,
-  `physical_address_id` INT NOT NULL,
+  `mailing_address_id` INT NULL,
+  `physical_address_id` INT NULL,
   PRIMARY KEY (`party_id`),
   INDEX `fk_Party_address_idx` (`mailing_address_id` ASC),
   INDEX `fk_Party_address1_idx` (`physical_address_id` ASC),
@@ -106,7 +106,7 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`job_status` (
   `job_status_id` INT NOT NULL AUTO_INCREMENT,
   `description` VARCHAR(45) NOT NULL,
   `job_type_id` INT NOT NULL,
-  `is_active` TINYINT(1) NULL DEFAULT 1,
+  `is_active` TINYINT(1) NULL DEFAULT 0,
   PRIMARY KEY (`job_status_id`),
   INDEX `fk_job_status_job_type1_idx` (`job_type_id` ASC),
   CONSTRAINT `fk_job_status_job_type1`
@@ -492,13 +492,14 @@ DROP TABLE IF EXISTS `jobowit_db`.`invoice` ;
 
 CREATE TABLE IF NOT EXISTS `jobowit_db`.`invoice` (
   `invoice_id` INT NOT NULL AUTO_INCREMENT,
-  `job_job_id` INT NOT NULL,
+  `job_id` INT NOT NULL,
+  `description` MEDIUMTEXT NULL,
   `invoice_dt` DATE NULL,
   `invoice_due_dt` DATE NULL,
   PRIMARY KEY (`invoice_id`),
-  INDEX `fk_invoice_job1_idx` (`job_job_id` ASC),
+  INDEX `fk_invoice_job1_idx` (`job_id` ASC),
   CONSTRAINT `fk_invoice_job1`
-    FOREIGN KEY (`job_job_id`)
+    FOREIGN KEY (`job_id`)
     REFERENCES `jobowit_db`.`job` (`job_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -511,7 +512,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `jobowit_db`.`invoice_line_item` ;
 
 CREATE TABLE IF NOT EXISTS `jobowit_db`.`invoice_line_item` (
-  `invoice_line_item_id` INT NOT NULL,
+  `invoice_line_item_id` INT NOT NULL AUTO_INCREMENT,
   `invoice_id` INT NOT NULL,
   `description` MEDIUMTEXT NULL,
   `quantity` INT NULL,
@@ -521,6 +522,62 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`invoice_line_item` (
   CONSTRAINT `fk_invoice_line_item_invoice1`
     FOREIGN KEY (`invoice_id`)
     REFERENCES `jobowit_db`.`invoice` (`invoice_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `jobowit_db`.`db_table`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `jobowit_db`.`db_table` ;
+
+CREATE TABLE IF NOT EXISTS `jobowit_db`.`db_table` (
+  `table_name` VARCHAR(100) NOT NULL,
+  PRIMARY KEY (`table_name`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `jobowit_db`.`access_role`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `jobowit_db`.`access_role` ;
+
+CREATE TABLE IF NOT EXISTS `jobowit_db`.`access_role` (
+  `role_name` VARCHAR(100) NOT NULL,
+  PRIMARY KEY (`role_name`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `jobowit_db`.`access_control`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `jobowit_db`.`access_control` ;
+
+CREATE TABLE IF NOT EXISTS `jobowit_db`.`access_control` (
+  `table_name` VARCHAR(100) NOT NULL,
+  `staff_id` INT NOT NULL,
+  `role_name` VARCHAR(100) NOT NULL,
+  `can_read` TINYINT(1) NOT NULL DEFAULT 0,
+  `can_delete` TINYINT(1) NULL DEFAULT 0,
+  `can_write` TINYINT(1) NULL DEFAULT 0,
+  PRIMARY KEY (`table_name`, `staff_id`, `role_name`),
+  INDEX `fk_access_control_table1_idx` (`table_name` ASC),
+  INDEX `fk_access_control_staff1_idx` (`staff_id` ASC),
+  INDEX `fk_access_control_access_role1_idx` (`role_name` ASC),
+  CONSTRAINT `fk_access_control_table1`
+    FOREIGN KEY (`table_name`)
+    REFERENCES `jobowit_db`.`db_table` (`table_name`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_access_control_staff1`
+    FOREIGN KEY (`staff_id`)
+    REFERENCES `jobowit_db`.`staff` (`staff_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_access_control_access_role1`
+    FOREIGN KEY (`role_name`)
+    REFERENCES `jobowit_db`.`access_role` (`role_name`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

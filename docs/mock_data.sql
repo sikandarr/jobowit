@@ -614,7 +614,7 @@ INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_add
 -- staff data
 -- -----------------------------------------------------
 
-insert into staff (username, email, password, name, address_id) values ('aaicheson0', 'aaicheson0@joomla.org', 'KxynKco', 'Adelbert Aicheson', 457);
+insert into staff (username, email, password, name, address_id) values ('motion6', 'info@motion.six', 'motion6', 'Sikandar & Mearaj', 457);
 insert into staff (username, email, password, name, address_id) values ('rrobus1', 'rrobus1@sbwire.com', '16EfMURm', 'Rafe Robus', 456);
 insert into staff (username, email, password, name, address_id) values ('dgraham2', 'dgraham2@e-recht24.de', 'nVzKazzJ4c', 'Dorelia Graham', 450);
 insert into staff (username, email, password, name, address_id) values ('akeford3', 'akeford3@columbia.edu', 'fekgx9kY6', 'Alicea Keford', 445);
@@ -987,3 +987,231 @@ insert into bill_line_item (bill_id, description, quantity, unit_price, sell_pri
 insert into bill_line_item (bill_id, description, quantity, unit_price, sell_price) values (5, 'nam dui proin leo odio porttitor', 9, '142.04', 149);
 insert into bill_line_item (bill_id, description, quantity, unit_price, sell_price) values (5, 'lorem ipsum dolor sit amet consectetuer adipiscing elit', 6, '109.12', 116);
 insert into bill_line_item (bill_id, description, quantity, unit_price, sell_price) values (12, 'cras pellentesque volutpat dui maecenas tristique est et tempus semper est quam pharetra magna ac consequat metus sapien ut nunc', 19, '89.21', 96);
+
+-- -----------------------------------------------------
+-- user access data
+-- -----------------------------------------------------
+
+INSERT INTO `db_table` (`table_name`) VALUES ("Party");
+INSERT INTO `db_table` (`table_name`) VALUES ("Job");
+INSERT INTO `db_table` (`table_name`) VALUES ("Staff");
+INSERT INTO `db_table` (`table_name`) VALUES ("JobWorks");
+INSERT INTO `access_role` (`role_name`) VALUES ("DEFAULT_ROLE");
+INSERT INTO `access_control` (`staff_id`, `role_name`, `table_name`, `can_read`, `can_delete`, `can_write`) VALUES (1,"DEFAULT_ROLE", "Party",1,1,1);
+INSERT INTO `access_control` (`staff_id`, `role_name`, `table_name`, `can_read`, `can_delete`, `can_write`) VALUES (2,"DEFAULT_ROLE", "Party",1,0,0);
+INSERT INTO `access_control` (`staff_id`, `role_name`, `table_name`, `can_read`, `can_delete`, `can_write`) VALUES (3,"DEFAULT_ROLE", "Party",1,0,1);
+INSERT INTO `access_control` (`staff_id`, `role_name`, `table_name`, `can_read`, `can_delete`, `can_write`) VALUES (4,"DEFAULT_ROLE", "Party",1,1,1);
+
+-- -----------------------------------------------------
+-- invoice mock data
+-- -----------------------------------------------------
+
+INSERT INTO `invoice` (`invoice_id`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) 
+VALUES 
+(1,13,"16701219-4168","2017-06-08","2016-12-23"),
+(2,31,"16521129-3641","2018-06-23","2018-05-18"),
+(3,12,"16600801-3531","2016-09-15","2017-09-15"),
+(4,5,"16280402-5449","2017-05-04","2016-11-19"),
+(5,31,"16411207-7112","2017-03-10","2017-08-17"),
+(6,4,"16990617-4090","2017-03-11","2017-06-23"),
+(7,9,"16410318-1253","2016-08-10","2018-04-17"),
+(8,36,"16520730-8031","2016-12-17","2016-12-27"),
+(9,20,"16350519-5887","2018-04-11","2017-03-21"),
+(10,2,"16130507-2850","2016-08-08","2018-03-08"),
+(11,16,"16001211-6406","2017-07-30","2018-07-01"),
+(12,10,"16531102-3351","2018-01-27","2016-09-13"),
+(13,17,"16941228-7527","2016-11-23","2016-08-19"),
+(14,32,"16440920-3496","2016-09-04","2018-05-25"),
+(15,24,"16080611-1563","2017-08-11","2017-08-07"),
+(16,40,"16970212-4091","2016-10-25","2016-09-15"),
+(17,19,"16351130-2790","2017-07-19","2016-08-06"),
+(18,29,"16840729-7673","2017-02-06","2017-10-10"),
+(19,22,"16920906-6902","2017-11-24","2018-03-29"),
+(20,28,"16061228-8837","2018-04-20","2017-07-10"),
+(21,25,"16490724-7581","2017-11-01","2018-02-27"),
+(22,7,"16770108-6279","2017-09-22","2018-04-04"),
+(23,30,"16040616-9201","2017-01-07","2016-10-27"),
+(24,20,"16760426-2035","2018-06-29","2016-09-02"),
+(25,11,"16860329-0233","2016-10-13","2018-05-16"),
+(26,21,"16370702-3861","2016-08-12","2018-05-16"),
+(27,5,"16151108-3345","2018-04-30","2018-04-25"),
+(28,12,"16631016-4147","2018-01-03","2018-04-26"),
+(29,25,"16920830-7935","2016-09-06","2017-03-10"),
+(30,7,"16800309-2551","2018-03-21","2018-01-23"),
+(31,29,"16510404-7302","2017-01-19","2017-09-19"),
+(32,12,"16720204-4041","2018-03-03","2016-09-05"),
+(33,1,"16100317-3794","2018-05-29","2017-06-24"),
+(34,4,"16461112-1320","2017-04-21","2016-08-02"),
+(35,6,"16530301-2404","2018-03-11","2016-10-05"),
+(36,27,"16160713-1891","2017-01-26","2017-04-04"),
+(37,36,"16860521-0031","2017-03-04","2018-04-14"),
+(38,8,"16420227-3472","2017-04-04","2018-03-20"),
+(39,6,"16980823-9975","2017-01-14","2018-05-14"),
+(40,17,"16710109-4261","2017-12-02","2018-05-20"),
+(41,37,"16390330-0840","2016-07-19","2016-07-26"),
+(42,22,"16490113-7721","2017-07-08","2017-08-21"),
+(43,2,"16340912-1609","2016-09-16","2017-08-31"),
+(44,18,"16940324-9783","2016-09-16","2017-05-18"),
+(45,17,"16570518-9404","2017-10-28","2016-12-09"),
+(46,22,"16060506-7321","2016-09-06","2017-06-12"),
+(47,15,"16871211-1213","2017-07-09","2016-07-19"),
+(48,6,"16870416-1143","2017-10-30","2016-11-26"),
+(49,19,"16591109-6559","2016-07-12","2017-05-12"),
+(50,20,"16760306-8359","2017-02-10","2018-03-29"),
+(51,4,"16980928-3394","2017-02-20","2016-12-27"),
+(52,13,"16311124-4848","2016-11-28","2017-01-11"),
+(53,29,"16171122-8609","2018-05-08","2017-01-13"),
+(54,37,"16720701-6226","2016-11-08","2018-06-20"),
+(55,24,"16190417-4263","2017-03-03","2017-12-15"),
+(56,24,"16450126-2473","2017-06-01","2018-02-12"),
+(57,24,"16150117-3254","2017-04-17","2017-01-04"),
+(58,38,"16650221-5806","2017-09-30","2016-08-20"),
+(59,20,"16090105-7554","2018-06-21","2017-04-25"),
+(60,38,"16120105-1164","2017-09-03","2017-02-13"),
+(61,8,"16040506-0658","2017-10-30","2018-04-23"),
+(62,5,"16310505-3684","2018-02-23","2016-09-22"),
+(63,21,"16691219-8063","2017-07-22","2017-03-11"),
+(64,5,"16240606-7757","2017-02-01","2018-02-13"),
+(65,2,"16891120-1435","2016-11-29","2018-02-13"),
+(66,3,"16341014-5761","2016-12-17","2018-06-03"),
+(67,28,"16620218-9947","2016-07-31","2017-08-19"),
+(68,3,"16841220-2023","2016-10-27","2017-09-22"),
+(69,21,"16860314-9330","2016-08-30","2016-08-17"),
+(70,3,"16470330-3414","2016-12-26","2018-05-29"),
+(71,27,"16491129-3787","2016-10-29","2018-06-20"),
+(72,20,"16470303-9083","2017-09-14","2017-04-27"),
+(73,34,"16280511-8268","2017-10-19","2016-10-01"),
+(74,12,"16201030-4208","2017-06-21","2018-02-19"),
+(75,22,"16710503-5294","2017-04-26","2017-07-13"),
+(76,10,"16020230-0083","2017-05-08","2017-01-27"),
+(77,6,"16640915-3811","2016-12-26","2016-08-09"),
+(78,17,"16560417-7229","2018-04-23","2017-01-14"),
+(79,14,"16310925-1219","2018-02-07","2017-02-17"),
+(80,28,"16140213-0825","2017-05-29","2016-08-16"),
+(81,28,"16960414-0310","2016-10-20","2018-05-28"),
+(82,40,"16800808-1492","2017-10-19","2018-05-02"),
+(83,12,"16320714-6477","2016-08-04","2017-08-14"),
+(84,8,"16680110-3893","2016-12-05","2018-05-06"),
+(85,10,"16640701-9436","2018-02-24","2016-07-10"),
+(86,23,"16310312-4115","2018-01-10","2018-05-31"),
+(87,39,"16961205-9510","2018-04-03","2018-02-24"),
+(88,8,"16020209-5824","2018-03-30","2017-07-23"),
+(89,30,"16910228-7027","2017-09-10","2017-09-09"),
+(90,30,"16290817-2451","2017-08-10","2016-10-30"),
+(91,4,"16380515-1895","2016-09-06","2018-01-28"),
+(92,30,"16770818-6833","2017-10-13","2017-10-29"),
+(93,40,"16600709-9473","2017-04-05","2017-04-22"),
+(94,39,"16720629-1366","2016-11-05","2016-10-15"),
+(95,21,"16890612-8387","2016-10-23","2017-07-24"),
+(96,25,"16900824-0559","2016-12-25","2018-03-29"),
+(97,30,"16571210-5054","2018-02-06","2017-02-26"),
+(98,38,"16541106-3844","2016-11-15","2016-11-29"),
+(99,22,"16590706-1609","2017-04-29","2017-06-04"),
+(100,6,"16620104-9373","2018-01-28","2017-01-02");
+
+-- -----------------------------------------------------
+-- invoice-line-item mock data
+-- -----------------------------------------------------
+
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (86,"nulla. Integer vulputate, risus a ultricies adipiscing,",3,"4.00");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (33,"eget metus eu",2,"6.68");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (55,"in faucibus orci luctus et ultrices posuere cubilia Curae;",4,"2.05");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (92,"Proin vel arcu eu odio tristique pharetra. Quisque ac",2,"1.58");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (14,"nisi magna sed dui.",3,"1.65");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (19,"tellus, imperdiet non, vestibulum nec,",3,"5.90");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (7,"cursus in, hendrerit consectetuer, cursus et,",3,"3.74");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (42,"egestas, urna justo faucibus lectus, a sollicitudin",4,"7.85");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (74,"enim. Sed nulla ante, iaculis nec, eleifend",4,"7.64");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (88,"eget tincidunt dui augue eu tellus. Phasellus elit pede, malesuada",2,"2.18");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (2,"Aliquam ultrices iaculis odio. Nam interdum",5,"2.60");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (38,"eu, ultrices sit",2,"8.94");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (50,"accumsan interdum libero dui",4,"9.67");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (90,"ipsum. Suspendisse sagittis. Nullam vitae diam. Proin dolor. Nulla",1,"6.59");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (37,"nisi a odio semper cursus. Integer mollis. Integer tincidunt",4,"0.00");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (16,"Nulla eu neque pellentesque massa",4,"1.89");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (4,"vitae risus. Duis a mi fringilla mi lacinia mattis. Integer",4,"7.72");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (88,"accumsan neque et nunc. Quisque ornare tortor at risus.",5,"7.25");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (97,"consectetuer, cursus et, magna. Praesent interdum ligula eu enim.",5,"4.66");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (45,"Cras interdum. Nunc sollicitudin commodo ipsum. Suspendisse non leo. Vivamus",1,"3.00");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (88,"arcu eu odio",5,"4.98");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (20,"enim non nisi. Aenean",5,"7.65");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (56,"eget ipsum. Suspendisse sagittis. Nullam vitae diam. Proin dolor.",5,"8.67");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (75,"egestas lacinia. Sed congue, elit sed consequat",5,"8.58");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (41,"risus, at fringilla purus",5,"8.55");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (76,"Duis ac arcu. Nunc mauris. Morbi non sapien",4,"7.85");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (52,"non, feugiat nec, diam. Duis mi enim,",5,"5.23");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (76,"auctor quis, tristique ac, eleifend",2,"6.49");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (24,"Praesent luctus. Curabitur egestas nunc sed libero. Proin",1,"7.16");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (96,"ac tellus. Suspendisse sed dolor.",4,"3.68");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (7,"dui nec urna suscipit nonummy. Fusce fermentum fermentum arcu.",3,"1.61");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (35,"Suspendisse tristique neque venenatis lacus. Etiam",5,"4.31");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (22,"non arcu. Vivamus sit",5,"7.27");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (36,"feugiat metus sit amet ante. Vivamus non lorem",4,"6.33");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (9,"congue, elit sed consequat auctor, nunc",3,"1.01");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (76,"imperdiet ullamcorper. Duis at lacus. Quisque purus",5,"3.18");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (92,"mauris, rhoncus id,",2,"7.97");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (82,"Mauris vestibulum, neque sed dictum eleifend, nunc risus varius",3,"1.80");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (76,"et ultrices posuere",2,"6.89");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (86,"nostra, per inceptos hymenaeos. Mauris ut quam vel",3,"6.50");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (44,"ultrices posuere cubilia",2,"8.72");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (58,"libero. Morbi accumsan laoreet ipsum. Curabitur consequat,",2,"5.42");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (66,"magna. Ut tincidunt orci quis lectus. Nullam suscipit, est ac",4,"2.92");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (88,"enim. Nunc ut erat.",1,"7.98");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (79,"dapibus id, blandit at,",2,"5.59");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (25,"elit, pellentesque a, facilisis non, bibendum sed, est. Nunc laoreet",1,"6.99");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (83,"Cras sed leo. Cras vehicula aliquet libero. Integer in magna.",4,"5.54");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (72,"purus ac tellus. Suspendisse sed dolor. Fusce mi lorem, vehicula",5,"6.17");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (69,"erat. Sed nunc est, mollis non,",2,"9.16");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (53,"nec quam. Curabitur vel lectus. Cum sociis natoque penatibus",2,"9.76");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (9,"Curae; Phasellus ornare. Fusce mollis.",2,"0.09");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (87,"Donec nibh. Quisque nonummy ipsum non arcu. Vivamus sit",4,"1.87");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (46,"erat eget ipsum. Suspendisse sagittis. Nullam vitae diam. Proin",3,"8.69");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (20,"orci luctus et ultrices posuere cubilia",4,"5.79");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (79,"orci, consectetuer euismod",4,"7.23");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (99,"volutpat nunc sit amet metus. Aliquam erat volutpat.",4,"6.89");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (90,"Phasellus at augue id ante dictum",2,"0.39");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (82,"Nulla eget metus eu",2,"5.75");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (16,"laoreet lectus quis massa.",4,"0.91");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (37,"lorem ut aliquam iaculis, lacus pede sagittis augue,",1,"2.36");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (15,"tempor diam dictum sapien. Aenean massa.",5,"3.04");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (97,"arcu. Sed eu nibh vulputate mauris sagittis placerat. Cras dictum",2,"4.72");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (63,"sollicitudin adipiscing ligula. Aenean gravida",4,"6.83");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (99,"rutrum. Fusce dolor",1,"6.07");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (36,"Nam consequat dolor vitae dolor. Donec fringilla.",1,"7.34");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (28,"iaculis quis, pede. Praesent eu dui. Cum sociis natoque",3,"2.88");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (41,"Aenean gravida nunc sed pede. Cum sociis natoque",3,"5.01");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (46,"id magna et",2,"9.38");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (52,"malesuada augue ut lacus. Nulla tincidunt, neque vitae semper egestas,",1,"2.73");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (91,"ultrices posuere cubilia Curae; Phasellus",4,"4.07");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (77,"porta elit, a",5,"7.15");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (24,"gravida mauris ut mi. Duis risus odio,",3,"9.11");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (9,"nisl. Nulla eu neque pellentesque",1,"1.64");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (65,"lobortis risus. In mi pede, nonummy ut, molestie",4,"6.36");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (87,"vulputate mauris sagittis placerat. Cras dictum",5,"5.05");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (79,"consectetuer adipiscing elit. Etiam laoreet, libero et tristique pellentesque, tellus",5,"3.74");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (88,"purus ac tellus. Suspendisse sed dolor. Fusce",3,"5.12");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (52,"a feugiat tellus",5,"2.15");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (63,"enim, sit amet ornare lectus justo eu arcu. Morbi sit",5,"9.17");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (69,"et, magna. Praesent interdum ligula eu enim. Etiam imperdiet dictum",3,"7.70");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (68,"sit amet massa. Quisque porttitor eros nec",4,"2.63");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (85,"dignissim tempor arcu. Vestibulum ut eros non enim commodo",5,"0.21");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (15,"amet ultricies sem magna",5,"3.44");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (70,"eros non enim commodo hendrerit.",1,"2.44");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (97,"Curabitur dictum. Phasellus in felis. Nulla tempor augue",3,"5.43");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (4,"enim, sit amet ornare lectus justo eu",3,"5.96");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (7,"diam vel arcu. Curabitur",4,"4.13");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (69,"Vivamus non lorem vitae odio sagittis semper.",3,"2.31");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (90,"luctus vulputate, nisi",2,"9.41");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (12,"ridiculus mus. Aenean eget magna. Suspendisse tristique",1,"8.65");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (83,"purus gravida sagittis. Duis",3,"7.60");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (71,"velit eu sem. Pellentesque ut",2,"9.21");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (66,"Proin vel nisl. Quisque fringilla euismod",1,"4.61");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (94,"nisi magna sed dui. Fusce aliquam, enim nec tempus scelerisque,",4,"9.19");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (36,"nisl. Nulla eu neque pellentesque massa lobortis ultrices.",1,"3.34");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (75,"diam dictum sapien. Aenean massa. Integer vitae nibh. Donec est",3,"0.77");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (88,"mus. Proin vel nisl. Quisque fringilla",3,"5.31");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (59,"augue ut lacus. Nulla tincidunt, neque vitae semper egestas, urna",2,"8.66");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (53,"augue id ante dictum cursus. Nunc mauris",1,"2.48");
+INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (95,"Sed nunc est, mollis non, cursus non, egestas a, dui.",4,"6.70");
+
+

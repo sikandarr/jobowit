@@ -7,5 +7,7 @@ import com.jobowit.domain.Staff;
 @RepositoryRestResource
 public interface StaffRepository extends PagingAndSortingRepository<Staff, Integer>
 {
+	Staff findByUsername(String username);
+	Staff findByUsernameAndPassword(String name, String password);
 
 }

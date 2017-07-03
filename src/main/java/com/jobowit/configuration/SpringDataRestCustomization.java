@@ -1,4 +1,4 @@
-package com.jobowit;
+package com.jobowit.configuration;
 
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurerAdapter;

@@ -1,4 +1,4 @@
-package com.jobowit;
+package com.jobowit.configuration;
 
 import org.springframework.hateoas.Resource;
 import com.fasterxml.jackson.annotation.JsonInclude;

@@ -4,7 +4,6 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import java.util.List;
@@ -62,8 +61,7 @@ public class Job implements Serializable
 	// bi-directional many-to-one association to Party
 	@ManyToOne
 	@JoinColumn(name = "customer_id", nullable = false)
-	@JsonManagedReference
-	private Party party;
+	private Party customer;
 
 	// bi-directional many-to-one association to JobSchedule
 	@OneToMany(mappedBy = "job")
@@ -239,14 +237,14 @@ public class Job implements Serializable
 		this.currentType = currentType;
 	}
 
-	public Party getParty()
+	public Party getCustomer()
 	{
-		return this.party;
+		return this.customer;
 	}
 
-	public void setParty(Party party)
+	public void setCustomer(Party party)
 	{
-		this.party = party;
+		this.customer = party;
 	}
 
 	public List<JobSchedule> getJobSchedules()

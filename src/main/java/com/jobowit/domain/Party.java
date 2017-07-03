@@ -10,6 +10,7 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.jobowit.domain.constraint.Constants;
+
 import java.util.List;
 
 /**
@@ -26,7 +27,7 @@ public class Party implements Serializable
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "party_id", unique = true, nullable = false)
-	private int partyId;
+	private Integer partyId;
 
 	@Column(name = "contact_name", length = 100)
 	private String contactName;
@@ -57,7 +58,7 @@ public class Party implements Serializable
 	private List<Comment> comments;
 
 	// bi-directional many-to-one association to Job
-	@OneToMany(mappedBy = "party")
+	@OneToMany(mappedBy = "customer")
 	private List<Job> jobs;
 
 	// one-to-one association to Address
@@ -76,12 +77,12 @@ public class Party implements Serializable
 	{
 	}
 
-	public int getPartyId()
+	public Integer getPartyId()
 	{
 		return this.partyId;
 	}
 
-	public void setPartyId(int partyId)
+	public void setPartyId(Integer partyId)
 	{
 		this.partyId = partyId;
 	}
@@ -201,7 +202,7 @@ public class Party implements Serializable
 	public Job addJob(Job job)
 	{
 		getJobs().add(job);
-		job.setParty(this);
+		job.setCustomer(this);
 
 		return job;
 	}
@@ -209,7 +210,7 @@ public class Party implements Serializable
 	public Job removeJob(Job job)
 	{
 		getJobs().remove(job);
-		job.setParty(null);
+		job.setCustomer(null);
 
 		return job;
 	}
@@ -238,7 +239,9 @@ public class Party implements Serializable
 
 	public long getActiveJobCount()
 	{
-		return this.getJobs().stream().filter(job -> job.getJobStatus().isActive() == true).count();	
+		if (this.getJobs() != null)
+			return this.getJobs().stream().filter(job -> job.getJobStatus().isActive() == true).count();
+		return 0;
 	}
 
 }

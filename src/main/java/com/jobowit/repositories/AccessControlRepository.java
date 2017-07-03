@@ -2,10 +2,12 @@ package com.jobowit.repositories;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
-import com.jobowit.domain.Invoice;
+
+import com.jobowit.access.AccessControl;
+import com.jobowit.access.AccessControlId;
 
 @RepositoryRestResource
-public interface InvoiceRepository extends PagingAndSortingRepository<Invoice, Integer>
+public interface AccessControlRepository extends PagingAndSortingRepository<AccessControl, AccessControlId>
 {
-	Invoice findOneByInvoiceId(Integer id);
+
 }

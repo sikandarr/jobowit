@@ -9,7 +9,6 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "job_status")
-@NamedQuery(name = "JobStatus.findAll", query = "SELECT j FROM JobStatus j")
 public class JobStatus implements Serializable
 {
 	private static final long serialVersionUID = 1L;
@@ -19,10 +18,10 @@ public class JobStatus implements Serializable
 	@Column(name = "job_status_id", unique = true, nullable = false)
 	private int jobStatusId;
 
-	@Column(name="description", nullable = false, length = 45)
+	@Column(name = "description", nullable = false, length = 45)
 	private String status;
-	
-	@Column(name="is_active")
+
+	@Column(name = "is_active")
 	private boolean isActive;
 
 	// bi-directional many-to-one association to JobType

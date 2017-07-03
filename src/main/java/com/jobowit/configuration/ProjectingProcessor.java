@@ -1,4 +1,4 @@
-package com.jobowit;
+package com.jobowit.configuration;
 
 import java.util.Map;
 import java.util.Optional;

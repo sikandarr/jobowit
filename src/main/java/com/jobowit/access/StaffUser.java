@@ -1,6 +1,6 @@
 package com.jobowit.access;
 
-import java.util.Collection;
+/*import java.util.Collection;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -58,4 +58,4 @@ public class StaffUser implements UserDetails
 		return false;
 	}
 
-}
+}*/

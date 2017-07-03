@@ -1,6 +1,6 @@
 package com.jobowit.access;
 
-import java.io.Serializable;
+/*import java.io.Serializable;
 
 import org.springframework.security.access.PermissionEvaluator;
 import org.springframework.security.core.Authentication;
@@ -44,4 +44,4 @@ public class AccessControlEvaluator implements PermissionEvaluator
 		}
 		return false;
 	}
-}
+}*/

@@ -3,12 +3,12 @@ package com.jobowit.domain;
 import java.io.Serializable;
 import javax.persistence.*;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
+//import org.springframework.security.core.GrantedAuthority;
+//import org.springframework.security.core.userdetails.UserDetails;
 
-import com.jobowit.access.AccessControl;
+//import com.jobowit.access.AccessControl;
 
-import java.util.Collection;
+//import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -18,7 +18,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "staff")
-public class Staff implements UserDetails, Serializable
+public class Staff implements /*UserDetails,*/ Serializable
 {
 	private static final long serialVersionUID = 1L;
 
@@ -75,8 +75,8 @@ public class Staff implements UserDetails, Serializable
 	@OneToMany(mappedBy = "staff")
 	private List<SalesStaffInJob> salesStaffInJobs;
 
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "staff")
-	private List<AccessControl> accessControl;
+	//@OneToMany(fetch = FetchType.EAGER, mappedBy = "staff")
+	//private List<AccessControl> accessControl;
 
 	// bi-directional many-to-one association to Address
 	@ManyToOne
@@ -359,7 +359,7 @@ public class Staff implements UserDetails, Serializable
 		return salesStaffInJob;
 	}
 
-	public List<AccessControl> getAccessControl()
+	/*public List<AccessControl> getAccessControl()
 	{
 		return accessControl;
 	}
@@ -381,7 +381,7 @@ public class Staff implements UserDetails, Serializable
 		getAccessControl().remove(accessControl);
 		accessControl.getId().staffId = -1;
 		return accessControl;
-	}
+	}*/
 
 	public Address getAddress()
 	{
@@ -419,7 +419,7 @@ public class Staff implements UserDetails, Serializable
 		return staffRole;
 	}
 
-	@Override
+	/*@Override
 	public Collection<? extends GrantedAuthority> getAuthorities()
 	{
 		return this.accessControl;
@@ -447,6 +447,6 @@ public class Staff implements UserDetails, Serializable
 	public boolean isEnabled()
 	{
 		return true;
-	}
+	}*/
 
 }

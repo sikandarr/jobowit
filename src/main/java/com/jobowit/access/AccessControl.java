@@ -1,6 +1,6 @@
 package com.jobowit.access;
 
-import java.io.Serializable;
+/*import java.io.Serializable;
 import javax.persistence.*;
 import com.jobowit.domain.Staff;
 import org.springframework.security.core.GrantedAuthority;
@@ -85,4 +85,4 @@ public class AccessControl implements GrantedAuthority, Serializable
 		return this.dbTable.tableName + (noAccess ? "_NO_ACCESS":read + write + delete);
 	}
 
-}
+}*/

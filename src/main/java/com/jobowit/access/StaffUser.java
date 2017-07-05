@@ -1,61 +1,62 @@
 package com.jobowit.access;
 
-/*import java.util.Collection;
+import java.util.Collection;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import com.jobowit.domain.Staff;
+
 public class StaffUser implements UserDetails
 {
 	private static final long serialVersionUID = 1L;
+	Staff staff;
+	
+	public StaffUser (Staff staff)
+	{
+		this.staff = staff;
+	}
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities()
 	{
-		// TODO Auto-generated method stub
-		return null;
+		return staff.getAccessControl();
 	}
 
 	@Override
 	public String getPassword()
 	{
-		// TODO Auto-generated method stub
-		return null;
+		return staff.getPassword();
 	}
 
 	@Override
 	public String getUsername()
 	{
-		// TODO Auto-generated method stub
-		return null;
+		return staff.getUsername();
 	}
 
 	@Override
 	public boolean isAccountNonExpired()
 	{
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isAccountNonLocked()
 	{
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isCredentialsNonExpired()
 	{
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isEnabled()
 	{
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
-}*/
+}

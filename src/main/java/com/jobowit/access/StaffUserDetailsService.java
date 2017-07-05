@@ -1,6 +1,6 @@
 package com.jobowit.access;
 
-/*import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -23,6 +23,6 @@ public class StaffUserDetailsService implements UserDetailsService
 		{
 			throw new UsernameNotFoundException("Username " + username + " not found");
 		}
-		return staff;
+		return new StaffUser(staff);
 	}
-}*/
+}

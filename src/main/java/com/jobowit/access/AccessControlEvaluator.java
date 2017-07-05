@@ -1,6 +1,6 @@
 package com.jobowit.access;
 
-/*import java.io.Serializable;
+import java.io.Serializable;
 
 import org.springframework.security.access.PermissionEvaluator;
 import org.springframework.security.core.Authentication;
@@ -11,13 +11,12 @@ public class AccessControlEvaluator implements PermissionEvaluator
 	@Override
 	public boolean hasPermission(Authentication auth, Object targetDomainObject, Object permission)
 	{
-		if ((auth == null) || (targetDomainObject == null) || !(permission instanceof String))
-		{
-			return false;
-		}
-		String targetType = targetDomainObject.getClass().getSimpleName().toUpperCase();
-
-		return hasPrivilege(auth, targetType, permission.toString().toUpperCase());
+		if ((auth == null) || (targetDomainObject == null) || !(permission instanceof String)) return false;
+		for (GrantedAuthority grantedAuth : auth.getAuthorities())
+			if (grantedAuth.getAuthority().startsWith(targetDomainObject.toString().toUpperCase())
+					&& grantedAuth.getAuthority().contains(permission.toString().toUpperCase()))
+				return true;
+		return false;
 	}
 
 	@Override
@@ -27,21 +26,6 @@ public class AccessControlEvaluator implements PermissionEvaluator
 		{
 			return false;
 		}
-		return hasPrivilege(auth, targetType.toUpperCase(), permission.toString().toUpperCase());
-	}
-
-	private boolean hasPrivilege(Authentication auth, String targetType, String permission)
-	{
-		for (GrantedAuthority grantedAuth : auth.getAuthorities())
-		{
-			if (grantedAuth.getAuthority().startsWith(targetType))
-			{
-				if (grantedAuth.getAuthority().contains(permission))
-				{
-					return true;
-				}
-			}
-		}
 		return false;
 	}
-}*/
+}

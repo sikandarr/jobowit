@@ -1,6 +1,6 @@
 package com.jobowit.access;
 
-/*import java.io.Serializable;
+import java.io.Serializable;
 import javax.persistence.*;
 import com.jobowit.domain.Staff;
 import org.springframework.security.core.GrantedAuthority;
@@ -14,7 +14,7 @@ public class AccessControl implements GrantedAuthority, Serializable
 	@EmbeddedId
 	private AccessControlId id;
 	
-	@MapsId("table_name")
+	@MapsId("staff_id")
     @JoinColumn(name="staff_id", referencedColumnName="staff_id")
 	@ManyToOne
 	Staff staff;
@@ -23,6 +23,11 @@ public class AccessControl implements GrantedAuthority, Serializable
     @JoinColumn(name="table_name", referencedColumnName="table_name")
 	@ManyToOne
 	DbTable dbTable;
+	
+	@MapsId("role_name")
+    @JoinColumn(name="role_name", referencedColumnName="role_name")
+	@ManyToOne
+	AccessRole accessRole;
 	
 	@Column(name="can_read")
 	private boolean canRead;
@@ -82,7 +87,7 @@ public class AccessControl implements GrantedAuthority, Serializable
 		if (isCanWrite()) {write = "_WRITE"; noAccess = false;}
 		if (isCanDelete()) {delete = "_DELETE"; noAccess = false;}
 		
-		return this.dbTable.tableName + (noAccess ? "_NO_ACCESS":read + write + delete);
+		return this.dbTable.tableName.toUpperCase() + (noAccess ? "_NO_ACCESS":read + write + delete);
 	}
 
-}*/
+}

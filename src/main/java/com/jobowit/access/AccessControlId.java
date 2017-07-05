@@ -13,10 +13,12 @@ public class AccessControlId implements Serializable
 	public int staffId;
 	@Column(name="table_name")
 	String tableName;
+	@Column(name = "role_name")
+	String roleName;
 	
 	@Override
 	public String toString()
 	{
-		return tableName + "-" + staffId;
+		return tableName + "-" + roleName + "-" + staffId;
 	}
 }

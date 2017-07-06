@@ -2,7 +2,6 @@ package com.jobowit;
 
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
-import java.security.Principal;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -11,7 +10,6 @@ import org.springframework.data.projection.SpelAwareProxyProjectionFactory;
 import org.springframework.hateoas.Link;
 import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.ResourceProcessor;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.jobowit.domain.Party;
 import com.jobowit.domain.projections.PartyProjection;
@@ -64,10 +62,10 @@ public class JobowitApplication
 		};
 	}
 
-	@RequestMapping("/user")
+	/*@RequestMapping("/user")
 	public Principal user(Principal user)
 	{
 		return user;
-	}
+	}*/
 
 }

@@ -4,6 +4,8 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 import com.jobowit.access.AccessControl;
+import com.jobowit.access.AccessRole;
+
 import java.util.Date;
 import java.util.List;
 
@@ -81,6 +83,10 @@ public class Staff implements Serializable
 	// bi-directional many-to-one association to StaffRole
 	@OneToMany(mappedBy = "staff")
 	private List<StaffRole> staffRoles;
+	
+	@ManyToOne
+	@JoinColumn(name = "access_role", nullable = true)
+	private AccessRole accessRole;
 
 	public Staff()
 	{
@@ -367,14 +373,14 @@ public class Staff implements Serializable
 	public AccessControl addAccessControl(AccessControl accessControl)
 	{
 		getAccessControl().add(accessControl);
-		accessControl.getId().staffId = this.staffId;
+		accessControl.setStaff(this);
 		return accessControl;
 	}
 	
 	public AccessControl removeAccessControl(AccessControl accessControl)
 	{
 		getAccessControl().remove(accessControl);
-		accessControl.getId().staffId = -1;
+		accessControl.setStaff(null);
 		return accessControl;
 	}
 
@@ -412,6 +418,16 @@ public class Staff implements Serializable
 		staffRole.setStaff(null);
 
 		return staffRole;
+	}
+
+	public AccessRole getAccessRole()
+	{
+		return accessRole;
+	}
+
+	public void setAccessRole(AccessRole accessRole)
+	{
+		this.accessRole = accessRole;
 	}
 
 }

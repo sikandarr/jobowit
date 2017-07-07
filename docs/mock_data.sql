@@ -611,12 +611,20 @@ INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_add
 INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Neque In Foundation","Evan Simmons","Cras.interdum.Nunc@dui.net","(08) 2398 0983","(04) 8731 3839",170,384);
 
 -- -----------------------------------------------------
+-- Access Roles data
+-- -----------------------------------------------------
+
+INSERT INTO `access_role` (`role_name`) VALUES ("NO ACCESS");
+INSERT INTO `access_role` (`role_name`) VALUES ("ADMIN");
+INSERT INTO `access_role` (`role_name`) VALUES ("LIMITED");
+
+-- -----------------------------------------------------
 -- staff data
 -- -----------------------------------------------------
 
-insert into staff (username, email, password, name, address_id) values ('motion6', 'info@motion.six', 'motion6', 'Sikandar & Mearaj', 457);
-insert into staff (username, email, password, name, address_id) values ('rrobus1', 'rrobus1@sbwire.com', '16EfMURm', 'Rafe Robus', 456);
-insert into staff (username, email, password, name, address_id) values ('dgraham2', 'dgraham2@e-recht24.de', 'nVzKazzJ4c', 'Dorelia Graham', 450);
+insert into staff (username, email, password, name, address_id, access_role) values ('motion6', 'info@motion.six', 'motion6', 'Sikandar & Mearaj', 457, 'ADMIN');
+insert into staff (username, email, password, name, address_id, access_role) values ('rrobus1', 'rrobus1@sbwire.com', '16EfMURm', 'Rafe Robus', 456, 'LIMITED');
+insert into staff (username, email, password, name, address_id, access_role) values ('dgraham2', 'dgraham2@e-recht24.de', 'nVzKazzJ4c', 'Dorelia Graham', 450, 'LIMITED');
 insert into staff (username, email, password, name, address_id) values ('akeford3', 'akeford3@columbia.edu', 'fekgx9kY6', 'Alicea Keford', 445);
 insert into staff (username, email, password, name, address_id) values ('ewilse4', 'ewilse4@sphinn.com', 'KTrHrm4', 'Everett Wilse', 441);
 insert into staff (username, email, password, name, address_id) values ('omalenfant5', 'omalenfant5@photobucket.com', 'yJS2nC', 'Ole Malenfant', 440);
@@ -996,11 +1004,14 @@ INSERT INTO `db_table` (`table_name`) VALUES ("Party");
 INSERT INTO `db_table` (`table_name`) VALUES ("Job");
 INSERT INTO `db_table` (`table_name`) VALUES ("Staff");
 INSERT INTO `db_table` (`table_name`) VALUES ("JobWorks");
-INSERT INTO `access_role` (`role_name`) VALUES ("DEFAULT_ROLE");
-INSERT INTO `access_control` (`staff_id`, `role_name`, `table_name`, `can_read`, `can_delete`, `can_write`) VALUES (1,"DEFAULT_ROLE", "Party",1,1,1);
-INSERT INTO `access_control` (`staff_id`, `role_name`, `table_name`, `can_read`, `can_delete`, `can_write`) VALUES (2,"DEFAULT_ROLE", "Party",1,0,0);
-INSERT INTO `access_control` (`staff_id`, `role_name`, `table_name`, `can_read`, `can_delete`, `can_write`) VALUES (3,"DEFAULT_ROLE", "Party",1,0,1);
-INSERT INTO `access_control` (`staff_id`, `role_name`, `table_name`, `can_read`, `can_delete`, `can_write`) VALUES (4,"DEFAULT_ROLE", "Party",1,1,1);
+
+INSERT INTO `access_control` (`role_name`, `table_name`, `can_read`, `can_delete`, `can_write`) VALUES ("ADMIN", "Party",1,1,1);
+INSERT INTO `access_control` (`role_name`, `table_name`, `can_read`, `can_delete`, `can_write`) VALUES ("LIMITED", "Party",1,0,0);
+
+INSERT INTO `access_control` (`staff_id`, `table_name`, `can_read`, `can_delete`, `can_write`) VALUES (1, "Party",1,1,1);
+INSERT INTO `access_control` (`staff_id`, `table_name`, `can_read`, `can_delete`, `can_write`) VALUES (2, "Party",1,0,0);
+INSERT INTO `access_control` (`staff_id`, `table_name`, `can_read`, `can_delete`, `can_write`) VALUES (3, "Party",1,0,1);
+INSERT INTO `access_control` (`staff_id`, `table_name`, `can_read`, `can_delete`, `can_write`) VALUES (4, "Party",1,1,1);
 
 -- -----------------------------------------------------
 -- invoice mock data

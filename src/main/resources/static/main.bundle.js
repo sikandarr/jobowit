@@ -763,6 +763,7 @@ var PartyMainComponent = (function () {
         }
     };
     PartyMainComponent.prototype.patchExistingCustomer = function () {
+        var _this = this;
         console.log("patchExistingCustomercalled");
         var party = new __WEBPACK_IMPORTED_MODULE_6__models_party_model__["a" /* PartyModel */]();
         if (this.signUpForm.valid && this.signUpForm.touched) {
@@ -789,6 +790,9 @@ var PartyMainComponent = (function () {
             }
             this.serverService.patchParty(this.paramsReceived, party).subscribe(function (response) {
                 alert("Successfully Saved");
+                _this.detailFormActive = false;
+                _this.getPartyRequest();
+                _this.signUpForm.markAsUntouched();
                 console.log(response);
             }, function (error) {
                 alert("Something went wrong !. Couldn't save the form.");
@@ -813,6 +817,7 @@ var PartyMainComponent = (function () {
             party.physical_address = this.partyPhysicalAddress;
             this.serverService.putParty(this.paramsReceived, party).subscribe(function (response) {
                 alert("Successfully Saved");
+                _this.detailFormActive = false;
                 _this.getPartyRequest();
                 _this.signUpForm.markAsUntouched();
                 console.log(response);
@@ -825,6 +830,7 @@ var PartyMainComponent = (function () {
         }
     };
     PartyMainComponent.prototype.saveNewCustomer = function () {
+        var _this = this;
         console.log("save new customer called");
         if (this.signUpForm.touched && this.signUpForm.valid) {
             var party = new __WEBPACK_IMPORTED_MODULE_6__models_party_model__["a" /* PartyModel */]();
@@ -837,6 +843,9 @@ var PartyMainComponent = (function () {
             party.physical_address = this.partyPhysicalAddress;
             this.serverService.saveParty(party).subscribe(function (response) {
                 alert("Successfully Saved");
+                _this.detailFormActive = false;
+                _this.getPartyRequest();
+                _this.signUpForm.markAsUntouched();
             }, function (error) {
                 alert("Something went wrong!. Couldn't save the form.");
                 console.log(error);

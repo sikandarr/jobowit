@@ -842,10 +842,19 @@ var PartyMainComponent = (function () {
             party.mailing_address = this.partyMailingAddress;
             party.physical_address = this.partyPhysicalAddress;
             this.serverService.saveParty(party).subscribe(function (response) {
+                console.log(response.json());
                 alert("Successfully Saved");
+                var href = response.json()._links.self.href;
+                var index = (href.lastIndexOf('/') + 1);
+                var id = +(href.substr(index));
+                _this.paramsReceived = id;
                 _this.detailFormActive = false;
                 _this.getPartyRequest();
                 _this.signUpForm.markAsUntouched();
+                _this.router.navigate(['party', _this.paramsReceived])
+                    .then(function (value) {
+                    console.log(value);
+                }).catch(function (error) { console.log(error); });
             }, function (error) {
                 alert("Something went wrong!. Couldn't save the form.");
                 console.log(error);
@@ -1074,7 +1083,7 @@ var PartyMainComponent = (function () {
     PartyMainComponent.prototype.setAddress = function (value, type) {
         var tempAddress = null;
         if (value.terms.length === 6) {
-            tempAddress = value.terms[0].value + value.terms[1].value + ":" +
+            tempAddress = value.terms[0].value + " " + value.terms[1].value + ":" +
                 value.terms[2].value + ":" + value.terms[3].value + ":" +
                 value.terms[4].value + ":" + value.terms[5].value;
         }

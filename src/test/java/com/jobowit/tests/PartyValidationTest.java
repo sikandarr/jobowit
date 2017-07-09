@@ -103,6 +103,12 @@ public class PartyValidationTest
 		assertEquals("Not a valid Australian mobile number", constraintViolations.iterator().next().getMessage());
 		constraintViolations = null;
 		
+		party.setMobile("042450414");
+		constraintViolations = validator.validate(party);
+		assertEquals(1, constraintViolations.size());
+		assertEquals("Not a valid Australian mobile number", constraintViolations.iterator().next().getMessage());
+		constraintViolations = null;
+		
 		/*valid mobile number*/
 		party.setMobile("0424504142");
 		constraintViolations = validator.validate(party);

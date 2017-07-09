@@ -1000,9 +1000,9 @@ var PartyMainComponent = (function () {
                                     && /^\d+.+$/.test(value.terms[0].value) && /^\d+$/.test(value.terms[3].value)
                                     && value.terms[4].value.toLowerCase() === 'australia')) {
                             console.log("address is valid from google results");
-                            tempRef.setAddress(value, addressType);
                             response.next(null);
                             response.complete();
+                            tempRef.setAddress(value, addressType);
                         }
                     });
                     response.next({ 'NoAddressFound': true });

@@ -27,7 +27,7 @@ public class Party implements Serializable
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "party_id", unique = true, nullable = false)
-	private Integer partyId;
+	private Long partyId;
 
 	@Column(name = "contact_name", length = 100)
 	private String contactName;
@@ -37,7 +37,7 @@ public class Party implements Serializable
 	private String email;
 
 	@Column(length = 45)
-	@Pattern(regexp = "^04?\\d{8}$", message = "Not a valid Australian mobile number")
+	@Pattern(regexp = "^04\\d{8}$", message = "Not a valid Australian mobile number")
 	private String mobile;
 
 	@Column(nullable = false, length = 100)
@@ -77,12 +77,12 @@ public class Party implements Serializable
 	{
 	}
 
-	public Integer getPartyId()
+	public Long getPartyId()
 	{
 		return this.partyId;
 	}
 
-	public void setPartyId(Integer partyId)
+	public void setPartyId(Long partyId)
 	{
 		this.partyId = partyId;
 	}

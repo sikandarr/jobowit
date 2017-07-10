@@ -1,6 +1,6 @@
 package com.jobowit.service;
 
-import com.jobowit.domain.Party;
+/*import com.jobowit.domain.Party;
 import com.jobowit.repositories.PartyRepository;
 
 import java.util.List;
@@ -56,4 +56,4 @@ public class PartyService
 		return findByName(party.getName()) != null;
 	}
 
-}
+}*/

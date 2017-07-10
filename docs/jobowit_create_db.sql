@@ -39,7 +39,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `jobowit_db`.`party` ;
 
 CREATE TABLE IF NOT EXISTS `jobowit_db`.`party` (
-  `party_id` INT NOT NULL AUTO_INCREMENT,
+  `party_id` BIGINT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(100) NOT NULL,
   `contact_name` VARCHAR(100) NULL,
   `email` VARCHAR(50) NULL,
@@ -64,12 +64,24 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `jobowit_db`.`access_role`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `jobowit_db`.`access_role` ;
+
+CREATE TABLE IF NOT EXISTS `jobowit_db`.`access_role` (
+  `role_name` VARCHAR(100) NOT NULL,
+  PRIMARY KEY (`role_name`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `jobowit_db`.`staff`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `jobowit_db`.`staff` ;
 
 CREATE TABLE IF NOT EXISTS `jobowit_db`.`staff` (
   `staff_id` INT NOT NULL AUTO_INCREMENT,
+  `access_role` VARCHAR(100) NULL DEFAULT 'NO ACCESS',
   `username` VARCHAR(16) NOT NULL,
   `email` VARCHAR(255) NULL,
   `password` VARCHAR(32) NOT NULL,
@@ -78,9 +90,15 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`staff` (
   `address_id` INT NOT NULL,
   PRIMARY KEY (`staff_id`),
   INDEX `fk_staff_address1_idx` (`address_id` ASC),
+  INDEX `fk_staff_access_role1_idx` (`access_role` ASC),
   CONSTRAINT `fk_staff_address1`
     FOREIGN KEY (`address_id`)
     REFERENCES `jobowit_db`.`address` (`address_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_staff_access_role1`
+    FOREIGN KEY (`access_role`)
+    REFERENCES `jobowit_db`.`access_role` (`role_name`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
@@ -124,7 +142,7 @@ DROP TABLE IF EXISTS `jobowit_db`.`job` ;
 
 CREATE TABLE IF NOT EXISTS `jobowit_db`.`job` (
   `job_id` INT NOT NULL AUTO_INCREMENT,
-  `customer_id` INT NOT NULL,
+  `customer_id` BIGINT NOT NULL,
   `description` LONGTEXT NULL,
   `initial_type` INT NOT NULL,
   `current_type` INT NOT NULL,
@@ -166,7 +184,7 @@ DROP TABLE IF EXISTS `jobowit_db`.`comment` ;
 CREATE TABLE IF NOT EXISTS `jobowit_db`.`comment` (
   `comment_id` INT NOT NULL AUTO_INCREMENT,
   `details` LONGTEXT NULL,
-  `party_id` INT NULL,
+  `party_id` BIGINT NULL,
   `job_id` INT NULL,
   `comment_dtm` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
   `staff_id` INT NOT NULL,
@@ -280,7 +298,7 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`bill` (
   `ref` VARCHAR(45) NULL,
   `tax_inclusive` TINYINT(1) NULL,
   `job_id` INT NOT NULL,
-  `supplier_id` INT NOT NULL,
+  `supplier_id` BIGINT NOT NULL,
   PRIMARY KEY (`bill_id`),
   INDEX `fk_bill_job1_idx` (`job_id` ASC),
   INDEX `fk_bill_party1_idx` (`supplier_id` ASC),
@@ -539,32 +557,24 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `jobowit_db`.`access_role`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `jobowit_db`.`access_role` ;
-
-CREATE TABLE IF NOT EXISTS `jobowit_db`.`access_role` (
-  `role_name` VARCHAR(100) NOT NULL,
-  PRIMARY KEY (`role_name`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `jobowit_db`.`access_control`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `jobowit_db`.`access_control` ;
 
 CREATE TABLE IF NOT EXISTS `jobowit_db`.`access_control` (
+  `access_control_id` INT NOT NULL AUTO_INCREMENT,
   `table_name` VARCHAR(100) NOT NULL,
-  `staff_id` INT NOT NULL,
-  `role_name` VARCHAR(100) NOT NULL,
+  `staff_id` INT NULL DEFAULT NULL,
+  `role_name` VARCHAR(100) NULL DEFAULT NULL,
   `can_read` TINYINT(1) NOT NULL DEFAULT 0,
   `can_delete` TINYINT(1) NULL DEFAULT 0,
   `can_write` TINYINT(1) NULL DEFAULT 0,
-  PRIMARY KEY (`table_name`, `staff_id`, `role_name`),
   INDEX `fk_access_control_table1_idx` (`table_name` ASC),
   INDEX `fk_access_control_staff1_idx` (`staff_id` ASC),
   INDEX `fk_access_control_access_role1_idx` (`role_name` ASC),
+  UNIQUE INDEX `UNIQUE_STAFF_PER_RESOURCE` (`table_name` ASC, `staff_id` ASC),
+  PRIMARY KEY (`access_control_id`),
+  UNIQUE INDEX `UNIQUE_ROLE_PER_RESOURCE` (`table_name` ASC, `role_name` ASC),
   CONSTRAINT `fk_access_control_table1`
     FOREIGN KEY (`table_name`)
     REFERENCES `jobowit_db`.`db_table` (`table_name`)

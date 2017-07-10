@@ -614,6 +614,9 @@ INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_add
 -- staff data
 -- -----------------------------------------------------
 
+INSERT INTO `access_role` (`role_name`) VALUES ("DEFAULT");
+INSERT INTO `access_role` (`role_name`) VALUES ("NO ACCESS");
+
 insert into staff (username, email, password, name, address_id) values ('motion6', 'info@motion.six', 'motion6', 'Sikandar & Mearaj', 457);
 insert into staff (username, email, password, name, address_id) values ('rrobus1', 'rrobus1@sbwire.com', '16EfMURm', 'Rafe Robus', 456);
 insert into staff (username, email, password, name, address_id) values ('dgraham2', 'dgraham2@e-recht24.de', 'nVzKazzJ4c', 'Dorelia Graham', 450);
@@ -996,11 +999,10 @@ INSERT INTO `db_table` (`table_name`) VALUES ("Party");
 INSERT INTO `db_table` (`table_name`) VALUES ("Job");
 INSERT INTO `db_table` (`table_name`) VALUES ("Staff");
 INSERT INTO `db_table` (`table_name`) VALUES ("JobWorks");
-INSERT INTO `access_role` (`role_name`) VALUES ("DEFAULT_ROLE");
-INSERT INTO `access_control` (`staff_id`, `role_name`, `table_name`, `can_read`, `can_delete`, `can_write`) VALUES (1,"DEFAULT_ROLE", "Party",1,1,1);
-INSERT INTO `access_control` (`staff_id`, `role_name`, `table_name`, `can_read`, `can_delete`, `can_write`) VALUES (2,"DEFAULT_ROLE", "Party",1,0,0);
-INSERT INTO `access_control` (`staff_id`, `role_name`, `table_name`, `can_read`, `can_delete`, `can_write`) VALUES (3,"DEFAULT_ROLE", "Party",1,0,1);
-INSERT INTO `access_control` (`staff_id`, `role_name`, `table_name`, `can_read`, `can_delete`, `can_write`) VALUES (4,"DEFAULT_ROLE", "Party",1,1,1);
+INSERT INTO `access_control` (`staff_id`, `table_name`, `can_read`, `can_delete`, `can_write`) VALUES (1,"Party",1,1,1);
+INSERT INTO `access_control` (`staff_id`, `table_name`, `can_read`, `can_delete`, `can_write`) VALUES (2,"Party",1,0,0);
+INSERT INTO `access_control` (`staff_id`, `table_name`, `can_read`, `can_delete`, `can_write`) VALUES (3,"Party",1,0,1);
+INSERT INTO `access_control` (`staff_id`, `table_name`, `can_read`, `can_delete`, `can_write`) VALUES (4,"Party",1,1,1);
 
 -- -----------------------------------------------------
 -- invoice mock data

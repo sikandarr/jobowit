@@ -1,5 +1,4 @@
 DROP DATABASE IF EXISTS `jobowit_db`;
-
 -- MySQL Workbench Forward Engineering
 
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
@@ -186,7 +185,7 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`comment` (
   `details` LONGTEXT NULL,
   `party_id` BIGINT NULL,
   `job_id` INT NULL,
-  `comment_dtm` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
+  `comment_dtm` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `staff_id` INT NOT NULL,
   PRIMARY KEY (`comment_id`),
   INDEX `fk_comment_Party1_idx` (`party_id` ASC),

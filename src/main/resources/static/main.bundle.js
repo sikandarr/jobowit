@@ -21,6 +21,10 @@ webpackEmptyContext.id = "../../../../../src async recursive";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_parties_parties_component__ = __webpack_require__("../../../../../src/app/components/parties/parties.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_parties_party_party_component__ = __webpack_require__("../../../../../src/app/components/parties/party/party.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_parties_party_party_invoices_party_invoices_component__ = __webpack_require__("../../../../../src/app/components/parties/party/party-invoices/party-invoices.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_parties_party_party_bills_party_bills_component__ = __webpack_require__("../../../../../src/app/components/parties/party/party-bills/party-bills.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_parties_party_party_jobs_party_jobs_component__ = __webpack_require__("../../../../../src/app/components/parties/party/party-jobs/party-jobs.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_parties_party_party_main_party_main_component__ = __webpack_require__("../../../../../src/app/components/parties/party/party-main/party-main.component.ts");
 /* unused harmony export routes */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppRoutingModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -33,10 +37,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+
+
+
 var routes = [
     { path: '', redirectTo: 'parties', pathMatch: 'full' },
     { path: 'parties', component: __WEBPACK_IMPORTED_MODULE_2__components_parties_parties_component__["a" /* PartiesComponent */] },
-    { path: 'party/:id', component: __WEBPACK_IMPORTED_MODULE_3__components_parties_party_party_component__["a" /* PartyComponent */] },
+    { path: 'party/:id', component: __WEBPACK_IMPORTED_MODULE_3__components_parties_party_party_component__["a" /* PartyComponent */],
+        children: [
+            { path: '', redirectTo: 'main', pathMatch: 'full' },
+            { path: 'main', component: __WEBPACK_IMPORTED_MODULE_7__components_parties_party_party_main_party_main_component__["a" /* PartyMainComponent */] },
+            { path: 'jobs', component: __WEBPACK_IMPORTED_MODULE_6__components_parties_party_party_jobs_party_jobs_component__["a" /* PartyJobsComponent */] },
+            { path: 'bills', component: __WEBPACK_IMPORTED_MODULE_5__components_parties_party_party_bills_party_bills_component__["a" /* PartyBillsComponent */] },
+            { path: 'invoices', component: __WEBPACK_IMPORTED_MODULE_4__components_parties_party_party_invoices_party_invoices_component__["a" /* PartyInvoicesComponent */] },
+        ]
+    },
     { path: '**', redirectTo: 'parties', pathMatch: 'full' }
 ];
 var AppRoutingModule = (function () {
@@ -58,7 +74,7 @@ AppRoutingModule = __decorate([
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"app-nav-bar\" class=\"app-nav-bar\">\n  <div class=\"app-sidebar-style\">\n  <a href=\"#\" class=\"app-logo-wrapper\">\n    <img class=\"app-logo\" src=\"assets/img/logos/logo.png\">\n  </a>\n    <i (click)=\"toggleCollapse()\" class=\"fa fa-bars app-menu-icon\" aria-hidden=\"true\"></i>\n  </div>\n</div>\n\n<div id=\"app-main-container\">\n  <div id=\"app-sidebar\" class=\"padding\">\n    <a href=\"\" class=\"app-anchor\">\n      <i class=\"fa fa-user\" aria-hidden=\"true\"></i>\n      <span class=\"app-sidebar-item\">Parties</span></a>\n  </div>\n  <div id=\"app-main-content\" class=\"padding\" [@app-sidebar]=\"state\" (transitionend)=\"onTransitionEnd($event)\">\n    <div class=\"breadcrumb\">\n      <span class=\"breadcrumb-item\">\n        BreadCrumb\n      </span>\n    </div>\n    <div class=\"component-parent\">\n      <router-outlet></router-outlet>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div id=\"app-nav-bar\" class=\"app-nav-bar\">\n  <div class=\"app-sidebar-style\">\n  <a href=\"#\" class=\"app-logo-wrapper\">\n    <img class=\"app-logo\" src=\"assets/img/logos/logo.png\">\n  </a>\n    <i (click)=\"toggleCollapse()\" class=\"fa fa-bars app-menu-icon\" aria-hidden=\"true\"></i>\n  </div>\n</div>\n\n<div id=\"app-main-container\">\n  <div id=\"app-sidebar\" class=\"padding\">\n    <a href=\"\" class=\"app-anchor\">\n      <i class=\"fa fa-user\" aria-hidden=\"true\"></i>\n      <span class=\"app-sidebar-item\">Parties</span></a>\n  </div>\n  <div id=\"app-main-content\" class=\"padding\" [@app-sidebar]=\"state\" (transitionend)=\"onTransitionEnd($event)\">\n    <div class=\"breadcrumb\">\n      <span class=\"breadcrumb-item\">\n        BreadCrumb\n      </span>\n    </div>\n    <div class=\"component-parent\">\n      <div>\n      <router-outlet></router-outlet>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -70,7 +86,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "#app-nav-bar {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 66px;\n  background-color: black;\n  z-index: 10; }\n\n.app-logo-wrapper {\n  display: block;\n  padding: 8px; }\n\n.app-logo:hover {\n  -webkit-transform: scaleX(1.3);\n          transform: scaleX(1.3); }\n\n.app-logo {\n  height: 50px;\n  width: 100px;\n  transition: width 0.50s ease-in-out; }\n\n.app-sidebar-style {\n  width: 220px;\n  position: relative;\n  padding-left: 30px; }\n\n.app-menu-icon {\n  position: absolute;\n  display: block;\n  right: 0;\n  top: 0;\n  font-size: 40px;\n  color: white;\n  line-height: 40px;\n  padding: 13px; }\n\n#app-main-container {\n  display: block;\n  position: absolute;\n  top: 66px;\n  left: 0;\n  right: 0; }\n\n#app-sidebar {\n  position: fixed;\n  top: 66px;\n  left: 0;\n  white-space: nowrap;\n  min-height: 100vh;\n  width: 200px;\n  overflow: hidden;\n  z-index: 1;\n  background-color: #b1ebf8; }\n\n#app-main-content {\n  position: absolute;\n  left: 200px;\n  overflow-x: hidden;\n  background-color: white;\n  right: 0;\n  z-index: 2;\n  transition: left 0.5s ease-in-out;\n  min-height: 100vh;\n  padding-bottom: 100px;\n  margin-bottom: 100px; }\n\n.app-anchor {\n  text-decoration: none;\n  color: black;\n  font-size: 1.2rem; }\n\n.component-parent {\n  margin-top: 50px;\n  width: 100%; }\n", ""]);
+exports.push([module.i, "#app-nav-bar {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 66px;\n  background-color: black;\n  z-index: 10; }\n\n.app-logo-wrapper {\n  display: block;\n  padding: 8px; }\n\n.app-logo:hover {\n  -webkit-transform: scaleX(1.3);\n          transform: scaleX(1.3); }\n\n.app-logo {\n  height: 50px;\n  width: 100px;\n  transition: width 0.50s ease-in-out; }\n\n.app-sidebar-style {\n  width: 220px;\n  position: relative;\n  padding-left: 30px; }\n\n.app-menu-icon {\n  position: absolute;\n  display: block;\n  right: 0;\n  top: 0;\n  font-size: 40px;\n  color: white;\n  line-height: 40px;\n  padding: 13px; }\n\n#app-main-container {\n  display: block;\n  position: absolute;\n  top: 66px;\n  left: 0;\n  right: 0; }\n\n#app-sidebar {\n  position: fixed;\n  top: 66px;\n  left: 0;\n  white-space: nowrap;\n  min-height: 100vh;\n  width: 200px;\n  overflow: hidden;\n  z-index: 1;\n  background-color: #b1ebf8; }\n\n#app-main-content {\n  position: absolute;\n  left: 200px;\n  overflow-x: hidden;\n  background-color: white;\n  right: 0;\n  z-index: 2;\n  transition: left 0.5s ease-in-out;\n  padding-bottom: 100px; }\n\n.app-anchor {\n  text-decoration: none;\n  color: black;\n  font-size: 1.2rem; }\n\n.component-parent {\n  margin-top: 50px;\n  width: 100%; }\n", ""]);
 
 // exports
 
@@ -112,11 +128,10 @@ var AppComponent = (function () {
     AppComponent.prototype.toggleCollapse = function () {
         if (this.state == 'expanded') {
             this.state = 'collapsed';
-            console.log("should collapse");
         }
         else {
             this.state = 'expanded';
-            console.log("should expand");
+            ("should expand");
             this.changeDetectorRef.detectChanges();
         }
     };
@@ -235,7 +250,7 @@ AppModule = __decorate([
 /***/ "../../../../../src/app/components/parties/parties.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ag-grid-angular #agGrid style=\"width: 100%; height:80vh; min-height: 80vh; transition: all 0.5s ease-in-out\" class=\"ag-fresh\"\n\n[gridOptions]=\"gridOptions\"\n[columnDefs]=\"columnDefs\"\n\n[rowData]=\"rowData\"\nheaderHeight=\"50\"\nenableColResize\nenableSorting\nenableFilter\n\nrowHeight=\"40\"\nrowSelection=\"multiple\"\n\n(modelUpdated)=\"onModelUpdated()\"\n(cellClicked)=\"onCellClicked($event)\"\n(cellDoubleClicked)=\"onCellDoubleClicked($event)\">\n\n</ag-grid-angular>\n<router-outlet></router-outlet>\n<!--[showToolPanel]=\"showToolPanel\"-->\n"
+module.exports = "<ag-grid-angular #agGrid style=\"width: 100%; height:80vh; min-height: 80vh; transition: all 0.5s ease-in-out\" class=\"ag-fresh\"\n\n[gridOptions]=\"gridOptions\"\n[columnDefs]=\"columnDefs\"\ndomLayout='autoHeight'\n[rowData]=\"rowData\"\nheaderHeight=\"50\"\nenableColResize\nenableSorting\nenableFilter\n\nrowHeight=\"40\"\nrowSelection=\"multiple\"\n\n(modelUpdated)=\"onModelUpdated()\"\n(cellClicked)=\"onCellClicked($event)\"\n(cellDoubleClicked)=\"onCellDoubleClicked($event)\">\n\n</ag-grid-angular>\n<router-outlet></router-outlet>\n<!--[showToolPanel]=\"showToolPanel\"-->\n"
 
 /***/ }),
 
@@ -247,7 +262,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "ag-grid-angular * {\n  transition: width 0.5s ease-in-out, left 0.5s ease-in-out, right 0.5s ease-in-out; }\n\n.ag-header-container {\n  font-size: 2rem; }\n\n.ag-body-container {\n  font-size: 1.3rem;\n  line-height: 1; }\n\n.first-column {\n  color: #0275d8;\n  cursor: pointer; }\n\n.first-column:hover {\n  background-color: #b1ebf8;\n  color: black; }\n\n.first-column, .second-column, .third-column {\n  padding: 10px !important; }\n", ""]);
+exports.push([module.i, "ag-grid-angular * {\n  transition: width 0.10s ease-in-out, left 0.10s ease-in-out, right 0.10s ease-in-out; }\n\n.ag-header-container {\n  font-size: 2rem; }\n\n.ag-body-container {\n  font-size: 1.3rem;\n  line-height: 1; }\n\n.first-column {\n  color: #0275d8;\n  cursor: pointer; }\n\n.first-column:hover {\n  background-color: #b1ebf8;\n  color: black; }\n\n.first-column, .second-column, .third-column {\n  padding: 10px !important; }\n", ""]);
 
 // exports
 
@@ -263,9 +278,8 @@ module.exports = module.exports.toString();
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_server_service__ = __webpack_require__("../../../../../src/app/services/server-service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_customer__ = __webpack_require__("../../../../../src/app/models/customer.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_nav_bar_service__ = __webpack_require__("../../../../../src/app/services/nav-bar.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_nav_bar_service__ = __webpack_require__("../../../../../src/app/services/nav-bar.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PartiesComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -280,7 +294,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
 var PartiesComponent = (function () {
     function PartiesComponent(serverService, navBarService, changeDetectorRef, router, activatedRoute) {
         this.serverService = serverService;
@@ -288,7 +301,6 @@ var PartiesComponent = (function () {
         this.changeDetectorRef = changeDetectorRef;
         this.router = router;
         this.activatedRoute = activatedRoute;
-        this.customerColumns = __WEBPACK_IMPORTED_MODULE_2__models_customer__["a" /* default */];
         this.columnDefs = [
             {
                 headerName: "Party Name",
@@ -313,7 +325,6 @@ var PartiesComponent = (function () {
         this.serverService.getAllParties()
             .subscribe(function (response) {
             _this.rowData = response._embedded.parties;
-            console.log(_this.rowData);
         }, function (error) {
             console.log(error);
         });
@@ -343,14 +354,11 @@ var PartiesComponent = (function () {
         var href = $event.data._links.self.href;
         var index = (href.lastIndexOf('/') + 1);
         var id = +(href.substr(index));
-        console.log(id);
-        this.router.navigate(['party', id])
+        this.router.navigate(['party', id, 'main'], [{ pathMatch: 'full' }])
             .then(function (value) {
-            console.log(value);
         }).catch(function (error) { console.log(error); });
     };
     PartiesComponent.prototype.onCellDoubleClicked = function ($event) {
-        console.log($event.data._links.self);
     };
     PartiesComponent.prototype.ngAfterViewInit = function () {
         this.gridOptions.api.sizeColumnsToFit();
@@ -367,7 +375,7 @@ PartiesComponent = __decorate([
         styles: [__webpack_require__("../../../../../src/app/components/parties/parties.component.scss")],
         encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewEncapsulation"].None
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_server_service__["a" /* ServerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_server_service__["a" /* ServerService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__services_nav_bar_service__["a" /* NavBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_nav_bar_service__["a" /* NavBarService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["c" /* Router */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* ActivatedRoute */]) === "function" && _e || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_server_service__["a" /* ServerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_server_service__["a" /* ServerService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_nav_bar_service__["a" /* NavBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_nav_bar_service__["a" /* NavBarService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* Router */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* ActivatedRoute */]) === "function" && _e || Object])
 ], PartiesComponent);
 
 var _a, _b, _c, _d, _e;
@@ -378,7 +386,7 @@ var _a, _b, _c, _d, _e;
 /***/ "../../../../../src/app/components/parties/party/party-bills/party-bills.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  [Bills] tab\n\n  note: this tab is visible only if there are 1 or more bills linked to the party\n\n  heading: Bills\n\n  for each bills linked to party\n\n  table/details:\n\n  @bill_id | @job_id | @bill_date | @due_date | @total_amount\n\n  /table/details\n\n  [/bills] tab\n</p>\n<div *ngIf=\"partyBills && partyBills.length !== 0\">\n  <ul *ngFor=\"let partyJob of partyBills\">\n    <li>{{partyJob.description}}</li>\n  </ul>\n</div>\n<div>\n  <button class=\"btn btn-primary\">Create Job</button>\n</div>\n"
+module.exports = "<div class=\"app-ag-grid-wrapper\">\n  <ag-grid-angular #agGrid style=\"width: 100%; overflow:hidden;transition: all 0.5s ease-in-out\" class=\"ag-fresh\"\n\n                   [gridOptions]=\"gridOptions\"\n                   [columnDefs]=\"columnDefs\"\n                   domLayout='autoHeight'\n                   [rowData]=\"rowData\"\n                   headerHeight=\"50\"\n                   enableColResize\n                   enableSorting\n                   enableFilter\n\n                   rowHeight=\"40\"\n                   rowSelection=\"multiple\"\n\n                   (modelUpdated)=\"onModelUpdated()\"\n                   (cellClicked)=\"onCellClicked($event)\"\n                   (cellDoubleClicked)=\"onCellDoubleClicked($event)\">\n\n  </ag-grid-angular>\n</div>\n"
 
 /***/ }),
 
@@ -390,7 +398,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".app-ag-grid-wrapper {\n  height: 100vh; }\n\nag-grid-angular {\n  margin-top: 3rem; }\n\n.ag-header-container {\n  font-size: 2rem; }\n\n.ag-body-container {\n  font-size: 1.3rem;\n  line-height: 1;\n  height: auto; }\n\n.first-column {\n  color: #0275d8;\n  cursor: pointer; }\n\n.first-column:hover {\n  background-color: #b1ebf8;\n  color: black; }\n\n.first-column, .second-column, .third-column {\n  padding: 10px !important; }\n", ""]);
 
 // exports
 
@@ -407,6 +415,8 @@ module.exports = module.exports.toString();
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_server_service__ = __webpack_require__("../../../../../src/app/services/server-service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_party_service__ = __webpack_require__("../../../../../src/app/services/party.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_nav_bar_service__ = __webpack_require__("../../../../../src/app/services/nav-bar.service.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PartyBillsComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -420,24 +430,88 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 var PartyBillsComponent = (function () {
-    function PartyBillsComponent(activatedRoute, serverService) {
+    function PartyBillsComponent(activatedRoute, serverService, partyService, navBarService) {
         this.activatedRoute = activatedRoute;
         this.serverService = serverService;
+        this.partyService = partyService;
+        this.navBarService = navBarService;
         this.paramsReceived = null;
+        this.columnDefs = [
+            {
+                headerName: "Bill id",
+                field: 'bill_id',
+                cellClass: 'first-column'
+            },
+            {
+                headerName: "Job id",
+                field: "job_id",
+            },
+            {
+                headerName: "Bill date",
+                field: "bill_date",
+            },
+            {
+                headerName: "Due date",
+                field: "due_date",
+            },
+            {
+                headerName: "Total amount",
+                field: "total_amount",
+            }
+        ];
     }
     PartyBillsComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.activatedRoute.params.subscribe(function (params) {
-            console.log(params);
-            console.log(params['id']);
-            _this.paramsReceived = params['id'];
+        this.partyServiceSubscription = this.partyService.partyIdSourceObservable.subscribe(function (id) {
+            console.log(id);
+            _this.paramsReceived = id;
             _this.serverService.getRequestByPartyId(_this.paramsReceived, '/bills')
                 .subscribe(function (partyBills) {
                 console.log(partyBills);
-                _this.partyBills = partyBills._embedded.jobs;
+                _this.rowData = partyBills._embedded.bills;
             }, function (error) { console.log(error); });
         }, function (error) { return console.log(error); });
+        this.gridOptions = {
+            context: {
+                componentParent: this
+            },
+            rowData: this.rowData,
+            columnDefs: this.columnDefs
+        };
+        this.navBarSubscription = this.navBarService.getNavBarSubject().subscribe(function (value) {
+            console.log("sizeColumnsToFit");
+            _this.gridOptions.api.sizeColumnsToFit();
+        });
+    };
+    PartyBillsComponent.prototype.onModelUpdated = function () {
+        console.log("onModeUpdated");
+    };
+    PartyBillsComponent.prototype.onCellClicked = function ($event) {
+        console.log($event.data);
+        var href = $event.data._links.self.href;
+        var index = (href.lastIndexOf('/') + 1);
+        var id = +(href.substr(index));
+        console.log(id);
+        // this.router.navigate(['party', id, 'invoices'])
+        //   .then((value) => {
+        //     console.log(value);
+        //   }).catch((error) => {
+        //   console.log(error)
+        // });
+    };
+    PartyBillsComponent.prototype.onCellDoubleClicked = function ($event) {
+        console.log($event.data._links.self);
+    };
+    PartyBillsComponent.prototype.ngAfterViewInit = function () {
+        this.gridOptions.api.sizeColumnsToFit();
+    };
+    PartyBillsComponent.prototype.ngOnDestroy = function () {
+        this.navBarSubscription.unsubscribe();
+        this.partyServiceSubscription.unsubscribe();
+        this.partyService.announcePartyIdBeforeDestroy(this.paramsReceived);
     };
     return PartyBillsComponent;
 }());
@@ -447,10 +521,10 @@ PartyBillsComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/components/parties/party/party-bills/party-bills.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/parties/party/party-bills/party-bills.component.scss")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_server_service__["a" /* ServerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_server_service__["a" /* ServerService */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_server_service__["a" /* ServerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_server_service__["a" /* ServerService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__services_party_service__["a" /* PartyService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_party_service__["a" /* PartyService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__services_nav_bar_service__["a" /* NavBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_nav_bar_service__["a" /* NavBarService */]) === "function" && _d || Object])
 ], PartyBillsComponent);
 
-var _a, _b;
+var _a, _b, _c, _d;
 //# sourceMappingURL=party-bills.component.js.map
 
 /***/ }),
@@ -458,7 +532,7 @@ var _a, _b;
 /***/ "../../../../../src/app/components/parties/party/party-invoices/party-invoices.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  [Invoice] tab\n\n  note: this tab is visible only if there are 1 or more invoices linked to the party\n\n  heading: Invoices\n\n  for each invoice linked to party\n\n  table/details:\n\n  @invoice_id | @job_id | @invoice_date | @due_date | @total_amount\n\n  /table/details\n</p>\n"
+module.exports = "<div class=\"app-ag-grid-wrapper\">\n<ag-grid-angular #agGrid style=\"width: 100%; overflow:hidden;transition: all 0.5s ease-in-out\" class=\"ag-fresh\"\n\n                 [gridOptions]=\"gridOptions\"\n                 [columnDefs]=\"columnDefs\"\n                 domLayout='autoHeight'\n                 [rowData]=\"rowData\"\n                 headerHeight=\"50\"\n                 enableColResize\n                 enableSorting\n                 enableFilter\n\n                 rowHeight=\"40\"\n                 rowSelection=\"multiple\"\n\n                 (modelUpdated)=\"onModelUpdated()\"\n                 (cellClicked)=\"onCellClicked($event)\"\n                 (cellDoubleClicked)=\"onCellDoubleClicked($event)\">\n\n</ag-grid-angular>\n<div>\n  <button class=\"btn btn-primary\">Create Invoice</button>\n</div>\n</div>\n"
 
 /***/ }),
 
@@ -470,7 +544,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".app-ag-grid-wrapper {\n  height: 100vh; }\n\nag-grid-angular {\n  margin-top: 3rem; }\n\n.ag-header-container {\n  font-size: 2rem; }\n\n.ag-body-container {\n  font-size: 1.3rem;\n  line-height: 1;\n  height: auto; }\n\n.first-column {\n  color: #0275d8;\n  cursor: pointer; }\n\n.first-column:hover {\n  background-color: #b1ebf8;\n  color: black; }\n\n.first-column, .second-column, .third-column {\n  padding: 10px !important; }\n", ""]);
 
 // exports
 
@@ -485,6 +559,10 @@ module.exports = module.exports.toString();
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_server_service__ = __webpack_require__("../../../../../src/app/services/server-service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_nav_bar_service__ = __webpack_require__("../../../../../src/app/services/nav-bar.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_party_service__ = __webpack_require__("../../../../../src/app/services/party.service.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PartyInvoicesComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -496,10 +574,102 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
+
 var PartyInvoicesComponent = (function () {
-    function PartyInvoicesComponent() {
+    function PartyInvoicesComponent(serverService, navBarService, router, activatedRoute, partyService) {
+        this.serverService = serverService;
+        this.navBarService = navBarService;
+        this.router = router;
+        this.activatedRoute = activatedRoute;
+        this.partyService = partyService;
+        this.paramsReceived = null;
+        this.columnDefs = [
+            {
+                headerName: "Invoice id",
+                field: 'description',
+                cellClass: 'first-column'
+            },
+            {
+                headerName: "Job id",
+                field: "physical_address",
+                cellClass: 'second-column'
+            },
+            {
+                headerName: "Invoice date",
+                field: "invoice_dt",
+                cellClass: 'third-column'
+            },
+            {
+                headerName: "Due date",
+                field: "invoice_due_date",
+                cellClass: 'third-column'
+            },
+            {
+                headerName: "Total amount",
+                field: "total_amount",
+                cellClass: 'third-column'
+            }
+        ];
     }
     PartyInvoicesComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.partyServiceSubscription = this.partyService.partyIdSourceObservable.subscribe(function (id) {
+            console.log(id);
+            console.log(id['id']);
+            _this.paramsReceived = id;
+            _this.serverService.getRequestByPartyId(_this.paramsReceived, '/invoices')
+                .subscribe(function (partyInvoices) {
+                console.log(partyInvoices);
+                if (partyInvoices._embedded) {
+                    _this.rowData = partyInvoices._embedded.invoices;
+                }
+            }, function (error) {
+                console.log(error);
+            });
+        }, function (error) { return console.log(error); });
+        this.gridOptions = {
+            context: {
+                componentParent: this
+            },
+            rowData: this.rowData,
+            columnDefs: this.columnDefs
+        };
+        this.navBarSubscription = this.navBarService.getNavBarSubject().subscribe(function (value) {
+            console.log("sizeColumnsToFit");
+            _this.gridOptions.api.sizeColumnsToFit();
+        });
+    };
+    PartyInvoicesComponent.prototype.newCustomer = function () {
+    };
+    PartyInvoicesComponent.prototype.onModelUpdated = function () {
+        console.log("onModeUpdated");
+    };
+    PartyInvoicesComponent.prototype.onCellClicked = function ($event) {
+        console.log($event.data);
+        var href = $event.data._links.self.href;
+        var index = (href.lastIndexOf('/') + 1);
+        var id = +(href.substr(index));
+        console.log(id);
+        // this.router.navigate(['party', id, 'invoices'])
+        //   .then((value) => {
+        //     console.log(value);
+        //   }).catch((error) => {
+        //   console.log(error)
+        // });
+    };
+    PartyInvoicesComponent.prototype.onCellDoubleClicked = function ($event) {
+        console.log($event.data._links.self);
+    };
+    PartyInvoicesComponent.prototype.ngAfterViewInit = function () {
+        this.gridOptions.api.sizeColumnsToFit();
+    };
+    PartyInvoicesComponent.prototype.ngOnDestroy = function () {
+        this.navBarSubscription.unsubscribe();
+        this.partyServiceSubscription.unsubscribe();
+        this.partyService.announcePartyIdBeforeDestroy(this.paramsReceived);
     };
     return PartyInvoicesComponent;
 }());
@@ -507,11 +677,13 @@ PartyInvoicesComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-party-invoices',
         template: __webpack_require__("../../../../../src/app/components/parties/party/party-invoices/party-invoices.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/components/parties/party/party-invoices/party-invoices.component.scss")]
+        styles: [__webpack_require__("../../../../../src/app/components/parties/party/party-invoices/party-invoices.component.scss")],
+        encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewEncapsulation"].None
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_server_service__["a" /* ServerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_server_service__["a" /* ServerService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__services_nav_bar_service__["a" /* NavBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_nav_bar_service__["a" /* NavBarService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* ActivatedRoute */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__services_party_service__["a" /* PartyService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_party_service__["a" /* PartyService */]) === "function" && _e || Object])
 ], PartyInvoicesComponent);
 
+var _a, _b, _c, _d, _e;
 //# sourceMappingURL=party-invoices.component.js.map
 
 /***/ }),
@@ -519,7 +691,7 @@ PartyInvoicesComponent = __decorate([
 /***/ "../../../../../src/app/components/parties/party/party-jobs/party-jobs.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  [Jobs] tab\n\n  heading: Job# id\n\n  for each job linked to the party\n\n  @description\n  @current_status\n\n  [button]: New Job\n\n  [/jobs]\n</p>\n<div *ngIf=\"partyJobs && partyJobs.length !== 0\">\n  <ul *ngFor=\"let partyJob of partyJobs\">\n    <li>{{partyJob.description}}</li>\n  </ul>\n</div>\n<div>\n  <button class=\"btn btn-primary\">Create Job</button>\n</div>\n"
+module.exports = "<p>\n  [Jobs] tab<br>\n\n  heading: Job# id <br>\n\n  for each job linked to the party<br>\n\n  @description<br>\n  @current_status<br>\n\n  [button]: New Job<br>\n\n  [/jobs]<br>\n</p>\n<div *ngIf=\"partyJobs && partyJobs.length !== 0\">\n  <ul *ngFor=\"let partyJob of partyJobs\">\n    <li>{{partyJob.description}}</li>\n  </ul>\n</div>\n<div>\n  <button class=\"btn btn-primary\">Create Job</button>\n</div>\n"
 
 /***/ }),
 
@@ -548,6 +720,7 @@ module.exports = module.exports.toString();
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_server_service__ = __webpack_require__("../../../../../src/app/services/server-service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_party_service__ = __webpack_require__("../../../../../src/app/services/party.service.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PartyJobsComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -561,24 +734,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var PartyJobsComponent = (function () {
-    function PartyJobsComponent(activatedRoute, serverService) {
+    function PartyJobsComponent(activatedRoute, serverService, partyService) {
         this.activatedRoute = activatedRoute;
         this.serverService = serverService;
+        this.partyService = partyService;
         this.paramsReceived = null;
     }
     PartyJobsComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.activatedRoute.params.subscribe(function (params) {
-            console.log(params);
-            console.log(params['id']);
-            _this.paramsReceived = params['id'];
+        this.partyServiceSubscription = this.partyService.partyIdSourceObservable.subscribe(function (id) {
+            _this.paramsReceived = id;
             _this.serverService.getRequestByPartyId(_this.paramsReceived, '/jobs')
                 .subscribe(function (partyJobs) {
                 console.log(partyJobs);
                 _this.partyJobs = partyJobs._embedded.jobs;
             }, function (error) { console.log(error); });
         }, function (error) { return console.log(error); });
+    };
+    PartyJobsComponent.prototype.ngOnDestroy = function () {
+        this.partyServiceSubscription.unsubscribe();
+        this.partyService.announcePartyIdBeforeDestroy(this.paramsReceived);
     };
     return PartyJobsComponent;
 }());
@@ -588,10 +765,10 @@ PartyJobsComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/components/parties/party/party-jobs/party-jobs.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/parties/party/party-jobs/party-jobs.component.scss")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_server_service__["a" /* ServerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_server_service__["a" /* ServerService */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_server_service__["a" /* ServerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_server_service__["a" /* ServerService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__services_party_service__["a" /* PartyService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_party_service__["a" /* PartyService */]) === "function" && _c || Object])
 ], PartyJobsComponent);
 
-var _a, _b;
+var _a, _b, _c;
 //# sourceMappingURL=party-jobs.component.js.map
 
 /***/ }),
@@ -599,7 +776,7 @@ var _a, _b;
 /***/ "../../../../../src/app/components/parties/party/party-main/party-main.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"app-form-container app-form-container-top\">\n  <h3 class=\"app-form-header\">Customer/Supplier Details</h3>\n  <form [formGroup]=\"signUpForm\" (ngSubmit)=\"onSubmit()\">\n    <!--<fieldset [disabled]=\"true\">-->\n    <div formGroupName=\"userData\">\n      <div class=\"form-group\">\n        <label for=\"party-name\" class=\"app-form-label\">Name</label><span class=\"app-form-label-colon\">:</span>\n        <input\n          type=\"text\"\n          id=\"party-name\"\n          formControlName=\"party-name\"\n          class=\"form-control\"\n          [readonly]=\"!getDetailFormStatus()\">\n      </div>\n      <div class=\"form-group\"\n           *ngIf=\"!signUpForm.get('userData.party-name').valid\n           && signUpForm.get('userData.party-name').errors['required']\n           && signUpForm.get('userData.party-name').touched\">\n        <div class=\"form-control\">\n          <span>Name is required<span class=\"required\">*</span></span>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"party-contact-name\" class=\"app-form-label\">Contact Name</label>\n        <span class=\"app-form-label-colon\">:</span>\n        <input\n          type=\"text\"\n          id=\"party-contact-name\"\n          formControlName=\"party-contact-name\"\n          class=\"form-control\"\n          [readonly]=\"!getDetailFormStatus()\">\n      </div>\n      <div class=\"form-group\"\n           *ngIf=\"!signUpForm.get('userData.party-contact-name').valid\n           && signUpForm.get('userData.party-contact-name').errors['required']\n           && signUpForm.get('userData.party-contact-name').touched\">\n        <div class=\"form-control\">\n          <span>Contact name is required<span class=\"required\">*</span></span>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"party-phone\" class=\"app-form-label\">Phone</label>\n        <span class=\"app-form-label-colon\">:</span>\n        <input\n          type=\"text\"\n          id=\"party-phone\"\n          formControlName=\"party-phone\"\n          class=\"form-control\"\n          [readonly]=\"!getDetailFormStatus()\">\n      </div>\n      <div class=\"form-group\"\n           *ngIf=\"!signUpForm.get('userData.party-phone').valid && signUpForm.get('userData.party-phone').touched\n           \">\n        <div class=\"form-control app-form-control-right error-message\">\n          <span>Phone number is not valid !<span class=\"required\">*</span></span>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"party-mobile\" class=\"app-form-label\">Mobile</label>\n        <span class=\"app-form-label-colon\">:</span>\n        <input\n          type=\"text\"\n          id=\"party-mobile\"\n          formControlName=\"party-mobile\"\n          class=\"form-control\"\n          [readonly]=\"!getDetailFormStatus()\">\n      </div>\n      <div class=\"form-group\"\n           *ngIf=\"!signUpForm.get('userData.party-mobile').valid && signUpForm.get('userData.party-mobile').touched\n           \">\n        <div class=\"form-control app-form-control-right error-message\">\n          <span>Mobile number is not valid !<span class=\"required\">*</span></span>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"party-email\" class=\"app-form-label\">Email</label>\n        <span class=\"app-form-label-colon\">:</span>\n        <input\n          type=\"text\"\n          id=\"party-email\"\n          formControlName=\"party-email\"\n          class=\"form-control\"\n          [readonly]=\"!getDetailFormStatus()\">\n      </div>\n      <div class=\"form-group\"\n           *ngIf=\"!signUpForm.get('userData.party-email').valid && signUpForm.get('userData.party-email').touched\n           \">\n        <div class=\"form-control\">\n          <span>Email is not valid !<span class=\"required\">*</span></span>\n        </div>\n      </div>\n      <div *ngFor=\"let address of addressFormArray\">\n        <div class=\"form-group\">\n          <label for=\"{{address.name}}\" class=\"app-form-label\">{{address.title}}</label>\n          <span class=\"app-form-label-colon\">:</span>\n          <div class=\"form-control-wrapper {{address.name}}\">\n            <input\n              type=\"text\"\n              id=\"{{address.name}}\"\n              class=\"form-control\"\n              formControlName=\"{{address.name}}\"\n              [readonly]=\"!getDetailFormStatus()\"\n              name=\"{{address.name}}\"\n              (focus)=\"onAddressFocus($event, address)\"\n              (blur)=\"onAddressBlur($event, address)\"\n              (keydown)=\"onAddressKeyUp($event, address)\">\n            <i\n              *ngIf=\"signUpForm.get('userData.' + address.name).valid\"\n              class=\"fa fa-check\" aria-hidden=\"true\">\n            </i>\n            <i\n              *ngIf=\"!signUpForm.get('userData.' + address.name).valid\n                    && address.spinner && signUpForm.get('userData.' + address.name).touched\"\n              class=\"fa fa-spinner\" aria-hidden=\"true\">\n            </i>\n            <img class=\"app-google-logo\" src=\"assets/img/logos/third-party/powered_by_google_on_white_hdpi.png\">\n            <!--<div class=\"app-auto-suggestion-wrapper\"-->\n            <!--*ngIf=\"address.autoAddressesSuggesstion.length != 0-->\n            <!--&& autoSuggestionMode === address.type\">-->\n            <!--<ul>-->\n            <!--<li *ngFor=\"let autoSuggestionAddress of address.autoAddressesSuggesstion\"-->\n            <!--(click)=\"onAddressSelected(address, autoSuggestionAddress)\"-->\n            <!--(mouseover)=\"onAddressHover($event, address.type)\">-->\n            <!--<i class=\"fa fa-map-marker\" aria-hidden=\"true\"></i>-->\n            <!--{{autoSuggestionAddress.description}}-->\n            <!--</li>-->\n            <!--</ul>-->\n            <!--</div>-->\n          </div>\n        </div>\n        <div class=\"form-group\" *ngIf=\"!signUpForm.get('userData.' + address.name).valid\n             && signUpForm.get('userData.' + address.name).touched\n                  && getDetailFormStatus()\">\n          <div class=\"form-control-labeless\">\n            <div class=\"form-control\"\n                 *ngIf=\"signUpForm.get('userData.' + address.name).errors\n                  && signUpForm.get('userData.' + address.name).errors['required']\">\n              <span>Address is required !<span class=\"required\">*</span></span>\n            </div>\n            <div class=\"form-control\"\n                 *ngIf=\"signUpForm.get('userData.' + address.name).errors && signUpForm.get('userData.' + address.name).errors['NoAddressFound']\">\n              <span>Address could not be found !<span class=\"required\">*</span></span>\n            </div>\n            <div class=\"form-control\"\n                 *ngIf=\"signUpForm.get('userData.' + address.name).errors && signUpForm.get('userData.' + address.name).errors['InvalidInput']\">\n              <span>Address entered is not valid !<span class=\"required\">*</span></span>\n            </div>\n            <div class=\"form-control\"\n                 *ngIf=\"signUpForm.get('userData.' + address.name).errors && signUpForm.get('userData.' + address.name).errors['QueryLimitCrossed']\">\n              <span>Exceeded the maximum query limit allowed by google policies !<span class=\"required\">*</span></span>\n            </div>\n            <div class=\"form-control\"\n                 *ngIf=\"signUpForm.get('userData.' + address.name).errors && signUpForm.get('userData.' + address.name).errors['RequestDenied']\">\n              <span>Address request rejected by google !<span class=\"required\">*</span></span>\n            </div>\n            <div class=\"form-control\"\n                 *ngIf=\"signUpForm.get('userData.' + address.name).errors && signUpForm.get('userData.' + address.name).errors['UnknownError']\">\n              <span>Unknown error. Please try again !<span class=\"required\">*</span></span>\n            </div>\n            <!--<div *ngIf=\"!signUpForm.valid && signUpForm.touched\">-->\n            <!--<address>-->\n            <!--<span>Addrees should be of the follwing form</span><br>-->\n            <!--8 Willsmore Street Beverley South Australia 5009<br>-->\n            <!--<span>where</span><br>-->\n            <!--<span>8 &#45;&#45; is the street number,</span><br>-->\n            <!--<span>Willsmore Street &#45;&#45; is the street name,</span><br>-->\n            <!--<span>Beverley &#45;&#45; is the name of the suburb/city/town,</span><br>-->\n            <!--<span>South Australia &#45;&#45; is the name of the state,</span><br>-->\n            <!--<span>5009 &#45;&#45; is the zip/postal code,</span><br>-->\n            <!--</address>-->\n            <!--</div>-->\n          </div>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"party-file-upload\" class=\"app-form-label\">File Upload</label>\n        <span class=\"app-form-label-colon\">:</span>\n        <input\n          type=\"file\"\n          id=\"party-file-upload\"\n          (change)=\"fileChange($event)\"\n          placeholder=\"Upload file\"\n          accept=\".pdf,.doc,.docx\"\n          [disabled]=\"!getDetailFormStatus()\">\n      </div>\n    </div>\n    <div class=\"form-group\" *ngIf=\"!getDetailFormStatus()\">\n      <div class=\"app-form-control-right\">\n        <button class=\"btn btn-primary\" type=\"button\" (click)=\"createCustomer()\">Create Customer</button>\n\n        <button class=\"btn btn-primary\" type=\"button\" (click)=\"editCustomer()\">Edit Customer</button>\n      </div>\n    </div>\n\n    <div class=\"form-group\" *ngIf=\"getDetailFormStatus()\">\n      <div class=\"app-form-control-right\">\n        <button class=\"btn btn-primary\" [disabled]=\"!signUpForm.valid\" type=\"submit\">Save</button>\n        <button class=\"btn btn-primary\" type=\"button\" (click)=\"dontSaveCustomer()\">Don't Save</button>\n      </div>\n    </div>\n  </form>\n</div>\n<br>\n<div>\n  <div>\n    <h6 class=\"app-comments-header\">Users Comments</h6>\n    <hr class=\"app-comments-hr\">\n    <div *ngIf=\"partyComments\">\n      <ul class=\"app-users-comments\" *ngFor=\"let eachComment of partyComments; let i = index;\">\n\n        <li class=\"app-user-comment\">{{eachComment.comment}}\n          <span class=\"app-comment-detail\"> - created by\n              <span class=\"app-comment-by\">{{eachComment.user}}</span>\n              on <span class=\"app-comment-on\"> {{eachComment.comment_dtm}}</span></span>\n        </li>\n        <hr>\n      </ul>\n    </div>\n    <div class=\"form-group\" *ngIf=\"newComment\">\n      <div>\n        <textarea class=\"app-new-comment\"></textarea>\n      </div>\n      <div class=\"app-update-comment\">\n        <button type=\"button\" class=\"btn btn-primary btn-sm\">Save</button>\n        <button type=\"button\" class=\"btn btn-primary btn-sm\">Don't Save</button>\n        <button type=\"button\" class=\"btn btn-primary btn-sm\">Upload File</button>\n      </div>\n    </div>\n    <div>\n      <button *ngIf=\"!newComment\" type=\"button\" class=\"btn btn-primary btn-sm\" (click)=\"createNewComment()\">New comment</button>\n    </div>\n  </div>\n</div>\n\n"
+module.exports = "<div class=\"app-form-container app-form-container-top\">\n  <h3 class=\"app-form-header\">Customer/Supplier Details</h3>\n  <div [formGroup]=\"signUpForm\" (ngSubmit)=\"onSubmit()\">\n    <!--<fieldset [disabled]=\"true\">-->\n    <div formGroupName=\"userData\">\n      <div class=\"form-group\">\n        <label for=\"party-name\" class=\"app-form-label\">Name</label><span class=\"app-form-label-colon\">:</span>\n        <input\n          type=\"text\"\n          id=\"party-name\"\n          formControlName=\"party-name\"\n          class=\"form-control\"\n          [readonly]=\"!getDetailFormStatus()\">\n      </div>\n      <div class=\"form-group\"\n           *ngIf=\"!signUpForm.get('userData.party-name').valid\n           && signUpForm.get('userData.party-name').errors['required']\n           && signUpForm.get('userData.party-name').touched\">\n        <div class=\"form-control error-message\">\n          <span>Name is required<span class=\"required\">*</span></span>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"party-contact-name\" class=\"app-form-label\">Contact Name</label>\n        <span class=\"app-form-label-colon\">:</span>\n        <input\n          type=\"text\"\n          id=\"party-contact-name\"\n          formControlName=\"party-contact-name\"\n          class=\"form-control\"\n          [readonly]=\"!getDetailFormStatus()\">\n      </div>\n      <div class=\"form-group\"\n           *ngIf=\"!signUpForm.get('userData.party-contact-name').valid\n           && signUpForm.get('userData.party-contact-name').errors['required']\n           && signUpForm.get('userData.party-contact-name').touched\">\n        <div class=\"form-control error-message\">\n          <span>Contact name is required<span class=\"required\">*</span></span>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"party-phone\" class=\"app-form-label\">Phone</label>\n        <span class=\"app-form-label-colon\">:</span>\n        <input\n          type=\"text\"\n          id=\"party-phone\"\n          formControlName=\"party-phone\"\n          class=\"form-control\"\n          [readonly]=\"!getDetailFormStatus()\">\n      </div>\n      <div class=\"form-group\"\n           *ngIf=\"!signUpForm.get('userData.party-phone').valid && signUpForm.get('userData.party-phone').touched\">\n        <div *ngIf=\"signUpForm.get('userData.party-phone').errors['required']\"\n             class=\"form-control app-form-control-right error-message\">\n          <span>Phone number is required !<span class=\"required\">*</span></span>\n        </div>\n        <div *ngIf=\"signUpForm.get('userData.party-phone').errors['InvalidPhone']\">\n          <div class=\"form-control app-form-control-right error-message\">\n            <span>Phone number is not valid !<span class=\"required\">*</span></span>\n          </div>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"party-mobile\" class=\"app-form-label\">Mobile</label>\n        <span class=\"app-form-label-colon\">:</span>\n        <input\n          type=\"text\"\n          id=\"party-mobile\"\n          formControlName=\"party-mobile\"\n          class=\"form-control\"\n          [readonly]=\"!getDetailFormStatus()\">\n      </div>\n      <div class=\"form-group\"\n           *ngIf=\"!signUpForm.get('userData.party-mobile').valid && signUpForm.get('userData.party-mobile').touched\">\n        <div *ngIf=\"signUpForm.get('userData.party-mobile').errors['required']\"\n             class=\"form-control app-form-control-right error-message\">\n          <span>Mobile number is required !<span class=\"required\">*</span></span>\n        </div>\n        <div *ngIf=\"signUpForm.get('userData.party-mobile').errors['InvalidMobile']\"\n             class=\"form-control app-form-control-right error-message\">\n          <span>Mobile number is not valid !<span class=\"required\">*</span></span>\n        </div>\n      </div>\n    <div class=\"form-group\">\n      <label for=\"party-email\" class=\"app-form-label\">Email</label>\n      <span class=\"app-form-label-colon\">:</span>\n      <input\n        type=\"text\"\n        id=\"party-email\"\n        formControlName=\"party-email\"\n        class=\"form-control\"\n        [readonly]=\"!getDetailFormStatus()\">\n    </div>\n    <div class=\"form-group\"\n         *ngIf=\"!signUpForm.get('userData.party-email').valid && signUpForm.get('userData.party-email').touched\">\n      <div class=\"form-control error-message\">\n        <span>Email is not valid !<span class=\"required\">*</span></span>\n      </div>\n    </div>\n    <div *ngFor=\"let address of addressFormArray\">\n      <div class=\"form-group\">\n        <label for=\"{{address.name}}\" class=\"app-form-label\">{{address.title}}</label>\n        <span class=\"app-form-label-colon\">:</span>\n        <div class=\"form-control-wrapper {{address.name}}\">\n          <input\n            type=\"text\"\n            id=\"{{address.name}}\"\n            class=\"form-control\"\n            formControlName=\"{{address.name}}\"\n            [readonly]=\"!getDetailFormStatus()\"\n            name=\"{{address.name}}\"\n            (focus)=\"onAddressFocus($event, address)\"\n            (blur)=\"onAddressBlur($event, address)\"\n            (keydown)=\"onAddressKeyUp($event, address)\">\n          <i\n            *ngIf=\"signUpForm.get('userData.' + address.name).valid\"\n            class=\"fa fa-check\" aria-hidden=\"true\">\n          </i>\n          <i\n            *ngIf=\"!signUpForm.get('userData.' + address.name).valid\n                    && address.spinner && signUpForm.get('userData.' + address.name).touched\"\n            class=\"fa fa-spinner\" aria-hidden=\"true\">\n          </i>\n          <img class=\"app-google-logo\" src=\"assets/img/logos/third-party/powered_by_google_on_white_hdpi.png\">\n          <!--<div class=\"app-auto-suggestion-wrapper\"-->\n          <!--*ngIf=\"address.autoAddressesSuggesstion.length != 0-->\n          <!--&& autoSuggestionMode === address.type\">-->\n          <!--<ul>-->\n          <!--<li *ngFor=\"let autoSuggestionAddress of address.autoAddressesSuggesstion\"-->\n          <!--(click)=\"onAddressSelected(address, autoSuggestionAddress)\"-->\n          <!--(mouseover)=\"onAddressHover($event, address.type)\">-->\n          <!--<i class=\"fa fa-map-marker\" aria-hidden=\"true\"></i>-->\n          <!--{{autoSuggestionAddress.description}}-->\n          <!--</li>-->\n          <!--</ul>-->\n          <!--</div>-->\n        </div>\n      </div>\n      <div class=\"form-group\" *ngIf=\"!signUpForm.get('userData.' + address.name).valid\n             && signUpForm.get('userData.' + address.name).touched\n                  && getDetailFormStatus()\">\n        <div class=\"form-control-labeless\">\n          <div class=\"form-control error-message\"\n               *ngIf=\"signUpForm.get('userData.' + address.name).errors\n                  && signUpForm.get('userData.' + address.name).errors['required']\">\n            <span>Address is required !<span class=\"required\">*</span></span>\n          </div>\n          <div class=\"form-control\"\n               *ngIf=\"signUpForm.get('userData.' + address.name).errors && signUpForm.get('userData.' + address.name).errors['NoAddressFound']\">\n            <span>Address could not be found !<span class=\"required\">*</span></span>\n          </div>\n          <div class=\"form-control\"\n               *ngIf=\"signUpForm.get('userData.' + address.name).errors && signUpForm.get('userData.' + address.name).errors['InvalidInput']\">\n            <span>Address entered is not valid !<span class=\"required\">*</span></span>\n          </div>\n          <div class=\"form-control\"\n               *ngIf=\"signUpForm.get('userData.' + address.name).errors && signUpForm.get('userData.' + address.name).errors['QueryLimitCrossed']\">\n            <span>Exceeded the maximum query limit allowed by google policies !<span class=\"required\">*</span></span>\n          </div>\n          <div class=\"form-control\"\n               *ngIf=\"signUpForm.get('userData.' + address.name).errors && signUpForm.get('userData.' + address.name).errors['RequestDenied']\">\n            <span>Address request rejected by google !<span class=\"required\">*</span></span>\n          </div>\n          <div class=\"form-control\"\n               *ngIf=\"signUpForm.get('userData.' + address.name).errors && signUpForm.get('userData.' + address.name).errors['UnknownError']\">\n            <span>Unknown error. Please try again !<span class=\"required\">*</span></span>\n          </div>\n          <!--<div *ngIf=\"!signUpForm.valid && signUpForm.touched\">-->\n          <!--<address>-->\n          <!--<span>Addrees should be of the follwing form</span><br>-->\n          <!--8 Willsmore Street Beverley South Australia 5009<br>-->\n          <!--<span>where</span><br>-->\n          <!--<span>8 -- is the street number,</span><br>-->\n          <!--<span>Willsmore Street -- is the street name,</span><br>-->\n          <!--<span>Beverley -- is the name of the suburb/city/town,</span><br>-->\n          <!--<span>South Australia -- is the name of the state,</span><br>-->\n          <!--<span>5009 -- is the zip/postal code,</span><br>-->\n          <!--</address>-->\n          <!--</div>-->\n        </div>\n      </div>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"party-file-upload\" class=\"app-form-label\">File Upload</label>\n      <span class=\"app-form-label-colon\">:</span>\n      <input\n        type=\"file\"\n        id=\"party-file-upload\"\n        (change)=\"fileChange($event)\"\n        placeholder=\"Upload file\"\n        accept=\".pdf,.doc,.docx\"\n        [disabled]=\"!getDetailFormStatus()\">\n    </div>\n    <div class=\"form-group\" *ngIf=\"!getDetailFormStatus()\">\n      <div class=\"app-form-control-right\">\n        <button class=\"btn btn-primary\" type=\"button\" (click)=\"createCustomer()\">Create Customer</button>\n\n        <button class=\"btn btn-primary\" type=\"button\" (click)=\"editCustomer()\">Edit Customer</button>\n      </div>\n    </div>\n\n    <div class=\"form-group\" *ngIf=\"getDetailFormStatus()\">\n      <div class=\"app-form-control-right\">\n        <button class=\"btn btn-primary\" [disabled]=\"!signUpForm.valid\" type=\"submit\">Save</button>\n        <button class=\"btn btn-primary\" type=\"button\" (click)=\"dontSaveCustomer()\">Don't Save</button>\n      </div>\n    </div>\n</div>\n<br>\n<div>\n  <div>\n    <h6 class=\"app-comments-header\">Users Comments</h6>\n    <hr class=\"app-comments-hr\">\n    <div *ngIf=\"partyComments\">\n      <ul class=\"app-users-comments\" *ngFor=\"let eachComment of partyComments; let i = index;\">\n\n        <li class=\"app-user-comment\">{{eachComment.comment}}\n          <span class=\"app-comment-detail\"> - created by\n              <span class=\"app-comment-by\">{{eachComment.user}}</span>\n              on <span class=\"app-comment-on\"> {{eachComment.comment_dtm}}</span></span>\n        </li>\n        <hr>\n      </ul>\n    </div>\n    <div class=\"form-group\" *ngIf=\"newComment\">\n      <div>\n        <textarea class=\"app-new-comment\"></textarea>\n      </div>\n      <div class=\"app-update-comment\">\n        <button type=\"button\" class=\"btn btn-primary btn-sm\">Save</button>\n        <button type=\"button\" class=\"btn btn-primary btn-sm\">Don't Save</button>\n        <button type=\"button\" class=\"btn btn-primary btn-sm\">Upload File</button>\n      </div>\n    </div>\n    <div>\n      <button *ngIf=\"!newComment\" type=\"button\" class=\"btn btn-primary btn-sm\" (click)=\"createNewComment()\">New\n        comment\n      </button>\n    </div>\n  </div>\n</div>\n\n"
 
 /***/ }),
 
@@ -633,6 +810,8 @@ module.exports = module.exports.toString();
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__models_party_model__ = __webpack_require__("../../../../../src/app/models/party.model.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_party_service__ = __webpack_require__("../../../../../src/app/services/party.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PartyMainComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -650,13 +829,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 var PartyMainComponent = (function () {
-    function PartyMainComponent(serverService, http, activatedRoute, changeDetectorRef, router) {
+    function PartyMainComponent(serverService, http, activatedRoute, changeDetectorRef, router, partyService, ngbModal) {
         this.serverService = serverService;
         this.http = http;
         this.activatedRoute = activatedRoute;
         this.changeDetectorRef = changeDetectorRef;
         this.router = router;
+        this.partyService = partyService;
+        this.ngbModal = ngbModal;
         this.party = null;
         this.partyComments = null;
         this.paramsReceived = null;
@@ -690,17 +873,18 @@ var PartyMainComponent = (function () {
         this.googleService = google;
     }
     PartyMainComponent.prototype.ngOnInit = function () {
-        this.createSignUpForm();
-    };
-    PartyMainComponent.prototype.ngAfterViewInit = function () {
         var _this = this;
-        this.activatedRoute.params.subscribe(function (params) {
-            _this.paramsReceived = params['id'];
+        this.createSignUpForm();
+        this.partyServiceSubscription = this.partyService.partyIdSourceObservable.subscribe(function (id) {
+            ("it is called");
+            _this.paramsReceived = id;
             _this.getPartyRequest();
             _this.getUserComments();
         }, function (error) { return console.log(error); });
         this.initAddressesSubscription(this.addressFormArray[0]);
         this.initAddressesSubscription(this.addressFormArray[1]);
+    };
+    PartyMainComponent.prototype.ngAfterViewInit = function () {
     };
     PartyMainComponent.prototype.getPartyRequest = function () {
         var _this = this;
@@ -717,9 +901,7 @@ var PartyMainComponent = (function () {
         var _this = this;
         this.serverService.getRequestByPartyId(this.paramsReceived, '/comments')
             .subscribe(function (comments) {
-            console.log(comments);
             _this.partyComments = comments._embedded.comments;
-            console.log(_this.partyComments);
         }, function (error) {
             console.log(error);
         });
@@ -819,17 +1001,17 @@ var PartyMainComponent = (function () {
             party.mailing_address = this.partyMailingAddress;
             party.physical_address = this.partyPhysicalAddress;
             this.serverService.putParty(this.paramsReceived, party).subscribe(function (response) {
-                alert("Successfully Saved");
+                _this.open("Successfully Saved");
                 _this.detailFormActive = false;
                 _this.getPartyRequest();
                 _this.signUpForm.markAsUntouched();
                 console.log(response);
             }, function (error) {
-                alert("Something went wrong!. Couldn't save the form." + error.toString());
+                _this.open("Something went wrong!. Couldn't save the form." + error.toString());
             });
         }
         else {
-            alert("The form is either not edited or it is not valid ! \n Please try again.");
+            this.open("The form is either not edited or it is not valid ! \n Please try again.");
         }
     };
     PartyMainComponent.prototype.saveNewCustomer = function () {
@@ -846,7 +1028,7 @@ var PartyMainComponent = (function () {
             party.physical_address = this.partyPhysicalAddress;
             this.serverService.saveParty(party).subscribe(function (response) {
                 console.log(response.json());
-                alert("Successfully Saved");
+                _this.open('Succesfully saved');
                 var href = response.json()._links.self.href;
                 var index = (href.lastIndexOf('/') + 1);
                 var id = +(href.substr(index));
@@ -859,15 +1041,13 @@ var PartyMainComponent = (function () {
                     console.log(value);
                 }).catch(function (error) { console.log(error); });
             }, function (error) {
-                alert("Something went wrong!. Couldn't save the form.");
+                _this.open("Something went wrong!. Couldn't save the form.");
                 console.log(error);
             });
         }
         else {
-            alert("The form is either not edited or it is not valid ! \n Please try again.");
+            this.open("The form is either not edited or it is not valid ! \n Please try again.");
         }
-    };
-    PartyMainComponent.prototype.ngOnDestroy = function () {
     };
     PartyMainComponent.prototype.fileChange = function (event) {
         var fileList = event.target.files;
@@ -908,18 +1088,12 @@ var PartyMainComponent = (function () {
         this.detailFormActive = true;
         this.formMode = this.CREATE_CUSTOMER;
     };
-    /* This method is called by the sign up form of this component through reactive forms approach*/
     PartyMainComponent.prototype.validatePhone = function (control) {
-        /*https://ilikekillnerds.com/2014/08/regular-expression-for-validating-australian-phone-numbers-including-landline-and-mobile*/
-        //let regex = /^\({0,1}((0|\+61)(2|4|3|7|8)){0,1}\){0,1}(\ |-){0,1}[0-9]{2}(\ |-){0,1}[0-9]{2}(\ |-){0,1}[0-9]{1}(\ |-){0,1}[0-9]{3}$/;
-        /* https://manual.limesurvey.org/Using_regular_expressions#Australian_phone_numbers */
-        //let regex = /^\(?(?:\+?61|0)(?:2\)?[ -]?(?:3[ -]?[38]|[46-9][ -]?[0-9]|5[ -]?[0-35-9])|3\)?(?:4[ -]?[0-57-9]|[57-9][ -]?[0-9]|6[ -]?[1-67])|7\)?[ -]?(?:[2-4][ -]?[0-9]|5[ -]?[2-7]|7[ -]?6)|8\)?[ -]?(?:5[ -]?[1-4]|6[ -]?[0-8]|[7-9][ -]?[0-9]))(?:[ -]?[0-9]){6}$/
         var regex = /^(0(2|3|7|8))?\d{8}$/;
         var phone = control.value;
         console.log(control);
         console.log(phone);
         if (phone) {
-            //console.log(regex.exec(phone.replace(/\(+/g, '').replace(/\)+/g, '').replace(/\s+/g, '').replace(/-+/g,'')));
             if (!regex.test(phone.replace(/\(+/g, '').replace(/\)+/g, '').replace(/\s+/g, '').replace(/-+/g, ''))) {
                 console.log("Phone number is invalid");
                 return { 'InvalidPhone': true };
@@ -931,7 +1105,7 @@ var PartyMainComponent = (function () {
         return null;
     };
     PartyMainComponent.prototype.validateMobile = function (control) {
-        var regex = /^04?\d{8}$/;
+        var regex = /^04\d{8}$/;
         var mobile = control.value;
         if (mobile) {
             console.log(regex.exec(mobile.replace(/\(+/g, '').replace(/\)+/g, '').replace(/\s+/g, '').replace(/-+/g, '')));
@@ -1072,8 +1246,6 @@ var PartyMainComponent = (function () {
             this.addressFormArray[0].spinner = false;
         }
         this.changeDetectorRef.detectChanges();
-        //this.initAddressesSubscription(address);
-        //this.autoSuggestionMode = address.type;
     };
     PartyMainComponent.prototype.onAddressBlur = function ($event, address) {
         address.spinner = false;
@@ -1119,6 +1291,29 @@ var PartyMainComponent = (function () {
         }
         this.changeDetectorRef.detectChanges();
     };
+    PartyMainComponent.prototype.open = function (content) {
+        var _this = this;
+        this.ngbModal.open(content).result.then(function (result) {
+            _this.closeResult = "Closed with: " + result;
+        }, function (reason) {
+            _this.closeResult = "Dismissed " + _this.getDismissReason(reason);
+        });
+    };
+    PartyMainComponent.prototype.getDismissReason = function (reason) {
+        if (reason === __WEBPACK_IMPORTED_MODULE_8__ng_bootstrap_ng_bootstrap__["b" /* ModalDismissReasons */].ESC) {
+            return 'by pressing ESC';
+        }
+        else if (reason === __WEBPACK_IMPORTED_MODULE_8__ng_bootstrap_ng_bootstrap__["b" /* ModalDismissReasons */].BACKDROP_CLICK) {
+            return 'by clicking on a backdrop';
+        }
+        else {
+            return "with: " + reason;
+        }
+    };
+    PartyMainComponent.prototype.ngOnDestroy = function () {
+        this.partyServiceSubscription.unsubscribe();
+        this.partyService.announcePartyIdBeforeDestroy(this.paramsReceived);
+    };
     return PartyMainComponent;
 }());
 PartyMainComponent = __decorate([
@@ -1128,10 +1323,10 @@ PartyMainComponent = __decorate([
         styles: [__webpack_require__("../../../../../src/app/components/parties/party/party-main/party-main.component.scss")],
         encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewEncapsulation"].None
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__services_server_service__["a" /* ServerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_server_service__["a" /* ServerService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__angular_http__["d" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_http__["d" /* Http */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_router__["b" /* ActivatedRoute */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_router__["c" /* Router */]) === "function" && _e || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__services_server_service__["a" /* ServerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_server_service__["a" /* ServerService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__angular_http__["d" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_http__["d" /* Http */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_router__["b" /* ActivatedRoute */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_router__["c" /* Router */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_7__services_party_service__["a" /* PartyService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__services_party_service__["a" /* PartyService */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_8__ng_bootstrap_ng_bootstrap__["c" /* NgbModal */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__ng_bootstrap_ng_bootstrap__["c" /* NgbModal */]) === "function" && _g || Object])
 ], PartyMainComponent);
 
-var _a, _b, _c, _d, _e;
+var _a, _b, _c, _d, _e, _f, _g;
 //# sourceMappingURL=party-main.component.js.map
 
 /***/ }),
@@ -1139,7 +1334,7 @@ var _a, _b, _c, _d, _e;
 /***/ "../../../../../src/app/components/parties/party/party.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h1 class=\"app-party\">{{data?.name}}</h1>\n<ngb-tabset [destroyOnHide]=\"false\">\n  <ngb-tab>\n    <ng-template ngbTabTitle>Main</ng-template>\n    <ng-template ngbTabContent>\n      <app-party-main></app-party-main>\n    </ng-template>\n  </ngb-tab>\n\n  <ngb-tab>\n    <ng-template ngbTabTitle>Jobs</ng-template>\n    <ng-template ngbTabContent>\n      <app-party-jobs></app-party-jobs>\n    </ng-template>\n  </ngb-tab>\n\n  <ngb-tab *ngIf=\"partyInvoices && partyInvoices.length !=0\">\n    <ng-template ngbTabTitle>Invoices</ng-template>\n    <ng-template ngbTabContent>\n      <app-party-invoices></app-party-invoices>\n    </ng-template>\n  </ngb-tab>\n    <ngb-tab *ngIf=\"partyBills && partyBills.length !=0\">\n    <ng-template ngbTabTitle>Bills</ng-template>\n    <ng-template ngbTabContent>\n      <app-party-bills></app-party-bills>\n    </ng-template>\n  </ngb-tab>\n\n</ngb-tabset>\n"
+module.exports = "<h1 class=\"app-party\">{{data?.name}}</h1>\n<ul class=\"nav nav-tabs\">\n  <li class=\"nav-item\" (blur)=\"onTabSelected()\" (click)=\"onTabSelected()\">\n    <a class=\"nav-link\" routerLinkActive=\"active\" routerLink=\"main\">Active</a>\n  </li>\n  <li class=\"nav-item\" (focus)=\"onTabSelected()\" (click)=\"onTabSelected()\">\n    <a class=\"nav-link\" routerLinkActive=\"active\" routerLink=\"jobs\">Jobs</a>\n  </li>\n  <li *ngIf=\"partyInvoices && partyInvoices.length !=0\"\n      class=\"nav-item\" (focus)=\"onTabSelected()\" (click)=\"onTabSelected()\">\n    <a class=\"nav-link\" routerLinkActive=\"active\" routerLink=\"invoices\">Invoices</a>\n  </li>\n  <li class=\"nav-item\" *ngIf=\"partyBills && partyBills.length !=0\"\n      (focus)=\"onTabSelected()\" (click)=\"onTabSelected()\">\n    <a class=\"nav-link\" routerLinkActive=\"active\" routerLink=\"bills\">Bills</a>\n  </li>\n</ul>\n<div class=\"app-party-wrapper\">\n<router-outlet></router-outlet>\n</div>\n"
 
 /***/ }),
 
@@ -1151,7 +1346,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "app-party .app-party {\n  margin-bottom: 1rem; }\n\napp-party .nav-item {\n  font-size: 1.3rem;\n  line-height: 1.5;\n  width: 150px;\n  text-align: center; }\n", ""]);
+exports.push([module.i, "app-party .app-party {\n  margin-bottom: 1rem; }\n\napp-party .nav-item {\n  font-size: 1.3rem;\n  line-height: 1.5;\n  width: 150px;\n  text-align: center; }\n\napp-party .app-party-wrapper {\n  min-height: 100vh; }\n", ""]);
 
 // exports
 
@@ -1169,6 +1364,7 @@ module.exports = module.exports.toString();
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_server_service__ = __webpack_require__("../../../../../src/app/services/server-service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_party_service__ = __webpack_require__("../../../../../src/app/services/party.service.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PartyComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1183,12 +1379,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var PartyComponent = (function () {
-    function PartyComponent(activatedRoute, router, serverService, location) {
+    function PartyComponent(activatedRoute, router, serverService, location, partyService) {
         this.activatedRoute = activatedRoute;
         this.router = router;
         this.serverService = serverService;
         this.location = location;
+        this.partyService = partyService;
         this.partyBills = null;
         this.partyInvoices = null;
     }
@@ -1198,28 +1396,33 @@ var PartyComponent = (function () {
         var _this = this;
         this.activatedRoute.params.subscribe(function (params) {
             console.log(params['id']);
+            _this.partyId = params['id'];
+            _this.partyService.announcePartyId(_this.partyId);
             _this.serverService.getRequestByPartyId(params['id'], null, { params: 'projection=partyProjection' })
                 .subscribe(function (data) {
                 _this.data = data;
-                console.log(data);
             }, function (error) {
                 console.log(error);
             });
             _this.serverService.getRequestByPartyId(params['id'], '/bills')
                 .subscribe(function (bills) {
                 _this.partyBills = bills._embedded.bills;
-                console.log(bills);
             }, function (error) {
                 console.log(error);
             });
             _this.serverService.getRequestByPartyId(params['id'], '/invoices')
                 .subscribe(function (invoices) {
-                _this.partyInvoices = invoices;
-                console.log(invoices);
+                if (invoices._embedded) {
+                    _this.partyInvoices = invoices._embedded.invoices;
+                }
             }, function (error) {
                 console.log(error);
             });
         }, function (error) { return console.log(error); });
+    };
+    PartyComponent.prototype.onTabSelected = function () {
+        this.partyService.announcePartyId(this.partyId);
+        console.log("on tabas selected");
     };
     return PartyComponent;
 }());
@@ -1228,36 +1431,14 @@ PartyComponent = __decorate([
         selector: 'app-party',
         template: __webpack_require__("../../../../../src/app/components/parties/party/party.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/parties/party/party.component.scss")],
-        encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewEncapsulation"].None
+        encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewEncapsulation"].None,
+        providers: [__WEBPACK_IMPORTED_MODULE_4__services_party_service__["a" /* PartyService */]]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_server_service__["a" /* ServerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_server_service__["a" /* ServerService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_common__["e" /* Location */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_common__["e" /* Location */]) === "function" && _d || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_server_service__["a" /* ServerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_server_service__["a" /* ServerService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_common__["e" /* Location */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_common__["e" /* Location */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__services_party_service__["a" /* PartyService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_party_service__["a" /* PartyService */]) === "function" && _e || Object])
 ], PartyComponent);
 
-var _a, _b, _c, _d;
+var _a, _b, _c, _d, _e;
 //# sourceMappingURL=party.component.js.map
-
-/***/ }),
-
-/***/ "../../../../../src/app/models/customer.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* unused harmony export Party */
-/* harmony default export */ __webpack_exports__["a"] = ([
-    "Party Name",
-    "Address ",
-    "Contact Name",
-    "Phone",
-    "Mobile",
-    "Email"
-]);
-var Party = (function () {
-    function Party() {
-    }
-    return Party;
-}());
-
-//# sourceMappingURL=customer.js.map
 
 /***/ }),
 
@@ -1343,6 +1524,51 @@ NavBarService = __decorate([
 
 /***/ }),
 
+/***/ "../../../../../src/app/services/party.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__ = __webpack_require__("../../../../rxjs/Subject.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PartyService; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var PartyService = (function () {
+    function PartyService() {
+        this.partyIdSource = new __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__["Subject"]();
+        this.partyIdSourceObservable = this.partyIdSource.asObservable();
+    }
+    PartyService.prototype.announcePartyId = function (id) {
+        console.log(id);
+        this.partyIdSource.next(id);
+    };
+    PartyService.prototype.announcePartyIdBeforeDestroy = function (id) {
+        var _this = this;
+        setTimeout(function () {
+            _this.partyIdSource.next(id);
+        }, 100);
+    };
+    return PartyService;
+}());
+PartyService = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+    __metadata("design:paramtypes", [])
+], PartyService);
+
+//# sourceMappingURL=party.service.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/services/server-service.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1375,10 +1601,6 @@ var ServerService = (function () {
         this.partiesUrl = this.apiUrl + "/parties";
         this.optionsArgument = "page=1";
     }
-    ServerService.prototype.saveCustomer = function (customer) {
-        console.log(customer);
-        return this.http.post('http://localhost:8080/setParty', customer);
-    };
     ServerService.prototype.getAllParties = function () {
         return this.http.get(this.partiesUrl)
             .map(function (response) {

@@ -1325,6 +1325,7 @@ var PartyMainComponent = (function () {
                 console.log(response);
                 _this.ngbModal.open("Comments Succesfull saved");
                 _this.getUserComments();
+                _this.dontSaveUserComment();
             });
         }
         else {

@@ -60,3 +60,10 @@ curl -X PUT -d \
 	}
 }' "localhost:8080/api/parties/101" -H "Content-Type:application/json"
 
+curl -X POST -d \
+'{
+	"comment": "Famous first line but doesn\u0027t matter; will always be first",
+	"staff": "/staffs/1",
+	"party": "/parties/1"
+}' "localhost:8080/api/comments" -H "Content-Type:application/json"
+

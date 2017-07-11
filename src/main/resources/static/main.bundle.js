@@ -1333,6 +1333,7 @@ var PartyMainComponent = (function () {
     };
     PartyMainComponent.prototype.dontSaveUserComment = function () {
         this.userCommentInput = "";
+        this.newComment = false;
     };
     PartyMainComponent.prototype.ngOnDestroy = function () {
         this.partyServiceSubscription.unsubscribe();

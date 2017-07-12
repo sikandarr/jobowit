@@ -27,6 +27,17 @@ public class Job implements Serializable
 	@Lob
 	private String description;
 
+	@Column
+	private String referral;
+	
+	@Column
+	private String priority;
+
+	// one-to-one association to Address
+	@OneToOne
+	@JoinColumn(name = "address_id")
+	private Address address;
+
 	// bi-directional many-to-one association to Bill
 	@OneToMany(mappedBy = "job")
 	private List<Bill> bills;
@@ -101,6 +112,36 @@ public class Job implements Serializable
 	public void setDescription(String description)
 	{
 		this.description = description;
+	}
+
+	public String getReferral()
+	{
+		return referral;
+	}
+
+	public void setReferral(String referral)
+	{
+		this.referral = referral;
+	}
+
+	public String getPriority()
+	{
+		return priority;
+	}
+
+	public void setPriority(String priority)
+	{
+		this.priority = priority;
+	}
+
+	public Address getAddress()
+	{
+		return address;
+	}
+
+	public void setAddress(Address address)
+	{
+		this.address = address;
 	}
 
 	public List<Bill> getBills()
@@ -349,6 +390,21 @@ public class Job implements Serializable
 		salesStaffInJob.setJob(null);
 
 		return salesStaffInJob;
+	}
+	
+	public boolean isActive()
+	{
+		return getJobStatus().isActive();
+	}
+	
+	public JobSchedule getLatestSchedule()
+	{
+		if (getJobSchedules().size() > 0)
+		{
+			getJobSchedules().sort((s1, s2) -> s1.getStartDtm().compareTo(s2.getStartDtm()));
+			return getJobSchedules().get(0);
+		}
+		return null;
 	}
 
 }

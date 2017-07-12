@@ -123,7 +123,7 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`job_status` (
   `job_status_id` INT NOT NULL AUTO_INCREMENT,
   `description` VARCHAR(45) NOT NULL,
   `job_type_id` INT NOT NULL,
-  `is_active` TINYINT(1) NULL DEFAULT 0,
+  `is_active` TINYINT(1) NULL DEFAULT 1,
   PRIMARY KEY (`job_status_id`),
   INDEX `fk_job_status_job_type1_idx` (`job_type_id` ASC),
   CONSTRAINT `fk_job_status_job_type1`
@@ -146,12 +146,16 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`job` (
   `initial_type` INT NOT NULL,
   `current_type` INT NOT NULL,
   `job_status_id` INT NOT NULL,
-  `job_dt` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
+  `referral` VARCHAR(100) NULL,
+  `address_id` INT NULL,
+  `priority` VARCHAR(45) NULL,
+  `created_dtm` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`job_id`),
   INDEX `fk_job_party1_idx` (`customer_id` ASC),
   INDEX `fk_job_job_type1_idx` (`initial_type` ASC),
   INDEX `fk_job_job_type2_idx` (`current_type` ASC),
   INDEX `fk_job_job_status1_idx` (`job_status_id` ASC),
+  INDEX `fk_job_address1_idx` (`address_id` ASC),
   CONSTRAINT `fk_job_party1`
     FOREIGN KEY (`customer_id`)
     REFERENCES `jobowit_db`.`party` (`party_id`)
@@ -170,6 +174,11 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`job` (
   CONSTRAINT `fk_job_job_status1`
     FOREIGN KEY (`job_status_id`)
     REFERENCES `jobowit_db`.`job_status` (`job_status_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_job_address1`
+    FOREIGN KEY (`address_id`)
+    REFERENCES `jobowit_db`.`address` (`address_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -342,11 +351,12 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `jobowit_db`.`job_schedule` ;
 
 CREATE TABLE IF NOT EXISTS `jobowit_db`.`job_schedule` (
-  `job_schedule_id` INT NOT NULL,
-  `start_dtm` DATETIME NULL,
-  `finish_dtm` DATETIME NULL,
+  `job_schedule_id` INT NOT NULL AUTO_INCREMENT,
+  `start_dtm` DATETIME NOT NULL,
+  `finish_dtm` DATETIME NOT NULL,
   `job_id` INT NOT NULL,
   `field_staff_id` INT NOT NULL,
+  `h` INT NULL,
   PRIMARY KEY (`job_schedule_id`),
   INDEX `fk_job_schedule_job1_idx` (`job_id` ASC),
   INDEX `fk_job_schedule_staff1_idx` (`field_staff_id` ASC),

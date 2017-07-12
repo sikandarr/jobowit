@@ -653,124 +653,58 @@ INSERT INTO `job_status` (`description`, `job_type_id`) VALUES ("Awaiting Scope"
 INSERT INTO `job_status` (`description`, `job_type_id`) VALUES ("Awaiting Customer Approval", 2);
 INSERT INTO `job_status` (`description`, `job_type_id`) VALUES ("Customer Rejected", 2);
 INSERT INTO `job_status` (`description`, `job_type_id`) VALUES ("Under Negotiation", 2);
-INSERT INTO `job_status` (`description`, `job_type_id`) VALUES ("Customer Accepted", 2);
-INSERT INTO `job_status` (`description`, `job_type_id`) VALUES ("Canceled", 2);
 INSERT INTO `job_status` (`description`, `job_type_id`) VALUES ("Awaiting Schedule", 1);
 INSERT INTO `job_status` (`description`, `job_type_id`) VALUES ("Scheduled", 1);
 INSERT INTO `job_status` (`description`, `job_type_id`) VALUES ("In Progress", 1);
-INSERT INTO `job_status` (`description`, `job_type_id`) VALUES ("Completed", 1);
-INSERT INTO `job_status` (`description`, `job_type_id`) VALUES ("CXLD", 1);
+INSERT INTO `job_status` (`description`, `job_type_id`, `is_active`) VALUES ("Customer Accepted", 2, 0);
+INSERT INTO `job_status` (`description`, `job_type_id`, `is_active`) VALUES ("Canceled", 2, 0);
+INSERT INTO `job_status` (`description`, `job_type_id`, `is_active`) VALUES ("Completed", 1, 0);
+INSERT INTO `job_status` (`description`, `job_type_id`, `is_active`) VALUES ("CXLD", 1, 0);
 
 -- -----------------------------------------------------
 -- job data
 -- -----------------------------------------------------
 
-insert into job (customer_id, description, initial_type, current_type, job_status_id) values (22, 'Fusce consequat. Nulla nisl. Nunc nisl.
-
-Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.', 2, 2, 1);
-insert into job (customer_id, description, initial_type, current_type, job_status_id) values (81, 'Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.', 2, 2, 1);
-insert into job (customer_id, description, initial_type, current_type, job_status_id) values (94, 'In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.
-
-Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.', 2, 2, 4);
-insert into job (customer_id, description, initial_type, current_type, job_status_id) values (94, 'Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.', 2, 2, 1);
-insert into job (customer_id, description, initial_type, current_type, job_status_id) values (82, 'Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.
-
-Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.', 2, 2, 4);
-insert into job (customer_id, description, initial_type, current_type, job_status_id) values (88, 'Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.
-
-Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.', 2, 2, 3);
-insert into job (customer_id, description, initial_type, current_type, job_status_id) values (45, 'Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.
-
-Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.', 2, 2, 5);
-insert into job (customer_id, description, initial_type, current_type, job_status_id) values (35, 'Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.
-
-Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.', 2, 2, 3);
-insert into job (customer_id, description, initial_type, current_type, job_status_id) values (93, 'Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.', 2, 2, 5);
-insert into job (customer_id, description, initial_type, current_type, job_status_id) values (85, 'Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.
-
-Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.
-
-Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.', 2, 2, 5);
-insert into job (customer_id, description, initial_type, current_type, job_status_id) values (84, 'Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.', 2, 2, 5);
-insert into job (customer_id, description, initial_type, current_type, job_status_id) values (78, 'Sed ante. Vivamus tortor. Duis mattis egestas metus.
-
-Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.
-
-Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.', 2, 2, 4);
-insert into job (customer_id, description, initial_type, current_type, job_status_id) values (3, 'Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.', 2, 2, 2);
-insert into job (customer_id, description, initial_type, current_type, job_status_id) values (78, 'Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.
-
-Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.', 2, 2, 3);
-insert into job (customer_id, description, initial_type, current_type, job_status_id) values (9, 'Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.', 2, 2, 2);
-insert into job (customer_id, description, initial_type, current_type, job_status_id) values (65, 'Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.', 2, 2, 2);
-insert into job (customer_id, description, initial_type, current_type, job_status_id) values (74, 'In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.
-
-Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.', 2, 2, 2);
-insert into job (customer_id, description, initial_type, current_type, job_status_id) values (80, 'Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.
-
-Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.', 2, 2, 6);
-insert into job (customer_id, description, initial_type, current_type, job_status_id) values (10, 'Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.', 2, 2, 5);
-insert into job (customer_id, description, initial_type, current_type, job_status_id) values (78, 'Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.
-
-Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.
-
-Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.', 2, 2, 3);
-insert into job (customer_id, description, initial_type, current_type, job_status_id) values (33, 'Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.
-
-Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.', 1, 1, 11);
-insert into job (customer_id, description, initial_type, current_type, job_status_id) values (12, 'Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.
-
-Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.', 1, 1, 11);
-insert into job (customer_id, description, initial_type, current_type, job_status_id) values (47, 'Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.
-
-Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.', 2, 1, 10);
-insert into job (customer_id, description, initial_type, current_type, job_status_id) values (58, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus.
-
-Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.', 2, 1, 9);
-insert into job (customer_id, description, initial_type, current_type, job_status_id) values (77, 'Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.
-
-Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.
-
-Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.', 2, 1, 11);
-insert into job (customer_id, description, initial_type, current_type, job_status_id) values (63, 'Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.', 2, 1, 11);
-insert into job (customer_id, description, initial_type, current_type, job_status_id) values (48, 'Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.
-
-Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.', 2, 1, 9);
-insert into job (customer_id, description, initial_type, current_type, job_status_id) values (38, 'Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.', 2, 1, 7);
-insert into job (customer_id, description, initial_type, current_type, job_status_id) values (12, 'Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.', 1, 1, 9);
-insert into job (customer_id, description, initial_type, current_type, job_status_id) values (42, 'Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.
-
-In congue. Etiam justo. Etiam pretium iaculis justo.', 2, 1, 8);
-insert into job (customer_id, description, initial_type, current_type, job_status_id) values (13, 'Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.
-
-Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.
-
-Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.', 1, 1, 7);
-insert into job (customer_id, description, initial_type, current_type, job_status_id) values (10, 'Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.', 2, 1, 10);
-insert into job (customer_id, description, initial_type, current_type, job_status_id) values (3, 'Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.', 2, 1, 11);
-insert into job (customer_id, description, initial_type, current_type, job_status_id) values (50, 'In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.
-
-Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.', 2, 1, 9);
-insert into job (customer_id, description, initial_type, current_type, job_status_id) values (78, 'In congue. Etiam justo. Etiam pretium iaculis justo.
-
-In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.', 1, 1, 8);
-insert into job (customer_id, description, initial_type, current_type, job_status_id) values (83, 'Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.
-
-Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.
-
-Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.', 1, 1, 7);
-insert into job (customer_id, description, initial_type, current_type, job_status_id) values (6, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus.
-
-Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.', 1, 1, 7);
-insert into job (customer_id, description, initial_type, current_type, job_status_id) values (74, 'Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-
-Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.
-
-Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.', 1, 1, 9);
-insert into job (customer_id, description, initial_type, current_type, job_status_id) values (74, 'Sed ante. Vivamus tortor. Duis mattis egestas metus.
-
-Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.', 1, 1, 11);
-insert into job (customer_id, description, initial_type, current_type, job_status_id) values (94, 'Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.', 2, 1, 7);
+insert into job (customer_id, description, initial_type, current_type, job_status_id, referral, address_id, priority) values (4, 'commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer', 1, 1, 10, 'Email', 150, 'Important');
+insert into job (customer_id, description, initial_type, current_type, job_status_id, referral, address_id, priority) values (14, 'sapien non mi integer ac neque duis bibendum morbi non quam nec dui luctus', 2, 2, 3, 'Outside', 268, 'Urgent');
+insert into job (customer_id, description, initial_type, current_type, job_status_id, referral, address_id, priority) values (79, 'in magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis', 2, 2, 8, 'Outside', 180, 'Important');
+insert into job (customer_id, description, initial_type, current_type, job_status_id, referral, address_id, priority) values (1, 'porttitor lorem id ligula suspendisse ornare consequat lectus in est risus auctor sed tristique in', 1, 1, 6, 'Outside', 199, 'Important');
+insert into job (customer_id, description, initial_type, current_type, job_status_id, referral, address_id, priority) values (76, 'varius nulla facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel', 1, 1, 7, 'Email', 269, 'Urgent');
+insert into job (customer_id, description, initial_type, current_type, job_status_id, referral, address_id, priority) values (86, 'tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed', 1, 2, 11, 'Radio', 277, 'Urgent');
+insert into job (customer_id, description, initial_type, current_type, job_status_id, referral, address_id, priority) values (58, 'consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae mauris', 1, 2, 5, 'Email', 273, 'Important');
+insert into job (customer_id, description, initial_type, current_type, job_status_id, referral, address_id, priority) values (39, 'erat tortor sollicitudin mi sit amet lobortis sapien sapien non mi integer', 2, 1, 6, 'Internal', 241, 'Important');
+insert into job (customer_id, description, initial_type, current_type, job_status_id, referral, address_id, priority) values (31, 'consequat lectus in est risus auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl nunc nisl', 2, 1, 3, 'Radio', 264, 'Urgent');
+insert into job (customer_id, description, initial_type, current_type, job_status_id, referral, address_id, priority) values (7, 'libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit amet sapien dignissim', 2, 1, 11, 'Publication', 229, 'Normal');
+insert into job (customer_id, description, initial_type, current_type, job_status_id, referral, address_id, priority) values (59, 'posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor', 1, 2, 10, 'Sales-team', 251, 'Normal');
+insert into job (customer_id, description, initial_type, current_type, job_status_id, referral, address_id, priority) values (28, 'maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur gravida', 1, 2, 2, 'Radio', 105, 'Urgent');
+insert into job (customer_id, description, initial_type, current_type, job_status_id, referral, address_id, priority) values (90, 'suscipit ligula in lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla', 1, 1, 8, 'Radio', 181, 'Urgent');
+insert into job (customer_id, description, initial_type, current_type, job_status_id, referral, address_id, priority) values (52, 'venenatis non sodales sed tincidunt eu felis fusce posuere felis sed lacus morbi sem', 1, 1, 10, 'Internal', 235, 'Important');
+insert into job (customer_id, description, initial_type, current_type, job_status_id, referral, address_id, priority) values (16, 'ac leo pellentesque ultrices mattis odio donec vitae nisi nam ultrices', 1, 1, 7, 'Email', 120, 'Urgent');
+insert into job (customer_id, description, initial_type, current_type, job_status_id, referral, address_id, priority) values (21, 'cursus vestibulum proin eu mi nulla ac enim in tempor turpis', 2, 1, 2, 'Sales-team', 166, 'Urgent');
+insert into job (customer_id, description, initial_type, current_type, job_status_id, referral, address_id, priority) values (76, 'ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae duis faucibus accumsan odio curabitur', 1, 2, 11, 'Sales-team', 219, 'Normal');
+insert into job (customer_id, description, initial_type, current_type, job_status_id, referral, address_id, priority) values (28, 'pede lobortis ligula sit amet eleifend pede libero quis orci nullam molestie nibh', 2, 2, 11, 'Email', 124, 'Normal');
+insert into job (customer_id, description, initial_type, current_type, job_status_id, referral, address_id, priority) values (13, 'lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper purus sit amet', 2, 1, 4, 'Sales-team', 279, 'Urgent');
+insert into job (customer_id, description, initial_type, current_type, job_status_id, referral, address_id, priority) values (84, 'nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus', 2, 1, 2, 'Radio', 173, 'Urgent');
+insert into job (customer_id, description, initial_type, current_type, job_status_id, referral, address_id, priority) values (6, 'molestie nibh in lectus pellentesque at nulla suspendisse potenti cras in purus', 2, 2, 7, 'Outside', 267, 'Normal');
+insert into job (customer_id, description, initial_type, current_type, job_status_id, referral, address_id, priority) values (44, 'ut erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae', 1, 2, 2, 'Email', 264, 'Normal');
+insert into job (customer_id, description, initial_type, current_type, job_status_id, referral, address_id, priority) values (67, 'integer non velit donec diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum primis in faucibus orci', 1, 2, 6, 'Outside', 185, 'Important');
+insert into job (customer_id, description, initial_type, current_type, job_status_id, referral, address_id, priority) values (2, 'in purus eu magna vulputate luctus cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus', 2, 1, 9, 'Radio', 157, 'Urgent');
+insert into job (customer_id, description, initial_type, current_type, job_status_id, referral, address_id, priority) values (81, 'vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur', 1, 2, 4, 'Radio', 278, 'Normal');
+insert into job (customer_id, description, initial_type, current_type, job_status_id, referral, address_id, priority) values (3, 'ante vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo placerat praesent', 2, 1, 3, 'Internal', 299, 'Important');
+insert into job (customer_id, description, initial_type, current_type, job_status_id, referral, address_id, priority) values (49, 'porttitor pede justo eu massa donec dapibus duis at velit eu est congue elementum in hac habitasse platea', 1, 2, 1, 'Email', 118, 'Urgent');
+insert into job (customer_id, description, initial_type, current_type, job_status_id, referral, address_id, priority) values (38, 'mauris eget massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit', 1, 1, 3, 'Sales-team', 119, 'Urgent');
+insert into job (customer_id, description, initial_type, current_type, job_status_id, referral, address_id, priority) values (34, 'orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse', 2, 2, 8, 'Sales-team', 202, 'Important');
+insert into job (customer_id, description, initial_type, current_type, job_status_id, referral, address_id, priority) values (76, 'sed accumsan felis ut at dolor quis odio consequat varius integer ac leo pellentesque ultrices mattis odio', 1, 2, 8, 'Radio', 196, 'Important');
+insert into job (customer_id, description, initial_type, current_type, job_status_id, referral, address_id, priority) values (97, 'vivamus tortor duis mattis egestas metus aenean fermentum donec ut', 1, 2, 5, 'Radio', 231, 'Urgent');
+insert into job (customer_id, description, initial_type, current_type, job_status_id, referral, address_id, priority) values (32, 'libero nullam sit amet turpis elementum ligula vehicula consequat morbi a', 1, 2, 11, 'Sales-team', 239, 'Urgent');
+insert into job (customer_id, description, initial_type, current_type, job_status_id, referral, address_id, priority) values (76, 'enim leo rhoncus sed vestibulum sit amet cursus id turpis integer aliquet', 1, 2, 1, 'Publication', 101, 'Important');
+insert into job (customer_id, description, initial_type, current_type, job_status_id, referral, address_id, priority) values (60, 'eleifend pede libero quis orci nullam molestie nibh in lectus pellentesque', 2, 2, 2, 'Publication', 121, 'Normal');
+insert into job (customer_id, description, initial_type, current_type, job_status_id, referral, address_id, priority) values (25, 'habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat ante nulla', 1, 1, 1, 'Internal', 243, 'Normal');
+insert into job (customer_id, description, initial_type, current_type, job_status_id, referral, address_id, priority) values (30, 'condimentum curabitur in libero ut massa volutpat convallis morbi odio odio', 1, 2, 10, 'Publication', 171, 'Normal');
+insert into job (customer_id, description, initial_type, current_type, job_status_id, referral, address_id, priority) values (88, 'felis ut at dolor quis odio consequat varius integer ac leo pellentesque ultrices mattis', 2, 2, 10, 'Publication', 139, 'Important');
+insert into job (customer_id, description, initial_type, current_type, job_status_id, referral, address_id, priority) values (10, 'pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere', 2, 1, 11, 'Radio', 169, 'Normal');
+insert into job (customer_id, description, initial_type, current_type, job_status_id, referral, address_id, priority) values (18, 'rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna', 2, 2, 6, 'Internal', 280, 'Urgent');
+insert into job (customer_id, description, initial_type, current_type, job_status_id, referral, address_id, priority) values (2, 'morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl', 1, 2, 3, 'Radio', 139, 'Normal');
 
 -- -----------------------------------------------------
 -- mock comments for job
@@ -1215,5 +1149,210 @@ INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_pri
 INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (59,"augue ut lacus. Nulla tincidunt, neque vitae semper egestas, urna",2,"8.66");
 INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (53,"augue id ante dictum cursus. Nunc mauris",1,"2.48");
 INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (95,"Sed nunc est, mollis non, cursus non, egestas a, dui.",4,"6.70");
+
+-- -----------------------------------------------------
+-- job_schedule mock data
+-- -----------------------------------------------------
+
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-01 11:04:44', 1, '2017-05-01 12:04:44', 40, 20);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-07 21:17:31', 3, '2017-07-08 00:17:31', 9, 7);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-02 11:21:13', 6, '2017-06-02 17:21:13', 16, 14);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-09 22:15:09', 7, '2017-07-10 05:15:09', 37, 2);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-30 11:21:22', 7, '2017-06-30 18:21:22', 28, 4);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-15 01:07:37', 7, '2017-06-15 08:07:37', 38, 14);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-28 09:18:01', 7, '2017-05-28 16:18:01', 34, 5);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-05 12:25:06', 4, '2017-05-05 16:25:06', 35, 6);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-20 19:14:05', 3, '2017-04-20 22:14:05', 8, 12);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-28 01:56:53', 1, '2017-05-28 02:56:53', 1, 3);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-29 12:59:32', 3, '2017-06-29 15:59:32', 34, 14);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-04 21:08:56', 3, '2017-06-05 00:08:56', 25, 3);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-24 11:41:41', 4, '2017-06-24 15:41:41', 30, 4);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-05 13:30:53', 4, '2017-05-05 17:30:53', 10, 15);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-12 17:52:20', 6, '2017-06-12 23:52:20', 36, 14);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-05 12:56:15', 5, '2017-05-05 17:56:15', 21, 20);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-03 12:52:23', 2, '2017-04-03 14:52:23', 7, 2);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-21 00:20:32', 2, '2017-06-21 02:20:32', 9, 4);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-29 18:00:25', 7, '2017-04-30 01:00:25', 23, 8);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-06 22:56:07', 6, '2017-07-07 04:56:07', 5, 13);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-04 00:52:34', 5, '2017-04-04 05:52:34', 18, 15);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-28 03:21:35', 1, '2017-06-28 04:21:35', 26, 6);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-24 07:10:06', 5, '2017-05-24 12:10:06', 39, 4);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-23 00:31:00', 5, '2017-04-23 05:31:00', 40, 2);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-11 02:19:13', 6, '2017-04-11 08:19:13', 30, 6);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-10 06:05:27', 4, '2017-06-10 10:05:27', 5, 14);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-01 12:35:29', 2, '2017-04-01 14:35:29', 16, 18);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-10 02:01:58', 6, '2017-04-10 08:01:58', 22, 7);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-25 21:20:18', 3, '2017-05-26 00:20:18', 33, 18);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-25 08:15:29', 6, '2017-05-25 14:15:29', 4, 3);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-07 13:06:41', 6, '2017-06-07 19:06:41', 24, 5);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-31 20:24:29', 7, '2017-06-01 03:24:29', 26, 13);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-15 23:02:52', 2, '2017-04-16 01:02:52', 20, 3);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-04 01:45:35', 6, '2017-05-04 07:45:35', 12, 3);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-30 21:19:56', 3, '2017-07-01 00:19:56', 10, 18);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-15 09:25:29', 2, '2017-05-15 11:25:29', 20, 2);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-07 12:25:39', 5, '2017-04-07 17:25:39', 14, 3);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-05 10:44:40', 1, '2017-07-05 11:44:40', 5, 16);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-25 15:59:01', 7, '2017-06-25 22:59:01', 32, 4);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-13 04:49:58', 7, '2017-06-13 11:49:58', 29, 19);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-20 00:16:40', 6, '2017-05-20 06:16:40', 21, 8);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-01 02:09:34', 4, '2017-04-01 06:09:34', 10, 17);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-25 09:07:08', 5, '2017-05-25 14:07:08', 11, 8);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-02 10:08:37', 3, '2017-04-02 13:08:37', 2, 19);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-08 11:02:18', 2, '2017-04-08 13:02:18', 16, 5);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-10 04:44:21', 6, '2017-06-10 10:44:21', 31, 11);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-25 16:25:41', 5, '2017-05-25 21:25:41', 15, 16);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-14 22:18:32', 4, '2017-04-15 02:18:32', 12, 2);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-14 23:13:40', 2, '2017-06-15 01:13:40', 32, 1);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-03 13:11:09', 7, '2017-07-03 20:11:09', 38, 10);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-07 23:48:42', 7, '2017-06-08 06:48:42', 10, 6);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-02 04:24:29', 2, '2017-06-02 06:24:29', 26, 15);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-07 13:37:51', 4, '2017-05-07 17:37:51', 6, 3);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-17 14:17:35', 3, '2017-05-17 17:17:35', 12, 6);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-27 15:53:48', 5, '2017-04-27 20:53:48', 30, 1);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-10 04:52:38', 6, '2017-05-10 10:52:38', 34, 19);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-06 08:34:33', 7, '2017-05-06 15:34:33', 7, 8);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-11 15:23:04', 2, '2017-05-11 17:23:04', 32, 16);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-04 17:37:02', 7, '2017-05-05 00:37:02', 32, 15);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-17 21:32:36', 5, '2017-05-18 02:32:36', 40, 15);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-06 01:09:50', 3, '2017-07-06 04:09:50', 11, 13);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-18 15:27:04', 7, '2017-06-18 22:27:04', 8, 9);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-02 04:21:19', 1, '2017-05-02 05:21:19', 32, 13);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-06 02:57:13', 7, '2017-06-06 09:57:13', 34, 9);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-23 12:42:57', 5, '2017-04-23 17:42:57', 28, 15);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-06 17:52:34', 3, '2017-06-06 20:52:34', 37, 16);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-08 23:44:59', 2, '2017-05-09 01:44:59', 29, 10);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-29 12:16:55', 2, '2017-06-29 14:16:55', 9, 5);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-09 06:42:04', 6, '2017-07-09 12:42:04', 8, 5);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-31 19:40:49', 6, '2017-06-01 01:40:49', 19, 3);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-23 02:17:41', 7, '2017-05-23 09:17:41', 35, 19);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-28 02:04:25', 5, '2017-04-28 07:04:25', 28, 8);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-12 07:19:38', 6, '2017-04-12 13:19:38', 32, 6);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-06 19:31:11', 1, '2017-05-06 20:31:11', 30, 17);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-13 00:12:10', 3, '2017-05-13 03:12:10', 33, 11);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-12 01:32:18', 6, '2017-04-12 07:32:18', 35, 18);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-17 18:32:08', 2, '2017-04-17 20:32:08', 3, 10);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-30 18:40:45', 2, '2017-06-30 20:40:45', 16, 12);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-30 10:35:16', 4, '2017-04-30 14:35:16', 34, 15);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-04 02:42:14', 3, '2017-07-04 05:42:14', 15, 20);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-09 04:35:54', 1, '2017-07-09 05:35:54', 22, 16);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-29 05:47:00', 1, '2017-05-29 06:47:00', 24, 3);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-13 15:16:32', 4, '2017-06-13 19:16:32', 1, 4);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-03 14:02:40', 3, '2017-05-03 17:02:40', 29, 2);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-03 15:57:03', 3, '2017-05-03 18:57:03', 39, 12);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-23 01:59:35', 6, '2017-04-23 07:59:35', 17, 8);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-28 20:54:52', 1, '2017-05-28 21:54:52', 38, 12);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-06 00:50:15', 3, '2017-07-06 03:50:15', 13, 13);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-07 14:23:12', 5, '2017-06-07 19:23:12', 7, 7);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-03 22:25:23', 6, '2017-05-04 04:25:23', 18, 5);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-02 04:01:44', 7, '2017-06-02 11:01:44', 35, 18);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-07 01:55:41', 6, '2017-06-07 07:55:41', 4, 3);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-21 15:38:24', 2, '2017-05-21 17:38:24', 17, 13);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-29 03:43:33', 4, '2017-04-29 07:43:33', 16, 3);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-05 23:03:16', 6, '2017-04-06 05:03:16', 29, 1);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-07 22:18:43', 1, '2017-05-07 23:18:43', 20, 13);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-10 17:50:41', 3, '2017-07-10 20:50:41', 4, 20);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-11 06:03:07', 4, '2017-05-11 10:03:07', 16, 3);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-06 20:40:20', 7, '2017-07-07 03:40:20', 3, 15);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-22 22:39:08', 5, '2017-05-23 03:39:08', 36, 17);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-09 07:47:24', 6, '2017-04-09 13:47:24', 12, 6);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-17 13:49:15', 1, '2017-04-17 14:49:15', 32, 3);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-01 11:31:34', 4, '2017-05-01 15:31:34', 1, 9);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-23 13:50:45', 5, '2017-04-23 18:50:45', 16, 17);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-10 02:20:19', 5, '2017-05-10 07:20:19', 1, 5);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-31 17:54:54', 3, '2017-05-31 20:54:54', 10, 11);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-15 02:10:53', 6, '2017-05-15 08:10:53', 33, 2);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-04 00:27:47', 5, '2017-05-04 05:27:47', 9, 12);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-05 07:11:05', 4, '2017-07-05 11:11:05', 40, 14);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-09 08:35:49', 6, '2017-04-09 14:35:49', 3, 8);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-17 00:45:55', 1, '2017-06-17 01:45:55', 2, 9);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-22 15:08:30', 3, '2017-04-22 18:08:30', 31, 12);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-10 00:29:22', 6, '2017-04-10 06:29:22', 22, 10);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-30 12:33:38', 7, '2017-04-30 19:33:38', 28, 16);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-16 13:33:25', 6, '2017-05-16 19:33:25', 40, 9);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-24 03:09:18', 2, '2017-04-24 05:09:18', 17, 16);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-23 02:20:07', 6, '2017-04-23 08:20:07', 12, 4);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-09 16:59:50', 4, '2017-06-09 20:59:50', 32, 1);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-25 11:22:34', 7, '2017-06-25 18:22:34', 6, 18);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-04 08:48:59', 6, '2017-04-04 14:48:59', 17, 10);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-10 21:01:58', 4, '2017-07-11 01:01:58', 8, 7);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-19 09:08:52', 3, '2017-05-19 12:08:52', 4, 16);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-05 19:02:47', 7, '2017-06-06 02:02:47', 4, 15);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-26 06:22:30', 3, '2017-04-26 09:22:30', 40, 18);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-02 23:29:38', 1, '2017-04-03 00:29:38', 5, 13);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-22 20:09:58', 6, '2017-05-23 02:09:58', 21, 18);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-28 04:39:18', 3, '2017-06-28 07:39:18', 15, 1);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-30 14:22:57', 1, '2017-04-30 15:22:57', 20, 13);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-15 07:19:23', 5, '2017-04-15 12:19:23', 11, 19);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-02 01:47:27', 3, '2017-06-02 04:47:27', 40, 2);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-09 13:50:40', 3, '2017-05-09 16:50:40', 2, 9);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-26 06:21:44', 1, '2017-05-26 07:21:44', 39, 16);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-10 02:44:53', 2, '2017-05-10 04:44:53', 23, 3);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-29 18:47:01', 7, '2017-04-30 01:47:01', 5, 4);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-23 02:35:28', 4, '2017-05-23 06:35:28', 36, 2);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-18 01:31:44', 1, '2017-06-18 02:31:44', 31, 11);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-07 12:53:57', 7, '2017-04-07 19:53:57', 24, 7);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-02 08:35:18', 4, '2017-06-02 12:35:18', 21, 10);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-14 16:42:49', 4, '2017-06-14 20:42:49', 6, 2);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-19 04:51:33', 4, '2017-04-19 08:51:33', 16, 6);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-30 20:16:58', 1, '2017-06-30 21:16:58', 38, 8);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-16 05:16:09', 5, '2017-05-16 10:16:09', 10, 2);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-14 00:23:18', 6, '2017-04-14 06:23:18', 5, 18);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-19 10:35:17', 5, '2017-05-19 15:35:17', 6, 6);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-04 07:01:48', 4, '2017-06-04 11:01:48', 22, 5);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-11 22:39:36', 1, '2017-05-11 23:39:36', 39, 1);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-24 16:42:07', 2, '2017-05-24 18:42:07', 14, 15);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-23 13:05:43', 5, '2017-04-23 18:05:43', 35, 3);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-09 15:00:02', 4, '2017-04-09 19:00:02', 24, 1);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-01 08:51:30', 6, '2017-06-01 14:51:30', 9, 17);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-26 09:40:12', 3, '2017-04-26 12:40:12', 3, 1);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-17 20:34:07', 2, '2017-04-17 22:34:07', 9, 3);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-25 09:10:28', 1, '2017-06-25 10:10:28', 5, 20);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-18 00:46:10', 3, '2017-04-18 03:46:10', 8, 16);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-15 17:47:15', 3, '2017-04-15 20:47:15', 12, 15);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-04 09:50:17', 6, '2017-05-04 15:50:17', 30, 13);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-18 20:11:31', 5, '2017-05-19 01:11:31', 24, 19);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-29 21:48:15', 4, '2017-06-30 01:48:15', 23, 15);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-10 08:41:02', 3, '2017-06-10 11:41:02', 36, 9);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-05 01:18:04', 1, '2017-07-05 02:18:04', 32, 7);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-09 16:16:16', 2, '2017-04-09 18:16:16', 10, 11);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-26 22:43:26', 7, '2017-05-27 05:43:26', 28, 13);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-25 08:46:15', 7, '2017-04-25 15:46:15', 15, 16);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-14 20:53:32', 1, '2017-05-14 21:53:32', 15, 14);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-03 02:08:36', 5, '2017-04-03 07:08:36', 3, 1);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-08 17:58:04', 2, '2017-04-08 19:58:04', 13, 1);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-06 21:07:07', 6, '2017-05-07 03:07:07', 32, 9);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-16 01:08:46', 2, '2017-06-16 03:08:46', 8, 4);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-30 05:33:11', 6, '2017-05-30 11:33:11', 36, 15);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-21 10:23:43', 7, '2017-04-21 17:23:43', 40, 11);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-03 21:40:03', 2, '2017-04-03 23:40:03', 20, 19);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-20 14:55:51', 6, '2017-04-20 20:55:51', 2, 11);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-20 21:52:56', 2, '2017-06-20 23:52:56', 28, 6);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-06 23:55:14', 1, '2017-05-07 00:55:14', 13, 2);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-07 01:59:57', 3, '2017-06-07 04:59:57', 14, 7);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-12 02:59:18', 7, '2017-06-12 09:59:18', 28, 4);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-24 08:39:14', 2, '2017-04-24 10:39:14', 28, 12);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-16 15:17:17', 5, '2017-06-16 20:17:17', 20, 16);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-06 19:51:51', 2, '2017-07-06 21:51:51', 5, 6);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-21 13:46:10', 3, '2017-05-21 16:46:10', 20, 20);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-08 18:21:17', 3, '2017-05-08 21:21:17', 12, 2);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-13 18:23:33', 4, '2017-04-13 22:23:33', 5, 6);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-16 12:18:39', 3, '2017-04-16 15:18:39', 2, 18);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-27 14:05:05', 6, '2017-04-27 20:05:05', 8, 9);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-04 13:19:19', 3, '2017-07-04 16:19:19', 35, 4);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-28 03:28:29', 7, '2017-05-28 10:28:29', 13, 20);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-03 22:20:33', 5, '2017-05-04 03:20:33', 24, 9);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-23 10:46:29', 5, '2017-04-23 15:46:29', 26, 11);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-08 07:16:12', 7, '2017-06-08 14:16:12', 4, 14);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-29 10:22:21', 7, '2017-04-29 17:22:21', 25, 12);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-02 03:38:39', 5, '2017-05-02 08:38:39', 23, 9);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-23 05:19:09', 5, '2017-06-23 10:19:09', 39, 1);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-20 14:34:33', 1, '2017-04-20 15:34:33', 13, 18);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-16 19:33:54', 7, '2017-05-17 02:33:54', 38, 16);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-06 07:04:58', 3, '2017-04-06 10:04:58', 10, 11);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-14 16:27:41', 3, '2017-06-14 19:27:41', 20, 9);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-03 03:03:10', 3, '2017-07-03 06:03:10', 17, 8);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-17 05:39:30', 1, '2017-04-17 06:39:30', 27, 9);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-16 08:42:54', 4, '2017-06-16 12:42:54', 3, 6);
+insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-13 11:58:46', 5, '2017-06-13 16:58:46', 22, 6);
 
 

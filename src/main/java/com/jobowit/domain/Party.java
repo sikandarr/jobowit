@@ -64,7 +64,6 @@ public class Party implements Serializable
 	// one-to-one association to Address
 	@OneToOne(optional = false, cascade = CascadeType.ALL)
 	@JoinColumn(name = "mailing_address_id")
-	//@RestResource(exported = false)
 	private Address mailingAddress;
 
 	// one-to-one association to Address

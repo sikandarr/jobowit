@@ -4,7 +4,9 @@ import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
 import org.springframework.data.projection.ProjectionFactory;
 import org.springframework.data.projection.SpelAwareProxyProjectionFactory;
 import org.springframework.hateoas.Link;
@@ -17,6 +19,8 @@ import com.jobowit.repositories.PartyInvoiceController;
 
 @SpringBootApplication
 @RestController
+@EntityScan(basePackageClasses =
+	{ JobowitApplication.class, Jsr310JpaConverters.class })
 public class JobowitApplication
 {
 	public static void main(String[] args)
@@ -62,10 +66,9 @@ public class JobowitApplication
 		};
 	}
 
-	/*@RequestMapping("/user")
-	public Principal user(Principal user)
-	{
-		return user;
-	}*/
+	/*
+	 * @RequestMapping("/user") public Principal user(Principal user) { return
+	 * user; }
+	 */
 
 }

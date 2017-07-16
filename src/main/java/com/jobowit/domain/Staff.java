@@ -44,7 +44,7 @@ public class Staff implements /*UserDetails,*/ Serializable
 	private String username;
 
 	// bi-directional many-to-one association to Comment
-	@OneToMany(mappedBy = "staff")
+	@OneToMany(mappedBy = "staffUser")
 	private List<Comment> comments;
 
 	// bi-directional many-to-one association to ExtraAvailability
@@ -164,7 +164,7 @@ public class Staff implements /*UserDetails,*/ Serializable
 	public Comment addComment(Comment comment)
 	{
 		getComments().add(comment);
-		comment.setStaff(this);
+		comment.setStaffUser(this);
 
 		return comment;
 	}
@@ -172,7 +172,7 @@ public class Staff implements /*UserDetails,*/ Serializable
 	public Comment removeComment(Comment comment)
 	{
 		getComments().remove(comment);
-		comment.setStaff(null);
+		comment.setStaffUser(null);
 
 		return comment;
 	}

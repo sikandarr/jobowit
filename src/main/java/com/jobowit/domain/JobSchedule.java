@@ -2,6 +2,9 @@ package com.jobowit.domain;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.TemporalField;
@@ -32,6 +35,7 @@ public class JobSchedule implements Serializable, Comparable<JobSchedule>
 	// bi-directional many-to-one association to Job
 	@ManyToOne
 	@JoinColumn(name = "job_id", nullable = false)
+	@JsonIgnore
 	private Job job;
 
 	// bi-directional many-to-one association to Staff
@@ -92,22 +96,31 @@ public class JobSchedule implements Serializable, Comparable<JobSchedule>
 	{
 		LocalDate today = LocalDate.now();
 		LocalDate schedule = startDtm.toLocalDate();
-		TemporalField woy = WeekFields.of(Locale.getDefault()).weekOfWeekBasedYear();
+		TemporalField wom = WeekFields.of(Locale.getDefault()).weekOfMonth();
 		int daysBetween = (int) java.time.temporal.ChronoUnit.DAYS.between(today, schedule);
-		int weeksBetween = today.get(woy) - schedule.get(woy);
+		int weeksBetween = today.get(wom) - schedule.get(wom);
 		int monthsBetween = today.getMonthValue() - schedule.getMonthValue();
 		
 		if (daysBetween == 0) return "Today";
 		if (daysBetween == 1) return "Tomorrow";
 		if (daysBetween == -1) return "Yesterday";
-		if (weeksBetween == 0 && daysBetween < 0) return "Last " + schedule.getDayOfWeek().toString();;
-		if (weeksBetween == 0 && daysBetween > 0) return "Coming " + schedule.getDayOfWeek().toString();
-		if (weeksBetween == -1) return "Next Week";
-		if (weeksBetween == 1) return "Last Week";
+		if (monthsBetween == 0)
+		{
+			if (weeksBetween == 0) return "Last " + schedule.getDayOfWeek().toString();
+			if (weeksBetween == 0) return "Coming " + schedule.getDayOfWeek().toString();
+			if (weeksBetween == -1) return "Next Week";
+			if (weeksBetween == 1) return "Last Week";
+		}
 		if (monthsBetween == -1) return "Next Month";
 		if (monthsBetween == 1) return "Last Month";
-
-		return "";
+		if (today.getYear() == schedule.getYear())
+		{
+			return schedule.getMonth().toString();
+		}
+		if (today.getYear() > schedule.getYear())
+			return "Last year";
+		else
+			return "Next year";
 	}
 
 	@Override

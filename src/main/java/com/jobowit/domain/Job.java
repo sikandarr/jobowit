@@ -2,10 +2,8 @@ package com.jobowit.domain;
 
 import java.io.Serializable;
 import javax.persistence.*;
-
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-
 import java.util.List;
 
 /**
@@ -14,7 +12,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "job")
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "job_id")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "jobId")
 public class Job implements Serializable
 {
 	private static final long serialVersionUID = 1L;
@@ -23,6 +21,12 @@ public class Job implements Serializable
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "job_id", unique = true, nullable = false)
 	private int jobId;
+	
+	@Column(name = "job_uuid", columnDefinition="CHAR", unique = true)
+	private String uuid;
+	
+	@Column(name = "job_number", columnDefinition="CHAR", length=6, unique = true)
+	private String jobNumber;
 
 	@Lob
 	private String description;
@@ -34,7 +38,7 @@ public class Job implements Serializable
 	private String priority;
 
 	// one-to-one association to Address
-	@OneToOne
+	@OneToOne(optional = false, cascade = CascadeType.ALL)
 	@JoinColumn(name = "address_id")
 	private Address address;
 
@@ -56,17 +60,17 @@ public class Job implements Serializable
 
 	// bi-directional many-to-one association to JobStatus
 	@ManyToOne
-	@JoinColumn(name = "job_status_id", nullable = false)
+	@JoinColumn(name = "job_status", nullable = false)
 	private JobStatus jobStatus;
 
 	// bi-directional many-to-one association to JobType
 	@ManyToOne
-	@JoinColumn(name = "initial_type", nullable = false)
+	@JoinColumn(name = "initial_type")
 	private JobType initialType;
 
 	// bi-directional many-to-one association to JobType
 	@ManyToOne
-	@JoinColumn(name = "current_type", nullable = false)
+	@JoinColumn(name = "current_type")
 	private JobType currentType;
 
 	// bi-directional many-to-one association to Party
@@ -102,6 +106,26 @@ public class Job implements Serializable
 	public void setJobId(int jobId)
 	{
 		this.jobId = jobId;
+	}
+
+	public String getUuid()
+	{
+		return uuid;
+	}
+
+	public void setUuid(String uuid)
+	{
+		this.uuid = uuid;
+	}
+
+	public String getJobNumber()
+	{
+		return jobNumber;
+	}
+
+	public void setJobNumber(String jobNumber)
+	{
+		this.jobNumber = jobNumber;
 	}
 
 	public String getDescription()
@@ -142,6 +166,11 @@ public class Job implements Serializable
 	public void setAddress(Address address)
 	{
 		this.address = address;
+	}
+	
+	public String getAddressStr()
+	{
+		return getAddress().toString();
 	}
 
 	public List<Bill> getBills()
@@ -392,16 +421,21 @@ public class Job implements Serializable
 		return salesStaffInJob;
 	}
 	
-	public boolean isActive()
+	public String getStatus()
+	{
+		return getJobStatus().getStatus();
+	}
+	
+	public boolean getActive()
 	{
 		return getJobStatus().isActive();
 	}
 	
 	public JobSchedule getLatestSchedule()
 	{
-		if (getJobSchedules().size() > 0)
+		if (getJobSchedules() != null && getJobSchedules().size() > 0)
 		{
-			getJobSchedules().sort((s1, s2) -> s1.getStartDtm().compareTo(s2.getStartDtm()));
+			getJobSchedules().sort((s1, s2) -> s2.getStartDtm().compareTo(s1.getStartDtm()));
 			return getJobSchedules().get(0);
 		}
 		return null;

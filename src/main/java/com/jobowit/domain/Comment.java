@@ -16,7 +16,7 @@ import java.sql.Timestamp;
 @Entity
 @Table(name = "comment")
 @DynamicInsert
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "comment_id")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "commentId")
 public class Comment implements Serializable
 {
 	private static final long serialVersionUID = 1L;
@@ -46,7 +46,7 @@ public class Comment implements Serializable
 	// bi-directional many-to-one association to Staff
 	@ManyToOne
 	@JoinColumn(name = "staff_id", nullable = false)
-	private Staff staff;
+	private Staff staffUser;
 
 	public Comment()
 	{
@@ -102,14 +102,14 @@ public class Comment implements Serializable
 		this.party = party;
 	}
 
-	public Staff getStaff()
+	public Staff getStaffUser()
 	{
-		return this.staff;
+		return this.staffUser;
 	}
 
-	public void setStaff(Staff staff)
+	public void setStaffUser(Staff staff)
 	{
-		this.staff = staff;
+		this.staffUser = staff;
 	}
 
 }

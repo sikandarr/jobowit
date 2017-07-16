@@ -19,7 +19,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "party")
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "party_id")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "partyId")
 public class Party implements Serializable
 {
 	private static final long serialVersionUID = 1L;
@@ -28,6 +28,9 @@ public class Party implements Serializable
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "party_id", unique = true, nullable = false)
 	private Long partyId;
+	
+	@Column(name = "party_uuid", columnDefinition="CHAR", unique = true)
+	private String uuid;
 
 	@Column(name = "contact_name", length = 100)
 	private String contactName;
@@ -84,6 +87,16 @@ public class Party implements Serializable
 	public void setPartyId(Long partyId)
 	{
 		this.partyId = partyId;
+	}
+
+	public String getUuid()
+	{
+		return uuid;
+	}
+
+	public void setUuid(String uuid)
+	{
+		this.uuid = uuid;
 	}
 
 	public String getContactName()
@@ -224,6 +237,11 @@ public class Party implements Serializable
 	{
 		this.mailingAddress = mailingAddress;
 	}
+	
+	public String getMailingAddressStr()
+	{
+		return getMailingAddress().toString();
+	}
 
 	public Address getPhysicalAddress()
 	{
@@ -234,6 +252,11 @@ public class Party implements Serializable
 	public void setPhysicalAddress(Address physicalAddress)
 	{
 		this.physicalAddress = physicalAddress;
+	}
+	
+	public String getPhysicalAddressStr()
+	{
+		return getPhysicalAddress().toString();
 	}
 
 	public long getActiveJobCount()

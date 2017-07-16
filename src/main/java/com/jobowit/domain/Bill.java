@@ -28,7 +28,7 @@ public class Bill implements Serializable {
 	@Column(name="due_dt")
 	private Timestamp dueDt;
 
-	@Column(length=45)
+	@Column(name="supplier_ref", length=45)
 	private String ref;
 
 	@Column(name="tax_inclusive")

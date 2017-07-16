@@ -421,6 +421,11 @@ public class Job implements Serializable
 		return salesStaffInJob;
 	}
 	
+	public String getType()
+	{
+		return getCurrentType().getJobType();
+	}
+	
 	public String getStatus()
 	{
 		return getJobStatus().getStatus();

@@ -10,4 +10,5 @@ import com.jobowit.domain.Job;
 public interface JobRepository extends PagingAndSortingRepository<Job, Integer>
 {
 	List<Job> findByCustomerPartyId(Long id);
+	List<Job> findByCustomerUuid(String id);
 }

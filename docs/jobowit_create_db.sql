@@ -144,7 +144,7 @@ DROP TABLE IF EXISTS `jobowit_db`.`job` ;
 CREATE TABLE IF NOT EXISTS `jobowit_db`.`job` (
   `job_id` INT NOT NULL AUTO_INCREMENT,
   `job_uuid` CHAR(36) NOT NULL DEFAULT 'EMPTY',
-  `job_number` VARCHAR(6) NULL,
+  `job_number` VARCHAR(6) NOT NULL,
   `customer_id` BIGINT NOT NULL,
   `description` LONGTEXT NULL,
   `initial_type` VARCHAR(100) NOT NULL,
@@ -637,7 +637,7 @@ DROP TRIGGER IF EXISTS `jobowit_db`.`party_BEFORE_INSERT` $$
 USE `jobowit_db`$$
 CREATE DEFINER = CURRENT_USER TRIGGER `jobowit_db`.`party_BEFORE_INSERT` BEFORE INSERT ON `party` FOR EACH ROW
 BEGIN
-if ( isnull(new.party_uuid) ) then
+if ( isnull(new.party_uuid) OR new.party_uuid = 'EMPTY') then
 SET new.party_uuid = uuid();
 END if;
 END$$
@@ -648,7 +648,7 @@ DROP TRIGGER IF EXISTS `jobowit_db`.`job_BEFORE_INSERT` $$
 USE `jobowit_db`$$
 CREATE DEFINER = CURRENT_USER TRIGGER `jobowit_db`.`job_BEFORE_INSERT` BEFORE INSERT ON `job` FOR EACH ROW
 BEGIN
-if ( isnull(new.job_uuid) ) then
+if ( isnull(new.job_uuid) OR new.job_uuid = 'EMPTY' ) then
 SET new.job_uuid = uuid();
 END if;
 END$$

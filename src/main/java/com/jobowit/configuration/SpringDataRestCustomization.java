@@ -14,7 +14,7 @@ public class SpringDataRestCustomization extends RepositoryRestConfigurerAdapter
 	@Override
 	public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config)
 	{
-		config.withEntityLookup().forRepository(PartyRepository.class, Party::getUuid, PartyRepository::findOneByUuid);
+		config.withEntityLookup().forRepository(PartyRepository.class, Party::getUuid, PartyRepository::findByUuid);
 
 		config.getCorsRegistry().addMapping("/api/**").allowedOrigins("http://localhost:4200").allowedMethods("*")
 				.allowedHeaders("header1", "header2", "header3").exposedHeaders("header1", "header2")

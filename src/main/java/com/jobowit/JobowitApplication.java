@@ -1,7 +1,5 @@
 package com.jobowit;
 
-import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
-import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -15,7 +13,6 @@ import org.springframework.hateoas.ResourceProcessor;
 import org.springframework.web.bind.annotation.RestController;
 import com.jobowit.domain.Party;
 import com.jobowit.domain.projections.PartyProjection;
-import com.jobowit.repositories.PartyInvoiceController;
 
 @SpringBootApplication
 @RestController
@@ -44,9 +41,7 @@ public class JobowitApplication
 			@Override
 			public Resource<Party> process(Resource<Party> resource)
 			{
-				Party p = resource.getContent();
-				resource.add(
-						linkTo(methodOn(PartyInvoiceController.class).getInvoices(p.getPartyId())).withRel("invoices"));
+				resource.add(new Link(resource.getId().getHref() + "/invoices").withRel("invoices"));
 				return resource;
 			}
 		};

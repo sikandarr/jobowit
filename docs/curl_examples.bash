@@ -29,12 +29,12 @@ curl -v -X POST -d \
 curl -v -X POST -d \
 '{
 	"name": "Hypermedia Transactions",
-	"contact_name": "Stephen Local",
+	"contactName": "Stephen Local",
 	"email": "stephen@local.host",
 	"mobile": "0450198231",
 	"phone": "0827578170",
-	"mailing_address": "24 Bradford Avenue:Bradford:New South Wales:4008:Australia",
-	"physical_address": "8 Grimsone Road:Flinder Park:New South Wales:4016:Australia"
+	"mailingAddress": "24 Bradford Avenue:Bradford:New South Wales:4008:Australia",
+	"physicalAddress": "8 Grimsone Road:Flinder Park:New South Wales:4016:Australia"
 }' "localhost:8080/api/parties/" --header "Content-Type:application/json"
 
 curl -X PUT -d \

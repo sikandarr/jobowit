@@ -83,16 +83,23 @@ DROP TABLE IF EXISTS `jobowit_db`.`staff` ;
 
 CREATE TABLE IF NOT EXISTS `jobowit_db`.`staff` (
   `staff_id` INT NOT NULL AUTO_INCREMENT,
+  `staff_uuid` VARCHAR(36) NOT NULL DEFAULT 'EMPTY',
+  `name` VARCHAR(100) NULL,
+  `address_id` INT NOT NULL,
   `access_role` VARCHAR(100) NULL DEFAULT 'NO ACCESS',
   `username` VARCHAR(16) NOT NULL,
   `email` VARCHAR(255) NULL,
   `password` VARCHAR(32) NOT NULL,
   `create_dtm` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
-  `name` VARCHAR(100) NULL,
-  `address_id` INT NOT NULL,
+  `account_enabled` TINYINT(1) NOT NULL DEFAULT 1,
+  `account_expired` TINYINT(1) NOT NULL DEFAULT 1,
+  `account_locked` TINYINT(1) NOT NULL DEFAULT 1,
+  `password_expired` TINYINT(1) NOT NULL DEFAULT 1,
   PRIMARY KEY (`staff_id`),
   INDEX `fk_staff_address1_idx` (`address_id` ASC),
   INDEX `fk_staff_access_role1_idx` (`access_role` ASC),
+  UNIQUE INDEX `staff_uuid_UNIQUE` (`staff_uuid` ASC),
+  UNIQUE INDEX `username_UNIQUE` (`username` ASC),
   CONSTRAINT `fk_staff_address1`
     FOREIGN KEY (`address_id`)
     REFERENCES `jobowit_db`.`address` (`address_id`)
@@ -637,8 +644,19 @@ DROP TRIGGER IF EXISTS `jobowit_db`.`party_BEFORE_INSERT` $$
 USE `jobowit_db`$$
 CREATE DEFINER = CURRENT_USER TRIGGER `jobowit_db`.`party_BEFORE_INSERT` BEFORE INSERT ON `party` FOR EACH ROW
 BEGIN
-if ( isnull(new.party_uuid) OR new.party_uuid = 'EMPTY') then
+if ( isnull(new.party_uuid) ) then
 SET new.party_uuid = uuid();
+END if;
+END$$
+
+
+USE `jobowit_db`$$
+DROP TRIGGER IF EXISTS `jobowit_db`.`staff_BEFORE_INSERT` $$
+USE `jobowit_db`$$
+CREATE DEFINER = CURRENT_USER TRIGGER `jobowit_db`.`staff_BEFORE_INSERT` BEFORE INSERT ON `staff` FOR EACH ROW
+BEGIN
+if ( isnull(new.staff_uuid) OR new.staff_uuid = 'EMPTY' ) then
+SET new.staff_uuid = uuid();
 END if;
 END$$
 

@@ -1,9 +1,11 @@
 package com.jobowit.domain.eventhandlers;
 
+import javax.persistence.EntityManager;
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.core.annotation.HandleAfterCreate;
 import org.springframework.data.rest.core.annotation.HandleBeforeCreate;
-import org.springframework.data.rest.core.annotation.HandleBeforeLinkSave;
 import org.springframework.data.rest.core.annotation.RepositoryEventHandler;
 import org.springframework.stereotype.Component;
 
@@ -16,6 +18,7 @@ import com.jobowit.utils.RandomString;
 
 @Component
 @RepositoryEventHandler(Job.class)
+@Transactional
 public class JobEventHandler
 {
 	@Autowired
@@ -23,6 +26,9 @@ public class JobEventHandler
 	
 	@Autowired
 	private ResourceIdRepository ridRepo;
+	
+	@Autowired
+	EntityManager em;
 	
 	@HandleBeforeCreate
 	public void handleBeforeCreates(Job job)
@@ -50,12 +56,7 @@ public class JobEventHandler
 	@HandleAfterCreate
 	public void handleAfterCreate(Job job)
 	{
-		
+		em.refresh(job);
 	}
 	
-	@HandleBeforeLinkSave
-	public void handleBeforeLinkSave(Job job)
-	{
-		System.out.println(job.getInitialType().getJobType());
-	}
 }

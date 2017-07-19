@@ -9,5 +9,4 @@ public interface StaffRepository extends PagingAndSortingRepository<Staff, Integ
 {
 	Staff findByUsername(String username);
 	Staff findByUsernameAndPassword(String username, String password);
-
 }

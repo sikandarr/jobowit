@@ -3,6 +3,8 @@ package com.jobowit.domain;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 //import org.springframework.security.core.GrantedAuthority;
 //import org.springframework.security.core.userdetails.UserDetails;
 
@@ -37,6 +39,7 @@ public class Staff implements /*UserDetails,*/ Serializable
 	@Column(length = 100)
 	private String name;
 
+	@JsonIgnore
 	@Column(nullable = false, length = 32)
 	private String password;
 

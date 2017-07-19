@@ -34,6 +34,7 @@ webpackEmptyContext.id = "../../../../../src async recursive";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_jobs_job_job_field_work_job_field_work_component__ = __webpack_require__("../../../../../src/app/components/jobs/job/job-field-work/job-field-work.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_jobs_job_job_costs_job_costs_component__ = __webpack_require__("../../../../../src/app/components/jobs/job/job-costs/job-costs.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_jobs_job_job_invoices_job_invoices_component__ = __webpack_require__("../../../../../src/app/components/jobs/job/job-invoices/job-invoices.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_parties_party_party_comments_party_comments_component__ = __webpack_require__("../../../../../src/app/components/parties/party/party-comments/party-comments.component.ts");
 /* unused harmony export routes */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppRoutingModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -59,6 +60,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 var routes = [
     { path: '', redirectTo: 'parties', pathMatch: 'full' },
     { path: 'parties', component: __WEBPACK_IMPORTED_MODULE_2__components_parties_parties_component__["a" /* PartiesComponent */] },
@@ -66,6 +68,7 @@ var routes = [
         children: [
             { path: '', redirectTo: 'main', pathMatch: 'full' },
             { path: 'main', component: __WEBPACK_IMPORTED_MODULE_7__components_parties_party_party_main_party_main_component__["a" /* PartyMainComponent */] },
+            { path: 'comments', component: __WEBPACK_IMPORTED_MODULE_17__components_parties_party_party_comments_party_comments_component__["a" /* PartyCommentsComponent */] },
             { path: 'jobs', component: __WEBPACK_IMPORTED_MODULE_6__components_parties_party_party_jobs_party_jobs_component__["a" /* PartyJobsComponent */] },
             { path: 'bills', component: __WEBPACK_IMPORTED_MODULE_5__components_parties_party_party_bills_party_bills_component__["a" /* PartyBillsComponent */] },
             { path: 'invoices', component: __WEBPACK_IMPORTED_MODULE_4__components_parties_party_party_invoices_party_invoices_component__["a" /* PartyInvoicesComponent */] },
@@ -227,6 +230,8 @@ var _a, _b;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__components_jobs_job_job_bills_job_bills_component__ = __webpack_require__("../../../../../src/app/components/jobs/job/job-bills/job-bills.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__components_jobs_job_job_costs_job_costs_component__ = __webpack_require__("../../../../../src/app/components/jobs/job/job-costs/job-costs.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__components_jobs_job_job_invoices_job_invoices_component__ = __webpack_require__("../../../../../src/app/components/jobs/job/job-invoices/job-invoices.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__components_parties_party_party_comments_party_comments_component__ = __webpack_require__("../../../../../src/app/components/parties/party/party-comments/party-comments.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__directives_form_input_directive__ = __webpack_require__("../../../../../src/app/directives/form-input.directive.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -234,6 +239,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -283,7 +290,9 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_22__components_jobs_job_job_field_work_job_field_work_component__["a" /* JobFieldWorkComponent */],
             __WEBPACK_IMPORTED_MODULE_23__components_jobs_job_job_bills_job_bills_component__["a" /* JobBillsComponent */],
             __WEBPACK_IMPORTED_MODULE_24__components_jobs_job_job_costs_job_costs_component__["a" /* JobCostsComponent */],
-            __WEBPACK_IMPORTED_MODULE_25__components_jobs_job_job_invoices_job_invoices_component__["a" /* JobInvoicesComponent */]
+            __WEBPACK_IMPORTED_MODULE_25__components_jobs_job_job_invoices_job_invoices_component__["a" /* JobInvoicesComponent */],
+            __WEBPACK_IMPORTED_MODULE_26__components_parties_party_party_comments_party_comments_component__["a" /* PartyCommentsComponent */],
+            __WEBPACK_IMPORTED_MODULE_27__directives_form_input_directive__["a" /* FormInputDirective */],
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -613,7 +622,7 @@ JobInvoicesComponent = __decorate([
 /***/ "../../../../../src/app/components/jobs/job/job-main/job-main.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "This tab should have a form with the following fields:<br>\n\nCustomer (a lookup text-field see tradify for details) - this should have the name of the customer.<br>\n\nJob Type - this field is only for display and never editable (even when editing the Job or creating a<br>\nnew one - it will be set automatically; more on that later.<br>\n<br>\nAddress (verifiable by google)<br>\n\nReferral (plain text)<br>\n\nPriority (drop down with values: Normal, Urgent, Important)<br>\n\nDetails (text box)<br>\n\nStatus (this is a drop down with values linked to the job_status <br>\ntable in db: these values can be retrieved through the API at /API/jobStatuses - the values that can <br>\nbe selected in the drop down will depend on the Job Type - every status is linked to a JobType; <br>\ncheck the API and let me knoe if need aditional field to make your job easier)<br>\n<div class=\"app-form-container app-form-container-top\">\n  <h3 class=\"app-form-header\">Job</h3>\n  <form [formGroup]=\"jobForm\" (ngSubmit)=\"onSubmit()\">\n    <div formGroupName=\"userData\">\n      <div class=\"form-group\">\n        <label for=\"customer-name\" class=\"app-form-label\">Customer</label>\n        <span class=\"app-form-label-colon\">:</span>\n        <div class=\"form-control-wrapper\">\n          <input type=\"text\" id=\"customer-name\" formControlName=\"customer-name\" class=\"form-control\">\n          <i\n            *ngIf=\"jobForm.get('userData.customer-name').valid\"\n            class=\"fa fa-check\" aria-hidden=\"true\">\n          </i>\n          <div class=\"app-auto-suggestion-wrapper\"\n               *ngIf=\"customersAutoSuggestion.length != 0\">\n            <ul>\n              <li *ngFor=\"let customer of customersAutoSuggestion\"\n                  (click)=\"onCustomerSelected(customer)\"\n                  (mouseover)=\"onCustomerHover($event, customer)\">\n                <i class=\"fa fa-map-marker\" aria-hidden=\"true\"></i>\n                {{customer}}\n              </li>\n            </ul>\n          </div>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"job-type\" class=\"app-form-label\">Job Type</label>\n        <span class=\"app-form-label-colon\">:</span>\n        <input readonly class=\"form-control\"\n               id=\"job-type\"\n               formControlName=\"job-type\"\n               value=\"job-type\">\n      </div>\n      <div class=\"form-group\">\n        <label for=\"customer-name\" class=\"app-form-label\">Address</label>\n        <span class=\"app-form-label-colon\">:</span>\n        <input type=\"text\"\n               id=\"job-physical-address\"\n               formControlName=\"customer-name\"\n               class=\"form-control\">\n      </div>\n      <div class=\"form-group\">\n        <label class=\"app-form-label\">Priority</label>\n        <span class=\"app-form-label-colon\">:</span>\n        <div class=\"job-priority-wrapper\">\n          <input type=\"text\"\n                 id=\"job-priority\"\n                 formControlName=\"job-priority\"\n                 class=\"form-control\">\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label class=\"app-form-label\">Status</label>\n        <span class=\"app-form-label-colon\">:</span>\n        <div id=\"job-status-dropdown\" class=\"dropdown new-job-dropdown form-control-wrapper\"\n             [ngClass]=\"{'show': showJobStatusDropdown }\">\n          <button class=\"btn btn-primary dropdown-toggle\"\n                  type=\"button\"\n                  id=\"job-status\"\n                  data-toggle=\"dropdown\"\n                  aria-haspopup=\"true\"\n                  aria-expanded=\"false\"\n                  (click)=\"toggleJobStatus()\">\n            Select Status\n          </button>\n          <div class=\"dropdown-menu\" aria-labelledby=\"job-status\">\n            <button class=\"dropdown-item btn btn-primary\"\n                    *ngFor=\"let status of jobsStatus\"\n                    (click)=\"onSelectJobStatus(status.title)\">{{status.title}}\n            </button>\n          </div>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"job-detail\" class=\"app-form-label\">Details</label>\n        <span class=\"app-form-label-colon\">:</span>\n        <input type=\"text\"\n               id=\"job-detail\"\n               formControlName=\"job-detail\"\n               class=\"form-control\">\n        <i *ngIf=\"jobForm.get('userData.job-detail').valid\"\n           class=\"fa fa-check\" aria-hidden=\"true\">\n        </i>\n      </div>\n    </div>\n  </form>\n</div>\n"
+module.exports = "This tab should have a form with the following fields:<br>\n\nCustomer (a lookup text-field see tradify for details) - this should have the name of the customer.<br>\n\nJob Type - this field is only for display and never editable (even when editing the Job or creating a<br>\nnew one - it will be set automatically; more on that later.<br>\n<br>\nAddress (verifiable by google)<br>\n\nReferral (plain text)<br>\n\nPriority (drop down with values: Normal, Urgent, Important)<br>\n\nDetails (text box)<br>\n\nStatus (this is a drop down with values linked to the job_status <br>\ntable in db: these values can be retrieved through the API at /API/jobStatuses - the values that can <br>\nbe selected in the drop down will depend on the Job Type - every status is linked to a JobType; <br>\ncheck the API and let me knoe if need aditional field to make your job easier)<br>\n<div class=\"app-form-container app-form-container-top\">\n  <h3 class=\"app-form-header\">Job</h3>\n  <form [formGroup]=\"jobForm\" (ngSubmit)=\"onSubmit()\">\n    <div formGroupName=\"userData\">\n      <div class=\"form-group\">\n        <label for=\"customer-name\" class=\"app-form-label\">Customer</label>\n        <span class=\"app-form-label-colon\">:</span>\n        <div class=\"form-control-wrapper\">\n          <input type=\"text\" id=\"customer-name\" formControlName=\"customer-name\" class=\"form-control\">\n          <i\n            *ngIf=\"jobForm.get('userData.customer-name').valid\"\n            class=\"fa fa-check\" aria-hidden=\"true\">\n          </i>\n          <div class=\"app-auto-suggestion-wrapper\"\n               *ngIf=\"customersAutoSuggestion.length != 0\">\n            <ul>\n              <li *ngFor=\"let customer of customersAutoSuggestion\"\n                  (click)=\"onCustomerSelected(customer)\"\n                  (mouseover)=\"onCustomerHover($event, customer)\">\n                <i class=\"fa fa-map-marker\" aria-hidden=\"true\"></i>\n                {{customer}}\n              </li>\n            </ul>\n          </div>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"job-type\" class=\"app-form-label\">Job Type</label>\n        <span class=\"app-form-label-colon\">:</span>\n        <input readonly class=\"form-control\"\n               id=\"job-type\"\n               formControlName=\"job-type\"\n               value=\"job-type\">\n      </div>\n      <div class=\"form-group\">\n        <label for=\"customer-name\" class=\"app-form-label\">Address</label>\n        <span class=\"app-form-label-colon\">:</span>\n        <input type=\"text\"\n               id=\"job-physical-address\"\n               formControlName=\"job-address\"\n               class=\"form-control\">\n      </div>\n      <div class=\"form-group\">\n        <label class=\"app-form-label\">Priority</label>\n        <span class=\"app-form-label-colon\">:</span>\n        <div class=\"form-control-wrapper\">\n          <input type=\"text\"\n                 id=\"job-priority\"\n                 formControlName=\"job-priority\"\n                 class=\"job-priority\">\n          <select>\n            <option disabled>{{selectedPriority}}</option>\n            <option *ngFor=\"let jobPriority of jobPriorities\" value=\"{{jobPriority}}\">{{jobPriority}}</option>\n          </select>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label class=\"app-form-label\">Status</label>\n        <span class=\"app-form-label-colon\">:</span>\n        <input type=\"text\"\n               id=\"job-status\"\n               formControlName=\"job-status\"\n               class=\"job-status\">\n        <select>\n          <option disabled>Select Status</option>\n          <option *ngFor=\"let jobStatus of jobStatuses\" value=\"{{jobStatus.status}}\">{{jobStatus.status}}</option>\n        </select>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"job-detail\" class=\"app-form-label\">Details</label>\n        <span class=\"app-form-label-colon\">:</span>\n        <input type=\"text\"\n               id=\"job-detail\"\n               formControlName=\"job-detail\"\n               class=\"form-control\">\n        <i *ngIf=\"jobForm.get('userData.job-detail').valid\"\n           class=\"fa fa-check\" aria-hidden=\"true\">\n        </i>\n      </div>\n    </div>\n  </form>\n</div>\n"
 
 /***/ }),
 
@@ -625,7 +634,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "app-job-main .app-form-container {\n  padding: 20px; }\n\napp-job-main .app-form-container-top {\n  border-top: none; }\n\napp-job-main .app-form-header, app-job-main .app-comments-header {\n  color: #5c5e5f;\n  background-color: white;\n  display: inline-block;\n  padding: 5px 0;\n  border-radius: 5px;\n  margin: 20px 0; }\n\napp-job-main .form-group {\n  position: relative;\n  min-height: 2.3rem;\n  z-index: auto; }\n\napp-job-main .app-form-label {\n  display: inline-block;\n  text-align: left;\n  width: 200px;\n  padding: 0.5rem 0.75rem;\n  font-size: 1rem;\n  line-height: 1.25;\n  color: #464a4c;\n  background-color: #eceeef;\n  background-image: none;\n  background-clip: padding-box;\n  border: 1px solid rgba(0, 0, 0, 0.15);\n  border-radius: 0.25rem;\n  transition: border-color ease-in-out 0.15s; }\n\napp-job-main .app-form-label-colon {\n  text-align: right;\n  display: inline-block;\n  padding: 0 0.5rem; }\n\napp-job-main .app-address-input-wrapper, app-job-main .app-address-error-wrapper {\n  display: block;\n  position: absolute;\n  top: 0;\n  left: 229px;\n  width: 60%; }\n\napp-job-main .app-address-input-wrapper .form-control {\n  width: 100%; }\n\napp-job-main .app-form-control-right {\n  position: relative;\n  top: 10px;\n  left: 229px; }\n\napp-job-main .error-message {\n  top: -10px;\n  border: 1px solid red;\n  overflow: visible; }\n\napp-job-main .error-message-helper {\n  border-top: none; }\n\napp-job-main .app-address-error-wrapper {\n  border: 1px solid red; }\n\napp-job-main .required {\n  position: absolute;\n  right: -20px;\n  color: red; }\n\napp-job-main .app-google-logo {\n  position: absolute;\n  width: 8rem;\n  top: 0.75rem;\n  right: 0.5rem; }\n\napp-job-main .fa-check {\n  color: green; }\n\napp-job-main .fa-spinner {\n  -webkit-animation: spinner 3s linear infinite;\n          animation: spinner 3s linear infinite; }\n\napp-job-main .fa-check, app-job-main .fa-spinner {\n  position: absolute;\n  top: 0.75rem;\n  right: 9rem; }\n\napp-job-main .app-auto-suggestion-container > .form-control:focus {\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0; }\n\napp-job-main .app-auto-suggestion-wrapper {\n  position: absolute;\n  top: 2.5rem;\n  left: 0;\n  width: 100%;\n  overflow: visible;\n  border: 1px solid #5cb3fd;\n  border-top: none;\n  min-height: 70px;\n  border-top-left-radius: 0;\n  border-top-right-radius: 0;\n  z-index: 15;\n  background-color: white; }\n\napp-job-main .form-control, app-job-main .form-control-wrapper {\n  display: inline-block;\n  width: 60%;\n  overflow: visible;\n  position: absolute;\n  left: 229px;\n  min-height: 2.3rem; }\n\napp-job-main .form-control-wrapper {\n  display: block;\n  top: 0;\n  z-index: 10; }\n\napp-job-main .form-control-wrapper > .form-control {\n  left: 0;\n  top: 0;\n  width: 100%; }\n\napp-job-main .form-control-labeless {\n  width: 100%;\n  overflow: visible;\n  position: relative;\n  background-color: white;\n  min-height: 2.3rem; }\n\napp-job-main .app-auto-suggestion-wrapper > ul {\n  list-style: none;\n  padding: 0; }\n\napp-job-main .app-auto-suggestion-wrapper > ul > li {\n  cursor: pointer;\n  padding: 5px 5px 5px 0.5rem;\n  margin: 5px 5px 5px 0.5rem; }\n\napp-job-main .app-auto-suggestion-wrapper > ul > li:hover {\n  background-color: #5cb3fd;\n  color: black; }\n\napp-job-main .fa-map-marker {\n  color: #5cb3fd;\n  padding-right: 0.5rem; }\n\napp-job-main .app-auto-suggestion-wrapper > ul > li:hover .fa-map-marker {\n  color: black; }\n\napp-job-main .party-physical-address {\n  z-index: 10; }\n\napp-job-main .party-mailing-address {\n  z-index: 9; }\n\napp-job-main .app-comments-hr {\n  color: gray;\n  border-top: 2px solid gray;\n  height: 2px; }\n\napp-job-main .app-comment-detail {\n  display: inline-block;\n  padding-left: 0.5rem;\n  line-height: 1.2;\n  font-size: 1rem; }\n\napp-job-main .app-users-comments {\n  list-style: none;\n  font-size: 1.2rem;\n  line-height: 1.2;\n  padding: 0;\n  margin: 0; }\n\napp-job-main .app-comment-by, app-job-main .app-comment-on {\n  color: #0275d8; }\n\napp-job-main .app-new-comment {\n  display: block;\n  width: 80%;\n  overflow: auto; }\n\napp-job-main .app-update-comment {\n  display: block;\n  margin-top: 1rem; }\n\napp-job-main .app-comments-header {\n  margin: 0; }\n\napp-job-main .user-comment-hr {\n  margin: 10px 0; }\n\n@-webkit-keyframes spinner {\n  100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg); } }\n\n@keyframes spinner {\n  100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg); } }\n\napp-job-main .job-priority-wrapper {\n  display: inline-block;\n  position: relative;\n  padding: 6px 10px;\n  margin: 0;\n  height: 2rem;\n  border: 1px solid #0275d8;\n  z-index: 10; }\n\napp-job-main .job-priority-input, app-job-main .job-priority-input:focus {\n  border: none;\n  padding: 0;\n  margin: 0;\n  outline: none;\n  line-height: 1;\n  color: inherit;\n  width: 8rem;\n  display: inline-block; }\n\napp-job-main .fa-caret-down {\n  color: #0275d8; }\n\napp-job-main .job-priorities {\n  display: block; }\n", ""]);
+exports.push([module.i, "app-job-main .app-form-container {\n  padding: 20px; }\n\napp-job-main .app-form-container-top {\n  border-top: none; }\n\napp-job-main .app-form-header, app-job-main .app-comments-header {\n  color: #5c5e5f;\n  background-color: white;\n  display: inline-block;\n  padding: 5px 0;\n  border-radius: 5px;\n  margin: 20px 0; }\n\napp-job-main .form-group {\n  position: relative;\n  min-height: 2.3rem;\n  z-index: auto; }\n\napp-job-main .app-form-label {\n  display: inline-block;\n  text-align: left;\n  width: 200px;\n  padding: 0.5rem 0.75rem;\n  font-size: 1rem;\n  line-height: 1.25;\n  color: #464a4c;\n  background-color: #eceeef;\n  background-image: none;\n  background-clip: padding-box;\n  border: 1px solid rgba(0, 0, 0, 0.15);\n  border-radius: 0.25rem;\n  transition: border-color ease-in-out 0.15s; }\n\napp-job-main .app-form-label-colon {\n  text-align: right;\n  display: inline-block;\n  padding: 0 0.5rem; }\n\napp-job-main .app-address-input-wrapper, app-job-main .app-address-error-wrapper {\n  display: block;\n  position: absolute;\n  top: 0;\n  left: 229px;\n  width: 60%; }\n\napp-job-main .app-address-input-wrapper .form-control {\n  width: 100%; }\n\napp-job-main .app-form-control-right {\n  position: relative;\n  top: 10px;\n  left: 229px; }\n\napp-job-main .error-message {\n  top: -10px;\n  border: 1px solid red;\n  overflow: visible; }\n\napp-job-main .error-message-helper {\n  border-top: none; }\n\napp-job-main .app-address-error-wrapper {\n  border: 1px solid red; }\n\napp-job-main .required {\n  position: absolute;\n  right: -20px;\n  color: red; }\n\napp-job-main .app-google-logo {\n  position: absolute;\n  width: 8rem;\n  top: 0.75rem;\n  right: 0.5rem; }\n\napp-job-main .fa-check {\n  color: green; }\n\napp-job-main .fa-spinner {\n  -webkit-animation: spinner 3s linear infinite;\n          animation: spinner 3s linear infinite; }\n\napp-job-main .fa-check, app-job-main .fa-spinner {\n  position: absolute;\n  top: 0.75rem;\n  right: 9rem; }\n\napp-job-main .app-auto-suggestion-container > .form-control:focus {\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0; }\n\napp-job-main .app-auto-suggestion-wrapper {\n  position: absolute;\n  top: 2.5rem;\n  left: 0;\n  width: 100%;\n  overflow: visible;\n  border: 1px solid #5cb3fd;\n  border-top: none;\n  min-height: 70px;\n  border-top-left-radius: 0;\n  border-top-right-radius: 0;\n  z-index: 15;\n  background-color: white; }\n\napp-job-main .form-control, app-job-main .form-control-wrapper {\n  display: inline-block;\n  width: 60%;\n  overflow: visible;\n  position: absolute;\n  left: 229px;\n  min-height: 2.3rem; }\n\napp-job-main .form-control-wrapper {\n  display: block;\n  top: 0;\n  z-index: 10; }\n\napp-job-main .form-control-wrapper > .form-control {\n  left: 0;\n  top: 0;\n  width: 100%; }\n\napp-job-main .form-control-labeless {\n  width: 100%;\n  overflow: visible;\n  position: relative;\n  background-color: white;\n  min-height: 2.3rem; }\n\napp-job-main .app-auto-suggestion-wrapper > ul {\n  list-style: none;\n  padding: 0; }\n\napp-job-main .app-auto-suggestion-wrapper > ul > li {\n  cursor: pointer;\n  padding: 5px 5px 5px 0.5rem;\n  margin: 5px 5px 5px 0.5rem; }\n\napp-job-main .app-auto-suggestion-wrapper > ul > li:hover {\n  background-color: #5cb3fd;\n  color: black; }\n\napp-job-main .fa-map-marker {\n  color: #5cb3fd;\n  padding-right: 0.5rem; }\n\napp-job-main .app-auto-suggestion-wrapper > ul > li:hover .fa-map-marker {\n  color: black; }\n\napp-job-main .party-physical-address {\n  z-index: 10; }\n\napp-job-main .party-mailing-address {\n  z-index: 9; }\n\napp-job-main .app-comments-hr {\n  color: gray;\n  border-top: 2px solid gray;\n  height: 2px; }\n\napp-job-main .app-comment-detail {\n  display: inline-block;\n  padding-left: 0.5rem;\n  line-height: 1.2;\n  font-size: 1rem; }\n\napp-job-main .app-users-comments {\n  list-style: none;\n  font-size: 1.2rem;\n  line-height: 1.2;\n  padding: 0;\n  margin: 0; }\n\napp-job-main .app-comment-by, app-job-main .app-comment-on {\n  color: #0275d8; }\n\napp-job-main .app-new-comment {\n  display: block;\n  width: 80%;\n  overflow: auto; }\n\napp-job-main .app-update-comment {\n  display: block;\n  margin-top: 1rem; }\n\napp-job-main .app-comments-header {\n  margin: 0; }\n\napp-job-main .user-comment-hr {\n  margin: 10px 0; }\n\n@-webkit-keyframes spinner {\n  100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg); } }\n\n@keyframes spinner {\n  100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg); } }\n\napp-job-main .job-priority-wrapper {\n  display: inline-block;\n  position: relative;\n  padding: 6px 10px;\n  margin: 0;\n  height: 2rem;\n  border: 1px solid #0275d8;\n  z-index: 10; }\n\napp-job-main .job-priority-input, app-job-main .job-priority-input:focus {\n  border: none;\n  padding: 0;\n  margin: 0;\n  outline: none;\n  line-height: 1;\n  color: inherit;\n  width: 8rem;\n  display: inline-block; }\n\napp-job-main .fa-caret-down {\n  color: #0275d8; }\n", ""]);
 
 // exports
 
@@ -666,16 +675,8 @@ var JobMainComponent = (function () {
         this.showJobPriorityDropdown = false;
         this.showJobStatusDropdown = false;
         this.selectedPriority = "Select Priority";
-        this.jobPriorities = [
-            { title: "priorityA" },
-            { title: "priorityB" },
-            { title: "priorityC" }
-        ];
-        this.jobsStatus = [
-            { title: "status A" },
-            { title: "status B" },
-            { title: "status C" }
-        ];
+        this.jobPriorities = ["Normal", "Urgent", "Important"];
+        this.jobStatuses = [];
     }
     JobMainComponent.prototype.hostClicked = function ($event) {
         console.log($event.target.id);
@@ -704,7 +705,6 @@ var JobMainComponent = (function () {
                 _this.paramsReceived = data.id;
                 _this.serverService.getRequestByJobId(_this.paramsReceived)
                     .subscribe(function (response) {
-                    console.log(response);
                     _this.job = response;
                     _this.setJobType();
                     _this.setJobForm();
@@ -726,6 +726,7 @@ var JobMainComponent = (function () {
                 'job-type': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* FormControl */](null),
                 'job-referral': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* FormControl */](null),
                 'job-priority': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* FormControl */](null),
+                'job-status': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* FormControl */]("ABC"),
                 'job-detail': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* FormControl */](null)
             })
         });
@@ -734,19 +735,30 @@ var JobMainComponent = (function () {
         console.log(this.job);
         this.jobForm.setValue({
             'userData': {
-                'customer-name': this.job._embedded.customer.name,
+                'customer-name': this.job.customerName,
                 'job-address': this.job.addressStr,
-                'job-type': "Not yet Implemented",
+                'job-type': this.job.type,
                 'job-referral': this.job.referral,
                 'job-priority': this.job.priority,
-                'job-detail': this.job.description
+                'job-status': this.job.status,
+                'job-detail': this.job.description,
             }
         });
         console.log(this.jobForm.get('userData.job-priority').value);
     };
     JobMainComponent.prototype.setJobType = function () {
+        var _this = this;
+        var jobType = this.job.type;
+        var pathRequest = "http://localhost:8080/api/jobTypes/" + jobType + "/jobStatuses";
+        this.serverService.getRequestByPath(pathRequest)
+            .subscribe(function (response) {
+            _this.jobStatuses = response._embedded.jobStatuses;
+            console.log(response);
+        }, function (error) { console.log(error); });
     };
     JobMainComponent.prototype.onSubmit = function () {
+    };
+    JobMainComponent.prototype.formatJob = function () {
     };
     JobMainComponent.prototype.onCustomerSelected = function (customer) {
         console.log(customer);
@@ -1046,7 +1058,7 @@ var JobsComponent = (function () {
             },
             {
                 headerName: "Customer",
-                field: "customer",
+                field: "customerName",
                 cellClass: 'app-table-cell second-column',
                 width: 230,
             },
@@ -1124,31 +1136,15 @@ var JobsComponent = (function () {
         this.gridOptions.api.sizeColumnsToFit();
     };
     JobsComponent.prototype.formatRowData = function () {
-        var _this = this;
         for (var i = 0; i < this.rowData.length; i++) {
             console.log(this.rowData[i]);
             this.rowData[i].latestSchedule.latestSchedule =
                 this.rowData[i].latestSchedule.logicalDay ?
                     this.rowData[i].latestSchedule.logicalDay :
                     this.rowData[i].latestSchedule.latestSchedule;
-        }
-        var _loop_1 = function (i) {
-            this_1.serverService.getRequestByPath(this_1.rowData[i]._links.customer.href)
-                .subscribe(function (response) {
-                _this.rowData[i].customer = response.name;
-                _this.rowData[i].customerId = response.uuid;
-                if (i === _this.rowData.length - 1) {
-                    setTimeout(function () {
-                        _this.gridOptions.api.refreshView();
-                    }, 200);
-                }
-            }, function (error) {
-                console.log(error);
-            });
-        };
-        var this_1 = this;
-        for (var i = 0; i < this.rowData.length; i++) {
-            _loop_1(i);
+            // let id = this.job[i]._links.self.href
+            //   .substr(this.job[i]._links.self.href.lastIndexOf('/') + 1);
+            // this.job[i].jobId = id;
         }
     };
     JobsComponent.prototype.onModelUpdated = function () {
@@ -1157,9 +1153,8 @@ var JobsComponent = (function () {
     JobsComponent.prototype.onCellClicked = function ($event) {
         console.log($event);
         $event.cancelBubble;
-        if ($event.column.colId === "customer") {
-            var customerId = $event.data.customerId;
-            this.router.navigate(['parties', customerId, 'main'])
+        if ($event.column.colId === "customerName") {
+            this.router.navigate(['parties', $event.data.customerUid, 'main'])
                 .then(function (value) {
                 console.log(value);
             }).catch(function (error) {
@@ -1290,12 +1285,6 @@ var PartiesComponent = (function () {
     }
     PartiesComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.serverService.getAllParties()
-            .subscribe(function (response) {
-            _this.rowData = response._embedded.parties;
-        }, function (error) {
-            console.log(error);
-        });
         this.gridOptions = {
             context: {
                 componentParent: this
@@ -1303,11 +1292,19 @@ var PartiesComponent = (function () {
             rowData: this.rowData,
             columnDefs: this.columnDefs
         };
+        this.serverService.getAllParties()
+            .subscribe(function (response) {
+            _this.rowData = response._embedded.parties;
+        }, function (error) {
+            console.log(error);
+        });
         this.navBarSubscription = this.navBarService.getNavBarSubject().subscribe(function (value) {
             // the timings of the nav bar css transition should be considered
             console.log("sizeColumnsToFit");
             setTimeout(function () {
-                _this.gridOptions.api.sizeColumnsToFit();
+                if (_this.gridOptions && _this.gridOptions.api) {
+                    _this.gridOptions.api.sizeColumnsToFit();
+                }
             }, 500);
         });
     };
@@ -1322,7 +1319,9 @@ var PartiesComponent = (function () {
             this.router.navigate([href, 'main'], { relativeTo: this.activatedRoute })
                 .then(function (value) {
                 console.log(value);
-            }).catch(function (error) { console.log(error); });
+            }).catch(function (error) {
+                console.log(error);
+            });
         }
     };
     PartiesComponent.prototype.onCellDoubleClicked = function ($event) {
@@ -1507,6 +1506,174 @@ var _a, _b, _c, _d;
 
 /***/ }),
 
+/***/ "../../../../../src/app/components/parties/party/party-comments/party-comments.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"app-form-container\">\n  <h3 class=\"app-form-header\">Users Comments</h3>\n  <hr class=\"app-comments-hr\">\n  <div *ngIf=\"userComments\">\n    <ul class=\"app-users-comments\" *ngFor=\"let eachComment of userComments; let i = index;\">\n\n      <li class=\"app-user-comment\">{{i + 1}}.&nbsp;{{eachComment.comment}}\n        <span class=\"app-comment-detail\"> - created by\n              <span class=\"app-comment-by\">{{eachComment.user}}</span>\n              on <span class=\"app-comment-on\"> {{eachComment.commentDtm}}</span></span>\n      </li>\n      <hr class=\"user-comment-hr\">\n    </ul>\n  </div>\n  <form [formGroup]=\"commentForm\" (ngSubmit)=\"onSubmit()\" *ngIf=\"newComment\">\n    <div class=\"app-form-group\">\n      <textarea\n        rows=\"5\"\n        formControlName=\"user-comment\"\n        class=\"app-form-comment-input\"></textarea>\n    </div>\n    <div class=\"app-update-comment\">\n      <button type=\"submit\" class=\"btn btn-primary\">Save</button>\n      <button type=\"button\" class=\"btn btn-primary\" (click)=\"dontSaveUserComment()\">Don't Save</button>\n      <button type=\"button\" class=\"btn btn-primary\">Upload File</button>\n    </div>\n  </form>\n  <div>\n    <button *ngIf=\"!newComment\" type=\"button\" class=\"btn btn-primary\" (click)=\"createNewComment()\">New\n      comment\n    </button>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/parties/party/party-comments/party-comments.component.scss":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".app-comments-hr {\n  border: 1px solid black; }\n\n.app-users-comments {\n  list-style: none;\n  padding-left: 1rem; }\n\ntextarea {\n  display: block;\n  width: 100%; }\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/parties/party/party-comments/party-comments.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_party_service__ = __webpack_require__("../../../../../src/app/services/party.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_server_service__ = __webpack_require__("../../../../../src/app/services/server-service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PartyCommentsComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+var PartyCommentsComponent = (function () {
+    function PartyCommentsComponent(serverService, http, activatedRoute, changeDetectorRef, router, partyService, ngbModal) {
+        this.serverService = serverService;
+        this.http = http;
+        this.activatedRoute = activatedRoute;
+        this.changeDetectorRef = changeDetectorRef;
+        this.router = router;
+        this.partyService = partyService;
+        this.ngbModal = ngbModal;
+        this.userComments = null;
+        this.newComment = false;
+        this.path = null;
+    }
+    PartyCommentsComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.partyServiceSubscription = this.partyService.partySourceObservable
+            .subscribe(function (data) {
+            if (data && data.id && data.type === __WEBPACK_IMPORTED_MODULE_2__services_party_service__["a" /* PartyService */].TYPE_COMMENTS) {
+                _this.paramsReceived = data.id;
+                _this.path = "http://localhost:8080/api/parties/" + _this.paramsReceived + "/comments";
+                _this.getUserComments();
+            }
+        });
+    };
+    PartyCommentsComponent.prototype.ngAfterViewInit = function () {
+        this.partyService.announceParentComponent(__WEBPACK_IMPORTED_MODULE_2__services_party_service__["a" /* PartyService */].TYPE_COMMENTS);
+    };
+    PartyCommentsComponent.prototype.getUserComments = function () {
+        var _this = this;
+        this.serverService.getRequestByPath(this.path)
+            .subscribe(function (comments) {
+            console.log(comments);
+            _this.userComments = comments._embedded.comments;
+            _this.formatDate();
+        }, function (error) {
+            console.log(error);
+        });
+    };
+    PartyCommentsComponent.prototype.formatDate = function () {
+        this.userComments.forEach(function (data) {
+            var date = data.commentDtm;
+            var formattedDate = new Date(date);
+            data.commentDtm = formattedDate.toDateString();
+        });
+    };
+    PartyCommentsComponent.prototype.createNewComment = function () {
+        console.log("create new comment");
+        this.createCommentForm();
+        this.newComment = true;
+    };
+    PartyCommentsComponent.prototype.createCommentForm = function () {
+        this.commentForm = new __WEBPACK_IMPORTED_MODULE_6__angular_forms__["e" /* FormGroup */]({
+            'user-comment': new __WEBPACK_IMPORTED_MODULE_6__angular_forms__["f" /* FormControl */](null, [__WEBPACK_IMPORTED_MODULE_6__angular_forms__["g" /* Validators */].required, this.validateComment.bind(this)])
+        });
+    };
+    PartyCommentsComponent.prototype.validateComment = function () {
+        console.log(this.commentForm);
+        if (this.commentForm && this.commentForm.get('user-comment')
+            && this.commentForm.get('user-comment').value
+            && this.commentForm.get('user-comment').value.replace(/^\s+$/, '') != "") {
+            return null;
+        }
+        else
+            return { 'Invalid Comment': true };
+    };
+    PartyCommentsComponent.prototype.saveUserComment = function () {
+        var _this = this;
+        if (this.commentForm && this.commentForm.valid) {
+            var comment = {
+                "comment": this.commentForm.get('user-comment').value,
+                "staffUser": "/staffs/" + 1,
+                "party": "/parties/" + this.paramsReceived,
+            };
+            this.serverService.saveUserComment(comment)
+                .subscribe(function (response) {
+                console.log(response);
+                _this.ngbModal.open("Comments Succesfull saved");
+                _this.getUserComments();
+                _this.dontSaveUserComment();
+            }, function (error) {
+                console.log(error);
+                _this.ngbModal.open("Sorry, something went wrong. !");
+            });
+        }
+        else {
+            this.ngbModal.open("Please enter a valid comment");
+        }
+    };
+    PartyCommentsComponent.prototype.dontSaveUserComment = function () {
+        this.commentForm.reset();
+        this.newComment = false;
+    };
+    PartyCommentsComponent.prototype.usersCommentFileUpload = function ($event) {
+        console.log("usersCommentFileUpload called");
+    };
+    PartyCommentsComponent.prototype.onSubmit = function () {
+        this.saveUserComment();
+    };
+    return PartyCommentsComponent;
+}());
+PartyCommentsComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'app-party-comments',
+        template: __webpack_require__("../../../../../src/app/components/parties/party/party-comments/party-comments.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/components/parties/party/party-comments/party-comments.component.scss")],
+        encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewEncapsulation"].None
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__services_server_service__["a" /* ServerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_server_service__["a" /* ServerService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_5__angular_http__["d" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_http__["d" /* Http */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* ActivatedRoute */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* Router */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_2__services_party_service__["a" /* PartyService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_party_service__["a" /* PartyService */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1__ng_bootstrap_ng_bootstrap__["b" /* NgbModal */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ng_bootstrap_ng_bootstrap__["b" /* NgbModal */]) === "function" && _g || Object])
+], PartyCommentsComponent);
+
+var _a, _b, _c, _d, _e, _f, _g;
+//# sourceMappingURL=party-comments.component.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/components/parties/party/party-invoices/party-invoices.component.html":
 /***/ (function(module, exports) {
 
@@ -1675,7 +1842,7 @@ var _a, _b, _c, _d, _e;
 /***/ "../../../../../src/app/components/parties/party/party-jobs/party-jobs.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  [Jobs] tab<br>\n\n  heading: Job# id <br>\n\n  for each job linked to the party<br>\n\n  @description<br>\n  @current_status<br>\n\n  [button]: New Job<br>\n\n  [/jobs]<br>\n</p>\n<div *ngIf=\"partyJobs && partyJobs.length !== 0\">\n  <ul *ngFor=\"let partyJob of partyJobs\">\n    <li>Job Id{{partyJob.job_id}}</li>\n    <li>Job status {{partyJob.job_status}}</li>\n  </ul>\n</div>\n<div>\n  <button class=\"btn btn-primary\">Create Job</button>\n</div>\n"
+module.exports = "<div class=\"app-form-container\">\n  <div *ngIf=\"partyJobs && partyJobs.length !== 0\">\n    <div *ngFor=\"let partyJob of partyJobs\">\n      <div class=\"app-form-header\">\n        Job&nbsp; {{partyJob.jobNumber}}\n      </div>\n      <div class=\"app-form-group-wrapper\">\n        <div class=\"app-form-group\">\n          <div class=\"app-form-label-wrapper\">\n            <label class=\"app-form-label\">Description</label>\n            <span class=\"app-form-label-colon\">:</span>\n          </div>\n          <div class=\"app-form-input-wrapper\">\n            <div class=\"app-form-input\"\n                 appFormInput>\n              {{partyJob.description}}\n            </div>\n          </div>\n        </div>\n        <div class=\"app-form-group\">\n          <div class=\"app-form-label-wrapper\">\n            <label class=\"app-form-label\">Status</label>\n            <span class=\"app-form-label-colon\">:</span>\n          </div>\n          <div class=\"app-form-input-wrapper\">\n            <div class=\"app-form-input\">\n              {{partyJob.status}}\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n  <form [formGroup]=\"jobForm\" (ngSubmit)=\"onSubmit()\" *ngIf=\"newJob\">\n    <div class=\"app-form-header\">\n      New Job\n    </div>\n    <div class=\"app-form-group-wrapper\">\n      <div class=\"app-form-group\">\n        <div class=\"app-form-label-wrapper\">\n          <label class=\"app-form-label\" for=\"job-description\">Description</label>\n          <span class=\"app-form-label-colon\">:</span>\n        </div>\n        <div class=\"app-form-input-wrapper\">\n          <input\n            type=\"text\"\n            id=\"job-description\"\n            formControlName=\"job-description\"\n            class=\"app-form-input\"\n            appFormInput>\n        </div>\n      </div>\n      <div class=\"app-form-group-error\"\n           *ngIf=\"!jobForm.get('job-description').valid\n           && jobForm.get('job-status').touched\">\n        <div class=\"app-form-errors-wrapper\">\n          <div *ngIf=\"jobForm.get('job-description').errors['required']\"\n               class=\"app-form-error-message\">\n            <span>Job description is required<span class=\"required\">*</span></span>\n          </div>\n        </div>\n      </div>\n      <div class=\"app-form-group\">\n        <div class=\"app-form-label-wrapper\">\n          <label class=\"app-form-label\" for=\"job-status\">Status</label>\n          <span class=\"app-form-label-colon\">:</span>\n        </div>\n        <div (click)=\"toggleDropdownJobStatuses()\" class=\"app-form-input-wrapper app-form-dropdown-wrapper\">\n          <input\n            type=\"text\"\n            id=\"job-status\"\n            formControlName=\"job-status\"\n            class=\"app-form-dropdown-input\"\n            readonly\n            placeholder=\"Select Status\"\n            appFormInput>\n          <span class=\"fa fa-caret-down\"></span>\n          <ul *ngIf=\"showDropdownJobStatuses\" class=\"app-form-dropdown-list\">\n            <li (click)=\"onJobStatusSelected(status)\" class=\"app-form-dropdown-item\" *ngFor=\"let status of jobStatuses\">\n              {{status.status}}\n            </li>\n          </ul>\n        </div>\n      </div>\n      <div class=\"app-form-group-error\"\n           *ngIf=\"!jobForm.get('job-status').valid\n           && jobForm.get('job-status').touched\">\n        <div class=\"app-form-errors-wrapper\">\n          <div *ngIf=\"jobForm.get('job-status').errors['required']\"\n               class=\"app-form-error-message\">\n            <span>Job Status is required<span class=\"required\">*</span></span>\n          </div>\n          <div *ngIf=\"jobForm.get('job-status').errors['InvalidJobStatus']\"\n               class=\"app-form-error-message\">\n            <span>Job Selected is not valid<span class=\"required\">*</span></span>\n          </div>\n        </div>\n      </div>\n      <div class=\"app-form-group-submit\" *ngIf=\"newJob\">\n        <div class=\"app-form-submit-wrapper\">\n          <button class=\"btn btn-primary\" type=\"submit\">Save</button>\n\n          <button class=\"btn btn-primary\" type=\"button\" (click)=\"dontSaveJob()\">Don't Save</button>\n        </div>\n      </div>\n    </div>\n  </form>\n  <div>\n    <button *ngIf=\"!newJob\" type=\"button\"\n            class=\"btn btn-primary\"\n            (click)=\"createNewJob()\">\n      New Job\n    </button>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -1687,7 +1854,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "app-party-jobs .app-form-group-wrapper {\n  border: 1px solid lightgray;\n  border-radius: 5px;\n  padding: 1rem;\n  margin: 0 0 1rem 0; }\n\napp-party-jobs .app-form-input {\n  width: 100%; }\n\n.app-form-dropdown-wrapper {\n  display: inline-block;\n  position: relative;\n  width: auto; }\n\n.app-form-dropdown-wrapper.focus {\n  border: 1px solid #0275d8; }\n\n.app-form-dropdown-input {\n  display: inline-block;\n  width: 21rem;\n  height: 100%; }\n\n.app-form-dropdown-list {\n  display: inline-block;\n  position: absolute;\n  top: 4rem;\n  left: 0;\n  right: 0;\n  height: 15rem;\n  overflow-y: scroll;\n  border: 1px solid lightgray;\n  z-index: 10;\n  background-color: white;\n  white-space: nowrap; }\n\n.app-form-dropdown-item {\n  padding: 0.75rem;\n  border-bottom: 1px dashed gray;\n  cursor: pointer; }\n\n.app-form-dropdown-item:hover, .app-form-dropdown-item:focus, .app-form-dropdown-item:active {\n  color: black;\n  background-color: #5cb3fd; }\n\n.fa-caret-down {\n  color: #0275d8; }\n", ""]);
 
 // exports
 
@@ -1705,6 +1872,7 @@ module.exports = module.exports.toString();
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_server_service__ = __webpack_require__("../../../../../src/app/services/server-service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_party_service__ = __webpack_require__("../../../../../src/app/services/party.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PartyJobsComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1719,30 +1887,94 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var PartyJobsComponent = (function () {
     function PartyJobsComponent(activatedRoute, serverService, partyService) {
         this.activatedRoute = activatedRoute;
         this.serverService = serverService;
         this.partyService = partyService;
         this.paramsReceived = null;
+        this.newJob = false;
+        this.jobStatuses = null;
+        this.showDropdownJobStatuses = false;
+        this.jobStatusesPath = "http://localhost:8080/api/jobStatuses";
     }
     PartyJobsComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.partyServiceSubscription = this.partyService.partySourceObservable.subscribe(function (data) {
+        this.getJobStatuses();
+        this.partyServiceSubscription = this.partyService.partySourceObservable
+            .subscribe(function (data) {
             if (data && data.id && data.type === __WEBPACK_IMPORTED_MODULE_3__services_party_service__["a" /* PartyService */].TYPE_JOBS) {
                 _this.paramsReceived = data.id;
-                _this.serverService.getRequestByPartyId(_this.paramsReceived, '/jobs')
-                    .subscribe(function (jobs) {
-                    _this.partyJobs = jobs._embedded.jobs;
-                }, function (error) {
-                    console.log(error);
-                });
+                _this.path = "http://localhost:8080/api/parties/" + _this.paramsReceived + "/jobs";
+                _this.getUserJobs();
             }
-        }, function (error) { return console.log(error); });
+        });
+    };
+    PartyJobsComponent.prototype.getUserJobs = function () {
+        var _this = this;
+        this.serverService.getRequestByPath(this.path)
+            .subscribe(function (jobs) {
+            console.log(jobs);
+            _this.partyJobs = jobs._embedded.jobs;
+        }, function (error) {
+            console.log(error);
+        });
+    };
+    PartyJobsComponent.prototype.getJobStatuses = function () {
+        var _this = this;
+        this.serverService.getRequestByPath(this.jobStatusesPath)
+            .subscribe(function (jobStatuses) {
+            console.log(jobStatuses);
+            _this.jobStatuses = jobStatuses._embedded.jobStatuses;
+        }, function (error) {
+            console.log(error);
+        });
+    };
+    PartyJobsComponent.prototype.ngAfterViewInit = function () {
         this.partyService.announceParentComponent(__WEBPACK_IMPORTED_MODULE_3__services_party_service__["a" /* PartyService */].TYPE_JOBS);
     };
     PartyJobsComponent.prototype.ngOnDestroy = function () {
         this.partyServiceSubscription.unsubscribe();
+    };
+    PartyJobsComponent.prototype.createNewJob = function () {
+        console.log("create new comment");
+        this.createJobForm();
+        this.newJob = true;
+    };
+    PartyJobsComponent.prototype.createJobForm = function () {
+        this.jobForm = new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["e" /* FormGroup */]({
+            'job-description': new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["f" /* FormControl */](null, [__WEBPACK_IMPORTED_MODULE_4__angular_forms__["g" /* Validators */].required]),
+            'job-status': new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["f" /* FormControl */](null, [__WEBPACK_IMPORTED_MODULE_4__angular_forms__["g" /* Validators */].required, this.validateJobStatus.bind(this)])
+        });
+    };
+    PartyJobsComponent.prototype.dontSaveJob = function () {
+        this.jobForm.reset();
+        this.newJob = false;
+    };
+    PartyJobsComponent.prototype.toggleDropdownJobStatuses = function () {
+        this.showDropdownJobStatuses = !this.showDropdownJobStatuses;
+    };
+    PartyJobsComponent.prototype.onJobStatusSelected = function (status) {
+        console.log(status);
+        if (this.jobForm && this.jobForm.get('job-status')) {
+            this.jobForm.get('job-status').setValue(status.status);
+        }
+    };
+    PartyJobsComponent.prototype.validateJobStatus = function (formControl) {
+        for (var i = 0; i < this.jobStatuses.length; i++) {
+            if (formControl.value === this.jobStatuses[i].status) {
+                return null;
+            }
+        }
+        return { 'InvalidJobStatus': true };
+    };
+    PartyJobsComponent.prototype.onSubmit = function () {
+        if (this.jobForm.touched && this.jobForm.valid) {
+            this.saveJob();
+        }
+    };
+    PartyJobsComponent.prototype.saveJob = function () {
     };
     return PartyJobsComponent;
 }());
@@ -1750,7 +1982,8 @@ PartyJobsComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-party-jobs',
         template: __webpack_require__("../../../../../src/app/components/parties/party/party-jobs/party-jobs.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/components/parties/party/party-jobs/party-jobs.component.scss")]
+        styles: [__webpack_require__("../../../../../src/app/components/parties/party/party-jobs/party-jobs.component.scss")],
+        encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewEncapsulation"].None
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_server_service__["a" /* ServerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_server_service__["a" /* ServerService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__services_party_service__["a" /* PartyService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_party_service__["a" /* PartyService */]) === "function" && _c || Object])
 ], PartyJobsComponent);
@@ -1763,7 +1996,7 @@ var _a, _b, _c;
 /***/ "../../../../../src/app/components/parties/party/party-main/party-main.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"app-form-container app-form-container-top\">\n  <h3 class=\"app-form-header\">Customer/Supplier Details</h3>\n  <form [formGroup]=\"signUpForm\" (ngSubmit)=\"onSubmit()\">\n    <!--<fieldset [disabled]=\"true\">-->\n    <div formGroupName=\"userData\">\n      <div class=\"form-group\">\n        <label for=\"party-name\" class=\"app-form-label\">Name</label><span class=\"app-form-label-colon\">:</span>\n        <input\n          type=\"text\"\n          id=\"party-name\"\n          formControlName=\"party-name\"\n          class=\"form-control\"\n          [readonly]=\"!getDetailFormStatus()\">\n      </div>\n      <div class=\"form-group\"\n           *ngIf=\"!signUpForm.get('userData.party-name').valid\n           && signUpForm.get('userData.party-name').errors['required']\n           && signUpForm.get('userData.party-name').touched\">\n        <div class=\"form-control error-message\">\n          <span>Name is required<span class=\"required\">*</span></span>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"party-contact-name\" class=\"app-form-label\">Contact Name</label>\n        <span class=\"app-form-label-colon\">:</span>\n        <input\n          type=\"text\"\n          id=\"party-contact-name\"\n          formControlName=\"party-contact-name\"\n          class=\"form-control\"\n          [readonly]=\"!getDetailFormStatus()\">\n      </div>\n      <div class=\"form-group\"\n           *ngIf=\"!signUpForm.get('userData.party-contact-name').valid\n           && signUpForm.get('userData.party-contact-name').errors['required']\n           && signUpForm.get('userData.party-contact-name').touched\">\n        <div class=\"form-control error-message\">\n          <span>Contact name is required<span class=\"required\">*</span></span>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"party-phone\" class=\"app-form-label\">Phone</label>\n        <span class=\"app-form-label-colon\">:</span>\n        <input\n          type=\"text\"\n          id=\"party-phone\"\n          formControlName=\"party-phone\"\n          class=\"form-control\"\n          [readonly]=\"!getDetailFormStatus()\">\n      </div>\n      <div class=\"form-group\"\n           *ngIf=\"!signUpForm.get('userData.party-phone').valid && signUpForm.get('userData.party-phone').touched\">\n        <div *ngIf=\"signUpForm.get('userData.party-phone').errors['required']\"\n             class=\"form-control app-form-control-right error-message\">\n          <span>Phone number is required !<span class=\"required\">*</span></span>\n        </div>\n        <div *ngIf=\"signUpForm.get('userData.party-phone').errors['InvalidPhone']\">\n          <div class=\"form-control app-form-control-right error-message\">\n            <span>Phone number is not valid !<span class=\"required\">*</span></span>\n          </div>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"party-mobile\" class=\"app-form-label\">Mobile</label>\n        <span class=\"app-form-label-colon\">:</span>\n        <input\n          type=\"text\"\n          id=\"party-mobile\"\n          formControlName=\"party-mobile\"\n          class=\"form-control\"\n          [readonly]=\"!getDetailFormStatus()\">\n      </div>\n      <div class=\"form-group\"\n           *ngIf=\"!signUpForm.get('userData.party-mobile').valid && signUpForm.get('userData.party-mobile').touched\">\n        <div *ngIf=\"signUpForm.get('userData.party-mobile').errors['required']\"\n             class=\"form-control app-form-control-right error-message\">\n          <span>Mobile number is required !<span class=\"required\">*</span></span>\n        </div>\n        <div *ngIf=\"signUpForm.get('userData.party-mobile').errors['InvalidMobile']\"\n             class=\"form-control app-form-control-right error-message\">\n          <span>Mobile number is not valid !<span class=\"required\">*</span></span>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"party-email\" class=\"app-form-label\">Email</label>\n        <span class=\"app-form-label-colon\">:</span>\n        <input\n          type=\"text\"\n          id=\"party-email\"\n          formControlName=\"party-email\"\n          class=\"form-control\"\n          [readonly]=\"!getDetailFormStatus()\">\n      </div>\n      <div class=\"form-group\"\n           *ngIf=\"!signUpForm.get('userData.party-email').valid && signUpForm.get('userData.party-email').touched\">\n        <div class=\"form-control error-message\">\n          <span>Email is not valid !<span class=\"required\">*</span></span>\n        </div>\n      </div>\n      <div *ngFor=\"let address of addressFormArray\">\n        <div class=\"form-group\">\n          <label for=\"{{address.name}}\" class=\"app-form-label\">{{address.title}}</label>\n          <span class=\"app-form-label-colon\">:</span>\n          <div class=\"form-control-wrapper {{address.name}}\">\n            <input\n              type=\"text\"\n              id=\"{{address.name}}\"\n              class=\"form-control\"\n              formControlName=\"{{address.name}}\"\n              [readonly]=\"!getDetailFormStatus()\"\n              name=\"{{address.name}}\"\n              (focus)=\"onAddressFocus($event, address)\"\n              (blur)=\"onAddressBlur($event, address)\"\n              (keydown)=\"onAddressKeyUp($event, address)\">\n            <i\n              *ngIf=\"signUpForm.get('userData.' + address.name).valid\"\n              class=\"fa fa-check\" aria-hidden=\"true\">\n            </i>\n            <i\n              *ngIf=\"!signUpForm.get('userData.' + address.name).valid\n                    && address.spinner && signUpForm.get('userData.' + address.name).touched\"\n              class=\"fa fa-spinner\" aria-hidden=\"true\">\n            </i>\n            <img class=\"app-google-logo\" src=\"assets/img/logos/third-party/powered_by_google_on_white_hdpi.png\">\n            <!--<div class=\"app-auto-suggestion-wrapper\"-->\n            <!--*ngIf=\"address.autoAddressesSuggesstion.length != 0-->\n            <!--&& autoSuggestionMode === address.type\">-->\n            <!--<ul>-->\n            <!--<li *ngFor=\"let autoSuggestionAddress of address.autoAddressesSuggesstion\"-->\n            <!--(click)=\"onAddressSelected(address, autoSuggestionAddress)\"-->\n            <!--(mouseover)=\"onAddressHover($event, address.type)\">-->\n            <!--<i class=\"fa fa-map-marker\" aria-hidden=\"true\"></i>-->\n            <!--{{autoSuggestionAddress.description}}-->\n            <!--</li>-->\n            <!--</ul>-->\n            <!--</div>-->\n          </div>\n        </div>\n        <div class=\"form-group\" *ngIf=\"!signUpForm.get('userData.' + address.name).valid\n             && signUpForm.get('userData.' + address.name).touched\n                  && getDetailFormStatus()\">\n          <div class=\"form-control-labeless\">\n            <div class=\"form-control error-message\"\n                 *ngIf=\"signUpForm.get('userData.' + address.name).errors\n                  && signUpForm.get('userData.' + address.name).errors['required']\">\n              <span>Address is required !<span class=\"required\">*</span></span>\n            </div>\n            <div class=\"form-control\"\n                 *ngIf=\"signUpForm.get('userData.' + address.name).errors && signUpForm.get('userData.' + address.name).errors['NoAddressFound']\">\n              <span>Address could not be found !<span class=\"required\">*</span></span>\n            </div>\n            <div class=\"form-control\"\n                 *ngIf=\"signUpForm.get('userData.' + address.name).errors && signUpForm.get('userData.' + address.name).errors['InvalidInput']\">\n              <span>Address entered is not valid !<span class=\"required\">*</span></span>\n            </div>\n            <div class=\"form-control\"\n                 *ngIf=\"signUpForm.get('userData.' + address.name).errors && signUpForm.get('userData.' + address.name).errors['QueryLimitCrossed']\">\n              <span>Exceeded the maximum query limit allowed by google policies !<span class=\"required\">*</span></span>\n            </div>\n            <div class=\"form-control\"\n                 *ngIf=\"signUpForm.get('userData.' + address.name).errors && signUpForm.get('userData.' + address.name).errors['RequestDenied']\">\n              <span>Address request rejected by google !<span class=\"required\">*</span></span>\n            </div>\n            <div class=\"form-control\"\n                 *ngIf=\"signUpForm.get('userData.' + address.name).errors && signUpForm.get('userData.' + address.name).errors['UnknownError']\">\n              <span>Unknown error. Please try again !<span class=\"required\">*</span></span>\n            </div>\n            <!--<div *ngIf=\"!signUpForm.valid && signUpForm.touched\">-->\n            <!--<address>-->\n            <!--<span>Addrees should be of the follwing form</span><br>-->\n            <!--8 Willsmore Street Beverley South Australia 5009<br>-->\n            <!--<span>where</span><br>-->\n            <!--<span>8 -- is the street number,</span><br>-->\n            <!--<span>Willsmore Street -- is the street name,</span><br>-->\n            <!--<span>Beverley -- is the name of the suburb/city/town,</span><br>-->\n            <!--<span>South Australia -- is the name of the state,</span><br>-->\n            <!--<span>5009 -- is the zip/postal code,</span><br>-->\n            <!--</address>-->\n            <!--</div>-->\n          </div>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"party-file-upload\" class=\"app-form-label\">File Upload</label>\n        <span class=\"app-form-label-colon\">:</span>\n        <input\n          type=\"file\"\n          id=\"party-file-upload\"\n          (change)=\"fileChange($event)\"\n          placeholder=\"Upload file\"\n          accept=\".pdf,.doc,.docx\"\n          [disabled]=\"!getDetailFormStatus()\">\n      </div>\n      <div class=\"form-group\" *ngIf=\"!getDetailFormStatus()\">\n        <div class=\"app-form-control-right\">\n          <button class=\"btn btn-primary\" type=\"button\" (click)=\"createCustomer()\">Create Customer</button>\n\n          <button class=\"btn btn-primary\" type=\"button\" (click)=\"editCustomer()\">Edit Customer</button>\n        </div>\n      </div>\n\n      <div class=\"form-group\" *ngIf=\"getDetailFormStatus()\">\n        <div class=\"app-form-control-right\">\n          <button class=\"btn btn-primary\" [disabled]=\"!signUpForm.valid\" type=\"submit\">Save</button>\n          <button class=\"btn btn-primary\" type=\"button\" (click)=\"dontSaveCustomer()\">Don't Save</button>\n        </div>\n      </div>\n    </div>\n    <br>\n  </form>\n</div>\n<div>\n  <h3 class=\"app-comments-header\">Users Comments</h3>\n  <hr class=\"app-comments-hr\">\n  <div *ngIf=\"usersComments\">\n    <ul class=\"app-users-comments\" *ngFor=\"let eachComment of usersComments; let i = index;\">\n\n      <li class=\"app-user-comment\">{{eachComment.comment}}\n        <span class=\"app-comment-detail\"> - created by\n              <span class=\"app-comment-by\">{{eachComment.user}}</span>\n              on <span class=\"app-comment-on\"> {{eachComment.comment_dtm}}</span></span>\n      </li>\n      <hr class=\"user-comment-hr\">\n    </ul>\n  </div>\n  <div class=\"form-group\" *ngIf=\"newComment\">\n    <div>\n      <textarea rows=\"5\" [(ngModel)]=\"userCommentInput\" class=\"app-new-comment\"></textarea>\n    </div>\n    <div class=\"app-update-comment\">\n      <button type=\"button\" class=\"btn btn-primary btn-sm\" (click)=\"saveUserComment()\">Save</button>\n      <button type=\"button\" class=\"btn btn-primary btn-sm\" (click)=\"dontSaveUserComment()\">Don't Save</button>\n      <button type=\"button\" class=\"btn btn-primary btn-sm\">Upload File</button>\n    </div>\n  </div>\n  <div>\n    <button *ngIf=\"!newComment\" type=\"button\" class=\"btn btn-primary btn-sm\" (click)=\"createNewComment()\">New\n      comment\n    </button>\n  </div>\n</div>\n\n"
+module.exports = "<div class=\"app-form-container app-form-container-top\">\n  <h3 class=\"app-form-header\">Customer/Supplier Details</h3>\n  <form [formGroup]=\"signUpForm\" (ngSubmit)=\"onSubmit()\">\n    <div formGroupName=\"userData\">\n      <div class=\"app-form-group\">\n        <div class=\"app-form-label-wrapper\">\n          <label class=\"app-form-label\" for=\"party-name\">Name</label>\n          <span class=\"app-form-label-colon\">:</span>\n        </div>\n        <div class=\"app-form-input-wrapper\">\n          <input\n            type=\"text\"\n            id=\"party-name\"\n            formControlName=\"party-name\"\n            class=\"app-form-input\"\n            appFormInput\n            [readonly]=\"!getDetailFormStatus()\">\n          <i\n            *ngIf=\"signUpForm.get('userData.party-name').valid\"\n            class=\"fa fa-check\" aria-hidden=\"true\">\n          </i>\n          <i\n            *ngIf=\"!signUpForm.get('userData.party-name').valid\"\n            class=\"fa fa-times\" aria-hidden=\"true\">\n          </i>\n        </div>\n      </div>\n      <div class=\"app-form-group-error\"\n           *ngIf=\"!signUpForm.get('userData.party-name').valid\n           && signUpForm.get('userData.party-name').errors['required']\n           && signUpForm.get('userData.party-name').touched\">\n        <div class=\"app-form-errors-wrapper\">\n          <div class=\"app-form-error-message\">\n            <span>Name is required<span class=\"required\">*</span></span>\n          </div>\n        </div>\n      </div>\n      <div class=\"app-form-group\">\n        <div class=\"app-form-label-wrapper\">\n          <label class=\"app-form-label\" for=\"party-contact-name\">Contact Name</label>\n          <span class=\"app-form-label-colon\">:</span>\n        </div>\n        <div class=\"app-form-input-wrapper\">\n          <input\n            type=\"text\"\n            id=\"party-contact-name\"\n            class=\"app-form-input\"\n            formControlName=\"party-contact-name\"\n            appFormInput\n            [readonly]=\"!getDetailFormStatus()\">\n          <i\n            *ngIf=\"signUpForm.get('userData.party-contact-name').valid\"\n            class=\"fa fa-check\" aria-hidden=\"true\">\n          </i>\n          <i\n            *ngIf=\"!signUpForm.get('userData.party-contact-name').valid\"\n            class=\"fa fa-times\" aria-hidden=\"true\">\n          </i>\n        </div>\n      </div>\n      <div class=\"app-form-group-error\"\n           *ngIf=\"!signUpForm.get('userData.party-contact-name').valid\n           && signUpForm.get('userData.party-contact-name').errors['required']\n           && signUpForm.get('userData.party-contact-name').touched\">\n        <div class=\"app-form-errors-wrapper\">\n          <div class=\"app-form-error-message\">\n            <span>Contact name is required<span class=\"required\">*</span></span>\n          </div>\n        </div>\n      </div>\n      <div class=\"app-form-group\">\n        <div class=\"app-form-label-wrapper\">\n          <label for=\"party-phone\" class=\"app-form-label\">Phone</label>\n          <span class=\"app-form-label-colon\">:</span>\n        </div>\n        <div class=\"app-form-input-wrapper\">\n          <input\n            type=\"text\"\n            id=\"party-phone\"\n            class=\"app-form-input\"\n            formControlName=\"party-phone\"\n            appFormInput\n            [readonly]=\"!getDetailFormStatus()\">\n          <i\n            *ngIf=\"signUpForm.get('userData.party-phone').valid\"\n            class=\"fa fa-check\" aria-hidden=\"true\">\n          </i>\n          <i\n            *ngIf=\"!signUpForm.get('userData.party-phone').valid\"\n            class=\"fa fa-times\" aria-hidden=\"true\">\n          </i>\n        </div>\n      </div>\n      <div class=\"app-form-group-error\"\n           *ngIf=\"!signUpForm.get('userData.party-phone').valid &&\n           signUpForm.get('userData.party-phone').touched && getDetailFormStatus()\">\n        <div class=\"app-form-errors-wrapper\">\n          <div *ngIf=\"signUpForm.get('userData.party-phone').errors['required']\"\n               class=\"app-form-error-message\">\n            <span>Phone number is required !<span class=\"required\">*</span></span>\n          </div>\n          <div *ngIf=\"signUpForm.get('userData.party-phone').errors['InvalidPhone']\">\n            <div class=\"app-form-error-message\">\n              <span>Phone number is not valid !<span class=\"required\">*</span></span>\n            </div>\n          </div>\n        </div>\n      </div>\n      <div class=\"app-form-group\">\n        <div class=\"app-form-label-wrapper\">\n          <label for=\"party-mobile\" class=\"app-form-label\">Mobile</label>\n          <span class=\"app-form-label-colon\">:</span>\n        </div>\n        <div class=\"app-form-input-wrapper\">\n          <input\n            type=\"text\"\n            id=\"party-mobile\"\n            class=\"app-form-input\"\n            formControlName=\"party-mobile\"\n            appFormInput\n            [readonly]=\"!getDetailFormStatus()\">\n          <i\n            *ngIf=\"signUpForm.get('userData.party-mobile').valid\"\n            class=\"fa fa-check\" aria-hidden=\"true\">\n          </i>\n          <i\n            *ngIf=\"!signUpForm.get('userData.party-mobile').valid\"\n            class=\"fa fa-times\" aria-hidden=\"true\">\n          </i>\n        </div>\n      </div>\n      <div class=\"app-form-group-error\"\n           *ngIf=\"!signUpForm.get('userData.party-mobile').valid &&\n           signUpForm.get('userData.party-mobile').touched && getDetailFormStatus()\">\n        <div class=\"app-form-errors-wrapper\">\n          <div *ngIf=\"signUpForm.get('userData.party-mobile').errors['required']\"\n               class=\"app-form-error-message\">\n            <span>Mobile number is required !<span class=\"required\">*</span></span>\n          </div>\n          <div *ngIf=\"signUpForm.get('userData.party-mobile').errors['InvalidMobile']\"\n               class=\"app-form-error-message\">\n            <span>Mobile number is not valid !<span class=\"required\">*</span></span>\n          </div>\n        </div>\n      </div>\n      <div class=\"app-form-group\">\n        <div class=\"app-form-label-wrapper\">\n          <label for=\"party-email\" class=\"app-form-label\">Email</label>\n          <span class=\"app-form-label-colon\">:</span>\n        </div>\n        <div class=\"app-form-input-wrapper\">\n          <input\n            type=\"text\"\n            id=\"party-email\"\n            class=\"app-form-input\"\n            formControlName=\"party-email\"\n            appFormInput\n            [readonly]=\"!getDetailFormStatus()\">\n          <i\n            *ngIf=\"signUpForm.get('userData.party-email').valid\"\n            class=\"fa fa-check\" aria-hidden=\"true\">\n          </i>\n          <i\n            *ngIf=\"!signUpForm.get('userData.party-email').valid\"\n            class=\"fa fa-times\" aria-hidden=\"true\">\n          </i>\n        </div>\n      </div>\n      <div class=\"app-form-group-error\"\n           *ngIf=\"!signUpForm.get('userData.party-email').valid\n           && signUpForm.get('userData.party-email').touched && getDetailFormStatus()\">\n        <div class=\"app-form-errors-wrapper\">\n          <div class=\"app-form-error-message\">\n            <span>Email is not valid !<span class=\"required\">*</span></span>\n          </div>\n        </div>\n      </div>\n      <div *ngFor=\"let address of addressFormArray\">\n        <div class=\"app-form-group\">\n          <div class=\"app-form-label-wrapper\">\n            <label for=\"{{address.name}}\" class=\"app-form-label\">{{address.title}}</label>\n            <span class=\"app-form-label-colon\">:</span>\n          </div>\n          <div class=\"app-form-input-wrapper\">\n            <input\n              type=\"text\"\n              id=\"{{address.name}}\"\n              class=\"app-form-input\"\n              formControlName=\"{{address.name}}\"\n              appFormInput\n              [readonly]=\"!getDetailFormStatus()\"\n              name=\"{{address.name}}\"\n              (focus)=\"onAddressFocus($event, address)\"\n              (blur)=\"onAddressBlur($event, address)\"\n              (keydown)=\"onAddressKeyUp($event, address)\">\n            <img class=\"app-google-logo\" src=\"assets/img/logos/third-party/powered_by_google_on_white_hdpi.png\">\n            <i\n              *ngIf=\"signUpForm.get('userData.' + address.name).valid\"\n              class=\"fa fa-check\" aria-hidden=\"true\">\n            </i>\n            <i\n              *ngIf=\"!signUpForm.get('userData.' + address.name).valid\"\n              class=\"fa fa-times\" aria-hidden=\"true\">\n            </i>\n            <i\n              *ngIf=\"!signUpForm.get('userData.' + address.name).valid\n                    && address.spinner && signUpForm.get('userData.' + address.name).touched\"\n              class=\"fa fa-spinner\" aria-hidden=\"true\">\n            </i>\n            <!--<div class=\"app-auto-suggestion-wrapper\"-->\n            <!--*ngIf=\"address.autoAddressesSuggesstion.length != 0-->\n            <!--&& autoSuggestionMode === address.type\">-->\n            <!--<ul>-->\n            <!--<li *ngFor=\"let autoSuggestionAddress of address.autoAddressesSuggesstion\"-->\n            <!--(click)=\"onAddressSelected(address, autoSuggestionAddress)\"-->\n            <!--(mouseover)=\"onAddressHover($event, address.type)\">-->\n            <!--<i class=\"fa fa-map-marker\" aria-hidden=\"true\"></i>-->\n            <!--{{autoSuggestionAddress.description}}-->\n            <!--</li>-->\n            <!--</ul>-->\n            <!--</div>-->\n          </div>\n        </div>\n        <div class=\"app-form-group-error\"\n             *ngIf=\"!signUpForm.get('userData.' + address.name).valid\n             && signUpForm.get('userData.' + address.name).touched\n                  && getDetailFormStatus()\">\n          <div class=\"app-form-errors-wrapper\">\n            <div class=\"app-form-error-message\"\n                 *ngIf=\"signUpForm.get('userData.' + address.name).errors\n                  && signUpForm.get('userData.' + address.name).errors['required']\">\n              <span>Address is required !<span class=\"required\">*</span></span>\n            </div>\n            <div class=\"app-form-error-message\"\n                 *ngIf=\"signUpForm.get('userData.' + address.name).errors && signUpForm.get('userData.' + address.name).errors['NoAddressFound']\">\n              <span>Address could not be found !<span class=\"required\">*</span></span>\n            </div>\n            <div class=\"app-form-error-message\"\n                 *ngIf=\"signUpForm.get('userData.' + address.name).errors && signUpForm.get('userData.' + address.name).errors['InvalidInput']\">\n              <span>Address entered is not valid !<span class=\"required\">*</span></span>\n            </div>\n            <div class=\"app-form-error-message\"\n                 *ngIf=\"signUpForm.get('userData.' + address.name).errors && signUpForm.get('userData.' + address.name).errors['QueryLimitCrossed']\">\n              <span>Exceeded the maximum query limit allowed by google policies !<span class=\"required\">*</span></span>\n            </div>\n            <div class=\"app-form-error-message\"\n                 *ngIf=\"signUpForm.get('userData.' + address.name).errors && signUpForm.get('userData.' + address.name).errors['RequestDenied']\">\n              <span>Address request rejected by google !<span class=\"required\">*</span></span>\n            </div>\n            <div class=\"app-form-error-message\"\n                 *ngIf=\"signUpForm.get('userData.' + address.name).errors && signUpForm.get('userData.' + address.name).errors['UnknownError']\">\n              <span>Unknown error. Please try again !<span class=\"required\">*</span></span>\n            </div>\n            <!--<div *ngIf=\"!signUpForm.valid && signUpForm.touched\">-->\n            <!--<address>-->\n            <!--<span>Addrees should be of the follwing form</span><br>-->\n            <!--8 Willsmore Street Beverley South Australia 5009<br>-->\n            <!--<span>where</span><br>-->\n            <!--<span>8 -- is the street number,</span><br>-->\n            <!--<span>Willsmore Street -- is the street name,</span><br>-->\n            <!--<span>Beverley -- is the name of the suburb/city/town,</span><br>-->\n            <!--<span>South Australia -- is the name of the state,</span><br>-->\n            <!--<span>5009 -- is the zip/postal code,</span><br>-->\n            <!--</address>-->\n            <!--</div>-->\n          </div>\n        </div>\n      </div>\n      <div class=\"app-form-group\">\n        <div class=\"app-form-label-wrapper\">\n          <label for=\"party-file-upload\" class=\"app-form-label\">File Upload</label>\n          <span class=\"app-form-label-colon\">:</span>\n        </div>\n        <div class=\"app-form-input-wrapper\">\n          <input\n            type=\"file\"\n            id=\"party-file-upload\"\n            class=\"app-form-input app-form-file-upload\"\n            appFormInput\n            (change)=\"fileChange($event)\"\n            placeholder=\"Upload file\"\n            accept=\".pdf,.doc,.docx\"\n            [disabled]=\"!getDetailFormStatus()\">\n        </div>\n      </div>\n      <div class=\"app-form-group-submit\" *ngIf=\"!getDetailFormStatus()\">\n        <div class=\"app-form-submit-wrapper\">\n          <button class=\"btn btn-primary\" type=\"button\" (click)=\"createCustomer()\">Create Customer</button>\n\n          <button class=\"btn btn-primary\" type=\"button\" (click)=\"editCustomer()\">Edit Customer</button>\n        </div>\n      </div>\n\n      <div class=\"app-form-group-submit\" *ngIf=\"getDetailFormStatus()\">\n        <div class=\"app-form-submit-wrapper\">\n          <button class=\"btn btn-primary\" [disabled]=\"!signUpForm.valid\" type=\"submit\">Save</button>\n          <button class=\"btn btn-primary\" type=\"button\" (click)=\"dontSaveCustomer()\">Don't Save</button>\n        </div>\n      </div>\n    </div>\n  </form>\n</div>\n\n"
 
 /***/ }),
 
@@ -1775,7 +2008,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "app-party-main .app-form-container {\n  padding: 20px; }\n\napp-party-main .app-form-container-top {\n  border-top: none; }\n\napp-party-main .app-form-header, app-party-main .app-comments-header {\n  color: #5c5e5f;\n  background-color: white;\n  display: inline-block;\n  padding: 5px 0;\n  border-radius: 5px;\n  margin: 20px 0; }\n\napp-party-main .form-group {\n  position: relative;\n  min-height: 2.3rem;\n  z-index: auto; }\n\napp-party-main .app-form-label {\n  display: inline-block;\n  text-align: left;\n  width: 200px;\n  padding: 0.5rem 0.75rem;\n  font-size: 1rem;\n  line-height: 1.25;\n  color: #464a4c;\n  background-color: #eceeef;\n  background-image: none;\n  background-clip: padding-box;\n  border: 1px solid rgba(0, 0, 0, 0.15);\n  border-radius: 0.25rem;\n  transition: border-color ease-in-out 0.15s; }\n\napp-party-main .app-form-label-colon {\n  text-align: right;\n  display: inline-block;\n  padding: 0 0.5rem; }\n\napp-party-main .app-address-input-wrapper, app-party-main .app-address-error-wrapper {\n  display: block;\n  position: absolute;\n  top: 0;\n  left: 229px;\n  width: 60%; }\n\napp-party-main .app-address-input-wrapper .form-control {\n  width: 100%; }\n\napp-party-main .app-form-control-right {\n  position: relative;\n  top: 10px;\n  left: 229px; }\n\napp-party-main .error-message {\n  top: -10px;\n  border: 1px solid red;\n  overflow: visible; }\n\napp-party-main .error-message-helper {\n  border-top: none; }\n\napp-party-main .app-address-error-wrapper {\n  border: 1px solid red; }\n\napp-party-main .required {\n  position: absolute;\n  right: -20px;\n  color: red; }\n\napp-party-main .app-google-logo {\n  position: absolute;\n  width: 8rem;\n  top: 0.75rem;\n  right: 0.5rem; }\n\napp-party-main .fa-check {\n  color: green; }\n\napp-party-main .fa-spinner {\n  -webkit-animation: spinner 3s linear infinite;\n          animation: spinner 3s linear infinite; }\n\napp-party-main .fa-check, app-party-main .fa-spinner {\n  position: absolute;\n  top: 0.75rem;\n  right: 9rem; }\n\napp-party-main .app-auto-suggestion-container > .form-control:focus {\n  border-bottom-left-radius: 0;\n  border-bottom-right-radius: 0; }\n\napp-party-main .app-auto-suggestion-wrapper {\n  position: absolute;\n  top: 2.5rem;\n  left: 0;\n  width: 100%;\n  overflow: visible;\n  border: 1px solid #5cb3fd;\n  border-top: none;\n  min-height: 70px;\n  border-top-left-radius: 0;\n  border-top-right-radius: 0;\n  z-index: 15;\n  background-color: white; }\n\napp-party-main .form-control, app-party-main .form-control-wrapper {\n  display: inline-block;\n  width: 60%;\n  overflow: visible;\n  position: absolute;\n  left: 229px;\n  min-height: 2.3rem; }\n\napp-party-main .form-control-wrapper {\n  display: block;\n  top: 0;\n  z-index: 10; }\n\napp-party-main .form-control-wrapper > .form-control {\n  left: 0;\n  top: 0;\n  width: 100%; }\n\napp-party-main .form-control-labeless {\n  width: 100%;\n  overflow: visible;\n  position: relative;\n  background-color: white;\n  min-height: 2.3rem; }\n\napp-party-main .app-auto-suggestion-wrapper > ul {\n  list-style: none;\n  padding: 0; }\n\napp-party-main .app-auto-suggestion-wrapper > ul > li {\n  cursor: pointer;\n  padding: 5px 5px 5px 0.5rem;\n  margin: 5px 5px 5px 0.5rem; }\n\napp-party-main .app-auto-suggestion-wrapper > ul > li:hover {\n  background-color: #5cb3fd;\n  color: black; }\n\napp-party-main .fa-map-marker {\n  color: #5cb3fd;\n  padding-right: 0.5rem; }\n\napp-party-main .app-auto-suggestion-wrapper > ul > li:hover .fa-map-marker {\n  color: black; }\n\napp-party-main .party-physical-address {\n  z-index: 10; }\n\napp-party-main .party-mailing-address {\n  z-index: 9; }\n\napp-party-main .app-comments-hr {\n  color: gray;\n  border-top: 2px solid gray;\n  height: 2px; }\n\napp-party-main .app-comment-detail {\n  display: inline-block;\n  padding-left: 0.5rem;\n  line-height: 1.2;\n  font-size: 1rem; }\n\napp-party-main .app-users-comments {\n  list-style: none;\n  font-size: 1.2rem;\n  line-height: 1.2;\n  padding: 0;\n  margin: 0; }\n\napp-party-main .app-comment-by, app-party-main .app-comment-on {\n  color: #0275d8; }\n\napp-party-main .app-new-comment {\n  display: block;\n  width: 80%;\n  overflow: auto; }\n\napp-party-main .app-update-comment {\n  display: block;\n  margin-top: 1rem; }\n\napp-party-main .app-comments-header {\n  margin: 0; }\n\napp-party-main .user-comment-hr {\n  margin: 10px 0; }\n\n@-webkit-keyframes spinner {\n  100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg); } }\n\n@keyframes spinner {\n  100% {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg); } }\n", ""]);
+exports.push([module.i, ".app-form-container {\n  margin: 1rem 0;\n  padding: 1rem 0; }\n\n.app-form-container-top {\n  margin-top: 2rem; }\n\n.app-form-header {\n  font-size: 1.5rem;\n  margin: 0;\n  color: inherit; }\n\n.app-form-group, .app-form-group-error {\n  margin: 0;\n  line-height: 1.2;\n  font-size: 1.5rem;\n  padding: 0.5rem 0; }\n\n.app-form-label-wrapper {\n  display: inline-block;\n  width: 18rem;\n  padding: 0.5rem 0; }\n\n.app-form-label, .app-form-input-wrapper, .app-form-errors-wrapper {\n  border: 2px solid gray;\n  border-radius: 5px;\n  width: 16rem;\n  margin: 3px;\n  padding: 1rem;\n  background-color: #b1ebf8; }\n\n.app-form-label-colon {\n  display: inline; }\n\n.app-form-input-wrapper, .app-form-errors-wrapper {\n  display: inline-block;\n  margin: 5px;\n  width: 80%;\n  background-color: white; }\n\n.app-form-input-wrapper.focus, .focus.app-form-errors-wrapper {\n  border: 2px solid #0275d8;\n  border-radius: 5px; }\n\n.app-form-input, .app-form-input:focus {\n  display: inline-block;\n  width: 70%; }\n\n.fa-check, .fa-times {\n  float: right;\n  color: green;\n  margin-right: 10px; }\n\n.fa-times {\n  color: red; }\n\n.app-google-logo {\n  display: inline-block;\n  padding: 0;\n  margin: 0;\n  float: right;\n  height: 1.2rem; }\n\n.fa-spinner {\n  float: right;\n  margin-right: 10px; }\n\n.app-form-group-error:before, .app-form-group-submit:before {\n  display: inline-block;\n  content: '';\n  width: 18rem; }\n\n.app-form-errors-wrapper {\n  border: none;\n  padding: 0; }\n\n.app-form-submit-wrapper {\n  display: inline-block;\n  margin: 1rem 0; }\n\n.app-form-error-message {\n  display: block;\n  width: 100%;\n  height: 100%;\n  padding: 0.5rem;\n  margin: 5px 0;\n  border: 2px solid red;\n  border-radius: 5px; }\n\n.required {\n  float: right;\n  padding-right: 0.5rem; }\n\n.app-form-file-upload {\n  width: auto;\n  font-size: 1rem; }\n", ""]);
 
 // exports
 
@@ -1828,10 +2061,8 @@ var PartyMainComponent = (function () {
         this.partyService = partyService;
         this.ngbModal = ngbModal;
         this.party = null;
-        this.usersComments = null;
         this.paramsReceived = null;
         this.detailFormActive = false;
-        this.newComment = false;
         this.ADDRESS_PHYSICAL = "ADDRESS_PHYSICAL";
         this.ADDRESS_MAILING = "ADDRESS_MAILING";
         this.EDIT_CUSTOMER = "EDIT_CUSTOMER";
@@ -1882,18 +2113,8 @@ var PartyMainComponent = (function () {
     };
     PartyMainComponent.prototype.getPartyRequest = function () {
         this.setSignUpForm();
-        this.getUserComments();
         this.initAddressesSubscription(this.addressFormArray[0]);
         this.initAddressesSubscription(this.addressFormArray[1]);
-    };
-    PartyMainComponent.prototype.getUserComments = function () {
-        var _this = this;
-        this.serverService.getRequestByPartyId(this.paramsReceived, '/comments')
-            .subscribe(function (comments) {
-            _this.usersComments = comments._embedded.comments;
-        }, function (error) {
-            console.log(error);
-        });
     };
     PartyMainComponent.prototype.createSignUpForm = function () {
         this.signUpForm = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["e" /* FormGroup */]({
@@ -2055,14 +2276,8 @@ var PartyMainComponent = (function () {
                 .subscribe(function (data) { return console.log('success'); }, function (error) { return console.log(error); });
         }
     };
-    PartyMainComponent.prototype.createNewComment = function () {
-        console.log("create new comment");
-        this.newComment = true;
-    };
-    PartyMainComponent.prototype.usersCommentFileUpload = function ($event) {
-        console.log("usersCommentFileUpload called");
-    };
     PartyMainComponent.prototype.editCustomer = function () {
+        this.signUpForm.markAsUntouched();
         this.detailFormActive = true;
         this.formMode = this.EDIT_CUSTOMER;
     };
@@ -2290,39 +2505,15 @@ var PartyMainComponent = (function () {
         });
     };
     PartyMainComponent.prototype.getDismissReason = function (reason) {
-        if (reason === __WEBPACK_IMPORTED_MODULE_8__ng_bootstrap_ng_bootstrap__["b" /* ModalDismissReasons */].ESC) {
+        if (reason === __WEBPACK_IMPORTED_MODULE_8__ng_bootstrap_ng_bootstrap__["c" /* ModalDismissReasons */].ESC) {
             return 'by pressing ESC';
         }
-        else if (reason === __WEBPACK_IMPORTED_MODULE_8__ng_bootstrap_ng_bootstrap__["b" /* ModalDismissReasons */].BACKDROP_CLICK) {
+        else if (reason === __WEBPACK_IMPORTED_MODULE_8__ng_bootstrap_ng_bootstrap__["c" /* ModalDismissReasons */].BACKDROP_CLICK) {
             return 'by clicking on a backdrop';
         }
         else {
             return "with: " + reason;
         }
-    };
-    PartyMainComponent.prototype.saveUserComment = function () {
-        var _this = this;
-        if (this.userCommentInput && this.userCommentInput.replace(/^\s+$/, '') != "") {
-            var comment = {
-                "comment": this.userCommentInput,
-                "staff": "/staffs/" + this.paramsReceived,
-                "party": "/parties/" + this.paramsReceived,
-            };
-            this.serverService.saveUserComment(comment)
-                .subscribe(function (response) {
-                console.log(response);
-                _this.ngbModal.open("Comments Succesfull saved");
-                _this.getUserComments();
-                _this.dontSaveUserComment();
-            });
-        }
-        else {
-            this.ngbModal.open("Please enter a valid comment");
-        }
-    };
-    PartyMainComponent.prototype.dontSaveUserComment = function () {
-        this.userCommentInput = "";
-        this.newComment = false;
     };
     PartyMainComponent.prototype.ngOnDestroy = function () {
         this.partyServiceSubscription.unsubscribe();
@@ -2336,7 +2527,7 @@ PartyMainComponent = __decorate([
         styles: [__webpack_require__("../../../../../src/app/components/parties/party/party-main/party-main.component.scss")],
         encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewEncapsulation"].None
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__services_server_service__["a" /* ServerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_server_service__["a" /* ServerService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__angular_http__["d" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_http__["d" /* Http */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_router__["b" /* ActivatedRoute */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_router__["c" /* Router */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_7__services_party_service__["a" /* PartyService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__services_party_service__["a" /* PartyService */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_8__ng_bootstrap_ng_bootstrap__["c" /* NgbModal */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__ng_bootstrap_ng_bootstrap__["c" /* NgbModal */]) === "function" && _g || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__services_server_service__["a" /* ServerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_server_service__["a" /* ServerService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__angular_http__["d" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_http__["d" /* Http */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_router__["b" /* ActivatedRoute */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_router__["c" /* Router */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_7__services_party_service__["a" /* PartyService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__services_party_service__["a" /* PartyService */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_8__ng_bootstrap_ng_bootstrap__["b" /* NgbModal */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__ng_bootstrap_ng_bootstrap__["b" /* NgbModal */]) === "function" && _g || Object])
 ], PartyMainComponent);
 
 var _a, _b, _c, _d, _e, _f, _g;
@@ -2347,7 +2538,7 @@ var _a, _b, _c, _d, _e, _f, _g;
 /***/ "../../../../../src/app/components/parties/party/party.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h1 class=\"app-party\">{{data?.name}}</h1>\n<ul class=\"nav nav-tabs\">\n  <li class=\"nav-item\"  (click)=\"onTabSelected()\">\n    <a class=\"nav-link\" routerLinkActive=\"active\" routerLink=\"main\">Main</a>\n  </li>\n  <li class=\"nav-item\"  (click)=\"onTabSelected()\">\n    <a class=\"nav-link\" routerLinkActive=\"active\" routerLink=\"jobs\">Jobs</a>\n  </li>\n  <li *ngIf=\"partyInvoices && partyInvoices.length !=0\"\n      class=\"nav-item\"  (click)=\"onTabSelected()\">\n    <a class=\"nav-link\" routerLinkActive=\"active\" routerLink=\"invoices\">Invoices</a>\n  </li>\n  <li *ngIf=\"partyBills && partyBills.length !=0\"\n      class=\"nav-item\" (click)=\"onTabSelected()\">\n    <a class=\"nav-link\" routerLinkActive=\"active\" routerLink=\"bills\">Bills</a>\n  </li>\n</ul>\n<div class=\"app-party-wrapper\">\n<router-outlet></router-outlet>\n</div>\n"
+module.exports = "<h1 class=\"app-party\">{{data?.name}}</h1>\n<ul class=\"nav nav-tabs\">\n  <li class=\"nav-item\">\n    <a class=\"nav-link\" routerLinkActive=\"active\" routerLink=\"main\">Main</a>\n  </li>\n  <li class=\"nav-item\">\n    <a class=\"nav-link\" routerLinkActive=\"active\" routerLink=\"comments\">Comments</a>\n  </li>\n  <li class=\"nav-item\">\n    <a class=\"nav-link\" routerLinkActive=\"active\" routerLink=\"jobs\">Jobs</a>\n  </li>\n  <li *ngIf=\"partyInvoices && partyInvoices.length !=0\"\n      class=\"nav-item\">\n    <a class=\"nav-link\" routerLinkActive=\"active\" routerLink=\"invoices\">Invoices</a>\n  </li>\n  <li *ngIf=\"partyBills && partyBills.length !=0\"\n      class=\"nav-item\">\n    <a class=\"nav-link\" routerLinkActive=\"active\" routerLink=\"bills\">Bills</a>\n  </li>\n</ul>\n<div class=\"app-party-wrapper\">\n  <router-outlet></router-outlet>\n</div>\n"
 
 /***/ }),
 
@@ -2428,6 +2619,9 @@ var PartyComponent = (function () {
             if (data === __WEBPACK_IMPORTED_MODULE_4__services_party_service__["a" /* PartyService */].TYPE_BILLS) {
                 _this.makeBillsRequest();
             }
+            if (data === __WEBPACK_IMPORTED_MODULE_4__services_party_service__["a" /* PartyService */].TYPE_COMMENTS) {
+                _this.makeCommentsRequest();
+            }
         });
     };
     PartyComponent.prototype.makeDataRequest = function () {
@@ -2435,6 +2629,7 @@ var PartyComponent = (function () {
         this.makeJobsRequest();
         this.makeBillsRequest();
         this.makeInvoicesRequest();
+        this.makeCommentsRequest();
     };
     PartyComponent.prototype.makePartyRequest = function () {
         var _this = this;
@@ -2446,6 +2641,9 @@ var PartyComponent = (function () {
         }, function (error) {
             console.log(error);
         });
+    };
+    PartyComponent.prototype.makeCommentsRequest = function () {
+        this.partyService.announcePartyDetail({ id: this.paramsReceived, type: __WEBPACK_IMPORTED_MODULE_4__services_party_service__["a" /* PartyService */].TYPE_COMMENTS });
     };
     PartyComponent.prototype.makeJobsRequest = function () {
         var _this = this;
@@ -2500,6 +2698,62 @@ PartyComponent = __decorate([
 
 var _a, _b, _c, _d, _e;
 //# sourceMappingURL=party.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/directives/form-input.directive.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FormInputDirective; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var FormInputDirective = (function () {
+    function FormInputDirective(elementRef, renderer) {
+        this.elementRef = elementRef;
+        this.renderer = renderer;
+    }
+    FormInputDirective.prototype.onInputFocus = function ($event) {
+        this.renderer.addClass(this.parentElement, 'focus');
+    };
+    FormInputDirective.prototype.onInputBlur = function ($event) {
+        this.renderer.removeClass(this.parentElement, 'focus');
+    };
+    FormInputDirective.prototype.ngOnInit = function () {
+        this.parentElement = this.elementRef.nativeElement.parentElement;
+    };
+    return FormInputDirective;
+}());
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"])('focus', ['$event']),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], FormInputDirective.prototype, "onInputFocus", null);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"])('blur', ['$event']),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], FormInputDirective.prototype, "onInputBlur", null);
+FormInputDirective = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Directive"])({
+        selector: '[appFormInput]'
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer2"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer2"]) === "function" && _b || Object])
+], FormInputDirective);
+
+var _a, _b;
+//# sourceMappingURL=form-input.directive.js.map
 
 /***/ }),
 
@@ -2678,6 +2932,7 @@ PartyService.TYPE_MAIN = 'TYPE_MAIN';
 PartyService.TYPE_JOBS = 'TYPE_JOBS';
 PartyService.TYPE_BILLS = 'TYPE_BILLS';
 PartyService.TYPE_INVOICES = 'TYPE_INVOICES';
+PartyService.TYPE_COMMENTS = 'TYPE_COMMENTS';
 PartyService = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
     __metadata("design:paramtypes", [])

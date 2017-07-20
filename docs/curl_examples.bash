@@ -64,7 +64,7 @@ curl -X PUT -d \
 curl -X POST -d \
 '{
 	"comment": "Famous first line but doesn\u0027t matter; will always be first",
-	"staffUser": "/staffs/1",
+	"staffUser": "/staffs/motion6",
 	"party": "/parties/0d5f5918-69dc-11e7-931d-001a7dda7113"
 }' "localhost:8080/api/comments" -H "Content-Type:application/json"
 
@@ -72,8 +72,8 @@ curl -X POST -d \
 curl -X POST -d \
 '{
 	"comment": "Famous first line but doesn\u0027t matter; will always be first",
-	"staffUser": "/staffs/1",
-	"job": "/jobs/1"
+	"staffUser": "/staffs/motion6",
+	"job": "/jobs/a9ba4364-6577-44dc-9266-1fa5484944cf"
 }' "localhost:8080/api/comments" -H "Content-Type:application/json"
 
 

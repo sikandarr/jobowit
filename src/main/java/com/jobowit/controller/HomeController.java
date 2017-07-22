@@ -9,7 +9,7 @@ public class HomeController
 
 	/* This reflects the static routing config of frontend */
 	@RequestMapping(value =
-		{ "/", "/parties", "/parties/**" })
+		{ "/", "/parties", "/parties/**", "/jobs", "/jobs/**" })
 	public String index()
 	{
 		return "index";

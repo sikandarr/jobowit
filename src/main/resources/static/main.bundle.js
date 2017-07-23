@@ -1480,7 +1480,7 @@ var JobMainComponent = (function () {
             .valueChanges.subscribe(function (value) {
             console.log(value);
             _this.customersAutoSuggestion.length = 0;
-            if (value) {
+            if (value && _this.customers) {
                 for (var i = 0; i < _this.customers.length; i++) {
                     if (_this.customers[i].name.toLowerCase().startsWith(value.toLowerCase())) {
                         console.log(_this.customers[i].name);

@@ -2,10 +2,10 @@ package com.jobowit.repositories;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
-import com.jobowit.domain.InvoiceLineItem;
+import com.jobowit.domain.JobStatusEntry;
 
 @RepositoryRestResource
-public interface InvoiceLineItemRepository extends PagingAndSortingRepository<InvoiceLineItem, Integer>
+public interface JobStatusEntryRepository extends PagingAndSortingRepository<JobStatusEntry, Integer>
 {
 
 }

@@ -262,7 +262,7 @@ public class Party implements Serializable
 	public long getActiveJobCount()
 	{
 		if (this.getJobs() != null)
-			return this.getJobs().stream().filter(job -> job.getJobStatus().isActive() == true).count();
+			return this.getJobs().stream().filter(job -> job.getActive() == true).count();
 		return 0;
 	}
 

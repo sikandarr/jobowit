@@ -48,7 +48,7 @@ public class JobStatus implements Serializable
 		return this.status;
 	}
 
-	public void setDescription(String status)
+	public void setStatus(String status)
 	{
 		this.status = status;
 	}

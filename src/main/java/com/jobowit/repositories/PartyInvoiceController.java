@@ -39,7 +39,7 @@ public class PartyInvoiceController
 	private Environment env;
 
 	@RequestMapping(method = RequestMethod.GET, value = "/parties/{id}/invoices")
-	public @ResponseBody ResponseEntity<?> getInvoices(@PathVariable String id)
+	public @ResponseBody ResponseEntity<Resources<Resource<Invoice>>> getInvoices(@PathVariable String id)
 	{
 		List<Job> jobs = jobRepository.findByCustomerUuid(id);
 		List<Resource<Invoice>> invoices = new ArrayList<Resource<Invoice>>();

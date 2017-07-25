@@ -76,7 +76,7 @@ curl -X POST -d \
 	"job": "/jobs/a9ba4364-6577-44dc-9266-1fa5484944cf"
 }' "localhost:8080/api/comments" -H "Content-Type:application/json"
 
-
+## POST new Job
 curl -X POST -d \
 '{
 	"description" : "Paint and additonal repair works", 
@@ -86,4 +86,23 @@ curl -X POST -d \
 	"initialType" : "/jobTypes/Quote%20Request", 
 	"customer" : "/parties/0d5f5918-69dc-11e7-931d-001a7dda7113"
 }' "localhost:8080/api/jobs" -H "Content-Type:application/json"
+
+## Edit Job
+curl -X PUT -d \
+'{
+	"description" : "Delighted to be editing this job", 
+	"referral" : "Phone", 
+	"priority" : "Important", 
+	"address" : "501 Skyward Court:Skyward:South Australia:5085:Australia", 
+	"customer" : "/parties/0d5f5918-69dc-11e7-931d-001a7dda7113"
+}' "localhost:8080/api/jobs/68476898-2b63-41ce-871b-b429becfa61c" -H "Content-Type:application/json"
+
+## POST new Job Status Entry
+curl -X POST -d \
+'{
+	"job" : "/jobs/68476898-2b63-41ce-871b-b429becfa61c",
+	"status" : "/jobStatuses/4",
+	"staff" : "/staffs/motion6",
+	"comment" : "customer has agreed to change the status"
+}' "localhost:8080/api/jobStatusEntries" -H "Content-Type:application/json"
 

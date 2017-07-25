@@ -9,16 +9,12 @@ import org.springframework.data.rest.core.annotation.RepositoryEventHandler;
 import org.springframework.stereotype.Component;
 
 import com.jobowit.domain.Party;
-import com.jobowit.repositories.PartyRepository;
 
 @Component
 @RepositoryEventHandler(Party.class)
 @Transactional
 public class PartyEventHandler
 {
-	@Autowired
-	PartyRepository r;
-	
 	@Autowired
 	EntityManager em;
 

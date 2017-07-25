@@ -1421,6 +1421,7 @@ var JobMainComponent = (function () {
         this.showJobStatusDropdown = false;
     };
     JobMainComponent.prototype.onSelectJobPriority = function (title) {
+        console.log(title);
         this.jobForm.get('userData.job-priority').setValue(title);
     };
     JobMainComponent.prototype.toggleJobStatus = function () {
@@ -1429,6 +1430,7 @@ var JobMainComponent = (function () {
         this.showJobPriorityDropdown = false;
     };
     JobMainComponent.prototype.onSelectJobStatus = function (title) {
+        console.log(title);
         this.jobForm.get('userData.job-status').setValue(title);
     };
     JobMainComponent.prototype.validateCustomerName = function (formControl) {
@@ -1623,12 +1625,15 @@ var JobMainComponent = (function () {
             job.description = this.jobForm.get('userData.job-detail').value;
             job.referral = this.jobForm.get('userData.job-referral').value;
             job.priority = this.jobForm.get('userData.job-priority').value;
-            job.status = this.jobForm.get('userData.job-priority').value;
+            job.status = this.jobForm.get('userData.job-status').value;
             job.address = this.jobAddress;
+            console.log(job.status);
             job.uuid = this.job.uuid;
             job.jobNumber = this.job.jobNumber;
             job.initialType = encodeURI("/jobTypes/" + this.jobForm.get('userData.job-type').value);
             job.customer = "/parties/" + customerUuid_2;
+            // job.customerName = customerName;
+            // job.customerUid = customerUuid;
             console.log(job);
             this.serverService.putJob(job.uuid, job).subscribe(function (response) {
                 console.log(response.json());
@@ -2199,10 +2204,12 @@ var JobsComponent = (function () {
     JobsComponent.prototype.formatRowData = function () {
         for (var i = 0; i < this.rowData.length; i++) {
             console.log(this.rowData[i]);
-            this.rowData[i].latestSchedule.latestSchedule =
-                this.rowData[i].latestSchedule.logicalDay ?
-                    this.rowData[i].latestSchedule.logicalDay :
-                    this.rowData[i].latestSchedule.latestSchedule;
+            if (this.rowData[i].latestSchedule) {
+                this.rowData[i].latestSchedule.latestSchedule =
+                    this.rowData[i].latestSchedule.logicalDay ?
+                        this.rowData[i].latestSchedule.logicalDay :
+                        this.rowData[i].latestSchedule.latestSchedule;
+            }
             // let id = this.job[i]._links.self.href
             //   .substr(this.job[i]._links.self.href.lastIndexOf('/') + 1);
             // this.job[i].jobId = id;

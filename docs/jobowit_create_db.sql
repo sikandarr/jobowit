@@ -1,4 +1,3 @@
-DROP DATABASE IF EXISTS `jobowit_db`;
 -- MySQL Workbench Forward Engineering
 
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
@@ -639,10 +638,10 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `jobowit_db`.`uploaded_file` ;
 
 CREATE TABLE IF NOT EXISTS `jobowit_db`.`uploaded_file` (
-  `uploaded_file_id` INT NOT NULL,
+  `uploaded_file_id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(100) NOT NULL,
   `type` VARCHAR(45) NOT NULL,
-  `size` INT NOT NULL,
+  `size` BIGINT NOT NULL,
   `content` MEDIUMBLOB NOT NULL,
   `uuid` VARCHAR(36) NOT NULL DEFAULT 'EMPTY',
   `comment_id` INT NULL,

@@ -7,13 +7,19 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name = "uploaded_file")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class UploadedFile implements Serializable
 {
 	private static final long serialVersionUID = 1L;
@@ -33,11 +39,15 @@ public class UploadedFile implements Serializable
 	private String type;
 	
 	@Column
-	private int size;
+	private long size;
 	
 	@Column(columnDefinition = "mediumblob")
 	@Lob
 	private byte[] content;
+	
+	@ManyToOne
+	@JoinColumn(name = "comment_id")
+	private Comment comment;
 
 	public int getId()
 	{
@@ -49,11 +59,13 @@ public class UploadedFile implements Serializable
 		this.id = id;
 	}
 
+	@JsonProperty
 	public String getUuid()
 	{
 		return uuid;
 	}
 
+	@JsonIgnore
 	public void setUuid(String uuid)
 	{
 		this.uuid = uuid;
@@ -64,6 +76,7 @@ public class UploadedFile implements Serializable
 		return name;
 	}
 
+	@JsonIgnore
 	public void setName(String name)
 	{
 		this.name = name;
@@ -74,17 +87,19 @@ public class UploadedFile implements Serializable
 		return type;
 	}
 
+	@JsonIgnore
 	public void setType(String type)
 	{
 		this.type = type;
 	}
 
-	public int getSize()
+	public long getSize()
 	{
 		return size;
 	}
 
-	public void setSize(int size)
+	@JsonIgnore
+	public void setSize(long size)
 	{
 		this.size = size;
 	}
@@ -98,5 +113,15 @@ public class UploadedFile implements Serializable
 	public void setContent(byte[] content)
 	{
 		this.content = content;
+	}
+
+	public Comment getComment()
+	{
+		return comment;
+	}
+
+	public void setComment(Comment comment)
+	{
+		this.comment = comment;
 	}
 }

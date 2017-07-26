@@ -106,3 +106,7 @@ curl -X POST -d \
 	"comment" : "customer has agreed to change the status"
 }' "localhost:8080/api/jobStatusEntries" -H "Content-Type:application/json"
 
+## Upload a file
+## replace filename with a file on your system with the location relative to current working directory
+curl -F file=@"mock_data.sql" http://localhost:8080/api/upload/
+

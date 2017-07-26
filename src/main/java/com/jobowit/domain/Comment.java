@@ -8,6 +8,7 @@ import org.hibernate.annotations.DynamicInsert;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.sql.Timestamp;
+import java.util.List;
 
 /**
  * The persistent class for the comment database table.
@@ -47,6 +48,9 @@ public class Comment implements Serializable
 	@ManyToOne
 	@JoinColumn(name = "staff_id", nullable = false)
 	private Staff staffUser;
+	
+	@OneToMany(mappedBy = "comment")
+	private List<UploadedFile> uploadedFiles;
 
 	public Comment()
 	{
@@ -110,6 +114,16 @@ public class Comment implements Serializable
 	public void setStaffUser(Staff staff)
 	{
 		this.staffUser = staff;
+	}
+
+	public List<UploadedFile> getUploadedFiles()
+	{
+		return uploadedFiles;
+	}
+
+	public void setUploadedFiles(List<UploadedFile> uploadedFiles)
+	{
+		this.uploadedFiles = uploadedFiles;
 	}
 
 }

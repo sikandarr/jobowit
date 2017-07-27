@@ -110,3 +110,8 @@ curl -X POST -d \
 ## replace filename with a file on your system with the location relative to current working directory
 curl -F file=@"mock_data.sql" http://localhost:8080/api/upload/
 
+## link the uploaded file with a comment (using PATCH)
+curl -X PATCH -d '{ "comment" : "/comments/1" }' "localhost:8080/api/uploadedFiles/2983c7c6-7280-11e7-8e19-001a7dda7113" -H "Content-Type:application/json"
+
+
+

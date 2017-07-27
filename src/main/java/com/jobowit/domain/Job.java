@@ -4,6 +4,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.util.List;
 
@@ -107,6 +108,7 @@ public class Job implements Serializable
 		this.jobId = jobId;
 	}
 
+	@JsonProperty
 	public String getUuid()
 	{
 		return uuid;
@@ -118,6 +120,7 @@ public class Job implements Serializable
 		this.uuid = uuid;
 	}
 
+	@JsonProperty
 	public String getJobNumber()
 	{
 		return jobNumber;

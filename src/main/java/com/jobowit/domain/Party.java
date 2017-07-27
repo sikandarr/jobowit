@@ -240,7 +240,7 @@ public class Party implements Serializable
 	
 	public String getMailingAddressStr()
 	{
-		return getMailingAddress().toString();
+		return this.mailingAddress != null ? getMailingAddress().toString() : "";
 	}
 
 	public Address getPhysicalAddress()
@@ -256,7 +256,7 @@ public class Party implements Serializable
 	
 	public String getPhysicalAddressStr()
 	{
-		return getPhysicalAddress().toString();
+		return this.physicalAddress != null ? getPhysicalAddress().toString() : "";
 	}
 
 	public long getActiveJobCount()

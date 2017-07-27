@@ -71,6 +71,7 @@ public class UploadedFile implements Serializable
 		this.uuid = uuid;
 	}
 
+	@JsonProperty
 	public String getName()
 	{
 		return name;
@@ -82,6 +83,7 @@ public class UploadedFile implements Serializable
 		this.name = name;
 	}
 
+	@JsonProperty
 	public String getType()
 	{
 		return type;
@@ -93,6 +95,7 @@ public class UploadedFile implements Serializable
 		this.type = type;
 	}
 
+	@JsonProperty
 	public long getSize()
 	{
 		return size;
@@ -110,6 +113,7 @@ public class UploadedFile implements Serializable
 		return content;
 	}
 
+	@JsonIgnore
 	public void setContent(byte[] content)
 	{
 		this.content = content;

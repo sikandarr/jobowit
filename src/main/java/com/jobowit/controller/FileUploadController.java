@@ -69,7 +69,7 @@ public class FileUploadController
 		return ResponseEntity.ok(new ResponseMessage("File was uploaded succesfully", upload.getUuid()));
 	}
 
-	@GetMapping("/api/download/{uuid}")
+	@GetMapping("/api/uploadedFiles/{uuid}/download")
 	@ResponseBody
 	public ResponseEntity<?> handleFileDownload(@PathVariable String uuid)
 	{

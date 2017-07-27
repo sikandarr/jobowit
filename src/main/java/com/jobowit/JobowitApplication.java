@@ -12,6 +12,7 @@ import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.ResourceProcessor;
 import org.springframework.web.bind.annotation.RestController;
 import com.jobowit.domain.Party;
+import com.jobowit.domain.UploadedFile;
 import com.jobowit.domain.projections.PartyProjection;
 
 @SpringBootApplication
@@ -42,6 +43,20 @@ public class JobowitApplication
 			public Resource<Party> process(Resource<Party> resource)
 			{
 				resource.add(new Link(resource.getId().getHref() + "/invoices").withRel("invoices"));
+				return resource;
+			}
+		};
+	}
+	
+	@Bean
+	public ResourceProcessor<Resource<UploadedFile>> uploadedFileProcessor()
+	{
+		return new ResourceProcessor<Resource<UploadedFile>>()
+		{
+			@Override
+			public Resource<UploadedFile> process(Resource<UploadedFile> resource)
+			{
+				resource.add(new Link(resource.getId().getHref() + "/download").withRel("download"));
 				return resource;
 			}
 		};

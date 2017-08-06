@@ -17,4 +17,5 @@ public interface PartyRepository  extends PagingAndSortingRepository<Party, Long
 	List<Party> findByContactNameContaining(@Param("name") String contactName);
 	Party findByNameContaining(@Param("name") String name);
 	Optional<Party> findByUuid(String uuid);
+	Optional<Party> findByMyobUid(String uuid);
 }

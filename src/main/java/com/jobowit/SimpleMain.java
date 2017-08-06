@@ -6,6 +6,6 @@ public class SimpleMain
 {
 	public static void main(String[] args)
 	{
-		System.out.println(RandomString.generate(12, false));
+		System.out.println(RandomString.generate(12, false));;;
 	}
 }

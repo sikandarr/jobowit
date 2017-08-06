@@ -31,6 +31,15 @@ public class Party implements Serializable
 	
 	@Column(name = "party_uuid", columnDefinition="CHAR", unique = true)
 	private String uuid;
+	
+	@Column(name = "myob_uid", columnDefinition="CHAR", unique = true)
+	private String myobUid;
+	
+	@Column(name="is_individual")
+	private boolean isIndividual;
+	
+	@Column(name="type")
+	private String type;
 
 	@Column(name = "contact_name", length = 100)
 	private String contactName;
@@ -97,6 +106,36 @@ public class Party implements Serializable
 	public void setUuid(String uuid)
 	{
 		this.uuid = uuid;
+	}
+
+	public String getMyobUid()
+	{
+		return myobUid;
+	}
+
+	public void setMyobUid(String myobUid)
+	{
+		this.myobUid = myobUid;
+	}
+
+	public boolean isIndividual()
+	{
+		return isIndividual;
+	}
+
+	public void setIndividual(boolean isIndividual)
+	{
+		this.isIndividual = isIndividual;
+	}
+
+	public String getType()
+	{
+		return type;
+	}
+
+	public void setType(String type)
+	{
+		this.type = type;
 	}
 
 	public String getContactName()

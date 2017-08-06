@@ -39,6 +39,7 @@ DROP TABLE IF EXISTS `jobowit_db`.`party` ;
 CREATE TABLE IF NOT EXISTS `jobowit_db`.`party` (
   `party_id` BIGINT NOT NULL AUTO_INCREMENT,
   `party_uuid` CHAR(36) NOT NULL DEFAULT 'EMPTY',
+  `myob_uid` VARCHAR(36) NULL,
   `name` VARCHAR(100) NOT NULL,
   `contact_name` VARCHAR(100) NULL,
   `email` VARCHAR(50) NULL,
@@ -51,6 +52,7 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`party` (
   INDEX `fk_Party_address_idx` (`mailing_address_id` ASC),
   INDEX `fk_Party_address1_idx` (`physical_address_id` ASC),
   UNIQUE INDEX `party_uuid_UNIQUE` (`party_uuid` ASC),
+  UNIQUE INDEX `myob_uid_UNIQUE` (`myob_uid` ASC),
   CONSTRAINT `fk_Party_address`
     FOREIGN KEY (`mailing_address_id`)
     REFERENCES `jobowit_db`.`address` (`address_id`)
@@ -645,6 +647,7 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`uploaded_file` (
   `content` MEDIUMBLOB NOT NULL,
   `uuid` VARCHAR(36) NOT NULL DEFAULT 'EMPTY',
   `comment_id` INT NULL,
+  `uploaded_dtm` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`uploaded_file_id`),
   UNIQUE INDEX `uuid_UNIQUE` (`uuid` ASC),
   INDEX `fk_uploaded_file_comment1_idx` (`comment_id` ASC),
@@ -687,6 +690,37 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`job_status_entry` (
     REFERENCES `jobowit_db`.`staff` (`staff_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `jobowit_db`.`myob_code`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `jobowit_db`.`myob_code` ;
+
+CREATE TABLE IF NOT EXISTS `jobowit_db`.`myob_code` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `code` LONGTEXT NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `jobowit_db`.`myob_token`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `jobowit_db`.`myob_token` ;
+
+CREATE TABLE IF NOT EXISTS `jobowit_db`.`myob_token` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `access_token` LONGTEXT NULL,
+  `token_type` VARCHAR(45) NULL,
+  `expires_in` INT NULL,
+  `refresh_token` LONGTEXT NULL,
+  `scope` VARCHAR(45) NULL,
+  `user_uid` VARCHAR(45) NULL,
+  `user_username` VARCHAR(100) NULL,
+  `created_on` TIMESTAMP NULL,
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
 USE `jobowit_db`;

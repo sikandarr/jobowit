@@ -1,5 +1,6 @@
 package com.jobowit;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -11,9 +12,12 @@ import org.springframework.hateoas.Link;
 import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.ResourceProcessor;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.anahata.myob.api.auth.MyobPlugin;
 import com.jobowit.domain.Party;
 import com.jobowit.domain.UploadedFile;
 import com.jobowit.domain.projections.PartyProjection;
+import com.jobowit.repositories.MyobTokenRepository;
 
 @SpringBootApplication
 @RestController

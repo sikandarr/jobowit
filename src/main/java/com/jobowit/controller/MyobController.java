@@ -20,29 +20,22 @@ import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.anahata.myob.api.domain.CompanyFile;
 import com.anahata.myob.api.domain.v2.contact.Contact;
+import com.anahata.myob.api.service.CompanyFileService;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
-import com.jobowit.domain.MyobCode;
 import com.jobowit.domain.MyobToken;
 import com.jobowit.myob.MyobService;
-import com.jobowit.myob.MyobTest;
-import com.jobowit.myob.MyobTest2;
 import com.jobowit.myob.service.ContactService;
-import com.jobowit.repositories.MyobCodeRepository;
 import com.jobowit.repositories.MyobTokenRepository;
 
 @RestController
 public class MyobController
 {
-	@Autowired
-	private MyobCodeRepository myobCodeRepo;
-
 	@Autowired
 	private MyobTokenRepository myobTokenRepo;
 	
@@ -52,23 +45,11 @@ public class MyobController
 	@Autowired
 	private MyobService myobService;
 
-
-	@GetMapping("/myob")
-	public ResponseEntity<String> handleMyobCode(@RequestParam("code") String code)
-	{
-		MyobCode myobCode = new MyobCode();
-		myobCode.setCode(code);
-		myobCodeRepo.save(myobCode);
-		MyobTest2 test = new MyobTest2(myobTokenRepo);
-		test.run(code);
-		return ResponseEntity.ok().body("Success");
-	}
-
 	@GetMapping("/myob/cfs")
 	public CompanyFile[] handleCompanyFileService() throws Exception
 	{
-		MyobTest t = new MyobTest();
-		return t.run(myobTokenRepo);
+		CompanyFileService cfs = beanFactory.getBean(CompanyFileService.class);
+		return cfs.findAll();
 	}
 
 	@GetMapping("/myob/refresh")

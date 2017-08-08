@@ -1,10 +1,13 @@
 package com.jobowit.domain;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
+import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.validator.constraints.NotBlank;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -18,6 +21,7 @@ import java.util.List;
  * 
  */
 @Entity
+@DynamicUpdate
 @Table(name = "party")
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "partyId")
 public class Party implements Serializable
@@ -28,17 +32,17 @@ public class Party implements Serializable
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "party_id", unique = true, nullable = false)
 	private Long partyId;
-	
-	@Column(name = "party_uuid", columnDefinition="CHAR", unique = true)
+
+	@Column(name = "party_uuid", columnDefinition = "CHAR", unique = true)
 	private String uuid;
-	
-	@Column(name = "myob_uid", columnDefinition="CHAR", unique = true)
+
+	@Column(name = "myob_uid", columnDefinition = "CHAR", unique = true)
 	private String myobUid;
-	
-	@Column(name="is_individual")
+
+	@Column(name = "is_individual")
 	private boolean isIndividual;
-	
-	@Column(name="type")
+
+	@Column(name = "type", columnDefinition = "enum")
 	private String type;
 
 	@Column(name = "contact_name", length = 100)
@@ -49,7 +53,7 @@ public class Party implements Serializable
 	private String email;
 
 	@Column(length = 45)
-	@Pattern(regexp = "^04\\d{8}$", message = "Not a valid Australian mobile number")
+	//@Pattern(regexp = "^04\\d{8}$", message = "Not a valid Australian mobile number")
 	private String mobile;
 
 	@Column(nullable = false, length = 100)
@@ -58,8 +62,11 @@ public class Party implements Serializable
 	private String name;
 
 	@Column(length = 45)
-	@Pattern(regexp = "^(0(2|3|7|8))?\\d{8}$", message = "Not a valid Australian phone number")
+	//@Pattern(regexp = "^(0(2|3|7|8))?\\d{8}$", message = "Not a valid Australian phone number")
 	private String phone;
+
+	@Column(name = "updated_dtm", insertable = false)
+	private Timestamp updatedDtm;
 
 	// bi-directional many-to-one association to Bill
 	@OneToMany(mappedBy = "supplier")
@@ -81,7 +88,7 @@ public class Party implements Serializable
 	// one-to-one association to Address
 	@OneToOne(optional = false, cascade = CascadeType.ALL)
 	@JoinColumn(name = "physical_address_id")
-	//@RestResource(exported = false)
+	// @RestResource(exported = false)
 	private Address physicalAddress;
 
 	public Party()
@@ -188,6 +195,11 @@ public class Party implements Serializable
 		this.phone = phone;
 	}
 
+	public Timestamp getUpdatedDtm()
+	{
+		return updatedDtm;
+	}
+
 	public List<Bill> getBills()
 	{
 		return this.bills;
@@ -276,7 +288,7 @@ public class Party implements Serializable
 	{
 		this.mailingAddress = mailingAddress;
 	}
-	
+
 	public String getMailingAddressStr()
 	{
 		return this.mailingAddress != null ? getMailingAddress().toString() : "";
@@ -292,7 +304,7 @@ public class Party implements Serializable
 	{
 		this.physicalAddress = physicalAddress;
 	}
-	
+
 	public String getPhysicalAddressStr()
 	{
 		return this.physicalAddress != null ? getPhysicalAddress().toString() : "";
@@ -300,8 +312,7 @@ public class Party implements Serializable
 
 	public long getActiveJobCount()
 	{
-		if (this.getJobs() != null)
-			return this.getJobs().stream().filter(job -> job.getActive() == true).count();
+		if (this.getJobs() != null) return this.getJobs().stream().filter(job -> job.getActive() == true).count();
 		return 0;
 	}
 

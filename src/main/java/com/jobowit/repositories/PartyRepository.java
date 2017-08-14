@@ -17,11 +17,19 @@ import com.jobowit.domain.Party;
 public interface PartyRepository  extends PagingAndSortingRepository<Party, Long>
 {
 	List<Party> findByContactNameContaining(@Param("name") String contactName);
+	
 	Party findByNameContaining(@Param("name") String name);
+	
 	Optional<Party> findByUuid(String uuid);
+	
 	Optional<Party> findByMyobUid(String uuid);
+	
 	@Query(nativeQuery=true, value="SELECT UPDATE_TIME FROM information_schema.tables WHERE TABLE_SCHEMA = 'jobowit_db' AND TABLE_NAME = 'party'")
 	Timestamp lastUpdateTime();
+	
 	@Query(nativeQuery=true, value="SELECT * FROM jobowit_db.party LIMIT 0, 10;")
 	List<Party> findTop10();
+	
+	@Query(nativeQuery=true, value="SELECT * FROM jobowit_db.party LIMIT 0, 1;")
+	List<Party> findTop1();
 }

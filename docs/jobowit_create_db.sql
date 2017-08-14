@@ -25,8 +25,10 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`address` (
   `city` VARCHAR(50) NULL,
   `state` VARCHAR(45) NULL,
   `state_abr` VARCHAR(4) NULL,
-  `post_code` VARCHAR(4) NULL,
+  `post_code` VARCHAR(12) NULL,
   `country` VARCHAR(45) NULL,
+  `created_dtm` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_dtm` TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`address_id`))
 ENGINE = InnoDB;
 
@@ -48,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`party` (
   `mailing_address_id` INT NULL,
   `physical_address_id` INT NULL,
   `is_individual` TINYINT(1) NOT NULL DEFAULT 0,
-  `type` ENUM('Customer', 'Supplier', 'Both') NOT NULL DEFAULT 'Customer',
+  `type` ENUM('Customer', 'Supplier') NOT NULL DEFAULT 'Customer',
   `created_dtm` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_dtm` TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`party_id`),
@@ -726,6 +728,24 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`myob_token` (
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
+
+-- -----------------------------------------------------
+-- Table `jobowit_db`.`myob_sync_dates`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `jobowit_db`.`myob_sync_dates` ;
+
+CREATE TABLE IF NOT EXISTS `jobowit_db`.`myob_sync_dates` (
+  `party_id` BIGINT NOT NULL,
+  `last_sync_dtm` TIMESTAMP NULL,
+  `contact_last_sync_dtm` TIMESTAMP NULL,
+  PRIMARY KEY (`party_id`),
+  CONSTRAINT `fk_myob_sync_dates_party1`
+    FOREIGN KEY (`party_id`)
+    REFERENCES `jobowit_db`.`party` (`party_id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
 USE `jobowit_db`;
 
 DELIMITER $$
@@ -738,6 +758,15 @@ BEGIN
 if ( isnull(new.party_uuid) ) then
 SET new.party_uuid = uuid();
 END if;
+END$$
+
+
+USE `jobowit_db`$$
+DROP TRIGGER IF EXISTS `jobowit_db`.`party_AFTER_INSERT` $$
+USE `jobowit_db`$$
+CREATE DEFINER = CURRENT_USER TRIGGER `jobowit_db`.`party_AFTER_INSERT` AFTER INSERT ON `party` FOR EACH ROW
+BEGIN
+insert into myob_sync_dates (`party_id`) values (new.party_id);
 END$$
 
 

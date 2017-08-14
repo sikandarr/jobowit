@@ -609,6 +609,7 @@ INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phon
 INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (98,'0d89e6b5-69dc-11e7-931d-001a7dda7113','Luctus Ipsum PC','Kim Reeves','vitae.velit@aptent.com','(05) 0864 7385','(04) 8683 2879',5,386);
 INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (99,'0d8a3eea-69dc-11e7-931d-001a7dda7113','Hymenaeos Institute','Xerxes Crane','posuere@maurisInteger.org','(06) 1289 7202','(04) 9532 3758',43,287);
 INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (100,'0d8a92a9-69dc-11e7-931d-001a7dda7113','Neque In Foundation','Evan Simmons','Cras.interdum.Nunc@dui.net','(08) 2398 0983','(04) 8731 3839',170,384);
+update party set type = "Supplier" where party_id > 50;
 
 -- -----------------------------------------------------
 -- staff data

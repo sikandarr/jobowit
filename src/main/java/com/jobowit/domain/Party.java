@@ -53,7 +53,8 @@ public class Party implements Serializable
 	private String email;
 
 	@Column(length = 45)
-	//@Pattern(regexp = "^04\\d{8}$", message = "Not a valid Australian mobile number")
+	// @Pattern(regexp = "^04\\d{8}$", message = "Not a valid Australian mobile
+	// number")
 	private String mobile;
 
 	@Column(nullable = false, length = 100)
@@ -62,11 +63,18 @@ public class Party implements Serializable
 	private String name;
 
 	@Column(length = 45)
-	//@Pattern(regexp = "^(0(2|3|7|8))?\\d{8}$", message = "Not a valid Australian phone number")
+	// @Pattern(regexp = "^(0(2|3|7|8))?\\d{8}$", message = "Not a valid
+	// Australian phone number")
 	private String phone;
 
 	@Column(name = "updated_dtm", insertable = false)
 	private Timestamp updatedDtm;
+
+	@Column(name = "created_dtm", insertable = false)
+	private Timestamp createdDtm;
+
+	@OneToOne(mappedBy = "party")
+	private MyobSyncDates syncdates;
 
 	// bi-directional many-to-one association to Bill
 	@OneToMany(mappedBy = "supplier")
@@ -81,12 +89,12 @@ public class Party implements Serializable
 	private List<Job> jobs;
 
 	// one-to-one association to Address
-	@OneToOne(optional = false, cascade = CascadeType.ALL)
+	@OneToOne(optional = true, cascade = CascadeType.ALL)
 	@JoinColumn(name = "mailing_address_id")
 	private Address mailingAddress;
 
 	// one-to-one association to Address
-	@OneToOne(optional = false, cascade = CascadeType.ALL)
+	@OneToOne(optional = true, cascade = CascadeType.ALL)
 	@JoinColumn(name = "physical_address_id")
 	// @RestResource(exported = false)
 	private Address physicalAddress;
@@ -197,7 +205,28 @@ public class Party implements Serializable
 
 	public Timestamp getUpdatedDtm()
 	{
-		return updatedDtm;
+		Timestamp partyUpdated = this.updatedDtm == null ? this.createdDtm : this.updatedDtm;
+		Timestamp addressUpdated = null;
+		
+		if (this.getPhysicalAddress() != null)
+			addressUpdated = this.getPhysicalAddress().getUpdatedDtm();
+
+		if (this.getMailingAddress() != null)
+		{
+			if (addressUpdated != null)
+				addressUpdated = this.getMailingAddress().getUpdatedDtm().getTime() > addressUpdated.getTime()
+						? this.getMailingAddress().getUpdatedDtm() : addressUpdated;
+			else addressUpdated = this.getMailingAddress().getUpdatedDtm();
+		}
+
+		if (addressUpdated != null)
+			return partyUpdated.getTime() > addressUpdated.getTime() ? partyUpdated : addressUpdated;
+		else return partyUpdated;
+	}
+
+	public Timestamp getCreatedDtm()
+	{
+		return createdDtm;
 	}
 
 	public List<Bill> getBills()
@@ -312,8 +341,19 @@ public class Party implements Serializable
 
 	public long getActiveJobCount()
 	{
-		if (this.getJobs() != null) return this.getJobs().stream().filter(job -> job.getActive() == true).count();
+		if (this.getJobs() != null)
+			return this.getJobs().stream().filter(job -> job.getActive() == true).count();
 		return 0;
+	}
+
+	public MyobSyncDates getSyncdates()
+	{
+		return syncdates;
+	}
+
+	public void setSyncdates(MyobSyncDates syncdates)
+	{
+		this.syncdates = syncdates;
 	}
 
 }

@@ -570,6 +570,8 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`invoice_line_item` (
   `description` MEDIUMTEXT NULL,
   `quantity` INT NULL,
   `unit_price` DOUBLE(15,2) NULL,
+  `myob_account` VARCHAR(36) NULL,
+  `myob_tax_code` VARCHAR(36) NULL,
   PRIMARY KEY (`invoice_line_item_id`),
   INDEX `fk_invoice_line_item_invoice1_idx` (`invoice_id` ASC),
   CONSTRAINT `fk_invoice_line_item_invoice1`

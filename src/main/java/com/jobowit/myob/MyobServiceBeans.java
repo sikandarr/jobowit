@@ -4,10 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.anahata.myob.api.domain.CompanyFile;
-import com.anahata.myob.api.service.CompanyFileService;
 import com.anahata.myob.api.service.CustomerService;
 import com.anahata.myob.api.service.SupplierService;
+import com.anahata.myob.api.service.generalledger.AccountService;
+import com.anahata.myob.api.service.generalledger.TaxCodeService;
 import com.jobowit.myob.service.ContactService;
 
 @Configuration
@@ -38,5 +38,21 @@ public class MyobServiceBeans
 		SupplierService supplierService = new SupplierService();
 		supplierService.setEndPointProvider(myobEndPointProviderServiceImpl);
 		return supplierService;
+	}
+	
+	@Bean
+	public AccountService getAccountService() throws Exception
+	{
+		AccountService accountService = new AccountService();
+		accountService.setEndPointProvider(myobEndPointProviderServiceImpl);
+		return accountService;
+	}
+	
+	@Bean
+	public TaxCodeService getTaxCodeService() throws Exception
+	{
+		TaxCodeService taxCodeService = new TaxCodeService();
+		taxCodeService.setEndPointProvider(myobEndPointProviderServiceImpl);
+		return taxCodeService;
 	}
 }

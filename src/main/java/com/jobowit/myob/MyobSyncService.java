@@ -65,13 +65,13 @@ public class MyobSyncService
 				else if (toUpdate == Resource.Contact)
 					customerService.update(c);
 
-				setSyncDateTime(c);
+				setSyncDateTime(o.get(), c);
 			}
 			else
 			{
 				Party p = partyRepo.save(createPartyFromMyobContact(c));
 				partyEventHandler.handleAfterCreates(p);
-				setSyncDateTime(c);
+				setSyncDateTime(p, c);
 			}
 		}
 
@@ -88,13 +88,13 @@ public class MyobSyncService
 				else if (toUpdate == Resource.Contact)
 					supplierService.update(s);
 
-				setSyncDateTime(s);
+				setSyncDateTime(o.get(), s);
 			}
 			else
 			{
 				Party p = partyRepo.save(createPartyFromMyobContact(s));
 				partyEventHandler.handleAfterCreates(p);
-				setSyncDateTime(s);
+				setSyncDateTime(p, s);
 			}
 		}
 
@@ -109,14 +109,14 @@ public class MyobSyncService
 					Customer customer = customerService.create(createMyobCustomerFromParty(p));
 					p.setMyobUid(customer.getUID());
 					partyRepo.save(p);
-					setSyncDateTime(customer);
+					setSyncDateTime(p, customer);
 				}
 				else if (p.getType().equalsIgnoreCase("Supplier"))
 				{
 					Supplier supplier = supplierService.create(createMyobSupplierFromParty(p));
 					p.setMyobUid(supplier.getUID());
 					partyRepo.save(p);
-					setSyncDateTime(supplier);
+					setSyncDateTime(p, supplier);
 				}
 			}
 		}
@@ -306,16 +306,11 @@ public class MyobSyncService
 		else return Resource.None;
 	}
 
-	public void setSyncDateTime(Contact c)
+	public void setSyncDateTime(Party p, Contact c)
 	{
-		Optional<Party> o = partyRepo.findByMyobUid(c.getUID());
-		if (o.isPresent())
-		{
-			Party p = o.get();
-			MyobSyncDates syncDates = myobSyncDateRepo.findOne(p.getPartyId());
-			syncDates.setContactLastSyncDtm(new Timestamp(c.getLastModified().getTime()));
-			syncDates.setLastSyncDtm(p.getUpdatedDtm());
-			myobSyncDateRepo.save(syncDates);
-		}
+		MyobSyncDates syncDates = myobSyncDateRepo.findOne(p.getPartyId());
+		syncDates.setContactLastSyncDtm(new Timestamp(c.getLastModified().getTime()));
+		syncDates.setLastSyncDtm(p.getUpdatedDtm());
+		myobSyncDateRepo.save(syncDates);
 	}
 }

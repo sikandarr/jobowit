@@ -1,15 +1,15 @@
-webpackJsonp([1],{
+webpackJsonp(["main"],{
 
-/***/ "../../../../../src async recursive":
+/***/ "../../../../../src lazy recursive":
 /***/ (function(module, exports) {
 
-function webpackEmptyContext(req) {
-	throw new Error("Cannot find module '" + req + "'.");
+function webpackEmptyAsyncContext(req) {
+	return new Promise(function(resolve, reject) { reject(new Error("Cannot find module '" + req + "'.")); });
 }
-webpackEmptyContext.keys = function() { return []; };
-webpackEmptyContext.resolve = webpackEmptyContext;
-module.exports = webpackEmptyContext;
-webpackEmptyContext.id = "../../../../../src async recursive";
+webpackEmptyAsyncContext.keys = function() { return []; };
+webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
+module.exports = webpackEmptyAsyncContext;
+webpackEmptyAsyncContext.id = "../../../../../src lazy recursive";
 
 /***/ }),
 
@@ -17,6 +17,8 @@ webpackEmptyContext.id = "../../../../../src async recursive";
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* unused harmony export routes */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppRoutingModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_parties_parties_component__ = __webpack_require__("../../../../../src/app/components/parties/parties.component.ts");
@@ -35,14 +37,16 @@ webpackEmptyContext.id = "../../../../../src async recursive";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_jobs_job_job_costs_job_costs_component__ = __webpack_require__("../../../../../src/app/components/jobs/job/job-costs/job-costs.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_jobs_job_job_invoices_job_invoices_component__ = __webpack_require__("../../../../../src/app/components/jobs/job/job-invoices/job-invoices.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_parties_party_party_comments_party_comments_component__ = __webpack_require__("../../../../../src/app/components/parties/party/party-comments/party-comments.component.ts");
-/* unused harmony export routes */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppRoutingModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_staff_staff_component__ = __webpack_require__("../../../../../src/app/components/staff/staff.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_jobs_job_job_timeline_job_timeline_component__ = __webpack_require__("../../../../../src/app/components/jobs/job/job-timeline/job-timeline.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -85,8 +89,10 @@ var routes = [
             { path: 'bills', component: __WEBPACK_IMPORTED_MODULE_13__components_jobs_job_job_bills_job_bills_component__["a" /* JobBillsComponent */] },
             { path: 'costs', component: __WEBPACK_IMPORTED_MODULE_15__components_jobs_job_job_costs_job_costs_component__["a" /* JobCostsComponent */] },
             { path: 'invoices', component: __WEBPACK_IMPORTED_MODULE_16__components_jobs_job_job_invoices_job_invoices_component__["a" /* JobInvoicesComponent */] },
+            { path: 'timeline', component: __WEBPACK_IMPORTED_MODULE_19__components_jobs_job_job_timeline_job_timeline_component__["a" /* JobTimelineComponent */] },
         ]
     },
+    { path: 'staff', component: __WEBPACK_IMPORTED_MODULE_18__components_staff_staff_component__["a" /* StaffComponent */] },
     { path: '**', redirectTo: 'parties', pathMatch: 'full' }
 ];
 var AppRoutingModule = (function () {
@@ -95,9 +101,9 @@ var AppRoutingModule = (function () {
     return AppRoutingModule;
 }());
 AppRoutingModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
-        imports: [__WEBPACK_IMPORTED_MODULE_0__angular_router__["a" /* RouterModule */].forRoot(routes)],
-        exports: [__WEBPACK_IMPORTED_MODULE_0__angular_router__["a" /* RouterModule */]]
+    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["M" /* NgModule */])({
+        imports: [__WEBPACK_IMPORTED_MODULE_0__angular_router__["c" /* RouterModule */].forRoot(routes)],
+        exports: [__WEBPACK_IMPORTED_MODULE_0__angular_router__["c" /* RouterModule */]]
     })
 ], AppRoutingModule);
 
@@ -108,7 +114,7 @@ AppRoutingModule = __decorate([
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"app-nav-bar\" class=\"app-nav-bar\">\n  <div class=\"app-sidebar-style\">\n    <a href=\"#\" class=\"app-logo-wrapper\">\n      <img class=\"app-logo\" src=\"assets/img/logos/logo.png\">\n    </a>\n    <i (click)=\"toggleCollapse()\" class=\"fa fa-bars app-menu-icon\" aria-hidden=\"true\"></i>\n  </div>\n</div>\n\n<div id=\"app-main-container\">\n  <ul id=\"app-sidebar\" class=\"padding\">\n    <li class=\"app-nav-list\" routerLinkActive=\"active\"><a routerLink=\"parties\" class=\"app-anchor\">\n      <i class=\"fa fa-user\" aria-hidden=\"true\"></i>\n      <span class=\"app-sidebar-item\">Parties</span></a>\n    <li class=\"app-nav-list\" routerLinkActive=\"active\"><a routerLink=\"jobs\" class=\"app-anchor\">\n      <i class=\"fa fa-user\" aria-hidden=\"true\"></i>\n      <span class=\"app-sidebar-item\">Jobs</span></a></li>\n  </ul>\n  <div id=\"app-main-content\" class=\"padding\" [@app-sidebar]=\"state\" (transitionend)=\"onTransitionEnd($event)\">\n    <div class=\"breadcrumb\">\n      <span class=\"breadcrumb-item\">\n        BreadCrumb\n      </span>\n    </div>\n    <div class=\"component-parent\">\n      <div>\n        <router-outlet></router-outlet>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"app-body\" id=\"app-body\">\n  <app-navbar id=\"app-sidebar\" class=\"app-navbar\">\n\n  </app-navbar>\n  <div id=\"app-main\" class=\"app-main\">\n    <router-outlet></router-outlet>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -120,7 +126,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "#app-nav-bar {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 66px;\n  background-color: black;\n  z-index: 10; }\n\n.app-logo-wrapper {\n  display: block;\n  padding: 8px; }\n\n.app-logo:hover {\n  -webkit-transform: scaleX(1.3);\n          transform: scaleX(1.3); }\n\n.app-logo {\n  height: 50px;\n  width: 100px;\n  transition: width 0.50s ease-in-out; }\n\n.app-sidebar-style {\n  width: 220px;\n  position: relative;\n  padding-left: 30px; }\n\n.app-menu-icon {\n  position: absolute;\n  display: block;\n  right: 0;\n  top: 0;\n  font-size: 40px;\n  color: white;\n  line-height: 40px;\n  padding: 13px; }\n\n#app-main-container {\n  display: block;\n  position: absolute;\n  top: 66px;\n  left: 0;\n  right: 0; }\n\n#app-sidebar {\n  position: fixed;\n  top: 66px;\n  left: 0;\n  white-space: nowrap;\n  min-height: 100vh;\n  width: 200px;\n  overflow: hidden;\n  z-index: 1;\n  background-color: #b1ebf8; }\n\n#app-main-content {\n  position: absolute;\n  left: 200px;\n  overflow-x: hidden;\n  background-color: white;\n  right: 0;\n  z-index: 2;\n  transition: left 0.5s ease-in-out;\n  padding-bottom: 100px; }\n\n.app-anchor {\n  display: block;\n  text-decoration: none;\n  color: black;\n  font-size: 1.2rem;\n  margin: 0.5rem;\n  padding: 0.5rem; }\n\n.app-nav-list {\n  border-radius: 5px;\n  list-style: none;\n  text-decoration: none; }\n\n.component-parent {\n  margin-top: 50px;\n  width: 100%; }\n\n.active, .active a, .app-nav-list:hover, .app-nav-list:hover a {\n  color: #b1ebf8;\n  background-color: black;\n  text-decoration: none; }\n", ""]);
+exports.push([module.i, "#app-body {\n  position: relative; }\n\n#app-sidebar {\n  font-family: Arial, Helvetica, \"Palatino Linotype\", Georgia, serif;\n  position: fixed;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  top: 0;\n  bottom: 0;\n  width: 15rem;\n  min-height: 100vh;\n  height: 100vh;\n  background-color: #37517E; }\n\n#app-main {\n  display: block;\n  position: absolute;\n  top: 0;\n  left: 15rem;\n  right: 0;\n  background-image: linear-gradient(to bottom, #dddbd1, #d2dbdc);\n  min-height: 100vh; }\n\nrouter-outlet {\n  height: 0;\n  width: 0; }\n", ""]);
 
 // exports
 
@@ -134,6 +140,7 @@ module.exports = module.exports.toString();
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_nav_bar_service__ = __webpack_require__("../../../../../src/app/services/nav-bar.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_animations__ = __webpack_require__("../../../animations/@angular/animations.es5.js");
@@ -141,7 +148,6 @@ module.exports = module.exports.toString();
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_server_service__ = __webpack_require__("../../../../../src/app/services/server-service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -170,27 +176,35 @@ var AppComponent = (function () {
         this.title = 'Jobowit';
         this.state = 'expanded';
         this.isCollapsed = false;
-        this.customerUuid = null;
-        this.jobType = null;
+        this.data = null;
+        this.id = null;
+        this.type = null;
+        this.jobId = null;
+        this.partyId = null;
     }
     AppComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.navBarSubject = this.navBarService.getNavBarSubject();
+        console.log(this.activatedRoute.snapshot);
         this.activatedRoute.params.subscribe(function (params) {
             console.log(params);
         }, function (error) { return console.log(error); });
         this.childComponentSubscription = this.appInteractionService.childComponentObservable
             .subscribe(function (data) {
-            if (data && data.customerUuid && (data.jobType === __WEBPACK_IMPORTED_MODULE_3__services_app_interaction_service__["a" /* AppInteractionService */].QUOTE_REQUEST ||
-                data.jobType === __WEBPACK_IMPORTED_MODULE_3__services_app_interaction_service__["a" /* AppInteractionService */].SERVICE_REQUEST)) {
-                _this.jobType = data.jobType;
-                _this.customerUuid = data.customerUuid;
-                _this.appInteractionService.announceRequestDetail({
-                    customerUuid: data.customerUuid,
-                    jobType: data.jobType,
-                    type: __WEBPACK_IMPORTED_MODULE_3__services_app_interaction_service__["a" /* AppInteractionService */].TYPE_MAIN
-                });
+            if (data && data.id) {
+                _this.id = data.id;
             }
+            if (data && data.type) {
+                _this.type = data.type;
+            }
+            if (data && data.partyId) {
+                _this.partyId = data.partyId;
+            }
+            _this.appInteractionService.announceRequestDetail({
+                id: _this.id,
+                type: _this.type,
+                partyId: _this.partyId
+            });
         });
     };
     AppComponent.prototype.ngAfterViewInit = function () {
@@ -210,24 +224,24 @@ var AppComponent = (function () {
     return AppComponent;
 }());
 AppComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-root',
         template: __webpack_require__("../../../../../src/app/app.component.html"),
         styles: [__webpack_require__("../../../../../src/app/app.component.scss")],
-        encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewEncapsulation"].None,
+        encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_19" /* ViewEncapsulation */].None,
         providers: [__WEBPACK_IMPORTED_MODULE_1__services_nav_bar_service__["a" /* NavBarService */], __WEBPACK_IMPORTED_MODULE_3__services_app_interaction_service__["a" /* AppInteractionService */]],
         animations: [
-            __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__angular_animations__["i" /* trigger */])('app-sidebar', [
-                __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__angular_animations__["j" /* state */])('expanded', __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__angular_animations__["h" /* style */])({
+            Object(__WEBPACK_IMPORTED_MODULE_2__angular_animations__["h" /* trigger */])('app-sidebar', [
+                Object(__WEBPACK_IMPORTED_MODULE_2__angular_animations__["f" /* state */])('expanded', Object(__WEBPACK_IMPORTED_MODULE_2__angular_animations__["g" /* style */])({
                     left: '200px'
                 })),
-                __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__angular_animations__["j" /* state */])('collapsed', __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__angular_animations__["h" /* style */])({
+                Object(__WEBPACK_IMPORTED_MODULE_2__angular_animations__["f" /* state */])('collapsed', Object(__WEBPACK_IMPORTED_MODULE_2__angular_animations__["g" /* style */])({
                     left: '0'
                 }))
             ])
         ],
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_nav_bar_service__["a" /* NavBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_nav_bar_service__["a" /* NavBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* ActivatedRoute */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["c" /* Router */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__services_server_service__["a" /* ServerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__services_server_service__["a" /* ServerService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_6__angular_common__["g" /* Location */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__angular_common__["g" /* Location */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_3__services_app_interaction_service__["a" /* AppInteractionService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_app_interaction_service__["a" /* AppInteractionService */]) === "function" && _g || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_nav_bar_service__["a" /* NavBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_nav_bar_service__["a" /* NavBarService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["l" /* ChangeDetectorRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["l" /* ChangeDetectorRef */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__services_server_service__["a" /* ServerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__services_server_service__["a" /* ServerService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_6__angular_common__["f" /* Location */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__angular_common__["f" /* Location */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_3__services_app_interaction_service__["a" /* AppInteractionService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_app_interaction_service__["a" /* AppInteractionService */]) === "function" && _g || Object])
 ], AppComponent);
 
 var _a, _b, _c, _d, _e, _f, _g;
@@ -239,6 +253,7 @@ var _a, _b, _c, _d, _e, _f, _g;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
@@ -248,32 +263,41 @@ var _a, _b, _c, _d, _e, _f, _g;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_routing_module__ = __webpack_require__("../../../../../src/app/app-routing.module.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_server_service__ = __webpack_require__("../../../../../src/app/services/server-service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_ag_grid_angular_main__ = __webpack_require__("../../../../ag-grid-angular/main.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_parties_party_party_component__ = __webpack_require__("../../../../../src/app/components/parties/party/party.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_parties_party_party_main_party_main_component__ = __webpack_require__("../../../../../src/app/components/parties/party/party-main/party-main.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_parties_party_party_jobs_party_jobs_component__ = __webpack_require__("../../../../../src/app/components/parties/party/party-jobs/party-jobs.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_parties_party_party_invoices_party_invoices_component__ = __webpack_require__("../../../../../src/app/components/parties/party/party-invoices/party-invoices.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_parties_party_party_bills_party_bills_component__ = __webpack_require__("../../../../../src/app/components/parties/party/party-bills/party-bills.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__services_form_validation_service__ = __webpack_require__("../../../../../src/app/services/form-validation.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__angular_platform_browser_animations__ = __webpack_require__("../../../platform-browser/@angular/platform-browser/animations.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_jobs_jobs_component__ = __webpack_require__("../../../../../src/app/components/jobs/jobs.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_jobs_job_job_component__ = __webpack_require__("../../../../../src/app/components/jobs/job/job.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_jobs_job_job_main_job_main_component__ = __webpack_require__("../../../../../src/app/components/jobs/job/job-main/job-main.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_jobs_job_job_comments_job_comments_component__ = __webpack_require__("../../../../../src/app/components/jobs/job/job-comments/job-comments.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_jobs_job_job_schedules_job_schedules_component__ = __webpack_require__("../../../../../src/app/components/jobs/job/job-schedules/job-schedules.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_jobs_job_job_field_works_job_field_works_component__ = __webpack_require__("../../../../../src/app/components/jobs/job/job-field-works/job-field-works.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__components_jobs_job_job_bills_job_bills_component__ = __webpack_require__("../../../../../src/app/components/jobs/job/job-bills/job-bills.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__components_jobs_job_job_costs_job_costs_component__ = __webpack_require__("../../../../../src/app/components/jobs/job/job-costs/job-costs.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__components_jobs_job_job_invoices_job_invoices_component__ = __webpack_require__("../../../../../src/app/components/jobs/job/job-invoices/job-invoices.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__components_parties_party_party_comments_party_comments_component__ = __webpack_require__("../../../../../src/app/components/parties/party/party-comments/party-comments.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__directives_form_input_directive__ = __webpack_require__("../../../../../src/app/directives/form-input.directive.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_parties_party_party_component__ = __webpack_require__("../../../../../src/app/components/parties/party/party.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_parties_party_party_main_party_main_component__ = __webpack_require__("../../../../../src/app/components/parties/party/party-main/party-main.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_parties_party_party_jobs_party_jobs_component__ = __webpack_require__("../../../../../src/app/components/parties/party/party-jobs/party-jobs.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_parties_party_party_invoices_party_invoices_component__ = __webpack_require__("../../../../../src/app/components/parties/party/party-invoices/party-invoices.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_parties_party_party_bills_party_bills_component__ = __webpack_require__("../../../../../src/app/components/parties/party/party-bills/party-bills.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__services_form_validation_service__ = __webpack_require__("../../../../../src/app/services/form-validation.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__angular_platform_browser_animations__ = __webpack_require__("../../../platform-browser/@angular/platform-browser/animations.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_jobs_jobs_component__ = __webpack_require__("../../../../../src/app/components/jobs/jobs.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_jobs_job_job_component__ = __webpack_require__("../../../../../src/app/components/jobs/job/job.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_jobs_job_job_main_job_main_component__ = __webpack_require__("../../../../../src/app/components/jobs/job/job-main/job-main.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_jobs_job_job_comments_job_comments_component__ = __webpack_require__("../../../../../src/app/components/jobs/job/job-comments/job-comments.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_jobs_job_job_schedules_job_schedules_component__ = __webpack_require__("../../../../../src/app/components/jobs/job/job-schedules/job-schedules.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_jobs_job_job_field_works_job_field_works_component__ = __webpack_require__("../../../../../src/app/components/jobs/job/job-field-works/job-field-works.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_jobs_job_job_bills_job_bills_component__ = __webpack_require__("../../../../../src/app/components/jobs/job/job-bills/job-bills.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__components_jobs_job_job_costs_job_costs_component__ = __webpack_require__("../../../../../src/app/components/jobs/job/job-costs/job-costs.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__components_jobs_job_job_invoices_job_invoices_component__ = __webpack_require__("../../../../../src/app/components/jobs/job/job-invoices/job-invoices.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__components_parties_party_party_comments_party_comments_component__ = __webpack_require__("../../../../../src/app/components/parties/party/party-comments/party-comments.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__directives_form_input_directive__ = __webpack_require__("../../../../../src/app/directives/form-input.directive.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__components_navbar_navbar_component__ = __webpack_require__("../../../../../src/app/components/navbar/navbar.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__components_staff_staff_component__ = __webpack_require__("../../../../../src/app/components/staff/staff.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__components_jobs_job_job_timeline_job_timeline_component__ = __webpack_require__("../../../../../src/app/components/jobs/job/job-timeline/job-timeline.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__components_invoices_invoices_component__ = __webpack_require__("../../../../../src/app/components/invoices/invoices.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__components_bills_bills_component__ = __webpack_require__("../../../../../src/app/components/bills/bills.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__services_app_pager_service__ = __webpack_require__("../../../../../src/app/services/app-pager.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
+
+
 
 
 
@@ -308,39 +332,43 @@ var AppModule = (function () {
     return AppModule;
 }());
 AppModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
+    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["M" /* NgModule */])({
         declarations: [
             __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */],
             __WEBPACK_IMPORTED_MODULE_5__components_parties_parties_component__["a" /* PartiesComponent */],
-            __WEBPACK_IMPORTED_MODULE_10__components_parties_party_party_component__["a" /* PartyComponent */],
-            __WEBPACK_IMPORTED_MODULE_11__components_parties_party_party_main_party_main_component__["a" /* PartyMainComponent */],
-            __WEBPACK_IMPORTED_MODULE_12__components_parties_party_party_jobs_party_jobs_component__["a" /* PartyJobsComponent */],
-            __WEBPACK_IMPORTED_MODULE_13__components_parties_party_party_invoices_party_invoices_component__["a" /* PartyInvoicesComponent */],
-            __WEBPACK_IMPORTED_MODULE_14__components_parties_party_party_bills_party_bills_component__["a" /* PartyBillsComponent */],
-            __WEBPACK_IMPORTED_MODULE_17__components_jobs_jobs_component__["a" /* JobsComponent */],
-            __WEBPACK_IMPORTED_MODULE_18__components_jobs_job_job_component__["a" /* JobComponent */],
-            __WEBPACK_IMPORTED_MODULE_19__components_jobs_job_job_main_job_main_component__["a" /* JobMainComponent */],
-            __WEBPACK_IMPORTED_MODULE_20__components_jobs_job_job_comments_job_comments_component__["a" /* JobCommentsComponent */],
-            __WEBPACK_IMPORTED_MODULE_21__components_jobs_job_job_schedules_job_schedules_component__["a" /* JobSchedulesComponent */],
-            __WEBPACK_IMPORTED_MODULE_22__components_jobs_job_job_field_works_job_field_works_component__["a" /* JobFieldWorksComponent */],
-            __WEBPACK_IMPORTED_MODULE_23__components_jobs_job_job_bills_job_bills_component__["a" /* JobBillsComponent */],
-            __WEBPACK_IMPORTED_MODULE_24__components_jobs_job_job_costs_job_costs_component__["a" /* JobCostsComponent */],
-            __WEBPACK_IMPORTED_MODULE_25__components_jobs_job_job_invoices_job_invoices_component__["a" /* JobInvoicesComponent */],
-            __WEBPACK_IMPORTED_MODULE_26__components_parties_party_party_comments_party_comments_component__["a" /* PartyCommentsComponent */],
-            __WEBPACK_IMPORTED_MODULE_27__directives_form_input_directive__["a" /* FormInputDirective */],
+            __WEBPACK_IMPORTED_MODULE_9__components_parties_party_party_component__["a" /* PartyComponent */],
+            __WEBPACK_IMPORTED_MODULE_10__components_parties_party_party_main_party_main_component__["a" /* PartyMainComponent */],
+            __WEBPACK_IMPORTED_MODULE_11__components_parties_party_party_jobs_party_jobs_component__["a" /* PartyJobsComponent */],
+            __WEBPACK_IMPORTED_MODULE_12__components_parties_party_party_invoices_party_invoices_component__["a" /* PartyInvoicesComponent */],
+            __WEBPACK_IMPORTED_MODULE_13__components_parties_party_party_bills_party_bills_component__["a" /* PartyBillsComponent */],
+            __WEBPACK_IMPORTED_MODULE_16__components_jobs_jobs_component__["a" /* JobsComponent */],
+            __WEBPACK_IMPORTED_MODULE_17__components_jobs_job_job_component__["a" /* JobComponent */],
+            __WEBPACK_IMPORTED_MODULE_18__components_jobs_job_job_main_job_main_component__["a" /* JobMainComponent */],
+            __WEBPACK_IMPORTED_MODULE_19__components_jobs_job_job_comments_job_comments_component__["a" /* JobCommentsComponent */],
+            __WEBPACK_IMPORTED_MODULE_20__components_jobs_job_job_schedules_job_schedules_component__["a" /* JobSchedulesComponent */],
+            __WEBPACK_IMPORTED_MODULE_21__components_jobs_job_job_field_works_job_field_works_component__["a" /* JobFieldWorksComponent */],
+            __WEBPACK_IMPORTED_MODULE_22__components_jobs_job_job_bills_job_bills_component__["a" /* JobBillsComponent */],
+            __WEBPACK_IMPORTED_MODULE_23__components_jobs_job_job_costs_job_costs_component__["a" /* JobCostsComponent */],
+            __WEBPACK_IMPORTED_MODULE_24__components_jobs_job_job_invoices_job_invoices_component__["a" /* JobInvoicesComponent */],
+            __WEBPACK_IMPORTED_MODULE_25__components_parties_party_party_comments_party_comments_component__["a" /* PartyCommentsComponent */],
+            __WEBPACK_IMPORTED_MODULE_26__directives_form_input_directive__["a" /* FormInputDirective */],
+            __WEBPACK_IMPORTED_MODULE_27__components_navbar_navbar_component__["a" /* NavbarComponent */],
+            __WEBPACK_IMPORTED_MODULE_28__components_staff_staff_component__["a" /* StaffComponent */],
+            __WEBPACK_IMPORTED_MODULE_29__components_jobs_job_job_timeline_job_timeline_component__["a" /* JobTimelineComponent */],
+            __WEBPACK_IMPORTED_MODULE_30__components_invoices_invoices_component__["a" /* InvoicesComponent */],
+            __WEBPACK_IMPORTED_MODULE_31__components_bills_bills_component__["a" /* BillsComponent */],
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_16__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
-            __WEBPACK_IMPORTED_MODULE_8__angular_http__["a" /* HttpModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["b" /* ReactiveFormsModule */],
-            __WEBPACK_IMPORTED_MODULE_2__ng_bootstrap_ng_bootstrap__["a" /* NgbModule */].forRoot(),
+            __WEBPACK_IMPORTED_MODULE_15__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_http__["c" /* HttpModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["c" /* FormsModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["f" /* ReactiveFormsModule */],
+            __WEBPACK_IMPORTED_MODULE_2__ng_bootstrap_ng_bootstrap__["c" /* NgbModule */].forRoot(),
             __WEBPACK_IMPORTED_MODULE_6__app_routing_module__["a" /* AppRoutingModule */],
-            __WEBPACK_IMPORTED_MODULE_9_ag_grid_angular_main__["AgGridModule"].withComponents([]),
-            __WEBPACK_IMPORTED_MODULE_8__angular_http__["b" /* JsonpModule */]
+            __WEBPACK_IMPORTED_MODULE_8__angular_http__["d" /* JsonpModule */]
         ],
-        providers: [__WEBPACK_IMPORTED_MODULE_7__services_server_service__["a" /* ServerService */], __WEBPACK_IMPORTED_MODULE_15__services_form_validation_service__["a" /* FormValidationService */]],
+        providers: [__WEBPACK_IMPORTED_MODULE_7__services_server_service__["a" /* ServerService */], __WEBPACK_IMPORTED_MODULE_14__services_form_validation_service__["a" /* FormValidationService */], __WEBPACK_IMPORTED_MODULE_32__services_app_pager_service__["a" /* AppPagerService */]],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
@@ -349,10 +377,132 @@ AppModule = __decorate([
 
 /***/ }),
 
+/***/ "../../../../../src/app/components/bills/bills.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  bills works!\n</p>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/bills/bills.component.scss":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/bills/bills.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BillsComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var BillsComponent = (function () {
+    function BillsComponent() {
+    }
+    BillsComponent.prototype.ngOnInit = function () {
+    };
+    return BillsComponent;
+}());
+BillsComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-bills',
+        template: __webpack_require__("../../../../../src/app/components/bills/bills.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/components/bills/bills.component.scss")]
+    }),
+    __metadata("design:paramtypes", [])
+], BillsComponent);
+
+//# sourceMappingURL=bills.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/invoices/invoices.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  invoices works!\n</p>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/invoices/invoices.component.scss":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/invoices/invoices.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InvoicesComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var InvoicesComponent = (function () {
+    function InvoicesComponent() {
+    }
+    InvoicesComponent.prototype.ngOnInit = function () {
+    };
+    return InvoicesComponent;
+}());
+InvoicesComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-invoices',
+        template: __webpack_require__("../../../../../src/app/components/invoices/invoices.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/components/invoices/invoices.component.scss")]
+    }),
+    __metadata("design:paramtypes", [])
+], InvoicesComponent);
+
+//# sourceMappingURL=invoices.component.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/components/jobs/job/job-bills/job-bills.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"app-ag-grid-wrapper\">\n  <ag-grid-angular #agGrid style=\"width: 100%; overflow:hidden;transition: all 0.5s ease-in-out\" class=\"ag-fresh\"\n\n                   [gridOptions]=\"gridOptions\"\n                   [columnDefs]=\"columnDefs\"\n                   domLayout='autoHeight'\n                   [rowData]=\"rowData\"\n                   headerHeight=\"50\"\n                   enableColResize\n                   enableSorting\n                   enableFilter\n\n                   rowHeight=\"40\"\n                   rowSelection=\"multiple\"\n\n                   (modelUpdated)=\"onModelUpdated()\"\n                   (cellClicked)=\"onCellClicked($event)\"\n                   (cellDoubleClicked)=\"onCellDoubleClicked($event)\">\n\n  </ag-grid-angular>\n  <div>\n    <button class=\"btn btn-primary\">Create Invoice</button>\n  </div>\n</div>\n"
+module.exports = "<div class=\"app-ag-grid-wrapper\">\n\n  <div>\n    <button class=\"btn btn-primary\">Create Invoice</button>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -378,12 +528,12 @@ module.exports = module.exports.toString();
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return JobBillsComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_server_service__ = __webpack_require__("../../../../../src/app/services/server-service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_nav_bar_service__ = __webpack_require__("../../../../../src/app/services/nav-bar.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_job_service__ = __webpack_require__("../../../../../src/app/services/job.service.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return JobBillsComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -450,21 +600,13 @@ var JobBillsComponent = (function () {
         this.jobServiceSubscription = this.jobService.jobSourceObservable.subscribe(function (data) {
             if (data && data.id && data.type === __WEBPACK_IMPORTED_MODULE_4__services_job_service__["a" /* JobService */].TYPE_BILLS) {
                 _this.paramsReceived = data.id;
-                _this.path = "http://localhost:8080/api/jobs/" + _this.paramsReceived + "/bills";
+                _this.path = "http://localhost:8081/api/jobs/" + _this.paramsReceived + "/bills";
                 console.log(data);
                 _this.getBills();
             }
         }, function (error) { return console.log(error); });
-        this.gridOptions = {
-            context: {
-                componentParent: this
-            },
-            rowData: this.rowData,
-            columnDefs: this.columnDefs
-        };
         this.navBarSubscription = this.navBarService.getNavBarSubject().subscribe(function (value) {
             console.log("sizeColumnsToFit");
-            _this.gridOptions.api.sizeColumnsToFit();
         });
     };
     JobBillsComponent.prototype.getBills = function () {
@@ -516,7 +658,6 @@ var JobBillsComponent = (function () {
     };
     JobBillsComponent.prototype.ngAfterViewInit = function () {
         this.jobService.announceParentComponent({ type: __WEBPACK_IMPORTED_MODULE_4__services_job_service__["a" /* JobService */].TYPE_BILLS });
-        this.gridOptions.api.sizeColumnsToFit();
     };
     JobBillsComponent.prototype.ngOnDestroy = function () {
         this.navBarSubscription.unsubscribe();
@@ -525,12 +666,12 @@ var JobBillsComponent = (function () {
     return JobBillsComponent;
 }());
 JobBillsComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-job-bills',
         template: __webpack_require__("../../../../../src/app/components/jobs/job/job-bills/job-bills.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/jobs/job/job-bills/job-bills.component.scss")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_server_service__["a" /* ServerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_server_service__["a" /* ServerService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_nav_bar_service__["a" /* NavBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_nav_bar_service__["a" /* NavBarService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* Router */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* ActivatedRoute */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__services_job_service__["a" /* JobService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_job_service__["a" /* JobService */]) === "function" && _e || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_server_service__["a" /* ServerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_server_service__["a" /* ServerService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_nav_bar_service__["a" /* NavBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_nav_bar_service__["a" /* NavBarService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__services_job_service__["a" /* JobService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_job_service__["a" /* JobService */]) === "function" && _e || Object])
 ], JobBillsComponent);
 
 var _a, _b, _c, _d, _e;
@@ -541,7 +682,7 @@ var _a, _b, _c, _d, _e;
 /***/ "../../../../../src/app/components/jobs/job/job-comments/job-comments.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"app-form-container\">\n  <h3 class=\"app-form-header\">Users Comments</h3>\n  <hr class=\"app-comments-hr\">\n  <div *ngIf=\"userComments\">\n    <ul class=\"app-users-comments\" *ngFor=\"let eachComment of userComments; let i = index;\">\n\n      <li class=\"app-user-comment\">{{i + 1}}.&nbsp;{{eachComment.comment}}\n        <span class=\"app-comment-detail\"> - created by\n              <span class=\"app-comment-by\">{{eachComment.user}}</span>\n              on <span class=\"app-comment-on\"> {{eachComment.commentDtm}}</span></span>\n      </li>\n      <hr class=\"user-comment-hr\">\n    </ul>\n  </div>\n  <form [formGroup]=\"commentForm\" (ngSubmit)=\"onSubmit()\" *ngIf=\"newComment\">\n    <div class=\"app-form-group\">\n      <textarea\n        rows=\"5\"\n        formControlName=\"user-comment\"\n        class=\"app-form-comment-input\"></textarea>\n    </div>\n    <div class=\"app-update-comment\">\n      <button type=\"submit\" class=\"btn btn-primary\">Save</button>\n      <button type=\"button\" class=\"btn btn-primary\" (click)=\"dontSaveUserComment()\">Don't Save</button>\n      <button type=\"button\" class=\"btn btn-primary\">Upload File</button>\n    </div>\n  </form>\n  <div>\n    <button *ngIf=\"!newComment\" type=\"button\" class=\"btn btn-primary\" (click)=\"createNewComment()\">New\n      comment\n    </button>\n  </div>\n</div>\n"
+module.exports = "<div class=\"app-form-groups-container\">\n  <h3 class=\"app-form-header\">Users Comments</h3>\n  <hr class=\"app-comments-hr\">\n  <div *ngIf=\"userComments\">\n    <div class=\"app-users-comments\" *ngFor=\"let eachComment of userComments; let i = index;\">\n\n      <div class=\"app-user-comment\">{{i + 1}}.&nbsp;{{eachComment.comment}}\n        <span class=\"app-comment-detail\"> - created by\n              <span class=\"app-comment-by\">{{eachComment.user}}</span>\n              on <span class=\"app-comment-on\"> {{eachComment.commentDtm}}</span></span>\n      </div>\n      <div *ngIf=\"eachComment.uploadedFiles && eachComment.uploadedFiles.length != 0\">\n        <span>Files:</span>\n        <a [href]=\"commentsUploadedFiles + '/' + eachFile.uuid + '/download'\" *ngFor=\"let eachFile of eachComment.uploadedFiles\">\n          {{eachFile.name}}\n\n        </a>\n      </div>\n      <hr class=\"user-comment-hr\">\n    </div>\n  </div>\n  <form [formGroup]=\"commentForm\" (ngSubmit)=\"onSubmit()\" *ngIf=\"newComment\" class=\"app-form\">\n    <div class=\"app-form-group\">\n      <div class=\"app-form-input-wrapper app-form-comments-wrapper\">\n        <textarea\n          placeholder=\"Enter comment\"\n          rows=\"5\"\n          appFormInput\n          formControlName=\"user-comment\"\n          class=\"app-form-input app-form-comment-input\">\n        </textarea>\n      </div>\n    </div>\n    <div class=\"app-form-group app-form-uploaded-Files\" *ngIf=\"uploadedFiles.length != 0\">\n      <span>Uploaded Files:&nbsp;&nbsp;&nbsp;\n        <span *ngFor=\"let uploadedFile of uploadedFiles\">\n        {{uploadedFile.name}}\n      </span>\n      </span>\n    </div>\n    <div class=\"app-form-group\">\n      <div class=\"app-form-input-wrapper\n                  app-form-file-upload-wrapper\">\n        <button type=\"submit\"\n                class=\"btn btn-primary\n                       app-form-save-button\"\n                [disabled]=\"getFileUploadStatus()\">\n          Save\n        </button>\n        <button type=\"button\"\n                class=\"btn btn-primary\n                       app-form-dont-save-button\"\n                [disabled]=\"getFileUploadStatus()\"\n                (click)=\"dontSaveUserComment()\">Don't Save</button>\n        <input\n          type=\"file\"\n          id=\"party-file-upload\"\n          #fileInput\n          appFormInput\n          class=\"app-form-input  app-form-file-upload\"\n          placeholder=\"Upload file\"\n          accept=\".pdf,.doc,.docx\"\n          [disabled]=\"getFileUploadStatus()\">\n        <div class=\"app-form-file-upload-message\" *ngIf=\"getUploadMessage()\">\n          {{this.uploadMessage}}\n        </div>\n        <button type=\"button\"\n                class=\"btn btn-primary\n                       app-form-file-upload-button\"\n                [disabled]=\"getFileUploadStatus()\"\n                (click)=\"uploadFile()\">Upload File</button>\n      </div>\n    </div>\n  </form>\n  <div>\n    <button *ngIf=\"!newComment\" type=\"button\" class=\"btn btn-primary\" (click)=\"createNewComment()\">New\n      comment\n    </button>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -553,7 +694,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "app-job-comments .app-form-group {\n  -ms-grid-columns: 1fr;\n      grid-template-columns: 1fr; }\n\napp-job-comments .app-form-input-wrapper {\n  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr;\n      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;\n  margin: 1rem 0 1rem 0;\n  padding: 0.5rem; }\n", ""]);
 
 // exports
 
@@ -567,6 +708,7 @@ module.exports = module.exports.toString();
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return JobCommentsComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_server_service__ = __webpack_require__("../../../../../src/app/services/server-service.ts");
@@ -574,7 +716,6 @@ module.exports = module.exports.toString();
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_job_service__ = __webpack_require__("../../../../../src/app/services/job.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return JobCommentsComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -603,18 +744,20 @@ var JobCommentsComponent = (function () {
         this.userComments = null;
         this.newComment = false;
         this.path = null;
-        this.partyId = null;
+        this.uploadMessage = null;
+        this.uploadingFile = false;
+        this.commentUuid = null;
+        this.uploadedFiles = [];
+        this.commentsUploadedFiles = __WEBPACK_IMPORTED_MODULE_2__services_server_service__["a" /* ServerService */].uploadedFilesUrl;
     }
     JobCommentsComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.jobServiceSubscription = this.jobService.jobSourceObservable
             .subscribe(function (data) {
             if (data && data.id && data.type === __WEBPACK_IMPORTED_MODULE_5__services_job_service__["a" /* JobService */].TYPE_COMMENTS) {
-                console.log(data);
                 _this.paramsReceived = data.id;
-                _this.path = "http://localhost:8080/api/jobs/" + _this.paramsReceived + "/comments";
+                _this.path = "http://localhost:8081/api/jobs/" + _this.paramsReceived + "/comments";
                 _this.getUserComments();
-                _this.getPartyId();
             }
         });
     };
@@ -627,26 +770,35 @@ var JobCommentsComponent = (function () {
             .subscribe(function (comments) {
             console.log(comments);
             _this.userComments = comments._embedded.comments;
-            _this.formatDate();
+            _this.formatComments();
+            _this.getCommentsFiles();
         }, function (error) {
             console.log(error);
         });
     };
-    JobCommentsComponent.prototype.getPartyId = function () {
-        var _this = this;
-        this.serverService.getRequestByJobId(this.paramsReceived)
-            .subscribe(function (response) {
-            _this.partyId = response.customerUid;
-            console.log(response);
-        }, function (error) {
-            console.log(error);
-        });
-    };
-    JobCommentsComponent.prototype.formatDate = function () {
+    JobCommentsComponent.prototype.formatComments = function () {
         this.userComments.forEach(function (data) {
             var date = data.commentDtm;
             var formattedDate = new Date(date);
             data.commentDtm = formattedDate.toDateString();
+        });
+        this.userComments.forEach(function (data) {
+            console.log(data);
+            var path = data._links.self.href;
+            var index = path.lastIndexOf("/") + 1;
+            data.commentId = path.substring(index);
+        });
+    };
+    JobCommentsComponent.prototype.getCommentsFiles = function () {
+        var _this = this;
+        this.userComments.forEach(function (comment) {
+            _this.serverService.getUploadedFilesFromCommentsId(comment.commentId).
+                subscribe(function (response) {
+                comment.uploadedFiles = response._embedded.uploadedFiles;
+                console.log(comment.uploadedFiles);
+            }, function (error) {
+                console.log(error);
+            });
         });
     };
     JobCommentsComponent.prototype.createNewComment = function () {
@@ -655,8 +807,8 @@ var JobCommentsComponent = (function () {
         this.newComment = true;
     };
     JobCommentsComponent.prototype.createCommentForm = function () {
-        this.commentForm = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["e" /* FormGroup */]({
-            'user-comment': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* FormControl */](null, [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required, this.validateComment.bind(this)])
+        this.commentForm = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormGroup */]({
+            'user-comment': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormControl */](null, [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required, this.validateComment.bind(this)])
         });
     };
     JobCommentsComponent.prototype.validateComment = function () {
@@ -672,15 +824,35 @@ var JobCommentsComponent = (function () {
     JobCommentsComponent.prototype.saveUserComment = function () {
         var _this = this;
         if (this.commentForm && this.commentForm.valid) {
-            var comment = {
-                "comment": this.commentForm.get('user-comment').value,
-                "staffUser": '/staffs/' + "motion6",
-                "job": "/jobs/" + this.paramsReceived,
-            };
+            var comment = {};
+            comment.comment = this.commentForm.get('user-comment').value;
+            comment.staffUser = '/staffs/' + "motion6";
+            comment.job = "/jobs" + '/' + this.paramsReceived;
             this.serverService.saveUserComment(comment)
                 .subscribe(function (response) {
                 console.log(response);
-                _this.ngbModal.open("Comments Succesfull saved");
+                console.log(response.json());
+                var path = (response.json())._links.self.href;
+                var index = path.lastIndexOf("/") + 1;
+                _this.commentUuid = path.substring(index);
+                if (_this.uploadedFiles.length != 0) {
+                    var patchComment = { comment: "/comments/" + _this.commentUuid };
+                    var _loop_1 = function (i) {
+                        _this.serverService.patchCommentWithUploadedFiles(_this.uploadedFiles[i].uuid, patchComment)
+                            .subscribe(function (response) {
+                            console.log(response.json());
+                        }, function (error) {
+                            _this.ngbModal.open("Something went wrong, comment was saved without file "
+                                + _this.uploadedFiles[i].name);
+                        });
+                    };
+                    for (var i = 0; i < _this.uploadedFiles.length; i++) {
+                        _loop_1(i);
+                    }
+                }
+                else if (_this.uploadedFiles.length == 0) {
+                    _this.ngbModal.open("Comments Succesfull saved");
+                }
                 _this.getUserComments();
                 _this.dontSaveUserComment();
             }, function (error) {
@@ -695,6 +867,7 @@ var JobCommentsComponent = (function () {
     JobCommentsComponent.prototype.dontSaveUserComment = function () {
         this.commentForm.reset();
         this.newComment = false;
+        this.uploadMessage = null;
     };
     JobCommentsComponent.prototype.usersCommentFileUpload = function ($event) {
         console.log("usersCommentFileUpload called");
@@ -707,17 +880,58 @@ var JobCommentsComponent = (function () {
             this.ngbModal.open("Please enter a valid comment");
         }
     };
-    JobCommentsComponent.prototype.ngOnDestroy = function () {
+    JobCommentsComponent.prototype.getUploadMessage = function () {
+        return this.uploadMessage;
+    };
+    JobCommentsComponent.prototype.uploadFile = function () {
+        var _this = this;
+        var fileInput = this.fileInput.nativeElement;
+        if (fileInput.files && fileInput.files[0]) {
+            this.uploadMessage = null;
+            this.uploadingFile = true;
+            var file_1 = fileInput.files[0];
+            var formData = new FormData();
+            formData.append('file', file_1, file_1.name);
+            this.serverService.uploadFile(formData)
+                .subscribe(function (data) {
+                _this.uploadMessage = "File successfully saved";
+                var fileUuid = (data.json()).uuid;
+                _this.uploadedFiles.push({ name: file_1.name, uuid: fileUuid });
+                _this.resetMessageStatus();
+                console.log(data);
+            }, function (error) {
+                _this.uploadMessage = "Something went wrong, couldn't save the file !";
+                _this.resetMessageStatus();
+                console.log(error);
+            });
+        }
+    };
+    JobCommentsComponent.prototype.getFileUploadStatus = function () {
+        return this.uploadingFile;
+    };
+    JobCommentsComponent.prototype.resetMessageStatus = function (timeout) {
+        var _this = this;
+        if (timeout === void 0) { timeout = 500; }
+        setTimeout(function () {
+            //this.uploadMessage = null;
+            _this.uploadingFile = false;
+            _this.fileInput.nativeElement.value = "";
+        }, timeout);
     };
     return JobCommentsComponent;
 }());
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_16" /* ViewChild */])("fileInput"),
+    __metadata("design:type", Object)
+], JobCommentsComponent.prototype, "fileInput", void 0);
 JobCommentsComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-job-comments',
         template: __webpack_require__("../../../../../src/app/components/jobs/job/job-comments/job-comments.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/components/jobs/job/job-comments/job-comments.component.scss")]
+        styles: [__webpack_require__("../../../../../src/app/components/jobs/job/job-comments/job-comments.component.scss")],
+        encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_19" /* ViewEncapsulation */].None
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_server_service__["a" /* ServerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_server_service__["a" /* ServerService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__angular_http__["d" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_http__["d" /* Http */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* ActivatedRoute */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["c" /* Router */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_5__services_job_service__["a" /* JobService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__services_job_service__["a" /* JobService */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_6__ng_bootstrap_ng_bootstrap__["b" /* NgbModal */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__ng_bootstrap_ng_bootstrap__["b" /* NgbModal */]) === "function" && _g || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_server_service__["a" /* ServerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_server_service__["a" /* ServerService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["l" /* ChangeDetectorRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["l" /* ChangeDetectorRef */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_5__services_job_service__["a" /* JobService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__services_job_service__["a" /* JobService */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_6__ng_bootstrap_ng_bootstrap__["b" /* NgbModal */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__ng_bootstrap_ng_bootstrap__["b" /* NgbModal */]) === "function" && _g || Object])
 ], JobCommentsComponent);
 
 var _a, _b, _c, _d, _e, _f, _g;
@@ -754,8 +968,8 @@ module.exports = module.exports.toString();
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return JobCostsComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -774,7 +988,7 @@ var JobCostsComponent = (function () {
     return JobCostsComponent;
 }());
 JobCostsComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-job-costs',
         template: __webpack_require__("../../../../../src/app/components/jobs/job/job-costs/job-costs.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/jobs/job/job-costs/job-costs.component.scss")]
@@ -789,7 +1003,7 @@ JobCostsComponent = __decorate([
 /***/ "../../../../../src/app/components/jobs/job/job-field-works/job-field-works.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"app-ag-grid-wrapper\">\n  <ag-grid-angular #agGrid style=\"width: 100%; overflow:hidden;transition: all 0.5s ease-in-out\" class=\"ag-fresh\"\n\n                   [gridOptions]=\"gridOptions\"\n                   [columnDefs]=\"columnDefs\"\n                   domLayout='autoHeight'\n                   [rowData]=\"rowData\"\n                   headerHeight=\"50\"\n                   enableColResize\n                   enableSorting\n                   enableFilter\n\n                   rowHeight=\"40\"\n                   rowSelection=\"multiple\"\n\n                   (modelUpdated)=\"onModelUpdated()\"\n                   (cellClicked)=\"onCellClicked($event)\"\n                   (cellDoubleClicked)=\"onCellDoubleClicked($event)\">\n\n  </ag-grid-angular>\n  <div>\n    <button class=\"btn btn-primary\">Create Invoice</button>\n  </div>\n</div>\n"
+module.exports = "<div class=\"app-ag-grid-wrapper\">\n\n  <div>\n    <button class=\"btn btn-primary\">Create Invoice</button>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -815,12 +1029,12 @@ module.exports = module.exports.toString();
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return JobFieldWorksComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_job_service__ = __webpack_require__("../../../../../src/app/services/job.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_server_service__ = __webpack_require__("../../../../../src/app/services/server-service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_nav_bar_service__ = __webpack_require__("../../../../../src/app/services/nav-bar.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return JobFieldWorksComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -877,21 +1091,13 @@ var JobFieldWorksComponent = (function () {
         this.jobServiceSubscription = this.jobService.jobSourceObservable.subscribe(function (data) {
             if (data && data.id && data.type === __WEBPACK_IMPORTED_MODULE_1__services_job_service__["a" /* JobService */].TYPE_FIELDWORKS) {
                 _this.paramsReceived = data.id;
-                _this.path = "http://localhost:8080/api/jobs/" + _this.paramsReceived + "/fieldWorks";
+                _this.path = "http://localhost:8081/api/jobs/" + _this.paramsReceived + "/fieldWorks";
                 console.log(data);
                 _this.getFieldWorks();
             }
         }, function (error) { return console.log(error); });
-        this.gridOptions = {
-            context: {
-                componentParent: this
-            },
-            rowData: this.rowData,
-            columnDefs: this.columnDefs
-        };
         this.navBarSubscription = this.navBarService.getNavBarSubject().subscribe(function (value) {
             console.log("sizeColumnsToFit");
-            _this.gridOptions.api.sizeColumnsToFit();
         });
     };
     JobFieldWorksComponent.prototype.getFieldWorks = function () {
@@ -941,7 +1147,6 @@ var JobFieldWorksComponent = (function () {
     };
     JobFieldWorksComponent.prototype.ngAfterViewInit = function () {
         this.jobService.announceParentComponent({ type: __WEBPACK_IMPORTED_MODULE_1__services_job_service__["a" /* JobService */].TYPE_FIELDWORKS });
-        this.gridOptions.api.sizeColumnsToFit();
     };
     JobFieldWorksComponent.prototype.ngOnDestroy = function () {
         this.navBarSubscription.unsubscribe();
@@ -950,12 +1155,12 @@ var JobFieldWorksComponent = (function () {
     return JobFieldWorksComponent;
 }());
 JobFieldWorksComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-job-field-work',
         template: __webpack_require__("../../../../../src/app/components/jobs/job/job-field-works/job-field-works.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/jobs/job/job-field-works/job-field-works.component.scss")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_server_service__["a" /* ServerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_server_service__["a" /* ServerService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__services_nav_bar_service__["a" /* NavBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_nav_bar_service__["a" /* NavBarService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["c" /* Router */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* ActivatedRoute */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1__services_job_service__["a" /* JobService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_job_service__["a" /* JobService */]) === "function" && _e || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_server_service__["a" /* ServerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_server_service__["a" /* ServerService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__services_nav_bar_service__["a" /* NavBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_nav_bar_service__["a" /* NavBarService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1__services_job_service__["a" /* JobService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_job_service__["a" /* JobService */]) === "function" && _e || Object])
 ], JobFieldWorksComponent);
 
 var _a, _b, _c, _d, _e;
@@ -966,7 +1171,7 @@ var _a, _b, _c, _d, _e;
 /***/ "../../../../../src/app/components/jobs/job/job-invoices/job-invoices.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"app-ag-grid-wrapper\">\n  <ag-grid-angular #agGrid style=\"width: 100%; overflow:hidden;transition: all 0.5s ease-in-out\" class=\"ag-fresh\"\n\n                   [gridOptions]=\"gridOptions\"\n                   [columnDefs]=\"columnDefs\"\n                   domLayout='autoHeight'\n                   [rowData]=\"rowData\"\n                   headerHeight=\"50\"\n                   enableColResize\n                   enableSorting\n                   enableFilter\n\n                   rowHeight=\"40\"\n                   rowSelection=\"multiple\"\n\n                   (modelUpdated)=\"onModelUpdated()\"\n                   (cellClicked)=\"onCellClicked($event)\"\n                   (cellDoubleClicked)=\"onCellDoubleClicked($event)\">\n\n  </ag-grid-angular>\n  <div>\n    <button class=\"btn btn-primary\">Create Invoice</button>\n  </div>\n</div>\n"
+module.exports = "<div class=\"app-ag-grid-wrapper\">\n\n  <div>\n    <button class=\"btn btn-primary\">Create Invoice</button>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -992,12 +1197,12 @@ module.exports = module.exports.toString();
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return JobInvoicesComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_job_service__ = __webpack_require__("../../../../../src/app/services/job.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_server_service__ = __webpack_require__("../../../../../src/app/services/server-service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_nav_bar_service__ = __webpack_require__("../../../../../src/app/services/nav-bar.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return JobInvoicesComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1049,21 +1254,13 @@ var JobInvoicesComponent = (function () {
         this.jobServiceSubscription = this.jobService.jobSourceObservable.subscribe(function (data) {
             if (data && data.id && data.type === __WEBPACK_IMPORTED_MODULE_1__services_job_service__["a" /* JobService */].TYPE_INVOICES) {
                 _this.paramsReceived = data.id;
-                _this.path = "http://localhost:8080/api/jobs/" + _this.paramsReceived + "/invoices";
+                _this.path = "http://localhost:8081/api/jobs/" + _this.paramsReceived + "/invoices";
                 console.log(data);
                 _this.getInvoices();
             }
         }, function (error) { return console.log(error); });
-        this.gridOptions = {
-            context: {
-                componentParent: this
-            },
-            rowData: this.rowData,
-            columnDefs: this.columnDefs
-        };
         this.navBarSubscription = this.navBarService.getNavBarSubject().subscribe(function (value) {
             console.log("sizeColumnsToFit");
-            _this.gridOptions.api.sizeColumnsToFit();
         });
     };
     JobInvoicesComponent.prototype.getInvoices = function () {
@@ -1104,7 +1301,6 @@ var JobInvoicesComponent = (function () {
     };
     JobInvoicesComponent.prototype.ngAfterViewInit = function () {
         this.jobService.announceParentComponent({ type: __WEBPACK_IMPORTED_MODULE_1__services_job_service__["a" /* JobService */].TYPE_INVOICES });
-        this.gridOptions.api.sizeColumnsToFit();
     };
     JobInvoicesComponent.prototype.ngOnDestroy = function () {
         this.navBarSubscription.unsubscribe();
@@ -1113,12 +1309,12 @@ var JobInvoicesComponent = (function () {
     return JobInvoicesComponent;
 }());
 JobInvoicesComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-job-invoices',
         template: __webpack_require__("../../../../../src/app/components/jobs/job/job-invoices/job-invoices.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/jobs/job/job-invoices/job-invoices.component.scss")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_server_service__["a" /* ServerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_server_service__["a" /* ServerService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__services_nav_bar_service__["a" /* NavBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_nav_bar_service__["a" /* NavBarService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["c" /* Router */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* ActivatedRoute */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1__services_job_service__["a" /* JobService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_job_service__["a" /* JobService */]) === "function" && _e || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_server_service__["a" /* ServerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_server_service__["a" /* ServerService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__services_nav_bar_service__["a" /* NavBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_nav_bar_service__["a" /* NavBarService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* ActivatedRoute */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1__services_job_service__["a" /* JobService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_job_service__["a" /* JobService */]) === "function" && _e || Object])
 ], JobInvoicesComponent);
 
 var _a, _b, _c, _d, _e;
@@ -1129,7 +1325,7 @@ var _a, _b, _c, _d, _e;
 /***/ "../../../../../src/app/components/jobs/job/job-main/job-main.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "This tab should have a form with the following fields:<br>\n\nCustomer (a lookup text-field see tradify for details) - this should have the name of the customer.<br>\n\nJob Type - this field is only for display and never editable (even when editing the Job or creating a<br>\nnew one - it will be set automatically; more on that later.<br>\n<br>\nAddress (verifiable by google)<br>\n\nReferral (plain text)<br>\n\nPriority (drop down with values: Normal, Urgent, Important)<br>\n\nDetails (text box)<br>\n\n\n now, every time you want to create<br>\na job you ask the user through a drop-down in the button: \"Quote Request\" \"Service Request\"\nthis is the initial_type on the POST data and when the user clicks one of the options\ntake him to a new job form in that form have a hidden field\ninitial_type which is set to the value that the user selected...\nthe fields that are required to create a job are:B-<br>\ndescription, referral, priority, address, initialType, customer<br>\n\nStatus (this is a drop down with values linked to the job_status <br>\ntable in db: these values can be retrieved through the API at /API/jobStatuses - the values that can <br>\nbe selected in the drop down will depend on the Job Type - every status is linked to a JobType; <br>\ncheck the API and let me knoe if need aditional field to make your job easier)<br>\ninitialType is hidden on the form and set from the value of the drop-down in the new job button<br>\n[2:42 PM, 7/19/2017] sikandar.bhagad@eim.ae: if the user is coming to the new job page<br>\nfrom a party page then customer is set to the party that he came from<br>\n[2:42 PM, 7/19/2017] sikandar.bhagad@eim.ae: otherwise it's blank<br>\nstatus is not required for creating jobs<br>\n<div class=\"app-form-container app-form-container-top\">\n  <h3 class=\"app-form-header\">Job</h3>\n  <form [formGroup]=\"jobForm\" (ngSubmit)=\"onSubmit()\">\n    <div formGroupName=\"userData\">\n      <div class=\"app-form-group\">\n        <div class=\"app-form-label-wrapper\">\n          <label for=\"customer-name\" class=\"app-form-label\">Customer</label>\n          <span class=\"app-form-label-colon\">:</span>\n        </div>\n        <div class=\"app-form-input-wrapper app-form-auto-suggestion-input-wrapper\">\n          <input type=\"text\"\n                 id=\"customer-name\"\n                 formControlName=\"customer-name\"\n                 class=\"app-form-input\"\n                 [readonly]=\"getCurrentMode() != CREATE\"\n                 appFormInput>\n          <ul class=\"app-form-auto-suggestion-list\"\n              id=\"app-form-auto-suggestion-list\"\n              *ngIf=\"customersAutoSuggestion.length != 0\n                && !jobForm.get('userData.customer-name').valid\">\n\n            <li class=\"app-form-auto-suggestion-item\"\n                *ngFor=\"let customer of customersAutoSuggestion;\"\n                (click)=\"onCustomerSelected(customer)\"\n                (mouseover)=\"onCustomerHover($event, customer)\">\n              <i class=\"fa fa-user\" aria-hidden=\"true\"></i>\n              {{customer.name}}\n            </li>\n          </ul>\n          <i\n            *ngIf=\"jobForm.get('userData.customer-name').valid\"\n            class=\"fa fa-check\" aria-hidden=\"true\">\n          </i>\n          <i\n            *ngIf=\"!jobForm.get('userData.customer-name').valid\"\n            class=\"fa fa-times\" aria-hidden=\"true\">\n          </i>\n        </div>\n      </div>\n      <div class=\"app-form-group\">\n        <div class=\"app-form-label-wrapper\">\n          <label for=\"job-type\" class=\"app-form-label\">Job Type</label>\n          <span class=\"app-form-label-colon\">:</span>\n        </div>\n        <div class=\"app-form-input-wrapper\">\n          <input readonly\n                 class=\"app-form-input\"\n                 id=\"job-type\"\n                 formControlName=\"job-type\"\n                 appFormInput>\n          <i\n            *ngIf=\"jobForm.get('userData.job-type').valid\"\n            class=\"fa fa-check\" aria-hidden=\"true\">\n          </i>\n          <i\n            *ngIf=\"!jobForm.get('userData.job-type').valid\"\n            class=\"fa fa-times\" aria-hidden=\"true\">\n          </i>\n        </div>\n      </div>\n      <div class=\"app-form-group\">\n        <div class=\"app-form-label-wrapper\">\n          <label for=\"job-type\" class=\"app-form-label\">Job Referral</label>\n          <span class=\"app-form-label-colon\">:</span>\n        </div>\n        <div class=\"app-form-input-wrapper\">\n          <input\n            [readonly]=\"getCurrentMode() != CREATE\"\n            class=\"app-form-input\"\n            id=\"job-referral\"\n            formControlName=\"job-referral\"\n            appFormInput>\n          <i\n            *ngIf=\"jobForm.get('userData.job-referral').valid\"\n            class=\"fa fa-check\" aria-hidden=\"true\">\n          </i>\n          <i\n            *ngIf=\"!jobForm.get('userData.job-referral').valid\"\n            class=\"fa fa-times\" aria-hidden=\"true\">\n          </i>\n        </div>\n      </div>\n      <div class=\"app-form-group\">\n        <div class=\"app-form-label-wrapper\">\n          <label for=\"job-physical-address\" class=\"app-form-label\">Address</label>\n          <span class=\"app-form-label-colon\">:</span>\n        </div>\n        <div class=\"app-form-input-wrapper\">\n          <input [readonly]=\"getCurrentMode() == VIEW\"\n                 type=\"text\"\n                 id=\"job-physical-address\"\n                 formControlName=\"job-address\"\n                 class=\"app-form-input\"\n                 appFormInput>\n          <i\n            *ngIf=\"jobForm.get('userData.job-address').valid\"\n            class=\"fa fa-check\" aria-hidden=\"true\">\n          </i>\n          <i\n            *ngIf=\"!jobForm.get('userData.job-address').valid\"\n            class=\"fa fa-times\" aria-hidden=\"true\">\n          </i>\n        </div>\n      </div>\n      <div class=\"app-form-group\">\n        <div class=\"app-form-label-wrapper\">\n          <label class=\"app-form-label\">Priority</label>\n          <span class=\"app-form-label-colon\">:</span>\n        </div>\n        <div (click)=\"toggleJobPriority()\" class=\"app-form-input-wrapper app-form-dropdown-input-wrapper\">\n          <input type=\"text\"\n                 id=\"job-priority\"\n                 formControlName=\"job-priority\"\n                 class=\"app-form-dropdown-input\"\n                 readonly\n                 appFormInput>\n          <i\n            *ngIf=\"jobForm.get('userData.job-priority').valid\"\n            class=\"fa fa-check\" aria-hidden=\"true\">\n            <i *ngIf=\"getCurrentMode() != VIEW\" class=\"fa fa-caret-down\" aria-hidden=\"true\"></i>\n          </i>\n          <i\n            *ngIf=\"!jobForm.get('userData.job-priority').valid\"\n            class=\"fa fa-times\" aria-hidden=\"true\">\n            <i *ngIf=\"getCurrentMode() != VIEW\" class=\"fa fa-caret-down\" aria-hidden=\"true\"></i>\n          </i>\n          <ul *ngIf=\"showJobPriorityDropdown && getCurrentMode() != VIEW\" class=\"app-form-dropdown-list\">\n            <li (click)=\"onSelectJobPriority(jobPriority)\" *ngFor=\"let jobPriority of jobPriorities\"\n                [ngClass]=\"{'app-form-dropdown-item':\n                  jobPriority !== jobForm.get('userData.job-priority').value}\">\n              <span *ngIf=\"jobPriority !== jobForm.get('userData.job-priority').value\">\n                 {{jobPriority}}\n              </span>\n            </li>\n          </ul>\n        </div>\n      </div>\n      <div *ngIf=\"getCurrentMode() != CREATE\" class=\"app-form-group\">\n        <div class=\"app-form-label-wrapper\">\n          <label class=\"app-form-label\">Status</label>\n          <span class=\"app-form-label-colon\">:</span>\n        </div>\n        <div (click)=\"toggleJobStatus()\" class=\"app-form-input-wrapper app-form-dropdown-input-wrapper\">\n          <input type=\"text\"\n                 id=\"job-status\"\n                 formControlName=\"job-status\"\n                 class=\"app-form-dropdown-input\"\n                 appFormInput\n                 readonly>\n          <i\n            *ngIf=\"jobForm.get('userData.job-status').valid\"\n            class=\"fa fa-check\" aria-hidden=\"true\">\n            <i *ngIf=\"getCurrentMode() == EDIT\" class=\"fa fa-caret-down\"></i>\n          </i>\n          <i\n            *ngIf=\"!jobForm.get('userData.job-status').valid\"\n            class=\"fa fa-times\" aria-hidden=\"true\">\n            <i *ngIf=\"getCurrentMode() == EDIT\" class=\"fa fa-caret-down\"></i>\n          </i>\n          <ul *ngIf=\"showJobStatusDropdown && getCurrentMode() == EDIT\" class=\"app-form-dropdown-list\">\n            <li (click)=\"onSelectJobStatus(jobStatus.status)\" *ngFor=\"let jobStatus of jobStatuses\"\n                [ngClass]=\"{'app-form-dropdown-item':\n                  jobStatus.status !== jobForm.get('userData.job-status').value}\">\n              <span *ngIf=\"jobStatus.status !== jobForm.get('userData.job-status').value\">\n                 {{jobStatus.status}}\n              </span>\n            </li>\n          </ul>\n        </div>\n      </div>\n      <div class=\"app-form-group\">\n        <div class=\"app-form-label-wrapper\">\n          <label for=\"job-detail\" class=\"app-form-label\">Details</label>\n          <span class=\"app-form-label-colon\">:</span>\n        </div>\n        <div class=\"app-form-input-wrapper\">\n          <input [readonly]=\"getCurrentMode() == VIEW\"\n                 type=\"text\"\n                 id=\"job-detail\"\n                 formControlName=\"job-detail\"\n                 class=\"app-form-input\"\n                  appFormInput>\n          <i *ngIf=\"jobForm.get('userData.job-detail').valid\"\n             class=\"fa fa-check\" aria-hidden=\"true\">\n          </i>\n          <i *ngIf=\"!jobForm.get('userData.job-detail').valid\"\n             class=\"fa fa-times\" aria-hidden=\"true\">\n          </i>\n        </div>\n      </div>\n      <div class=\"app-form-group-submit\" *ngIf=\"getCurrentMode() == VIEW\">\n        <div class=\"app-form-submit-wrapper\">\n          <button class=\"btn btn-primary\" type=\"button\" (click)=\"editJob()\">Edit Customer</button>\n        </div>\n      </div>\n      <div class=\"app-form-group-submit\" *ngIf=\"getCurrentMode() != VIEW\">\n        <div class=\"app-form-submit-wrapper\">\n          <button class=\"btn btn-primary\" [disabled]=\"!jobForm.valid\" type=\"submit\">Save</button>\n          <button class=\"btn btn-primary\" type=\"button\" (click)=\"dontSaveJob()\">Don't Save</button>\n        </div>\n      </div>\n    </div>\n  </form>\n</div>\n"
+module.exports = "<div class=\"app-form-container app-form-container-top\">\n  <form [formGroup]=\"jobForm\"\n        (ngSubmit)=\"onSubmit()\"\n        class=\"app-form\">\n    <div formGroupName=\"userData\"\n         class=\"app-form-groups-container\">\n      <div class=\"app-form-group\n                  new-job-dropdown-container\">\n        <div class=\"dropdown new-job-dropdown\"\n             [ngClass]=\"{'show': showDropdown }\">\n          <button class=\"btn btn-primary dropdown-toggle\"\n                  type=\"button\"\n                  id=\"dropdownMenuButton\"\n                  data-toggle=\"dropdown\"\n                  aria-haspopup=\"true\"\n                  aria-expanded=\"false\"\n                  (click)=\"toggleDropdown()\">\n            New Job\n          </button>\n          <div class=\"dropdown-menu\"\n               aria-labelledby=\"dropdownMenuButton\">\n            <button class=\"dropdown-item\n                     btn\n                     btn-primary\n                     \"\n                    (click)=\"onNewQuoteRequest()\">New Quote Request\n            </button>\n            <button class=\"dropdown-item\n                           btn\n                           btn-primary\n                           \"\n                    (click)=\"onNewServiceRequest()\">New Service Request\n            </button>\n          </div>\n        </div>\n        <div class=\"app-form-add-status-button-wrapper\">\n          <button class=\"btn\n                         btn-primary\"\n                  type=\"button\"\n                  id=\"add-status-button\"\n                  (click)=\"addJobStatus($event)\"\n                  [disabled]=\"currentMode != EDIT\">\n            Add Status\n          </button>\n        </div>\n      </div>\n      <h3 class=\"app-form-header\">Job</h3>\n      <div class=\"app-form-group\"\n           *ngFor=\"let formControl of formGroup\"\n           [ngClass]=\"{ 'none': formControl.name == jobStatus && currentMode !=VIEW}\">\n        <div class=\"app-form-label-wrapper\">\n          <label for=\"{{formControl.name}}\"\n                 class=\"app-form-label\">{{formControl.title}}\n            <span class=\"app-form-label-colon\">:</span>\n          </label>\n        </div>\n        <div class=\"app-form-input-wrapper\"\n             *ngIf=\"formControl.name != jobCustomerName && formControl.name != jobPriority\"\n             [ngClass]=\"{'readonly':getCurrentMode() == VIEW || formControl.name == jobType}\">\n          <input\n            type=\"text\"\n            id=\"{{formControl.name}}\"\n            formControlName=\"{{formControl.name}}\"\n            class=\"app-form-input \"\n            appFormInput\n            [readonly]=\"getCurrentMode() == VIEW || formControl.name == 'job-type'\">\n          <i\n            *ngIf=\"jobForm.get('userData.' + formControl.name).valid\"\n            class=\"fa fa-check\"\n            aria-hidden=\"true\">\n          </i>\n          <i\n            *ngIf=\"!jobForm.get('userData.' + formControl.name).valid\"\n            class=\"fa fa-times\"\n            aria-hidden=\"true\">\n          </i>\n        </div>\n        <div *ngIf=\"formControl.name == jobCustomerName\"\n             class=\"app-form-input-wrapper app-form-dropdown-input-wrapper\"\n             [ngClass]=\"{'readonly': getCurrentMode() == VIEW}\">\n          <input type=\"text\"\n                 id=\"{{jobCustomerName}}\"\n                 formControlName=\"{{formControl.name}}\"\n                 class=\"app-form-input app-form-dropdown-input\"\n                 [readonly]=\"getCurrentMode() == VIEW\"\n                 appFormInput>\n          <i\n            *ngIf=\"jobForm.get('userData.' + formControl.name).valid\"\n            class=\"fa fa-check\" aria-hidden=\"true\">\n          </i>\n          <i\n            *ngIf=\"!jobForm.get('userData.' + formControl.name).valid\"\n            class=\"fa fa-times\" aria-hidden=\"true\">\n          </i>\n          <div class=\"app-form-dropdown-list\"\n               id=\"app-form-auto-suggestion-list\"\n               *ngIf=\"customersAutoSuggestion.length != 0\n                && !jobForm.get('userData.' + formControl.name).valid\n                    && formControl.name == jobCustomerName\">\n            <div class=\"app-form-dropdown-item\"\n                 *ngFor=\"let customer of customersAutoSuggestion;\"\n                 (click)=\"onCustomerSelected(customer)\"\n                 (mouseover)=\"onCustomerHover($event, customer)\">\n              <i class=\"fa fa-user\" aria-hidden=\"true\"></i>\n              {{customer.name}}\n            </div>\n          </div>\n        </div>\n        <div *ngIf=\"formControl.name == jobPriority\"\n             (click)=\"toggleJobPriority($event)\"\n             class=\"app-form-input-wrapper app-form-dropdown-input-wrapper\"\n             [ngClass]=\"{'readonly': getCurrentMode() == VIEW}\">\n          <input type=\"text\"\n                 id=\"{{jobPriority}}\"\n                 formControlName=\"{{jobPriority}}\"\n                 class=\"app-form-input app-form-dropdown-input\"\n                 appFormInput\n                 readonly>\n          <i\n            *ngIf=\"jobForm.get('userData.' + jobPriority).valid\"\n            class=\"fa fa-check\" aria-hidden=\"true\">\n            <i *ngIf=\"getCurrentMode() != VIEW\" class=\"fa fa-caret-down\"></i>\n          </i>\n          <i\n            *ngIf=\"!jobForm.get('userData.' + jobPriority).valid\"\n            class=\"fa fa-times\" aria-hidden=\"true\">\n            <i *ngIf=\"getCurrentMode() != VIEW\" class=\"fa fa-caret-down\"></i>\n          </i>\n          <div *ngIf=\"getCurrentMode() != VIEW && showJobPriorityDropdown\"\n               class=\"app-form-dropdown-list\"\n                id=\"{{jobPriorityDropdownList}}\">\n            <div (click)=\"onSelectJobPriority(priority)\"\n                 *ngFor=\"let priority of jobPriorities\"\n                 class=\"app-form-dropdown-item\"\n                  [ngClass]=\"{'none' :priority == jobForm.get('userData.' + jobPriority).value}\">\n                 {{priority}}\n            </div>\n          </div>\n        </div>\n        <div class=\"app-form-group-error-container\"\n             *ngIf=\"!jobForm.get('userData.' + formControl.name).valid\n        && jobForm.get('userData.' + formControl.name).touched\">\n          <div>\n            {{getFirstErrorMessage(formControl.name)}}\n            <i class=\"fa fa-asterisk\"></i>\n          </div>\n        </div>\n      </div>\n      <div class=\"app-form-group-submit\" *ngIf=\"getCurrentMode() == VIEW\">\n        <div class=\"app-form-submit-wrapper\">\n          <button class=\"btn btn-primary\" type=\"button\" (click)=\"modifyJob()\">\n            <span *ngIf=\"previousMode == CREATE\">\n              New Job\n            </span>\n            <span *ngIf=\"previousMode != CREATE\">\n              Modify Job\n            </span>\n          </button>\n        </div>\n      </div>\n      <div class=\"app-form-group-submit\" *ngIf=\"getCurrentMode() != VIEW\">\n        <div class=\"app-form-submit-wrapper\">\n          <button class=\"btn btn-primary\" [disabled]=\"!jobForm.valid\" type=\"submit\">Save</button>\n          <button class=\"btn btn-primary\" type=\"button\" (click)=\"dontSaveJob()\">Don't Save</button>\n        </div>\n      </div>\n    </div>\n  </form>\n</div>\n\n<div class=\"app-form-job-status-container\"\n     *ngIf=\"getAddStatus()\">\n  <form class=\"app-form app-job-status-form\"\n        [formGroup]=\"jobStatusForm\"\n        (ngSubmit)=\"onJobStatusSubmit()\"\n        id=\"app-job-status-form\">\n    <div formGroupName=\"userData\" class=\"app-form-groups-container\"\n         (click)=\"$event.cancelBubble = true\">\n      <div class=\"app-form-header\">Job {{job.jobNumber}}</div>\n      <div class=\"app-form-group \">\n        <div class=\"app-form-label-wrapper\">\n          <label class=\"app-form-label\">Status\n            <span class=\"app-form-label-colon\">:</span>\n          </label>\n        </div>\n        <div class=\"app-form-dropdown-input-container\">\n          <div (click)=\"toggleJobStatus()\"\n               class=\"app-form-input-wrapper app-form-dropdown-input-wrapper app-form-status-input-wrapper\"\n               [ngClass]=\"{'readonly': getCurrentMode() == VIEW}\">\n            <input type=\"text\"\n                   id=\"job-status\"\n                   formControlName=\"job-status\"\n                   class=\"app-form-input\"\n                   appFormInput\n                   readonly>\n            <i\n              *ngIf=\"jobStatusForm.get('userData.job-status').valid\"\n              class=\"fa fa-check\" aria-hidden=\"true\">\n              <i *ngIf=\"getCurrentMode() == EDIT\" class=\"fa fa-caret-down\"></i>\n            </i>\n            <i\n              *ngIf=\"!jobStatusForm.get('userData.job-status').valid\"\n              class=\"fa fa-times\" aria-hidden=\"true\">\n              <i *ngIf=\"getCurrentMode() == EDIT\" class=\"fa fa-caret-down\"></i>\n            </i>\n            <div *ngIf=\"showJobStatusDropdown && getCurrentMode() == EDIT\"\n                 class=\"app-form-dropdown-list\">\n              <div (click)=\"onSelectJobStatus(jobStatus.status)\"\n                   *ngFor=\"let jobStatus of jobStatuses\"\n                   class=\"app-form-dropdown-item\">\n              <span *ngIf=\"jobStatus.status !== jobStatusForm.get('userData.job-status').value\">\n                 {{jobStatus.status}}\n              </span>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n      <div class=\"app-form-group app-form-status-group-container\">\n        <div class=\"app-form-label-wrapper\">\n          <label class=\"app-form-label\">Comment\n            <span class=\"app-form-label-colon\">:</span>\n          </label>\n        </div>\n        <div class=\"app-form-input-wrapper\">\n          <input type=\"text\"\n                 class=\"app-form-input\"\n                 id=\"job-comment\"\n                 formControlName=\"job-comment\"\n                 appFormInput>\n        </div>\n      </div>\n      <div class=\"app-form-group-submit\" *ngIf=\"getCurrentMode() != VIEW\">\n        <div class=\"app-form-submit-wrapper\">\n          <button class=\"btn btn-primary\" [disabled]=\"!jobStatusForm.valid\" type=\"submit\">Save Status</button>\n          <button class=\"btn btn-primary\" type=\"button\" (click)=\"dontSaveStatus()\">Don't Save Status</button>\n        </div>\n      </div>\n    </div>\n  </form>\n</div>\n"
 
 /***/ }),
 
@@ -1141,7 +1337,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".app-form-dropdown-input {\n  width: 18rem; }\n\n.app-form-input-wrapper.app-form-dropdown-input-wrapper {\n  width: auto;\n  position: relative; }\n\n.app-form-dropdown-list {\n  position: absolute;\n  padding: 0;\n  left: 0;\n  top: 4rem;\n  width: 100%;\n  z-index: 10;\n  background-color: white;\n  border: 1px solid gray;\n  border-radius: 0 0 5px 5px;\n  border-top: none; }\n\n.app-form-dropdown-item {\n  padding: 0.5rem;\n  display: block; }\n\n.app-form-dropdown-item:hover, .app-form-dropdown-item:focus {\n  background-color: #5cb3fd;\n  color: black;\n  cursor: pointer; }\n\n.fa-caret-down {\n  color: #5cb3fd;\n  position: relative;\n  right: 0; }\n\n.app-form-input-wrapper.app-form-auto-suggestion-input-wrapper {\n  position: relative; }\n\n.app-form-auto-suggestion-list {\n  position: absolute;\n  padding: 0;\n  left: 0;\n  top: 4rem;\n  width: 100%;\n  z-index: 11;\n  background-color: white;\n  border: 1px solid gray;\n  border-radius: 0 0 5px 5px;\n  border-top: none; }\n\n.app-form-auto-suggestion-item {\n  padding: 0.75rem;\n  display: block;\n  cursor: pointer; }\n\n.app-form-auto-suggestion-item:hover,\n.app-form-auto-suggestion-item:focus {\n  background-color: #5cb3fd;\n  color: black; }\n  .app-form-auto-suggestion-item:hover .fa-user,\n  .app-form-auto-suggestion-item:focus .fa-user {\n    color: black; }\n\n.fa-user {\n  padding-right: 0.5rem;\n  color: #5cb3fd; }\n\n.fa-user:hover, .fa-user:focus {\n  color: black; }\n", ""]);
+exports.push([module.i, "", ""]);
 
 // exports
 
@@ -1155,6 +1351,7 @@ module.exports = module.exports.toString();
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return JobMainComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_job_service__ = __webpack_require__("../../../../../src/app/services/job.service.ts");
@@ -1164,7 +1361,6 @@ module.exports = module.exports.toString();
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_app_interaction_service__ = __webpack_require__("../../../../../src/app/services/app-interaction.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return JobMainComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1183,23 +1379,87 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var JobMainComponent = (function () {
-    function JobMainComponent(serverService, jobService, ngbModal, router, changeDetectorRef) {
+    function JobMainComponent(serverService, jobService, ngbModal, router, appInteractionService, activatedRoute, changeDetectorRef) {
         this.serverService = serverService;
         this.jobService = jobService;
         this.ngbModal = ngbModal;
         this.router = router;
+        this.appInteractionService = appInteractionService;
+        this.activatedRoute = activatedRoute;
         this.changeDetectorRef = changeDetectorRef;
         this.CREATE = 'CREATE';
         this.EDIT = 'EDIT';
         this.VIEW = 'VIEW';
-        this.currentMode = this.VIEW;
+        this.addStatus = false;
+        this.currentMode = null;
+        this.previousMode = null;
         this.customers = null;
         this.customersAutoSuggestion = [];
         this.showJobPriorityDropdown = false;
         this.showJobStatusDropdown = false;
+        this.showDropdown = false;
         this.selectedPriority = "Select Priority";
         this.job = null;
         this.jobAddress = null;
+        this.partyId = null;
+        this.jobCustomerName = 'job-customer-name';
+        this.jobType = 'job-type';
+        this.jobStatus = 'job-status';
+        this.jobPriority = 'job-priority';
+        this.jobPriorityDropdownList = 'job-priority-dropdown-list';
+        this.formGroup = [
+            {
+                name: this.jobCustomerName,
+                title: 'Contact Name',
+                'invalid': 'Contact name is not valid',
+                'required': 'Contact name is required',
+                "not-found": 'Contact name could not be found',
+            },
+            {
+                name: this.jobType,
+                title: 'Job Type',
+                'invalid': 'Job type is not valid',
+                'required': 'Job Type is required'
+            },
+            {
+                name: this.jobStatus,
+                title: 'Job Status',
+                'invalid': 'Mobile number is not valid',
+                'required': 'Mobile number is required'
+            },
+            {
+                name: 'job-referral',
+                title: 'Referral',
+                'invalid': 'Referral is not valid',
+                'required': 'Referral is required'
+            },
+            {
+                name: 'job-physical-address',
+                title: 'Address',
+                autoAddressesSuggesstion: [],
+                addressSubscription: null,
+                spinner: false,
+                'required': 'Physical Address is required',
+                "invalid": 'The input entered is not valid',
+                "not-found": 'Physical Address entered could not be found',
+                'unknown-error': "Unknown error occurred from the server side",
+                'request-denied': "The request was denied by the server",
+                "query-limit-crossed": "You have exceeded the maximum number of allowed queries"
+            },
+            {
+                name: this.jobPriority,
+                title: 'Priority',
+                'invalid': 'Priority is not valid',
+                'required': 'Priority is required'
+            },
+            {
+                name: 'job-detail',
+                title: 'Details',
+                'invalid': 'Details is not valid',
+                'required': 'Details is required'
+            },
+        ];
+        this.errorMessages = ["required", "invalid", "not-found", "unknown-error", "request-denied", "query-limit-crossed"];
         this.jobPriorities = ["Normal", "Urgent", "Important"];
         this.jobStatuses = null;
         this.googleAutocompleteService = new google.maps.places.AutocompleteService();
@@ -1214,8 +1474,20 @@ var JobMainComponent = (function () {
             //this.showJobStatusDropdown = false;
         }
         if ($event.target.id != "app-form-auto-suggestion-list" ||
-            $event.target.id != "customer-name") {
+            $event.target.id != "job-customer-name") {
             this.customersAutoSuggestion.length = 0;
+        }
+        if ($event.target.id != this.jobPriorityDropdownList ||
+            $event.target.id != "job-customer-name") {
+            this.customersAutoSuggestion.length = 0;
+        }
+        if ($event.target.id != this.jobPriorityDropdownList
+            || $event.target.id != this.jobPriority) {
+            this.showJobPriorityDropdown = false;
+        }
+        if (($event.target.id != "app-add-status-button")
+            && ($event.target.id != "app-job-status-form")) {
+            this.addStatus = false;
         }
     };
     JobMainComponent.prototype.handleKeyboardEvent = function (event) {
@@ -1241,47 +1513,49 @@ var JobMainComponent = (function () {
         this.jobServiceSubscription = this.jobService.jobSourceObservable
             .subscribe(function (data) {
             console.log(data);
-            if (data && data.id && data.type === __WEBPACK_IMPORTED_MODULE_2__services_job_service__["a" /* JobService */].TYPE_MAIN) {
-                console.log(data);
-                _this.paramsReceived = data.id;
-                _this.serverService.getRequestByJobId(_this.paramsReceived)
-                    .subscribe(function (response) {
-                    console.log(response);
-                    _this.job = response;
-                    _this.setJobStatuses();
-                    _this.setJobForm();
-                    _this.jobForm.get('userData.customer-name').updateValueAndValidity();
-                }, function (error) {
-                    _this.currentMode = _this.CREATE;
-                    console.log(error);
-                });
-            }
-            else if (data && data.customerUuid &&
-                (data.jobType === __WEBPACK_IMPORTED_MODULE_5__services_app_interaction_service__["a" /* AppInteractionService */].SERVICE_REQUEST
-                    || data.jobType === __WEBPACK_IMPORTED_MODULE_5__services_app_interaction_service__["a" /* AppInteractionService */].QUOTE_REQUEST)) {
-                _this.currentMode = _this.CREATE;
-                _this.serverService.getRequestByPartyId(data.customerUuid)
-                    .subscribe(function (response) {
-                    console.log(response);
-                    _this.job = {};
-                    _this.job.type = data.jobType;
-                    _this.job.customerUuid = data.customerUuid;
-                    _this.job.customerName = response.name;
+            _this.job = {};
+            if (data && data.type === __WEBPACK_IMPORTED_MODULE_2__services_job_service__["a" /* JobService */].TYPE_MAIN) {
+                if ((data.id === __WEBPACK_IMPORTED_MODULE_5__services_app_interaction_service__["a" /* AppInteractionService */].SERVICE_REQUEST
+                    || data.id === __WEBPACK_IMPORTED_MODULE_5__services_app_interaction_service__["a" /* AppInteractionService */].QUOTE_REQUEST)) {
+                    _this.job.type = data.id;
+                    if (data.partyId) {
+                        _this.job.customerName = _this.getCustomerNameFromUuid(data.partyId);
+                    }
                     _this.setJobStatuses();
                     _this.patchJobForm();
-                    _this.jobForm.get('userData.customer-name').updateValueAndValidity();
-                }, function (error) {
-                    console.log(error);
-                });
-            }
-            else if (data.jobType) {
-                _this.currentMode = _this.CREATE;
-                _this.job = {};
-                _this.job.type = data.jobType;
-                _this.setNewJobForm();
-            }
-            else {
-                _this.currentMode = _this.CREATE;
+                    _this.currentMode = _this.CREATE;
+                    _this.previousMode = _this.currentMode;
+                    _this.jobForm.get('userData.job-customer-name').updateValueAndValidity();
+                    if (data.partyId) {
+                        _this.partyId = data.partyId;
+                        _this.serverService.getRequestByPartyId(data.partyId)
+                            .subscribe(function (response) {
+                            _this.job.customerUuid = data.partyId;
+                            _this.job.customerName = response.name;
+                            console.log(data.id);
+                            console.log(response);
+                        }, function (error) {
+                            console.log(error);
+                        });
+                    }
+                }
+                else {
+                    _this.paramsReceived = data.id;
+                    _this.type = data.type;
+                    _this.serverService.getRequestByJobId(_this.paramsReceived)
+                        .subscribe(function (response) {
+                        console.log(response);
+                        _this.currentMode = _this.VIEW;
+                        _this.previousMode = _this.EDIT;
+                        _this.job = response;
+                        _this.setJobStatuses();
+                        _this.patchJobForm();
+                        _this.jobForm.get('userData.job-customer-name').updateValueAndValidity();
+                    }, function (error) {
+                        _this.currentMode = _this.CREATE;
+                        console.log(error);
+                    });
+                }
             }
         });
         this.initCustomersAutoSuggest();
@@ -1295,45 +1569,31 @@ var JobMainComponent = (function () {
         });
     };
     JobMainComponent.prototype.ngAfterViewInit = function () {
-        this.jobService.announceParentComponent({ type: __WEBPACK_IMPORTED_MODULE_2__services_job_service__["a" /* JobService */].TYPE_MAIN });
+        this.jobService.announceParentComponent({ type: __WEBPACK_IMPORTED_MODULE_5__services_app_interaction_service__["a" /* AppInteractionService */].TYPE_MAIN });
     };
     JobMainComponent.prototype.createJobForm = function () {
-        this.jobForm = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["e" /* FormGroup */]({
-            'userData': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["e" /* FormGroup */]({
-                'customer-name': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* FormControl */](null, [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required], [this.validateCustomerName.bind(this)]),
-                'job-address': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* FormControl */](null, [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required], [this.validateAddress.bind(this)]),
-                'job-type': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* FormControl */](null, [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required]),
-                'job-referral': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* FormControl */](null, [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required]),
-                'job-priority': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* FormControl */](null, [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required]),
-                'job-status': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* FormControl */](null, [], this.validateJobStatus.bind(this)),
-                'job-detail': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* FormControl */](null, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required)
+        this.jobForm = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormGroup */]({
+            'userData': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormGroup */]({
+                "job-customer-name": new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormControl */](null, [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required], [this.validateCustomerName.bind(this)]),
+                'job-physical-address': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormControl */](null, [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required], [this.validateAddress.bind(this)]),
+                'job-type': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormControl */](null, [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required]),
+                'job-referral': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormControl */](null, [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required]),
+                'job-priority': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormControl */](null, [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required, this.validateJobPriority.bind(this)]),
+                'job-status': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormControl */](null, [], [this.validateJobStatus.bind(this)]),
+                'job-detail': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormControl */](null, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required)
             })
         });
     };
     JobMainComponent.prototype.validateJobStatus = function (formControl) {
         var _this = this;
         return new __WEBPACK_IMPORTED_MODULE_4_rxjs_Observable__["Observable"](function (response) {
-            if (_this.currentMode == _this.CREATE) {
-                response.next(null);
-                response.complete();
-            }
-            if (!_this.jobStatuses || !formControl.value) {
-                setTimeout(function () {
-                    if (_this.jobStatuses && formControl.value) {
-                        for (var i = 0; i < _this.jobStatuses.length; i++) {
-                            if (formControl.value === _this.jobStatuses[i].status) {
-                                console.log("response is valid");
-                                response.next(null);
-                                response.complete();
-                                break;
-                            }
-                        }
-                        response.next({ 'InvalidStatus': true });
-                        response.complete();
-                    }
-                }, 1000);
-            }
-            else if (_this.jobStatuses && formControl.value) {
+            console.log(_this.currentMode);
+            if (_this.jobStatuses) {
+                if (_this.currentMode == _this.CREATE) {
+                    response.next(null);
+                    response.complete();
+                    return;
+                }
                 for (var i = 0; i < _this.jobStatuses.length; i++) {
                     if (formControl.value === _this.jobStatuses[i].status) {
                         console.log("response is valid");
@@ -1342,51 +1602,44 @@ var JobMainComponent = (function () {
                         break;
                     }
                 }
-                response.next({ 'InvalidStatus': true });
+                response.next({ 'invalid-status': true });
                 response.complete();
             }
-            else {
-                console.log("response is invalid");
-                response.next({ 'InvalidStatus': true });
-                response.complete();
+            else if (!_this.jobStatuses) {
+                setTimeout(function () {
+                    if (_this.currentMode == _this.CREATE) {
+                        response.next(null);
+                        response.complete();
+                        return;
+                    }
+                    for (var i = 0; i < _this.jobStatuses.length; i++) {
+                        if (formControl.value === _this.jobStatuses[i].status) {
+                            console.log("response is valid");
+                            response.next(null);
+                            response.complete();
+                            break;
+                        }
+                    }
+                    response.next({ 'invalid-status': true });
+                    response.complete();
+                }, 500);
             }
         });
     };
-    JobMainComponent.prototype.setJobForm = function () {
-        console.log(this.job);
-        this.jobForm.setValue({
-            'userData': {
-                'customer-name': this.job.customerName,
-                'job-address': this.job.addressStr,
-                'job-type': this.job.type,
-                'job-referral': this.job.referral,
-                'job-priority': this.job.priority,
-                'job-status': this.job.status,
-                'job-detail': this.job.description,
+    JobMainComponent.prototype.validateJobPriority = function (formControl) {
+        for (var i = 0; i < this.jobPriorities.length; i++) {
+            if (formControl.value === this.jobPriorities[i]) {
+                return null;
             }
-        });
-        console.log(this.jobForm.get('userData.job-priority').value);
-    };
-    JobMainComponent.prototype.setNewJobForm = function () {
-        this.jobForm.patchValue({
-            'userData': {
-                'customer-name': "",
-                'job-address': "",
-                'job-type': this.job.type,
-                'job-referral': "",
-                'job-priority': "",
-                'job-status': "",
-                'job-detail': ""
-            }
-        });
-        console.log(this.jobForm.get('userData.job-priority').value);
+        }
+        return { 'invalid': true };
     };
     JobMainComponent.prototype.patchJobForm = function () {
         console.log(this.job);
         this.jobForm.patchValue({
             'userData': {
-                'customer-name': this.job.customerName,
-                'job-address': this.job.addressStr,
+                "job-customer-name": this.job.customerName,
+                'job-physical-address': this.job.addressStr,
                 'job-type': this.job.type,
                 'job-referral': this.job.referral,
                 'job-priority': this.job.priority,
@@ -1399,7 +1652,7 @@ var JobMainComponent = (function () {
     JobMainComponent.prototype.setJobStatuses = function () {
         var _this = this;
         var jobType = this.job.type;
-        var pathRequest = "http://localhost:8080/api/jobTypes/" + jobType + "/jobStatuses";
+        var pathRequest = "http://localhost:8081/api/jobTypes/" + jobType + "/jobStatuses";
         this.serverService.getRequestByPath(pathRequest)
             .subscribe(function (response) {
             _this.jobStatuses = response._embedded.jobStatuses;
@@ -1408,15 +1661,14 @@ var JobMainComponent = (function () {
             console.log(error);
         });
     };
-    JobMainComponent.prototype.formatJob = function () {
-    };
     JobMainComponent.prototype.onCustomerSelected = function (customer) {
-        this.jobForm.get('userData.customer-name').setValue(customer.name);
+        this.jobForm.get('userData.job-customer-name').setValue(customer.name);
     };
     JobMainComponent.prototype.onCustomerHover = function ($event, customer) {
         console.log(customer);
     };
-    JobMainComponent.prototype.toggleJobPriority = function () {
+    JobMainComponent.prototype.toggleJobPriority = function ($event) {
+        $event.cancelBubble = true;
         this.showJobPriorityDropdown = !this.showJobPriorityDropdown;
         this.showJobStatusDropdown = false;
     };
@@ -1431,7 +1683,7 @@ var JobMainComponent = (function () {
     };
     JobMainComponent.prototype.onSelectJobStatus = function (title) {
         console.log(title);
-        this.jobForm.get('userData.job-status').setValue(title);
+        this.jobStatusForm.get('userData.job-status').setValue(title);
     };
     JobMainComponent.prototype.validateCustomerName = function (formControl) {
         var _this = this;
@@ -1451,7 +1703,7 @@ var JobMainComponent = (function () {
                         break;
                     }
                 }
-                response.next({ "NameNotFound": true });
+                response.next({ "not-found": true });
                 response.complete();
             }
             if (!_this.customers) {
@@ -1465,20 +1717,20 @@ var JobMainComponent = (function () {
                                 break;
                             }
                         }
-                        response.next({ "NameNotFound": true });
+                        response.next({ "not-found": true });
                         response.complete();
                     }
                 }, 1000);
             }
             else {
-                response.next({ 'UnknownError': true });
+                response.next({ 'unknown-error': true });
                 response.complete();
             }
         });
     };
     JobMainComponent.prototype.initCustomersAutoSuggest = function () {
         var _this = this;
-        this.customersAutoSuggestSubscription = this.jobForm.get('userData.customer-name')
+        this.customersAutoSuggestSubscription = this.jobForm.get('userData.job-customer-name')
             .valueChanges.subscribe(function (value) {
             console.log(value);
             _this.customersAutoSuggestion.length = 0;
@@ -1549,39 +1801,44 @@ var JobMainComponent = (function () {
                             tempRef.customersAutoSuggestion.length = 0;
                         }
                     });
-                    response.next({ 'NoAddressFound': true });
+                    response.next({ 'not-found': true });
                     response.complete();
                 }
                 if (status == tempRef.googleService.maps.places.PlacesServiceStatus.ZERO_RESULTS) {
-                    response.next({ 'NoAddressFound': true });
+                    response.next({ 'not-found': true });
                     response.complete();
                 }
                 if (status == tempRef.googleService.maps.places.PlacesServiceStatus.INVALID_REQUEST) {
-                    response.next({ 'InvalidInput': true });
+                    response.next({ 'invalid': true });
                     response.complete();
                 }
                 if (status == tempRef.googleService.maps.places.PlacesServiceStatus.OVER_QUERY_LIMIT) {
-                    response.next({ 'QueryLimitCrossed': true });
+                    response.next({ 'query-limit-crossed': true });
                     response.complete();
                 }
                 if (status == tempRef.googleService.maps.places.PlacesServiceStatus.REQUEST_DENIED) {
-                    response.next({ 'RequestDenied': true });
+                    response.next({ 'request-denied': true });
                     response.complete();
                 }
                 if (status == tempRef.googleService.maps.places.PlacesServiceStatus.UNKNOWN_ERROR) {
-                    response.next({ 'UnknownError': true });
+                    response.next({ 'unknown-error': true });
                     response.complete();
                 }
             });
         });
     };
-    JobMainComponent.prototype.editJob = function () {
-        this.currentMode = this.EDIT;
+    JobMainComponent.prototype.modifyJob = function () {
+        if (this.previousMode == this.CREATE) {
+            this.currentMode = this.CREATE;
+        }
+        else if (this.previousMode == this.EDIT) {
+            this.currentMode = this.EDIT;
+        }
     };
     JobMainComponent.prototype.dontSaveJob = function () {
-        this.jobForm.reset();
-        this.setJobForm();
+        this.patchJobForm();
         this.jobForm.markAsUntouched();
+        this.previousMode = this.currentMode;
         this.currentMode = this.VIEW;
         this.showJobStatusDropdown = false;
     };
@@ -1589,27 +1846,18 @@ var JobMainComponent = (function () {
         var _this = this;
         if (this.jobForm.touched && this.jobForm.valid) {
             var job = {};
-            var customerName = this.jobForm.get('userData.customer-name').value;
-            var customerUuid_1 = this.getCustomerUuidFromName(customerName);
+            var customerName = this.jobForm.get('userData.job-customer-name').value;
+            var customerUuid = this.getCustomerUuidFromName(customerName);
             job.description = this.jobForm.get('userData.job-detail').value;
             job.referral = this.jobForm.get('userData.job-referral').value;
             job.priority = this.jobForm.get('userData.job-priority').value;
             job.address = this.jobAddress;
             job.initialType = encodeURI("/jobTypes/" + this.jobForm.get('userData.job-type').value);
-            job.customer = "/parties/" + customerUuid_1;
+            job.customer = "/parties/" + customerUuid;
             console.log(job);
             this.serverService.saveJob(job).subscribe(function (response) {
                 console.log(response.json());
                 _this.ngbModal.open('Succesfully saved');
-                var href = response.json()._links.self.href;
-                var index = (href.lastIndexOf('/') + 1);
-                var id = href.substr(index);
-                _this.router.navigate(['parties', customerUuid_1, 'jobs'])
-                    .then(function (value) {
-                    console.log(value);
-                }).catch(function (error) {
-                    console.log(error);
-                });
             }, function (error) {
                 _this.ngbModal.open("Something went wrong!. Couldn't save the form.");
                 console.log(error);
@@ -1620,8 +1868,8 @@ var JobMainComponent = (function () {
         var _this = this;
         if (this.jobForm.touched && this.jobForm.valid) {
             var job = {};
-            var customerName = this.jobForm.get('userData.customer-name').value;
-            var customerUuid_2 = this.getCustomerUuidFromName(customerName);
+            var customerName = this.jobForm.get('userData.job-customer-name').value;
+            var customerUuid = this.getCustomerUuidFromName(customerName);
             job.description = this.jobForm.get('userData.job-detail').value;
             job.referral = this.jobForm.get('userData.job-referral').value;
             job.priority = this.jobForm.get('userData.job-priority').value;
@@ -1631,22 +1879,13 @@ var JobMainComponent = (function () {
             job.uuid = this.job.uuid;
             job.jobNumber = this.job.jobNumber;
             job.initialType = encodeURI("/jobTypes/" + this.jobForm.get('userData.job-type').value);
-            job.customer = "/parties/" + customerUuid_2;
+            job.customer = "/parties/" + customerUuid;
             // job.customerName = customerName;
             // job.customerUid = customerUuid;
             console.log(job);
             this.serverService.putJob(job.uuid, job).subscribe(function (response) {
                 console.log(response.json());
                 _this.ngbModal.open('Succesfully saved');
-                var href = response.json()._links.self.href;
-                var index = (href.lastIndexOf('/') + 1);
-                var id = href.substr(index);
-                _this.router.navigate(['parties', customerUuid_2, 'jobs'])
-                    .then(function (value) {
-                    console.log(value);
-                }).catch(function (error) {
-                    console.log(error);
-                });
             }, function (error) {
                 _this.ngbModal.open("Something went wrong!. Couldn't save the form.");
                 console.log(error);
@@ -1657,6 +1896,14 @@ var JobMainComponent = (function () {
         for (var i = 0; i < this.customers.length; i++) {
             if (this.customers[i].name.toLowerCase() === value.toLowerCase()) {
                 return this.customers[i].uuid;
+            }
+        }
+        return null;
+    };
+    JobMainComponent.prototype.getCustomerNameFromUuid = function (value) {
+        for (var i = 0; i < this.customers.length; i++) {
+            if (this.customers[i].uuid == value) {
+                return this.customers[i].name;
             }
         }
         return null;
@@ -1678,35 +1925,152 @@ var JobMainComponent = (function () {
     //   "address" : "245 Grange Road:Hillford:South Australia:5011:Australia",
     //   "initialType" : "/jobTypes/Quote%20Request",
     //   "customer" : "/parties/0d5f5918-69dc-11e7-931d-001a7dda7113"
-    // }' "localhost:8080/api/jobs" -H "Content-Type:application/json"
+    // }' "localhost:8081/api/jobs" -H "Content-Type:application/json"
     JobMainComponent.prototype.getCurrentMode = function () {
         return this.currentMode;
+    };
+    JobMainComponent.prototype.toggleDropdown = function () {
+        this.showDropdown = !this.showDropdown;
+        console.log(this.showDropdown);
+    };
+    JobMainComponent.prototype.onNewQuoteRequest = function () {
+        var _this = this;
+        this.showDropdown = false;
+        var partyId = null;
+        this.previousMode = this.currentMode;
+        this.currentMode = this.CREATE;
+        if (this.jobForm.get('userData.job-customer-name').valid
+            && this.jobForm.get('userData.job-customer-name').value) {
+            partyId = this.getCustomerUuidFromName(this.jobForm.get('userData.job-customer-name').value);
+            console.log(partyId);
+        }
+        this.router.navigate(['jobs', __WEBPACK_IMPORTED_MODULE_5__services_app_interaction_service__["a" /* AppInteractionService */].QUOTE_REQUEST, "main"])
+            .then(function (value) {
+            _this.jobService.announceParentComponent({
+                type: __WEBPACK_IMPORTED_MODULE_5__services_app_interaction_service__["a" /* AppInteractionService */].TYPE_MAIN,
+                id: __WEBPACK_IMPORTED_MODULE_5__services_app_interaction_service__["a" /* AppInteractionService */].QUOTE_REQUEST, partyId: partyId
+            });
+        }).catch(function (error) {
+            console.log(error);
+        });
+    };
+    JobMainComponent.prototype.onNewServiceRequest = function () {
+        var _this = this;
+        this.showDropdown = false;
+        this.previousMode = this.currentMode;
+        this.currentMode = this.CREATE;
+        var partyId = null;
+        if (this.jobForm.get('userData.job-customer-name').valid
+            && this.jobForm.get('userData.job-customer-name').value) {
+            partyId = this.getCustomerUuidFromName(this.jobForm.get('userData.job-customer-name').value);
+            console.log(partyId);
+        }
+        this.router.navigate(['jobs', __WEBPACK_IMPORTED_MODULE_5__services_app_interaction_service__["a" /* AppInteractionService */].SERVICE_REQUEST, "main"])
+            .then(function (value) {
+            _this.jobService.announceParentComponent({
+                type: __WEBPACK_IMPORTED_MODULE_5__services_app_interaction_service__["a" /* AppInteractionService */].TYPE_MAIN,
+                id: __WEBPACK_IMPORTED_MODULE_5__services_app_interaction_service__["a" /* AppInteractionService */].SERVICE_REQUEST, partyId: partyId
+            });
+        }).catch(function (error) {
+            console.log(error);
+        });
+    };
+    JobMainComponent.prototype.getAddStatus = function () {
+        return this.addStatus;
+    };
+    JobMainComponent.prototype.addJobStatus = function ($event) {
+        $event.cancelBubble = true;
+        console.log($event);
+        this.jobStatusForm = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormGroup */]({
+            'userData': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormGroup */]({
+                'job-status': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormControl */](null, [], this.validateJobStatus.bind(this)),
+                'job-comment': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormControl */](null, [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required])
+            })
+        });
+        this.addStatus = true;
+    };
+    JobMainComponent.prototype.getFirstErrorMessage = function (formControlName) {
+        var formControl = this.jobForm.get('userData.' + formControlName);
+        for (var i = 0; i < this.errorMessages.length; i++) {
+            if (formControl.errors[this.errorMessages[i]]) {
+                for (var j = 0; j < this.formGroup.length; j++) {
+                    if (formControlName === this.formGroup[j].name) {
+                        console.log(this.formGroup[j][this.errorMessages[i]]);
+                        return this.formGroup[j][this.errorMessages[i]];
+                    }
+                }
+            }
+        }
+        return "Unknown Error";
+    };
+    JobMainComponent.prototype.onJobStatusSubmit = function () {
+        var statusId = null;
+        var jobId = null;
+        var staffId = null;
+        var comment = null;
+        if (this.jobStatusForm.valid) {
+            for (var i = 0; i < this.jobStatuses.length; i++) {
+                if ((this.jobStatusForm.get('userData.job-status').value)
+                    == this.jobStatuses[i].status) {
+                    var path = this.jobStatuses[i]._links.self.href;
+                    var index = path.lastIndexOf("/") + 1;
+                    statusId = path.substring(index);
+                    break;
+                }
+            }
+            jobId = this.job.uuid;
+            staffId = 'motion6';
+            var job = "/jobs/" + jobId;
+            var status = "/jobStatuses/" + statusId;
+            var staff = "/staffs/" + staffId;
+            var comment_1 = this.jobStatusForm.get('userData.job-comment').value;
+            var jobStatus = {
+                job: job,
+                status: status,
+                staff: staff,
+                comment: comment_1
+            };
+            this.serverService.postJobStatus(jobStatus)
+                .subscribe(function (response) {
+                location.reload();
+            }, function (error) {
+                console.log(error);
+            });
+        }
+    };
+    JobMainComponent.prototype.dontSaveStatus = function () {
+        // this.patchJobForm();
+        this.jobForm.markAsUntouched();
+        this.previousMode = this.currentMode;
+        this.currentMode = this.VIEW;
+        this.showJobStatusDropdown = false;
+        this.addStatus = false;
     };
     return JobMainComponent;
 }());
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"])('click', ['$event']),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* HostListener */])('click', ['$event']),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], JobMainComponent.prototype, "hostClicked", null);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"])('document:keyup', ['$event']),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* HostListener */])('document:keyup', ['$event']),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], JobMainComponent.prototype, "handleKeyboardEvent", null);
 JobMainComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-job-main',
         template: __webpack_require__("../../../../../src/app/components/jobs/job/job-main/job-main.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/jobs/job/job-main/job-main.component.scss")],
-        encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewEncapsulation"].None
+        encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_19" /* ViewEncapsulation */].None
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__services_server_service__["a" /* ServerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_server_service__["a" /* ServerService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_job_service__["a" /* JobService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_job_service__["a" /* JobService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_6__ng_bootstrap_ng_bootstrap__["b" /* NgbModal */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__ng_bootstrap_ng_bootstrap__["b" /* NgbModal */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_7__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__angular_router__["c" /* Router */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"]) === "function" && _e || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__services_server_service__["a" /* ServerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_server_service__["a" /* ServerService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_job_service__["a" /* JobService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_job_service__["a" /* JobService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_6__ng_bootstrap_ng_bootstrap__["b" /* NgbModal */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__ng_bootstrap_ng_bootstrap__["b" /* NgbModal */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_7__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__angular_router__["b" /* Router */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__services_app_interaction_service__["a" /* AppInteractionService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__services_app_interaction_service__["a" /* AppInteractionService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_7__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__angular_router__["a" /* ActivatedRoute */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["l" /* ChangeDetectorRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["l" /* ChangeDetectorRef */]) === "function" && _g || Object])
 ], JobMainComponent);
 
-var _a, _b, _c, _d, _e;
+var _a, _b, _c, _d, _e, _f, _g;
 //# sourceMappingURL=job-main.component.js.map
 
 /***/ }),
@@ -1714,7 +2078,7 @@ var _a, _b, _c, _d, _e;
 /***/ "../../../../../src/app/components/jobs/job/job-schedules/job-schedules.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"app-ag-grid-wrapper\">\n  <ag-grid-angular #agGrid style=\"width: 100%; overflow:hidden;transition: all 0.5s ease-in-out\" class=\"ag-fresh\"\n\n                   [gridOptions]=\"gridOptions\"\n                   [columnDefs]=\"columnDefs\"\n                   domLayout='autoHeight'\n                   [rowData]=\"rowData\"\n                   headerHeight=\"50\"\n                   enableColResize\n                   enableSorting\n                   enableFilter\n\n                   rowHeight=\"40\"\n                   rowSelection=\"multiple\"\n\n                   (modelUpdated)=\"onModelUpdated()\"\n                   (cellClicked)=\"onCellClicked($event)\"\n                   (cellDoubleClicked)=\"onCellDoubleClicked($event)\">\n\n  </ag-grid-angular>\n  <div>\n    <button class=\"btn btn-primary\">Create Invoice</button>\n  </div>\n</div>\n"
+module.exports = "<div class=\"app-ag-grid-wrapper\">\n\n  <div>\n    <button class=\"btn btn-primary\">Create Invoice</button>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -1740,12 +2104,12 @@ module.exports = module.exports.toString();
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return JobSchedulesComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_server_service__ = __webpack_require__("../../../../../src/app/services/server-service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_nav_bar_service__ = __webpack_require__("../../../../../src/app/services/nav-bar.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_job_service__ = __webpack_require__("../../../../../src/app/services/job.service.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return JobSchedulesComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1802,21 +2166,13 @@ var JobSchedulesComponent = (function () {
         this.jobServiceSubscription = this.jobService.jobSourceObservable.subscribe(function (data) {
             if (data && data.id && data.type === __WEBPACK_IMPORTED_MODULE_4__services_job_service__["a" /* JobService */].TYPE_SCHEDULES) {
                 _this.paramsReceived = data.id;
-                _this.path = "http://localhost:8080/api/jobs/" + _this.paramsReceived + "/jobSchedules";
+                _this.path = "http://localhost:8081/api/jobs/" + _this.paramsReceived + "/jobSchedules";
                 console.log(data);
                 _this.getJobSchedules();
             }
         }, function (error) { return console.log(error); });
-        this.gridOptions = {
-            context: {
-                componentParent: this
-            },
-            rowData: this.rowData,
-            columnDefs: this.columnDefs
-        };
         this.navBarSubscription = this.navBarService.getNavBarSubject().subscribe(function (value) {
             console.log("sizeColumnsToFit");
-            _this.gridOptions.api.sizeColumnsToFit();
         });
     };
     JobSchedulesComponent.prototype.getJobSchedules = function () {
@@ -1866,7 +2222,6 @@ var JobSchedulesComponent = (function () {
     };
     JobSchedulesComponent.prototype.ngAfterViewInit = function () {
         this.jobService.announceParentComponent({ type: __WEBPACK_IMPORTED_MODULE_4__services_job_service__["a" /* JobService */].TYPE_SCHEDULES });
-        this.gridOptions.api.sizeColumnsToFit();
     };
     JobSchedulesComponent.prototype.ngOnDestroy = function () {
         this.navBarSubscription.unsubscribe();
@@ -1875,12 +2230,12 @@ var JobSchedulesComponent = (function () {
     return JobSchedulesComponent;
 }());
 JobSchedulesComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-job-schedule',
         template: __webpack_require__("../../../../../src/app/components/jobs/job/job-schedules/job-schedules.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/jobs/job/job-schedules/job-schedules.component.scss")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_server_service__["a" /* ServerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_server_service__["a" /* ServerService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_nav_bar_service__["a" /* NavBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_nav_bar_service__["a" /* NavBarService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* Router */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* ActivatedRoute */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__services_job_service__["a" /* JobService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_job_service__["a" /* JobService */]) === "function" && _e || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_server_service__["a" /* ServerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_server_service__["a" /* ServerService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_nav_bar_service__["a" /* NavBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_nav_bar_service__["a" /* NavBarService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__services_job_service__["a" /* JobService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_job_service__["a" /* JobService */]) === "function" && _e || Object])
 ], JobSchedulesComponent);
 
 var _a, _b, _c, _d, _e;
@@ -1900,16 +2255,158 @@ var jobTabs = [
     { title: 'Field Work', path: 'field-works' },
     { title: 'Bills', path: 'bills' },
     { title: 'Costs', path: 'costs' },
-    { title: 'Invoices', path: 'invoices' }
+    { title: 'Invoices', path: 'invoices' },
+    { title: 'Timeline', path: 'timeline' }
 ];
 //# sourceMappingURL=job-tabs.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/jobs/job/job-timeline/job-timeline.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"app-form-groups-container\">\n<div class=\"app-job-timeline\" *ngFor=\"let statusEntry of jobStatusEntries;let i = index;\">\n  <div [class]=\"'app-job-timeline-vertical-line-wrapper wrapper-' + (i % 5 + 1)\">\n    <div class=\"app-job-timeline-upper-vertical-line {{getFormattedCssString(statusEntry.statusMsg)}}\"></div>\n    <div class=\"app-job-timeline-circle {{getFormattedCssString(statusEntry.statusMsg)}}\"></div>\n    <div class=\"app-job-timeline-bottom-vertical-line {{getFormattedCssString(statusEntry.statusMsg)}}\"></div>\n  </div>\n  <div class=\"app-job-timeline-content\">\n    <ul>\n      <li>{{statusEntry.entryDateTimeMonth}}</li>\n      <li>user</li>\n      <li>{{statusEntry.statusMsg}}</li>\n      <li>{{statusEntry.comment}}</li>\n    </ul>\n  </div>\n</div>\n  <!--<div  class=\"app-form-job-status-list\">-->\n   <!--<div *ngFor=\"let status of jobStatuses\"-->\n         <!--class=\"app-form-job-status-item\"-->\n         <!--id=\"{{getFormattedCssString(status.status)}}\">-->\n     <!--<div class=\"app-job-timeline-circle {{getFormattedCssString(status.status)}}\"></div>-->\n     <!--<div class=\"app-form-job-status-item-title\">{{status.status}}</div>-->\n   <!--</div>-->\n  <!--</div>-->\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/jobs/job/job-timeline/job-timeline.component.scss":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "app-job-timeline .app-form-groups-container {\n  padding: 0.5rem; }\n\n.app-job-timeline {\n  display: -ms-grid;\n  display: grid;\n  -ms-grid-columns: 1fr 2fr;\n      grid-template-columns: 1fr 2fr; }\n\n.app-job-timeline-vertical-line-wrapper {\n  display: -ms-grid;\n  display: grid;\n  -ms-grid-columns: auto;\n      grid-template-columns: auto;\n  margin: 0 1rem 0 0; }\n\n.app-job-timeline-upper-vertical-line,\n.app-job-timeline-bottom-vertical-line {\n  width: 0.1rem;\n  min-height: 1rem;\n  -ms-flex-item-align: stretch;\n      -ms-grid-row-align: stretch;\n      align-self: stretch;\n  justify-self: flex-end;\n  background-color: black; }\n\n.app-job-timeline-upper-vertical-line {\n  margin: 0 0.45rem -1.2rem 0.45rem; }\n\n.app-job-timeline-bottom-vertical-line {\n  margin: -1.2rem 0.45rem 0 0.45rem; }\n\n.app-job-timeline-content {\n  padding: 0.5rem;\n  line-height: 1.2; }\n\n.app-job-timeline-content li {\n  padding: 0.125rem;\n  line-height: 1.2; }\n\n.app-job-timeline-circle {\n  width: 1rem;\n  height: 1rem;\n  border-radius: 50%;\n  color: black;\n  background-color: black;\n  -ms-flex-item-align: center;\n      -ms-grid-row-align: center;\n      align-self: center;\n  justify-self: flex-end; }\n\n.app-form-job-status-list {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  margin-top: 2rem;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center; }\n\n.app-form-job-status-item {\n  display: -webkit-inline-box;\n  display: -ms-inline-flexbox;\n  display: inline-flex; }\n\n.wrapper-1 .app-job-timeline-bottom-vertical-line,\n.wrapper-1 .app-job-timeline-upper-vertical-line,\n.wrapper-1 .app-job-timeline-circle {\n  color: darkslategrey;\n  background-color: darkslategrey; }\n\n.wrapper-2 .app-job-timeline-bottom-vertical-line,\n.wrapper-2 .app-job-timeline-upper-vertical-line,\n.wrapper-2 .app-job-timeline-circle {\n  color: purple;\n  background-color: purple; }\n\n.wrapper-3 .app-job-timeline-bottom-vertical-line,\n.wrapper-3 .app-job-timeline-upper-vertical-line,\n.wrapper-3 .app-job-timeline-circle {\n  color: darkred;\n  background-color: darkred; }\n\n.wrapper-4 .app-job-timeline-bottom-vertical-line,\n.wrapper-4 .app-job-timeline-upper-vertical-line,\n.wrapper-4 .app-job-timeline-circle {\n  color: green;\n  background-color: green; }\n\n.wrapper-5 .app-job-timeline-bottom-vertical-line,\n.wrapper-5 .app-job-timeline-upper-vertical-line,\n.wrapper-5 .app-job-timeline-circle {\n  color: blue;\n  background-color: blue; }\n\n.app-form-job-status-item-title {\n  padding: 0.20rem;\n  margin-right: 1rem; }\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/jobs/job/job-timeline/job-timeline.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return JobTimelineComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_server_service__ = __webpack_require__("../../../../../src/app/services/server-service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_job_service__ = __webpack_require__("../../../../../src/app/services/job.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var JobTimelineComponent = (function () {
+    function JobTimelineComponent(serverService, http, activatedRoute, changeDetectorRef, router, jobService, ngbModal) {
+        this.serverService = serverService;
+        this.http = http;
+        this.activatedRoute = activatedRoute;
+        this.changeDetectorRef = changeDetectorRef;
+        this.router = router;
+        this.jobService = jobService;
+        this.ngbModal = ngbModal;
+        this.jobStatusEntries = null;
+        this.newComment = false;
+        this.path = null;
+        this.partyId = null;
+        this.job = null;
+    }
+    JobTimelineComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.jobServiceSubscription = this.jobService.jobSourceObservable
+            .subscribe(function (data) {
+            if (data && data.id && data.type === __WEBPACK_IMPORTED_MODULE_4__services_job_service__["a" /* JobService */].TYPE_TIMELINE) {
+                _this.paramsReceived = data.id;
+                _this.path = "http://localhost:8081/api/jobs/" + _this.paramsReceived + "/statusEntries";
+                _this.serverService.getRequestByJobId(_this.paramsReceived)
+                    .subscribe(function (response) {
+                    _this.job = response;
+                    _this.setJobStatuses();
+                    _this.setJobStatusEntries();
+                }, function (error) {
+                    console.log(error);
+                });
+            }
+        });
+    };
+    JobTimelineComponent.prototype.ngAfterViewInit = function () {
+        this.jobService.announceParentComponent({ type: __WEBPACK_IMPORTED_MODULE_4__services_job_service__["a" /* JobService */].TYPE_TIMELINE });
+    };
+    JobTimelineComponent.prototype.setJobStatusEntries = function () {
+        var _this = this;
+        this.serverService.getRequestByPath(this.path)
+            .subscribe(function (jobStatuses) {
+            console.log(jobStatuses);
+            _this.jobStatusEntries = jobStatuses._embedded.jobStatusEntries;
+            _this.formatDate();
+        }, function (error) {
+            console.log(error);
+        });
+    };
+    JobTimelineComponent.prototype.setJobStatuses = function () {
+        var _this = this;
+        var jobType = this.job.type;
+        var pathRequest = "http://localhost:8081/api/jobTypes/" + jobType + "/jobStatuses";
+        this.serverService.getRequestByPath(pathRequest)
+            .subscribe(function (response) {
+            _this.jobStatuses = response._embedded.jobStatuses;
+            console.log(response);
+        }, function (error) {
+            console.log(error);
+        });
+    };
+    JobTimelineComponent.prototype.formatDate = function () {
+        this.jobStatusEntries.forEach(function (data) {
+            var date = data.entryDtm;
+            var formattedDate = new Date(date);
+            data.entryDateTimeMonth = formattedDate.toDateString();
+        });
+    };
+    JobTimelineComponent.prototype.getFormattedCssString = function (value) {
+        value = value.toLowerCase().trim().replace(/\s+/g, '-');
+        console.log(value);
+        return value;
+    };
+    JobTimelineComponent.prototype.ngOnDestroy = function () {
+    };
+    return JobTimelineComponent;
+}());
+JobTimelineComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-job-timeline',
+        template: __webpack_require__("../../../../../src/app/components/jobs/job/job-timeline/job-timeline.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/components/jobs/job/job-timeline/job-timeline.component.scss")],
+        encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_19" /* ViewEncapsulation */].None
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_server_service__["a" /* ServerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_server_service__["a" /* ServerService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["l" /* ChangeDetectorRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["l" /* ChangeDetectorRef */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_4__services_job_service__["a" /* JobService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_job_service__["a" /* JobService */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_5__ng_bootstrap_ng_bootstrap__["b" /* NgbModal */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__ng_bootstrap_ng_bootstrap__["b" /* NgbModal */]) === "function" && _g || Object])
+], JobTimelineComponent);
+
+var _a, _b, _c, _d, _e, _f, _g;
+//# sourceMappingURL=job-timeline.component.js.map
 
 /***/ }),
 
 /***/ "../../../../../src/app/components/jobs/job/job.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ul class=\"nav nav-tabs\">\n  <li class=\"nav-item\" *ngFor=\"let jobTab of jobTabs\">\n    <a class=\"nav-link\" routerLinkActive=\"active\" routerLink=\"{{jobTab.path}}\">{{jobTab.title}}</a>\n  </li>\n</ul>\n<div class=\"app-job-wrapper\">\n  <router-outlet></router-outlet>\n</div>\n"
+module.exports = "<ul class=\"nav nav-tabs\">\n  <li class=\"nav-item\" *ngFor=\"let jobTab of jobTabs\"\n      [hidden]=\"(id == quoteRequest || id == serviceRequest)\n                && jobTab.path != 'main'\">\n    <a class=\"nav-link\" routerLinkActive=\"active\" routerLink=\"{{jobTab.path}}\">{{jobTab.title}}</a>\n  </li>\n</ul>\n<div class=\"app-job-wrapper\">\n  <router-outlet></router-outlet>\n</div>\n"
 
 /***/ }),
 
@@ -1921,7 +2418,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "app-job .nav-item {\n  font-size: 1.3rem;\n  line-height: 1.5;\n  width: 150px;\n  text-align: center; }\n\napp-job .app-job-wrapper {\n  min-height: 100vh; }\n", ""]);
+exports.push([module.i, ".nav-tabs {\n  text-align: center; }\n\n.nav-item {\n  font-size: 1.3rem;\n  line-height: 1.5;\n  width: 150px;\n  text-align: center; }\n\n.app-job-wrapper {\n  min-height: 100vh; }\n", ""]);
 
 // exports
 
@@ -1935,13 +2432,13 @@ module.exports = module.exports.toString();
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return JobComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__job_tabs__ = __webpack_require__("../../../../../src/app/components/jobs/job/job-tabs.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_job_service__ = __webpack_require__("../../../../../src/app/services/job.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_server_service__ = __webpack_require__("../../../../../src/app/services/server-service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_app_interaction_service__ = __webpack_require__("../../../../../src/app/services/app-interaction.service.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return JobComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1964,94 +2461,77 @@ var JobComponent = (function () {
         this.jobService = jobService;
         this.appInteractionService = appInteractionService;
         this.jobTabs = __WEBPACK_IMPORTED_MODULE_1__job_tabs__["a" /* jobTabs */];
-        this.customerUuid = null;
-        this.jobType = null;
+        this.id = null;
+        this.type = null;
+        this.jobId = null;
+        this.data = null;
+        this.partyId = null;
+        this.quoteRequest = __WEBPACK_IMPORTED_MODULE_5__services_app_interaction_service__["a" /* AppInteractionService */].QUOTE_REQUEST;
+        this.serviceRequest = __WEBPACK_IMPORTED_MODULE_5__services_app_interaction_service__["a" /* AppInteractionService */].SERVICE_REQUEST;
     }
     JobComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.activatedRoute.params.subscribe(function (params) {
             console.log(params);
-            _this.paramsReceived = params['id'];
-            if (params['id'] === __WEBPACK_IMPORTED_MODULE_5__services_app_interaction_service__["a" /* AppInteractionService */].SERVICE_REQUEST
-                || params['id'] === __WEBPACK_IMPORTED_MODULE_5__services_app_interaction_service__["a" /* AppInteractionService */].QUOTE_REQUEST) {
-                _this.paramsReceived = null;
-                if (params['id'] === __WEBPACK_IMPORTED_MODULE_5__services_app_interaction_service__["a" /* AppInteractionService */].SERVICE_REQUEST) {
-                    _this.jobType = __WEBPACK_IMPORTED_MODULE_5__services_app_interaction_service__["a" /* AppInteractionService */].SERVICE_REQUEST;
-                }
-                else if (params['id'] === __WEBPACK_IMPORTED_MODULE_5__services_app_interaction_service__["a" /* AppInteractionService */].QUOTE_REQUEST) {
-                    _this.jobType = __WEBPACK_IMPORTED_MODULE_5__services_app_interaction_service__["a" /* AppInteractionService */].QUOTE_REQUEST;
-                }
-            }
+            _this.id = params['id'];
+            _this.type = __WEBPACK_IMPORTED_MODULE_5__services_app_interaction_service__["a" /* AppInteractionService */].TYPE_MAIN;
+            _this.announceToChildComponents();
         }, function (error) {
             console.log(error);
         });
         this.childComponentSubscription = this.jobService.childComponentObservable
             .subscribe(function (data) {
-            if (data.type === __WEBPACK_IMPORTED_MODULE_3__services_job_service__["a" /* JobService */].TYPE_MAIN) {
-                _this.announceToMain();
+            if (data && data.id) {
+                _this.id = data.id;
             }
-            if (data.type === __WEBPACK_IMPORTED_MODULE_3__services_job_service__["a" /* JobService */].TYPE_COMMENTS) {
-                _this.announceToComments();
+            if (data && data.type) {
+                _this.type = data.type;
             }
-            if (data.type === __WEBPACK_IMPORTED_MODULE_3__services_job_service__["a" /* JobService */].TYPE_SCHEDULES) {
-                _this.announceToSchedules();
+            if (data && data.partyId) {
+                _this.partyId = data.partyId;
             }
-            if (data.type === __WEBPACK_IMPORTED_MODULE_3__services_job_service__["a" /* JobService */].TYPE_FIELDWORKS) {
-                _this.announceToFieldWorks();
-            }
-            if (data.type === __WEBPACK_IMPORTED_MODULE_3__services_job_service__["a" /* JobService */].TYPE_BILLS) {
-                _this.announceToBills();
-            }
-            if (data.type === __WEBPACK_IMPORTED_MODULE_3__services_job_service__["a" /* JobService */].TYPE_INVOICES) {
-                _this.announceToInvoices();
-            }
-        }, function (error) { console.log(error); });
+            _this.announceToChildComponents();
+        }, function (error) {
+            console.log(error);
+        });
         this.appServiceSubscription = this.appInteractionService.appSourceObservable
             .subscribe(function (data) {
             console.log(data);
-            if (data && data.customerUuid && data.jobType) {
-                _this.customerUuid = data.customerUuid;
-                _this.jobType = data.jobType;
-                _this.paramsReceived = null;
-                _this.announceToMain();
+            if (data && data.id) {
+                _this.id = data.id;
+            }
+            if (data && data.type) {
+                _this.type = data.type;
+            }
+            if (data && data.partyId) {
+                _this.partyId = data.partyId;
             }
         });
     };
     JobComponent.prototype.ngAfterViewInit = function () {
-        this.appInteractionService.requestApplicationComponent({ customerUuid: this.customerUuid,
-            jobType: this.jobType, type: __WEBPACK_IMPORTED_MODULE_5__services_app_interaction_service__["a" /* AppInteractionService */].QUOTE_REQUEST });
+        this.appInteractionService.requestApplicationComponent({ id: this.id, type: this.type, partyId: this.partyId });
     };
-    JobComponent.prototype.announceToMain = function () {
-        console.log(this.customerUuid);
-        this.jobService.announceJobDetail({ id: this.paramsReceived, type: __WEBPACK_IMPORTED_MODULE_3__services_job_service__["a" /* JobService */].TYPE_MAIN,
-            customerUuid: this.customerUuid, jobType: this.jobType });
-    };
-    JobComponent.prototype.announceToComments = function () {
-        this.jobService.announceJobDetail({ id: this.paramsReceived, type: __WEBPACK_IMPORTED_MODULE_3__services_job_service__["a" /* JobService */].TYPE_COMMENTS });
-    };
-    JobComponent.prototype.announceToSchedules = function () {
-        this.jobService.announceJobDetail({ id: this.paramsReceived, type: __WEBPACK_IMPORTED_MODULE_3__services_job_service__["a" /* JobService */].TYPE_SCHEDULES });
-    };
-    JobComponent.prototype.announceToFieldWorks = function () {
-        this.jobService.announceJobDetail({ id: this.paramsReceived, type: __WEBPACK_IMPORTED_MODULE_3__services_job_service__["a" /* JobService */].TYPE_FIELDWORKS });
-    };
-    JobComponent.prototype.announceToBills = function () {
-        this.jobService.announceJobDetail({ id: this.paramsReceived, type: __WEBPACK_IMPORTED_MODULE_3__services_job_service__["a" /* JobService */].TYPE_BILLS });
-    };
-    JobComponent.prototype.announceToInvoices = function () {
-        this.jobService.announceJobDetail({ id: this.paramsReceived, type: __WEBPACK_IMPORTED_MODULE_3__services_job_service__["a" /* JobService */].TYPE_INVOICES });
+    JobComponent.prototype.announceToChildComponents = function () {
+        console.log(this.id);
+        console.log(this.type);
+        console.log(this.partyId);
+        this.jobService.announceJobDetail({
+            id: this.id,
+            type: this.type,
+            partyId: this.partyId
+        });
     };
     return JobComponent;
 }());
 JobComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-job',
         template: __webpack_require__("../../../../../src/app/components/jobs/job/job.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/jobs/job/job.component.scss")],
-        encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewEncapsulation"].None,
+        encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_19" /* ViewEncapsulation */].None,
         providers: [__WEBPACK_IMPORTED_MODULE_3__services_job_service__["a" /* JobService */]]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__services_server_service__["a" /* ServerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_server_service__["a" /* ServerService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* ActivatedRoute */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__services_job_service__["a" /* JobService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_job_service__["a" /* JobService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__services_app_interaction_service__["a" /* AppInteractionService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__services_app_interaction_service__["a" /* AppInteractionService */]) === "function" && _d || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__services_server_service__["a" /* ServerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_server_service__["a" /* ServerService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__services_job_service__["a" /* JobService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_job_service__["a" /* JobService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__services_app_interaction_service__["a" /* AppInteractionService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__services_app_interaction_service__["a" /* AppInteractionService */]) === "function" && _d || Object])
 ], JobComponent);
 
 var _a, _b, _c, _d;
@@ -2062,7 +2542,7 @@ var _a, _b, _c, _d;
 /***/ "../../../../../src/app/components/jobs/jobs.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"dropdown new-job-dropdown\" [ngClass]=\"{'show': showDropdown }\">\n  <button class=\"btn btn-primary dropdown-toggle\" type=\"button\"\n          id=\"dropdownMenuButton\"\n          data-toggle=\"dropdown\"\n          aria-haspopup=\"true\"\n          aria-expanded=\"false\"\n          (click)=\"toggleDropdown()\">\n    New Job\n  </button>\n  <div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">\n    <button class=\"dropdown-item btn btn-primary\" (click)=\"onNewQuoteRequest()\">New Quote Request</button>\n    <button class=\"dropdown-item btn btn-primary\" (click)=\"onNewServiceRequest()\">New Service Request</button>\n  </div>\n</div>\n<div class=\"app-ag-grid-wrapper\">\n  <ag-grid-angular #agGrid style=\"width: 100%; overflow:hidden;transition: all 0.5s ease-in-out\" class=\"ag-fresh\"\n\n                   [gridOptions]=\"gridOptions\"\n                   [columnDefs]=\"columnDefs\"\n                   domLayout='autoHeight'\n                   [rowData]=\"rowData\"\n                   headerHeight=\"40\"\n                   enableColResize\n                   enableSorting\n                   enableFilter\n\n                   rowHeight=\"30\"\n                   rowSelection=\"multiple\"\n\n                   (modelUpdated)=\"onModelUpdated()\"\n                   (cellClicked)=\"onCellClicked($event)\"\n                   (cellDoubleClicked)=\"onCellDoubleClicked($event)\">\n\n  </ag-grid-angular>\n  <div>\n    <button class=\"btn btn-primary\">Create Invoice</button>\n  </div>\n</div>\n\n"
+module.exports = "<div class=\"dropdown new-job-dropdown\" [ngClass]=\"{'show': showDropdown }\">\n  <button class=\"btn btn-primary dropdown-toggle\" type=\"button\"\n          id=\"dropdownMenuButton\"\n          data-toggle=\"dropdown\"\n          aria-haspopup=\"true\"\n          aria-expanded=\"false\"\n          (click)=\"toggleDropdown()\">\n    New Job\n  </button>\n  <div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">\n    <button class=\"dropdown-item btn btn-primary\" (click)=\"onNewQuoteRequest()\">New Quote Request</button>\n    <button class=\"dropdown-item btn btn-primary\" (click)=\"onNewServiceRequest()\">New Service Request</button>\n  </div>\n</div>\n<div class=\"app-ag-grid-wrapper\">\n\n  <div>\n    <button class=\"btn btn-primary\">Create Invoice</button>\n  </div>\n</div>\n\n"
 
 /***/ }),
 
@@ -2074,7 +2554,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "ag-grid-angular {\n  margin: 2rem 0; }\n\n.new-job-dropdown {\n  margin-bottom: 5rem; }\n\n.dropdown {\n  position: relative; }\n\n.ag-header-container {\n  font-size: 1.3rem; }\n\n.ag-body-container {\n  font-size: 1rem;\n  line-height: 1; }\n\n.first-column, .second-column {\n  color: #0275d8;\n  cursor: pointer; }\n\n.first-column:hover, .second-column:hover {\n  background-color: #b1ebf8;\n  color: black; }\n\n.app-table-cell {\n  padding: 10px !important; }\n", ""]);
+exports.push([module.i, "ag-grid-angular {\n  margin: 2rem 0; }\n\napp-jobs .new-job-dropdown {\n  margin-bottom: 5rem; }\n\napp-jobs .dropdown {\n  position: relative; }\n\napp-jobs .ag-header-container {\n  font-size: 1.3rem; }\n\napp-jobs .ag-body-container {\n  font-size: 1rem;\n  line-height: 1; }\n\napp-jobs .first-column, app-jobs .second-column {\n  color: #0275d8;\n  cursor: pointer; }\n\napp-jobs .first-column:hover, app-jobs .second-column:hover {\n  background-color: #b1ebf8;\n  color: black; }\n\napp-jobs .app-table-cell {\n  padding: 10px !important; }\n", ""]);
 
 // exports
 
@@ -2088,11 +2568,12 @@ module.exports = module.exports.toString();
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return JobsComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_server_service__ = __webpack_require__("../../../../../src/app/services/server-service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_nav_bar_service__ = __webpack_require__("../../../../../src/app/services/nav-bar.service.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return JobsComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_app_interaction_service__ = __webpack_require__("../../../../../src/app/services/app-interaction.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2102,6 +2583,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -2174,13 +2656,6 @@ var JobsComponent = (function () {
     };
     JobsComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.gridOptions = {
-            context: {
-                componentParent: this
-            },
-            rowData: this.rowData,
-            columnDefs: this.columnDefs
-        };
         this.serverService.getAllJobs()
             .subscribe(function (response) {
             _this.rowData = response._embedded.jobs;
@@ -2191,15 +2666,9 @@ var JobsComponent = (function () {
         this.navBarSubscription = this.navBarService.getNavBarSubject().subscribe(function (value) {
             // the timings of the nav bar css transition should be considered
             console.log("sizeColumnsToFit");
-            setTimeout(function () {
-                if (_this.gridOptions && _this.gridOptions.api) {
-                    _this.gridOptions.api.sizeColumnsToFit();
-                }
-            }, 200);
         });
     };
     JobsComponent.prototype.ngAfterViewInit = function () {
-        this.gridOptions.api.sizeColumnsToFit();
     };
     JobsComponent.prototype.formatRowData = function () {
         for (var i = 0; i < this.rowData.length; i++) {
@@ -2212,7 +2681,7 @@ var JobsComponent = (function () {
             }
             // let id = this.job[i]._links.self.href
             //   .substr(this.job[i]._links.self.href.lastIndexOf('/') + 1);
-            // this.job[i].jobId = id;
+            // this.job[i].partyId = id;
         }
     };
     JobsComponent.prototype.onModelUpdated = function () {
@@ -2250,27 +2719,39 @@ var JobsComponent = (function () {
     JobsComponent.prototype.onNewQuoteRequest = function () {
         console.log('onNewQuoteRequest');
         this.toggleDropdown();
+        this.router.navigate(['jobs', __WEBPACK_IMPORTED_MODULE_4__services_app_interaction_service__["a" /* AppInteractionService */].QUOTE_REQUEST, "main"])
+            .then(function (value) {
+            console.log(value);
+        }).catch(function (error) {
+            console.log(error);
+        });
     };
     JobsComponent.prototype.onNewServiceRequest = function () {
         console.log('onNewServiceRequest');
         this.toggleDropdown();
+        this.router.navigate(['jobs', __WEBPACK_IMPORTED_MODULE_4__services_app_interaction_service__["a" /* AppInteractionService */].SERVICE_REQUEST, "main"])
+            .then(function (value) {
+            console.log(value);
+        }).catch(function (error) {
+            console.log(error);
+        });
     };
     return JobsComponent;
 }());
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"])('document:keyup', ['$event']),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* HostListener */])('document:keyup', ['$event']),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], JobsComponent.prototype, "handleKeyboardEvent", null);
 JobsComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-jobs',
         template: __webpack_require__("../../../../../src/app/components/jobs/jobs.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/jobs/jobs.component.scss")],
-        encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewEncapsulation"].None
+        encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_19" /* ViewEncapsulation */].None
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_server_service__["a" /* ServerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_server_service__["a" /* ServerService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__services_nav_bar_service__["a" /* NavBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_nav_bar_service__["a" /* NavBarService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* ActivatedRoute */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"]) === "function" && _e || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_server_service__["a" /* ServerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_server_service__["a" /* ServerService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__services_nav_bar_service__["a" /* NavBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_nav_bar_service__["a" /* NavBarService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["l" /* ChangeDetectorRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["l" /* ChangeDetectorRef */]) === "function" && _e || Object])
 ], JobsComponent);
 
 var _a, _b, _c, _d, _e;
@@ -2278,10 +2759,72 @@ var _a, _b, _c, _d, _e;
 
 /***/ }),
 
+/***/ "../../../../../src/app/components/navbar/navbar.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"app-logo-container\">\n  <a href=\"#\">\n    <img src=\"assets/img/logos/logo-inverse.png\" id=\"app-logo\">\n  </a>\n</div>\n<ul class=\"app-navbar-list\" id=\"app-navbar-list\">\n  <li class=\"app-navbar-item\"\n      routerLink=\"parties\"\n      routerLinkActive=\"active\">\n    <a routerLink=\"parties\"\n      routerLinkActive=\"active\"\n       class=\"app-anchor\">\n      Parties\n    </a>\n  </li>\n  <li routerLink=\"jobs\"\n      class=\"app-navbar-item\"\n      routerLinkActive=\"active\">\n    <a routerLink=\"jobs\"\n      routerLinkActive=\"active\"\n       class=\"app-anchor\">\n      Jobs\n    </a>\n  </li>\n  <li class=\"app-navbar-item\"\n      routerLink=\"staff\"\n      routerLinkActive=\"active\">\n    <a routerLink=\"staff\"\n       routerLinkActive=\"active\"\n       class=\"app-anchor\">\n      Staff\n    </a>\n  </li>\n</ul>\n\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/navbar/navbar.component.scss":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".app-logo-container {\n  padding: 1rem; }\n\n#app-logo {\n  width: 12rem; }\n\n#app-navbar-list {\n  font-family: sans-serif inherit;\n  font-size: 1rem; }\n\n.app-navbar-item {\n  padding: 0.5rem 2rem;\n  border-left: 3px groove transparent; }\n\n.app-navbar-item.active,\n.app-navbar-item:hover,\n.app-navbar-item:hover > a,\n.app-anchor.active {\n  border-color: #00B9FF;\n  background-color: #283a5a;\n  outline: none;\n  color: #00B9FF; }\n\n.app-navbar-item:hover {\n  cursor: pointer; }\n\n.app-anchor {\n  color: white;\n  display: block;\n  padding: 0;\n  margin: 0;\n  cursor: pointer; }\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/navbar/navbar.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NavbarComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var NavbarComponent = (function () {
+    function NavbarComponent() {
+    }
+    NavbarComponent.prototype.ngOnInit = function () {
+    };
+    return NavbarComponent;
+}());
+NavbarComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-navbar',
+        template: __webpack_require__("../../../../../src/app/components/navbar/navbar.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/components/navbar/navbar.component.scss")],
+        encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_19" /* ViewEncapsulation */].None
+    }),
+    __metadata("design:paramtypes", [])
+], NavbarComponent);
+
+//# sourceMappingURL=navbar.component.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/components/parties/parties.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ag-grid-angular #agGrid style=\"width: 100%; height:80vh; min-height: 80vh; transition: all 0.5s ease-in-out\" class=\"ag-fresh\"\n\n[gridOptions]=\"gridOptions\"\n[columnDefs]=\"columnDefs\"\ndomLayout='autoHeight'\n[rowData]=\"rowData\"\nheaderHeight=\"50\"\nenableColResize\nenableSorting\nenableFilter\n\nrowHeight=\"40\"\nrowSelection=\"multiple\"\n\n(modelUpdated)=\"onModelUpdated()\"\n(cellClicked)=\"onCellClicked($event)\"\n(cellDoubleClicked)=\"onCellDoubleClicked($event)\">\n\n</ag-grid-angular>\n<router-outlet></router-outlet>\n<!--[showToolPanel]=\"showToolPanel\"-->\n"
+module.exports = "<header class=\"app-header\"\n        id=\"app-header\">\n  <h1 class=\"app-header-title\"\n      id=\"app-header-title\">\n    Parties\n  </h1>\n</header>\n<header class=\"app-sub-header\"\n        id=\"app-sub-header\">\n  <button type=\"button\"\n          class=\"btn btn-sm btn-light\"\n          [routerLink]=\"createCustomer + '/main'\">\n    Create Customer\n  </button>\n  <button type=\"button\" class=\"btn btn-sm btn-info\">\n    Button\n  </button>\n  <button type=\"button\" class=\"btn btn-sm btn-primary\">\n    Button\n  </button>\n  <button type=\"button\" class=\"btn btn-sm btn-link\">\n    Button\n  </button>\n  <button type=\"button\" class=\"btn btn-sm app-btn\">\n    Button\n  </button>\n</header>\n<div class=\"app-main-content\" id=\"app-main-content\">\n  <div id=\"app-parties-search\">\n    <i class=\"fa fa-search\"></i>\n    <div class=\"app-input-wrapper\n          app-input-search-wrapper\"\n         [formGroup]=\"searchFormGroup\">\n      <input type=\"search\"\n             appFormInput\n             placeholder=\"Search\"\n             formControlName=\"search\"\n             class=\"app-input-search\"\n             id=\"search\">\n    </div>\n  </div>\n  <div class=\"app-grid\" id=\"app-grid\">\n    <div class=\"app-grid-row-header\">\n      <div class=\"app-grid-column-1\" draggable=\"true\">\n        Active Job Count\n      </div>\n      <div class=\"app-grid-column-2\" draggable=\"true\">\n        Name\n      </div>\n      <div class=\"app-grid-column-3\" draggable=\"true\">\n        Address\n      </div>\n    </div>\n    <div class=\"app-grid-row\" *ngFor=\"let party of pagedParties\"\n         (click)=\"onRowClicked(party.uuid)\">\n      <div class=\"app-grid-column-1\">\n        {{party.activeJobCount}}\n      </div>\n      <div class=\"app-grid-column-2\">\n        {{party.name}}\n      </div>\n      <div class=\"app-grid-column-3\">\n        {{party.physicalAddressStr}}\n      </div>\n    </div>\n    <!-- pager -->\n    <ul *ngIf=\"pager.pages && pager.pages.length\" class=\"pagination\">\n      <li [ngClass]=\"{'pagination-item':true, 'page-item': true, disabled:pager.currentPage === 1}\">\n        <a (click)=\"setPage(1)\" class=\"page-link\">First</a>\n      </li>\n      <li [ngClass]=\"{'pagination-item':true, 'page-item': true,disabled:pager.currentPage === 1}\">\n        <a (click)=\"setPage(pager.currentPage - 1)\" class=\"page-link\">Previous</a>\n      </li>\n      <li *ngFor=\"let page of pager.pages\"\n          [ngClass]=\"{'pagination-item':true,'page-item': true,active:pager.currentPage === page}\">\n        <a (click)=\"setPage(page)\" class=\"page-link\">{{page}}</a>\n      </li>\n      <li [ngClass]=\"{'pagination-item':true,'page-item': true,disabled:pager.currentPage === pager.totalPages}\">\n        <a (click)=\"setPage(pager.currentPage + 1)\" class=\"page-link\">Next</a>\n      </li>\n      <li [ngClass]=\"{'pagination-item':true, 'page-item': true,disabled:pager.currentPage === pager.totalPages}\">\n        <a (click)=\"setPage(pager.totalPages)\" class=\"page-link\">Last</a>\n      </li>\n    </ul>\n  </div>\n\n</div>\n<!--<router-outlet></router-outlet>-->\n<!--[showToolPanel]=\"showToolPanel\"-->\n"
 
 /***/ }),
 
@@ -2293,7 +2836,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "app-parties .ag-header-container {\n  font-size: 2rem; }\n\napp-parties .ag-body-container {\n  font-size: 1.3rem;\n  line-height: 1; }\n\napp-parties .first-column {\n  color: #0275d8;\n  cursor: pointer; }\n\napp-parties .first-column:hover {\n  background-color: #b1ebf8;\n  color: black; }\n\napp-parties .app-table-cell {\n  padding: 10px !important; }\n", ""]);
+exports.push([module.i, "button:hover {\n  cursor: pointer; }\n\n#app-main {\n  padding: 1rem 2rem; }\n\n#app-header {\n  padding: 0.5rem 0; }\n\n.app-header-title {\n  font-size: 1.3rem;\n  margin: 0; }\n\n#app-sub-header {\n  padding: 0.5rem 0; }\n\n#app-parties-search {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: nowrap;\n      flex-wrap: nowrap;\n  padding: 0.5rem 0;\n  color: #565656; }\n\n.app-btn {\n  background-color: rgba(0, 0, 0, 0.15); }\n\n.app-btn:hover {\n  background-color: rgba(0, 0, 0, 0.35); }\n\n.fa-search {\n  padding: 0.5rem;\n  background-color: rgba(0, 0, 0, 0.15); }\n\n.app-input-search-wrapper {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  padding: 0 0.5rem;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  background-color: white;\n  border: 1px solid rgba(0, 0, 0, 0.25); }\n\n.app-input-search-wrapper.focus {\n  border-color: rgba(38, 38, 38, 0.6); }\n\n.app-input-search {\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  color: #565656; }\n\n.app-grid,\n.app-grid-row-header,\n.app-grid-row {\n  display: -ms-grid;\n  display: grid; }\n\n.app-grid {\n  -ms-grid-columns: 1fr;\n      grid-template-columns: 1fr;\n  color: #565656;\n  background-color: white;\n  box-shadow: 0 1px 4px 0 rgba(38, 38, 38, 0.3);\n  border-color: white; }\n\n.app-grid-row-header, .app-grid-row {\n  -ms-grid-columns: 1fr 2fr 5fr;\n      grid-template-columns: 1fr 2fr 5fr; }\n\n.app-grid-row-header {\n  position: -webkit-sticky;\n  position: sticky;\n  top: 0;\n  z-index: 20000;\n  background-color: white;\n  font-size: 1rem;\n  font-family: Arial, Helvetica, \"Palatino Linotype\", Georgia, serif; }\n\n.app-grid-row {\n  font-size: 0.8rem;\n  font-family: Verdana, Arial, sans-serif;\n  border-bottom: 1px solid #edecec; }\n\n.app-grid-row:hover * {\n  background-color: rgba(0, 0, 0, 0.075);\n  cursor: pointer; }\n\n.app-grid-column-1,\n.app-grid-column-2,\n.app-grid-column-3 {\n  padding: 0.5rem; }\n\n.pagination {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  padding: 0.5rem;\n  margin: 1rem; }\n", ""]);
 
 // exports
 
@@ -2307,11 +2850,14 @@ module.exports = module.exports.toString();
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PartiesComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_server_service__ = __webpack_require__("../../../../../src/app/services/server-service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_nav_bar_service__ = __webpack_require__("../../../../../src/app/services/nav-bar.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PartiesComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_app_interaction_service__ = __webpack_require__("../../../../../src/app/services/app-interaction.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_app_pager_service__ = __webpack_require__("../../../../../src/app/services/app-pager.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2325,78 +2871,99 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
+
 var PartiesComponent = (function () {
-    function PartiesComponent(serverService, navBarService, changeDetectorRef, router, activatedRoute) {
+    function PartiesComponent(serverService, navBarService, changeDetectorRef, router, activatedRoute, appPagerService) {
         this.serverService = serverService;
         this.navBarService = navBarService;
         this.changeDetectorRef = changeDetectorRef;
         this.router = router;
         this.activatedRoute = activatedRoute;
-        this.columnDefs = [
-            {
-                headerName: "Party Name",
-                field: 'name',
-                cellClass: 'app-table-cell first-column'
-            },
-            {
-                headerName: "Address",
-                field: "physicalAddressStr",
-                width: 400,
-                cellClass: 'app-table-cell second-column'
-            },
-            {
-                headerName: "Active Jobs Count",
-                field: "activeJobCount",
-                cellClass: 'app-table-cell third-column'
-            }
-        ];
+        this.appPagerService = appPagerService;
+        this.createCustomer = __WEBPACK_IMPORTED_MODULE_5__services_app_interaction_service__["a" /* AppInteractionService */].CREATE_CUSTOMER;
+        this.pager = {};
     }
     PartiesComponent.prototype.ngOnInit = function () {
         var _this = this;
         console.log(this.constructor.name);
-        this.gridOptions = {
-            context: {
-                componentParent: this
-            },
-            rowData: this.rowData,
-            columnDefs: this.columnDefs
-        };
+        this.searchFormGroup = new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["b" /* FormGroup */]({
+            'search': new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormControl */](null)
+        });
         this.serverService.getAllParties()
             .subscribe(function (response) {
-            _this.rowData = response._embedded.parties;
+            _this.parties = response._embedded.parties.slice();
+            _this.originalParties = response._embedded.parties.slice();
+            _this.prepareSearchInput();
+            _this.setPage(1);
         }, function (error) {
             console.log(error);
         });
         this.navBarSubscription = this.navBarService.getNavBarSubject().subscribe(function (value) {
             // the timings of the nav bar css transition should be considered
             console.log("sizeColumnsToFit");
-            setTimeout(function () {
-                if (_this.gridOptions && _this.gridOptions.api) {
-                    _this.gridOptions.api.sizeColumnsToFit();
-                }
-            }, 500);
         });
+    };
+    PartiesComponent.prototype.setPage = function (page) {
+        if (page < 1 || page > this.pager.totalPages) {
+            return;
+        }
+        // get pager object from service
+        this.pager = this.appPagerService.getPager(this.originalParties.length, page);
+        // get current page of items
+        this.pagedParties = this.originalParties.slice(this.pager.startIndex, this.pager.endIndex + 1);
     };
     PartiesComponent.prototype.newCustomer = function () {
     };
     PartiesComponent.prototype.onModelUpdated = function () {
         console.log("onModeUpdated");
     };
-    PartiesComponent.prototype.onCellClicked = function ($event) {
-        if ($event.column.colId === 'name') {
-            var href = $event.data.uuid;
-            this.router.navigate([href, 'main'], { relativeTo: this.activatedRoute })
-                .then(function (value) {
-                console.log(value);
-            }).catch(function (error) {
-                console.log(error);
-            });
-        }
+    PartiesComponent.prototype.onRowClicked = function (uuid) {
+        var href = uuid;
+        this.router.navigate([href, 'main'], { relativeTo: this.activatedRoute })
+            .then(function (value) {
+            console.log(value);
+        }).catch(function (error) {
+            console.log(error);
+        });
     };
     PartiesComponent.prototype.onCellDoubleClicked = function ($event) {
     };
+    PartiesComponent.prototype.prepareSearchInput = function () {
+        var _this = this;
+        this.searchFormGroup.get('search')
+            .valueChanges.subscribe(function (value) {
+            console.log(value.trim().length);
+            if (value.trim().length > 0) {
+                _this.pagedParties.length = 0;
+                for (var i = 0; i < _this.originalParties.length; i++) {
+                    if (_this.originalParties[i].name.toLowerCase().search(value.toLowerCase()) > -1) {
+                        _this.pagedParties.push(_this.originalParties[i]);
+                    }
+                }
+                for (var i = 0; i < _this.originalParties.length; i++) {
+                    if (_this.originalParties[i].physicalAddressStr && _this.originalParties[i].physicalAddressStr.toLowerCase().search(value.toLowerCase()) > -1) {
+                        _this.pagedParties.push(_this.originalParties[i]);
+                    }
+                }
+                for (var i = 0; i < _this.originalParties.length; i++) {
+                    if (_this.originalParties[i].email && _this.originalParties[i].email.toLowerCase().search(value.toLowerCase()) > -1) {
+                        _this.pagedParties.push(_this.originalParties[i]);
+                    }
+                }
+            }
+            else {
+                console.log(_this.originalParties);
+                _this.pagedParties = _this.originalParties.slice();
+                _this.setPage(_this.pager.currentPage);
+            }
+            console.log(value);
+        }, function (error) {
+            console.log(error);
+        });
+    };
     PartiesComponent.prototype.ngAfterViewInit = function () {
-        this.gridOptions.api.sizeColumnsToFit();
     };
     PartiesComponent.prototype.ngOnDestroy = function () {
         this.navBarSubscription.unsubscribe();
@@ -2404,16 +2971,16 @@ var PartiesComponent = (function () {
     return PartiesComponent;
 }());
 PartiesComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-parties',
         template: __webpack_require__("../../../../../src/app/components/parties/parties.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/parties/parties.component.scss")],
-        encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewEncapsulation"].None
+        encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_19" /* ViewEncapsulation */].None
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_server_service__["a" /* ServerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_server_service__["a" /* ServerService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_nav_bar_service__["a" /* NavBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_nav_bar_service__["a" /* NavBarService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* Router */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* ActivatedRoute */]) === "function" && _e || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_server_service__["a" /* ServerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_server_service__["a" /* ServerService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_nav_bar_service__["a" /* NavBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_nav_bar_service__["a" /* NavBarService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["l" /* ChangeDetectorRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["l" /* ChangeDetectorRef */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_6__services_app_pager_service__["a" /* AppPagerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__services_app_pager_service__["a" /* AppPagerService */]) === "function" && _f || Object])
 ], PartiesComponent);
 
-var _a, _b, _c, _d, _e;
+var _a, _b, _c, _d, _e, _f;
 //# sourceMappingURL=parties.component.js.map
 
 /***/ }),
@@ -2421,7 +2988,7 @@ var _a, _b, _c, _d, _e;
 /***/ "../../../../../src/app/components/parties/party/party-bills/party-bills.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"app-ag-grid-wrapper\">\n  <ag-grid-angular #agGrid style=\"width: 100%; overflow:hidden;transition: all 0.5s ease-in-out\" class=\"ag-fresh\"\n\n                   [gridOptions]=\"gridOptions\"\n                   [columnDefs]=\"columnDefs\"\n                   domLayout='autoHeight'\n                   [rowData]=\"rowData\"\n                   headerHeight=\"50\"\n                   enableColResize\n                   enableSorting\n                   enableFilter\n\n                   rowHeight=\"40\"\n                   rowSelection=\"multiple\"\n\n                   (modelUpdated)=\"onModelUpdated()\"\n                   (cellClicked)=\"onCellClicked($event)\"\n                   (cellDoubleClicked)=\"onCellDoubleClicked($event)\">\n\n  </ag-grid-angular>\n</div>\n"
+module.exports = "<div class=\"app-ag-grid-wrapper\">\n\n</div>\n"
 
 /***/ }),
 
@@ -2447,12 +3014,12 @@ module.exports = module.exports.toString();
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PartyBillsComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_server_service__ = __webpack_require__("../../../../../src/app/services/server-service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_party_service__ = __webpack_require__("../../../../../src/app/services/party.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_nav_bar_service__ = __webpack_require__("../../../../../src/app/services/nav-bar.service.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PartyBillsComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2482,7 +3049,7 @@ var PartyBillsComponent = (function () {
             },
             {
                 headerName: "Job id",
-                field: "jobId",
+                field: "partyId",
                 cellClass: 'second-column app-table-cell'
             },
             {
@@ -2511,13 +3078,6 @@ var PartyBillsComponent = (function () {
                     .subscribe(function (bills) {
                     console.log(bills);
                     _this.rowData = bills._embedded.bills;
-                    _this.gridOptions = {
-                        context: {
-                            componentParent: _this
-                        },
-                        rowData: _this.rowData,
-                        columnDefs: _this.columnDefs
-                    };
                 }, function (error) {
                     console.log(error);
                 });
@@ -2525,9 +3085,6 @@ var PartyBillsComponent = (function () {
         }, function (error) { return console.log(error); });
         this.navBarSubscription = this.navBarService.getNavBarSubject().subscribe(function (value) {
             console.log("sizeColumnsToFit");
-            if (_this.gridOptions && _this.gridOptions.api) {
-                _this.gridOptions.api.sizeColumnsToFit();
-            }
         });
     };
     PartyBillsComponent.prototype.onModelUpdated = function () {
@@ -2551,9 +3108,6 @@ var PartyBillsComponent = (function () {
     };
     PartyBillsComponent.prototype.ngAfterViewInit = function () {
         this.partyService.announceParentComponent({ type: __WEBPACK_IMPORTED_MODULE_3__services_party_service__["a" /* PartyService */].TYPE_BILLS });
-        if (this.gridOptions && this.gridOptions.api) {
-            this.gridOptions.api.sizeColumnsToFit();
-        }
     };
     PartyBillsComponent.prototype.ngOnDestroy = function () {
         this.navBarSubscription.unsubscribe();
@@ -2562,12 +3116,12 @@ var PartyBillsComponent = (function () {
     return PartyBillsComponent;
 }());
 PartyBillsComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-party-bills',
         template: __webpack_require__("../../../../../src/app/components/parties/party/party-bills/party-bills.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/parties/party/party-bills/party-bills.component.scss")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_server_service__["a" /* ServerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_server_service__["a" /* ServerService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__services_party_service__["a" /* PartyService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_party_service__["a" /* PartyService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__services_nav_bar_service__["a" /* NavBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_nav_bar_service__["a" /* NavBarService */]) === "function" && _d || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_server_service__["a" /* ServerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_server_service__["a" /* ServerService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__services_party_service__["a" /* PartyService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_party_service__["a" /* PartyService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__services_nav_bar_service__["a" /* NavBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_nav_bar_service__["a" /* NavBarService */]) === "function" && _d || Object])
 ], PartyBillsComponent);
 
 var _a, _b, _c, _d;
@@ -2578,7 +3132,7 @@ var _a, _b, _c, _d;
 /***/ "../../../../../src/app/components/parties/party/party-comments/party-comments.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"app-form-container\">\n  <h3 class=\"app-form-header\">Users Comments</h3>\n  <hr class=\"app-comments-hr\">\n  <div *ngIf=\"userComments\">\n    <ul class=\"app-users-comments\" *ngFor=\"let eachComment of userComments; let i = index;\">\n\n      <li class=\"app-user-comment\">{{i + 1}}.&nbsp;{{eachComment.comment}}\n        <span class=\"app-comment-detail\"> - created by\n              <span class=\"app-comment-by\">{{eachComment.user}}</span>\n              on <span class=\"app-comment-on\"> {{eachComment.commentDtm}}</span></span>\n      </li>\n      <hr class=\"user-comment-hr\">\n    </ul>\n  </div>\n  <form [formGroup]=\"commentForm\" (ngSubmit)=\"onSubmit()\" *ngIf=\"newComment\">\n    <div class=\"app-form-group\">\n      <textarea\n        rows=\"5\"\n        formControlName=\"user-comment\"\n        class=\"app-form-comment-input\"></textarea>\n    </div>\n    <div class=\"app-update-comment\">\n      <button type=\"submit\" class=\"btn btn-primary\">Save</button>\n      <button type=\"button\" class=\"btn btn-primary\" (click)=\"dontSaveUserComment()\">Don't Save</button>\n      <button type=\"button\" class=\"btn btn-primary\">Upload File</button>\n    </div>\n  </form>\n  <div>\n    <button *ngIf=\"!newComment\" type=\"button\" class=\"btn btn-primary\" (click)=\"createNewComment()\">New\n      comment\n    </button>\n  </div>\n</div>\n"
+module.exports = "<div class=\"app-form-groups-container\">\n  <h3 class=\"app-form-header\">Users Comments</h3>\n  <hr class=\"app-comments-hr\">\n  <div *ngIf=\"userComments\">\n    <div class=\"app-users-comments\" *ngFor=\"let eachComment of userComments; let i = index;\">\n\n      <div class=\"app-user-comment\">{{i + 1}}.&nbsp;{{eachComment.comment}}\n        <span class=\"app-comment-detail\"> - created by\n              <span class=\"app-comment-by\">{{eachComment.user}}</span>\n              on <span class=\"app-comment-on\"> {{eachComment.commentDtm}}</span></span>\n      </div>\n      <div *ngIf=\"eachComment.uploadedFiles && eachComment.uploadedFiles.length != 0\">\n        <span>Files:</span>\n        <a [href]=\"commentsUploadedFiles + '/' + eachFile.uuid + '/download'\" *ngFor=\"let eachFile of eachComment.uploadedFiles\">\n          {{eachFile.name}}\n\n        </a>\n      </div>\n      <hr class=\"user-comment-hr\">\n    </div>\n  </div>\n  <form [formGroup]=\"commentForm\" (ngSubmit)=\"onSubmit()\" *ngIf=\"newComment\" class=\"app-form\">\n    <div class=\"app-form-group\">\n      <div class=\"app-form-input-wrapper app-form-comments-wrapper\">\n        <textarea\n          placeholder=\"Enter comment\"\n          rows=\"5\"\n          appFormInput\n          formControlName=\"user-comment\"\n          class=\"app-form-input app-form-comment-input\">\n        </textarea>\n      </div>\n    </div>\n    <div class=\"app-form-group app-form-uploaded-Files\" *ngIf=\"uploadedFiles.length != 0\">\n      <span>Uploaded Files:&nbsp;&nbsp;&nbsp;\n        <span *ngFor=\"let uploadedFile of uploadedFiles\">\n        {{uploadedFile.name}}\n      </span>\n      </span>\n    </div>\n    <div class=\"app-form-group\">\n      <div class=\"app-form-input-wrapper\n                  app-form-file-upload-wrapper\">\n        <button type=\"submit\"\n                class=\"btn btn-primary\n                       app-form-save-button\"\n                       [disabled]=\"getFileUploadStatus()\">\n          Save\n        </button>\n        <button type=\"button\"\n                class=\"btn btn-primary\n                       app-form-dont-save-button\"\n                [disabled]=\"getFileUploadStatus()\"\n                (click)=\"dontSaveUserComment()\">Don't Save</button>\n        <input\n          type=\"file\"\n          id=\"party-file-upload\"\n          #fileInput\n          appFormInput\n          class=\"app-form-input  app-form-file-upload\"\n          placeholder=\"Upload file\"\n          accept=\".pdf,.doc,.docx\"\n          [disabled]=\"getFileUploadStatus()\">\n        <div class=\"app-form-file-upload-message\" *ngIf=\"getUploadMessage()\">\n          {{this.uploadMessage}}\n        </div>\n        <button type=\"button\"\n                class=\"btn btn-primary\n                       app-form-file-upload-button\"\n                [disabled]=\"getFileUploadStatus()\"\n              (click)=\"uploadFile()\">Upload File</button>\n      </div>\n    </div>\n  </form>\n  <div>\n    <button *ngIf=\"!newComment\" type=\"button\" class=\"btn btn-primary\" (click)=\"createNewComment()\">New\n      comment\n    </button>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -2590,7 +3144,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".app-comments-hr {\n  border: 1px solid black; }\n\n.app-users-comments {\n  list-style: none;\n  padding-left: 1rem; }\n\ntextarea {\n  display: block;\n  width: 100%; }\n", ""]);
+exports.push([module.i, "app-party-comments .app-form-group {\n  -ms-grid-columns: 1fr;\n      grid-template-columns: 1fr; }\n", ""]);
 
 // exports
 
@@ -2604,6 +3158,7 @@ module.exports = module.exports.toString();
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PartyCommentsComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_party_service__ = __webpack_require__("../../../../../src/app/services/party.service.ts");
@@ -2611,7 +3166,6 @@ module.exports = module.exports.toString();
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_server_service__ = __webpack_require__("../../../../../src/app/services/server-service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PartyCommentsComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2640,6 +3194,11 @@ var PartyCommentsComponent = (function () {
         this.userComments = null;
         this.newComment = false;
         this.path = null;
+        this.uploadMessage = null;
+        this.uploadingFile = false;
+        this.commentUuid = null;
+        this.uploadedFiles = [];
+        this.commentsUploadedFiles = __WEBPACK_IMPORTED_MODULE_4__services_server_service__["a" /* ServerService */].uploadedFilesUrl;
     }
     PartyCommentsComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -2647,7 +3206,7 @@ var PartyCommentsComponent = (function () {
             .subscribe(function (data) {
             if (data && data.id && data.type === __WEBPACK_IMPORTED_MODULE_2__services_party_service__["a" /* PartyService */].TYPE_COMMENTS) {
                 _this.paramsReceived = data.id;
-                _this.path = "http://localhost:8080/api/parties/" + _this.paramsReceived + "/comments";
+                _this.path = "http://localhost:8081/api/parties/" + _this.paramsReceived + "/comments";
                 _this.getUserComments();
             }
         });
@@ -2661,16 +3220,35 @@ var PartyCommentsComponent = (function () {
             .subscribe(function (comments) {
             console.log(comments);
             _this.userComments = comments._embedded.comments;
-            _this.formatDate();
+            _this.formatComments();
+            _this.getCommentsFiles();
         }, function (error) {
             console.log(error);
         });
     };
-    PartyCommentsComponent.prototype.formatDate = function () {
+    PartyCommentsComponent.prototype.formatComments = function () {
         this.userComments.forEach(function (data) {
             var date = data.commentDtm;
             var formattedDate = new Date(date);
             data.commentDtm = formattedDate.toDateString();
+        });
+        this.userComments.forEach(function (data) {
+            console.log(data);
+            var path = data._links.self.href;
+            var index = path.lastIndexOf("/") + 1;
+            data.commentId = path.substring(index);
+        });
+    };
+    PartyCommentsComponent.prototype.getCommentsFiles = function () {
+        var _this = this;
+        this.userComments.forEach(function (comment) {
+            _this.serverService.getUploadedFilesFromCommentsId(comment.commentId).
+                subscribe(function (response) {
+                comment.uploadedFiles = response._embedded.uploadedFiles;
+                console.log(comment.uploadedFiles);
+            }, function (error) {
+                console.log(error);
+            });
         });
     };
     PartyCommentsComponent.prototype.createNewComment = function () {
@@ -2679,8 +3257,8 @@ var PartyCommentsComponent = (function () {
         this.newComment = true;
     };
     PartyCommentsComponent.prototype.createCommentForm = function () {
-        this.commentForm = new __WEBPACK_IMPORTED_MODULE_6__angular_forms__["e" /* FormGroup */]({
-            'user-comment': new __WEBPACK_IMPORTED_MODULE_6__angular_forms__["f" /* FormControl */](null, [__WEBPACK_IMPORTED_MODULE_6__angular_forms__["g" /* Validators */].required, this.validateComment.bind(this)])
+        this.commentForm = new __WEBPACK_IMPORTED_MODULE_6__angular_forms__["b" /* FormGroup */]({
+            'user-comment': new __WEBPACK_IMPORTED_MODULE_6__angular_forms__["a" /* FormControl */](null, [__WEBPACK_IMPORTED_MODULE_6__angular_forms__["g" /* Validators */].required, this.validateComment.bind(this)])
         });
     };
     PartyCommentsComponent.prototype.validateComment = function () {
@@ -2696,15 +3274,35 @@ var PartyCommentsComponent = (function () {
     PartyCommentsComponent.prototype.saveUserComment = function () {
         var _this = this;
         if (this.commentForm && this.commentForm.valid) {
-            var comment = {
-                "comment": this.commentForm.get('user-comment').value,
-                "staffUser": '/staffs/' + "motion6",
-                "party": "/parties/" + this.paramsReceived,
-            };
+            var comment = {};
+            comment.comment = this.commentForm.get('user-comment').value;
+            comment.staffUser = '/staffs/' + "motion6";
+            comment.party = "/parties" + '/' + this.paramsReceived;
             this.serverService.saveUserComment(comment)
                 .subscribe(function (response) {
                 console.log(response);
-                _this.ngbModal.open("Comments Succesfull saved");
+                console.log(response.json());
+                var path = (response.json())._links.self.href;
+                var index = path.lastIndexOf("/") + 1;
+                _this.commentUuid = path.substring(index);
+                if (_this.uploadedFiles.length != 0) {
+                    var patchComment = { comment: "/comments/" + _this.commentUuid };
+                    var _loop_1 = function (i) {
+                        _this.serverService.patchCommentWithUploadedFiles(_this.uploadedFiles[i].uuid, patchComment)
+                            .subscribe(function (response) {
+                            console.log(response.json());
+                        }, function (error) {
+                            _this.ngbModal.open("Something went wrong, comment was saved without file "
+                                + _this.uploadedFiles[i].name);
+                        });
+                    };
+                    for (var i = 0; i < _this.uploadedFiles.length; i++) {
+                        _loop_1(i);
+                    }
+                }
+                else if (_this.uploadedFiles.length == 0) {
+                    _this.ngbModal.open("Comments Succesfull saved");
+                }
                 _this.getUserComments();
                 _this.dontSaveUserComment();
             }, function (error) {
@@ -2719,6 +3317,7 @@ var PartyCommentsComponent = (function () {
     PartyCommentsComponent.prototype.dontSaveUserComment = function () {
         this.commentForm.reset();
         this.newComment = false;
+        this.uploadMessage = null;
     };
     PartyCommentsComponent.prototype.usersCommentFileUpload = function ($event) {
         console.log("usersCommentFileUpload called");
@@ -2731,16 +3330,58 @@ var PartyCommentsComponent = (function () {
             this.ngbModal.open("Please enter a valid comment");
         }
     };
+    PartyCommentsComponent.prototype.getUploadMessage = function () {
+        return this.uploadMessage;
+    };
+    PartyCommentsComponent.prototype.uploadFile = function () {
+        var _this = this;
+        var fileInput = this.fileInput.nativeElement;
+        if (fileInput.files && fileInput.files[0]) {
+            this.uploadMessage = null;
+            this.uploadingFile = true;
+            var file_1 = fileInput.files[0];
+            var formData = new FormData();
+            formData.append('file', file_1, file_1.name);
+            this.serverService.uploadFile(formData)
+                .subscribe(function (data) {
+                _this.uploadMessage = "File successfully saved";
+                var fileUuid = (data.json()).uuid;
+                _this.uploadedFiles.push({ name: file_1.name, uuid: fileUuid });
+                _this.resetMessageStatus();
+                console.log(data);
+            }, function (error) {
+                _this.uploadMessage = "Something went wrong, couldn't save the file !";
+                _this.resetMessageStatus();
+                console.log(error);
+            });
+        }
+    };
+    PartyCommentsComponent.prototype.getFileUploadStatus = function () {
+        return this.uploadingFile;
+    };
+    PartyCommentsComponent.prototype.resetMessageStatus = function (timeout) {
+        var _this = this;
+        if (timeout === void 0) { timeout = 500; }
+        setTimeout(function () {
+            //this.uploadMessage = null;
+            _this.uploadingFile = false;
+            _this.fileInput.nativeElement.value = "";
+        }, timeout);
+    };
     return PartyCommentsComponent;
 }());
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_16" /* ViewChild */])("fileInput"),
+    __metadata("design:type", Object)
+], PartyCommentsComponent.prototype, "fileInput", void 0);
 PartyCommentsComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-party-comments',
         template: __webpack_require__("../../../../../src/app/components/parties/party/party-comments/party-comments.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/parties/party/party-comments/party-comments.component.scss")],
-        encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewEncapsulation"].None
+        encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_19" /* ViewEncapsulation */].None
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__services_server_service__["a" /* ServerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_server_service__["a" /* ServerService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_5__angular_http__["d" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_http__["d" /* Http */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* ActivatedRoute */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* Router */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_2__services_party_service__["a" /* PartyService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_party_service__["a" /* PartyService */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1__ng_bootstrap_ng_bootstrap__["b" /* NgbModal */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ng_bootstrap_ng_bootstrap__["b" /* NgbModal */]) === "function" && _g || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__services_server_service__["a" /* ServerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_server_service__["a" /* ServerService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_5__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_http__["b" /* Http */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["l" /* ChangeDetectorRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["l" /* ChangeDetectorRef */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_2__services_party_service__["a" /* PartyService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_party_service__["a" /* PartyService */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1__ng_bootstrap_ng_bootstrap__["b" /* NgbModal */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ng_bootstrap_ng_bootstrap__["b" /* NgbModal */]) === "function" && _g || Object])
 ], PartyCommentsComponent);
 
 var _a, _b, _c, _d, _e, _f, _g;
@@ -2751,7 +3392,7 @@ var _a, _b, _c, _d, _e, _f, _g;
 /***/ "../../../../../src/app/components/parties/party/party-invoices/party-invoices.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"app-ag-grid-wrapper\">\n<ag-grid-angular #agGrid style=\"width: 100%; overflow:hidden;transition: all 0.5s ease-in-out\" class=\"ag-fresh\"\n\n                 [gridOptions]=\"gridOptions\"\n                 [columnDefs]=\"columnDefs\"\n                 domLayout='autoHeight'\n                 [rowData]=\"rowData\"\n                 headerHeight=\"50\"\n                 enableColResize\n                 enableSorting\n                 enableFilter\n\n                 rowHeight=\"40\"\n                 rowSelection=\"multiple\"\n\n                 (modelUpdated)=\"onModelUpdated()\"\n                 (cellClicked)=\"onCellClicked($event)\"\n                 (cellDoubleClicked)=\"onCellDoubleClicked($event)\">\n\n</ag-grid-angular>\n<div>\n  <button class=\"btn btn-primary\">Create Invoice</button>\n</div>\n</div>\n"
+module.exports = "<div class=\"app-ag-grid-wrapper\">\n\n<div>\n  <button class=\"btn btn-primary\">Create Invoice</button>\n</div>\n</div>\n"
 
 /***/ }),
 
@@ -2763,7 +3404,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".ag-header-container {\n  font-size: 2rem; }\n\n.ag-body-container {\n  font-size: 1.3rem;\n  line-height: 1; }\n\n.first-column {\n  color: #0275d8;\n  cursor: pointer; }\n\n.first-column:hover {\n  background-color: #b1ebf8;\n  color: black; }\n\n.app-table-cell {\n  padding: 10px !important; }\n", ""]);
+exports.push([module.i, "app-party-invoices .ag-header-container {\n  font-size: 2rem; }\n\napp-party-invoices .ag-body-container {\n  font-size: 1.3rem;\n  line-height: 1; }\n\napp-party-invoices .first-column {\n  color: #0275d8;\n  cursor: pointer; }\n\napp-party-invoices .first-column:hover {\n  background-color: #b1ebf8;\n  color: black; }\n\napp-party-invoices .app-table-cell {\n  padding: 10px !important; }\n", ""]);
 
 // exports
 
@@ -2777,12 +3418,12 @@ module.exports = module.exports.toString();
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PartyInvoicesComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_server_service__ = __webpack_require__("../../../../../src/app/services/server-service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_nav_bar_service__ = __webpack_require__("../../../../../src/app/services/nav-bar.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_party_service__ = __webpack_require__("../../../../../src/app/services/party.service.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PartyInvoicesComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2855,16 +3496,8 @@ var PartyInvoicesComponent = (function () {
             else {
             }
         }, function (error) { return console.log(error); });
-        this.gridOptions = {
-            context: {
-                componentParent: this
-            },
-            rowData: this.rowData,
-            columnDefs: this.columnDefs
-        };
         this.navBarSubscription = this.navBarService.getNavBarSubject().subscribe(function (value) {
             console.log("sizeColumnsToFit");
-            _this.gridOptions.api.sizeColumnsToFit();
         });
     };
     PartyInvoicesComponent.prototype.newCustomer = function () {
@@ -2890,7 +3523,6 @@ var PartyInvoicesComponent = (function () {
     };
     PartyInvoicesComponent.prototype.ngAfterViewInit = function () {
         this.partyService.announceParentComponent({ type: __WEBPACK_IMPORTED_MODULE_4__services_party_service__["a" /* PartyService */].TYPE_INVOICES });
-        this.gridOptions.api.sizeColumnsToFit();
     };
     PartyInvoicesComponent.prototype.ngOnDestroy = function () {
         this.navBarSubscription.unsubscribe();
@@ -2899,13 +3531,13 @@ var PartyInvoicesComponent = (function () {
     return PartyInvoicesComponent;
 }());
 PartyInvoicesComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-party-invoices',
         template: __webpack_require__("../../../../../src/app/components/parties/party/party-invoices/party-invoices.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/parties/party/party-invoices/party-invoices.component.scss")],
-        encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewEncapsulation"].None
+        encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_19" /* ViewEncapsulation */].None
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_server_service__["a" /* ServerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_server_service__["a" /* ServerService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__services_nav_bar_service__["a" /* NavBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_nav_bar_service__["a" /* NavBarService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* ActivatedRoute */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__services_party_service__["a" /* PartyService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_party_service__["a" /* PartyService */]) === "function" && _e || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_server_service__["a" /* ServerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_server_service__["a" /* ServerService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__services_nav_bar_service__["a" /* NavBarService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_nav_bar_service__["a" /* NavBarService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__services_party_service__["a" /* PartyService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_party_service__["a" /* PartyService */]) === "function" && _e || Object])
 ], PartyInvoicesComponent);
 
 var _a, _b, _c, _d, _e;
@@ -2916,7 +3548,7 @@ var _a, _b, _c, _d, _e;
 /***/ "../../../../../src/app/components/parties/party/party-jobs/party-jobs.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"app-form-container\">\n  <div *ngIf=\"partyJobs && partyJobs.length !== 0\">\n    <div *ngFor=\"let partyJob of partyJobs\">\n      <div class=\"app-form-header\">\n        Job&nbsp; {{partyJob.jobNumber}}\n      </div>\n      <div class=\"app-form-group-wrapper\">\n        <div class=\"app-form-group\">\n          <div class=\"app-form-label-wrapper\">\n            <label class=\"app-form-label\">Description</label>\n            <span class=\"app-form-label-colon\">:</span>\n          </div>\n          <div class=\"app-form-input-wrapper\">\n            <div class=\"app-form-input\"\n                 appFormInput>\n              {{partyJob.description}}\n            </div>\n          </div>\n        </div>\n        <div class=\"app-form-group\">\n          <div class=\"app-form-label-wrapper\">\n            <label class=\"app-form-label\">Status</label>\n            <span class=\"app-form-label-colon\">:</span>\n          </div>\n          <div class=\"app-form-input-wrapper\">\n            <div class=\"app-form-input\">\n              {{partyJob.status}}\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<div class=\"dropdown new-job-dropdown\" [ngClass]=\"{'show': showDropdown }\">\n  <button class=\"btn btn-primary dropdown-toggle\" type=\"button\"\n          id=\"dropdownMenuButton\"\n          data-toggle=\"dropdown\"\n          aria-haspopup=\"true\"\n          aria-expanded=\"false\"\n          (click)=\"toggleDropdown()\">\n    New Job\n  </button>\n  <div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">\n    <button class=\"dropdown-item btn btn-primary app-form-dropdown-item\" (click)=\"onNewQuoteRequest()\">New Quote Request</button>\n    <button class=\"dropdown-item btn btn-primary app-form-dropdown-item\" (click)=\"onNewServiceRequest()\">New Service Request</button>\n  </div>\n</div>\n"
+module.exports = "<div class=\"\">\n  <div *ngIf=\"partyJobs && partyJobs.length !== 0\">\n    <div *ngFor=\"let partyJob of partyJobs\" class=\"app-form-groups-container\">\n      <div class=\"app-form-header\">\n        Job&nbsp; {{partyJob.jobNumber}}\n      </div>\n      <div class=\"app-form-group\">\n        <div class=\"app-form-label-wrapper\">\n          <label class=\"app-form-label\">Description\n          <span class=\"app-form-label-colon\">:</span>\n          </label>\n        </div>\n        <div class=\"app-form-input-wrapper\">\n          <div class=\"app-form-input\"\n               appFormInput>\n            {{partyJob.description}}\n          </div>\n        </div>\n      </div>\n      <div class=\"app-form-group\">\n        <div class=\"app-form-label-wrapper\">\n          <label class=\"app-form-label\">Status\n            <span class=\"app-form-label-colon\">:</span>\n          </label>\n        </div>\n        <div class=\"app-form-input-wrapper\">\n          <div class=\"app-form-input\">\n            {{partyJob.status}}\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<div class=\"dropdown new-job-dropdown\" [ngClass]=\"{'show': showDropdown }\">\n  <button class=\"btn btn-primary dropdown-toggle\" type=\"button\"\n          id=\"dropdownMenuButton\"\n          data-toggle=\"dropdown\"\n          aria-haspopup=\"true\"\n          aria-expanded=\"false\"\n          (click)=\"toggleDropdown()\">\n    New Job\n  </button>\n  <div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">\n    <button class=\"dropdown-item btn btn-primary app-form-dropdown-item\" (click)=\"onNewQuoteRequest()\">New Quote\n      Request\n    </button>\n    <button class=\"dropdown-item btn btn-primary app-form-dropdown-item\" (click)=\"onNewServiceRequest()\">New Service\n      Request\n    </button>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -2928,7 +3560,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "app-party-jobs .app-form-group-wrapper {\n  border: 1px solid lightgray;\n  border-radius: 5px;\n  padding: 1rem;\n  margin: 0 0 1rem 0; }\n\napp-party-jobs .app-form-input {\n  width: 100%; }\n\n.app-form-dropdown-item {\n  padding: 0.75rem;\n  border-bottom: 1px dashed gray;\n  cursor: pointer; }\n\n.app-form-dropdown-item:hover, .app-form-dropdown-item:focus, .app-form-dropdown-item:active {\n  color: black;\n  background-color: #5cb3fd; }\n\n.fa-caret-down {\n  color: #0275d8; }\n\n.new-job-dropdown {\n  margin-bottom: 5rem; }\n\n.dropdown {\n  display: block;\n  position: relative; }\n\n.dropdown-menu {\n  padding: 0; }\n", ""]);
+exports.push([module.i, "app-party-jobs .app-form-header {\n  font-size: 1.3rem;\n  margin: 0.25rem;\n  padding: 0.25rem; }\n\napp-party-jobs .app-form-dropdown-item {\n  padding: 0.75rem;\n  border-bottom: 1px dashed gray;\n  cursor: pointer; }\n\napp-party-jobs .app-form-dropdown-item:hover, app-party-jobs .app-form-dropdown-item:focus, app-party-jobs .app-form-dropdown-item:active {\n  color: black;\n  background-color: #5cb3fd; }\n\napp-party-jobs .fa-caret-down {\n  color: #0275d8; }\n\napp-party-jobs .new-job-dropdown {\n  margin-bottom: 5rem; }\n\napp-party-jobs .dropdown {\n  display: block;\n  position: relative; }\n\napp-party-jobs .dropdown-menu {\n  padding: 0; }\n", ""]);
 
 // exports
 
@@ -2942,12 +3574,12 @@ module.exports = module.exports.toString();
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PartyJobsComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_server_service__ = __webpack_require__("../../../../../src/app/services/server-service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_party_service__ = __webpack_require__("../../../../../src/app/services/party.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_app_interaction_service__ = __webpack_require__("../../../../../src/app/services/app-interaction.service.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PartyJobsComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2992,7 +3624,7 @@ var PartyJobsComponent = (function () {
             .subscribe(function (data) {
             if (data && data.id && data.type === __WEBPACK_IMPORTED_MODULE_3__services_party_service__["a" /* PartyService */].TYPE_JOBS) {
                 _this.paramsReceived = data.id;
-                _this.path = "http://localhost:8080/api/parties/" + _this.paramsReceived + "/jobs";
+                _this.path = "http://localhost:8081/api/parties/" + _this.paramsReceived + "/jobs";
                 _this.getUserJobs();
             }
         });
@@ -3024,8 +3656,9 @@ var PartyJobsComponent = (function () {
             .then(function (value) {
             console.log(value);
             _this.appInteractionService.requestApplicationComponent({
-                customerUuid: _this.paramsReceived,
-                jobType: __WEBPACK_IMPORTED_MODULE_4__services_app_interaction_service__["a" /* AppInteractionService */].QUOTE_REQUEST
+                id: __WEBPACK_IMPORTED_MODULE_4__services_app_interaction_service__["a" /* AppInteractionService */].QUOTE_REQUEST,
+                type: __WEBPACK_IMPORTED_MODULE_4__services_app_interaction_service__["a" /* AppInteractionService */].TYPE_MAIN,
+                partyId: _this.paramsReceived
             });
         }).catch(function (error) {
             console.log(error);
@@ -3038,8 +3671,9 @@ var PartyJobsComponent = (function () {
             .then(function (value) {
             console.log(value);
             _this.appInteractionService.requestApplicationComponent({
-                customerUuid: _this.paramsReceived,
-                jobType: __WEBPACK_IMPORTED_MODULE_4__services_app_interaction_service__["a" /* AppInteractionService */].SERVICE_REQUEST
+                id: __WEBPACK_IMPORTED_MODULE_4__services_app_interaction_service__["a" /* AppInteractionService */].SERVICE_REQUEST,
+                type: __WEBPACK_IMPORTED_MODULE_4__services_app_interaction_service__["a" /* AppInteractionService */].TYPE_MAIN,
+                partyId: _this.paramsReceived
             });
         }).catch(function (error) {
             console.log(error);
@@ -3048,25 +3682,25 @@ var PartyJobsComponent = (function () {
     return PartyJobsComponent;
 }());
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"])('document:keyup', ['$event']),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* HostListener */])('document:keyup', ['$event']),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], PartyJobsComponent.prototype, "handleKeyboardEvent", null);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"])('document:click', ['$event']),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* HostListener */])('document:click', ['$event']),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], PartyJobsComponent.prototype, "hostClicked", null);
 PartyJobsComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-party-jobs',
         template: __webpack_require__("../../../../../src/app/components/parties/party/party-jobs/party-jobs.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/parties/party/party-jobs/party-jobs.component.scss")],
-        encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewEncapsulation"].None
+        encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_19" /* ViewEncapsulation */].None
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_server_service__["a" /* ServerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_server_service__["a" /* ServerService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__services_party_service__["a" /* PartyService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_party_service__["a" /* PartyService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__services_app_interaction_service__["a" /* AppInteractionService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_app_interaction_service__["a" /* AppInteractionService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */]) === "function" && _e || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_server_service__["a" /* ServerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_server_service__["a" /* ServerService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__services_party_service__["a" /* PartyService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_party_service__["a" /* PartyService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__services_app_interaction_service__["a" /* AppInteractionService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_app_interaction_service__["a" /* AppInteractionService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _e || Object])
 ], PartyJobsComponent);
 
 var _a, _b, _c, _d, _e;
@@ -3077,7 +3711,7 @@ var _a, _b, _c, _d, _e;
 /***/ "../../../../../src/app/components/parties/party/party-main/party-main.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"app-form-container app-form-container-top\">\n  <h3 class=\"app-form-header\">Customer/Supplier Details</h3>\n  <form [formGroup]=\"signUpForm\" (ngSubmit)=\"onSubmit()\">\n    <div formGroupName=\"userData\">\n      <div class=\"app-form-group\">\n        <div class=\"app-form-label-wrapper\">\n          <label class=\"app-form-label\" for=\"party-name\">Name</label>\n          <span class=\"app-form-label-colon\">:</span>\n        </div>\n        <div class=\"app-form-input-wrapper\">\n          <input\n            type=\"text\"\n            id=\"party-name\"\n            formControlName=\"party-name\"\n            class=\"app-form-input\"\n            appFormInput\n            [readonly]=\"!getDetailFormStatus()\">\n          <i\n            *ngIf=\"signUpForm.get('userData.party-name').valid\"\n            class=\"fa fa-check\" aria-hidden=\"true\">\n          </i>\n          <i\n            *ngIf=\"!signUpForm.get('userData.party-name').valid\"\n            class=\"fa fa-times\" aria-hidden=\"true\">\n          </i>\n        </div>\n      </div>\n      <div class=\"app-form-group-error\"\n           *ngIf=\"!signUpForm.get('userData.party-name').valid\n           && signUpForm.get('userData.party-name').errors['required']\n           && signUpForm.get('userData.party-name').touched\">\n        <div class=\"app-form-errors-wrapper\">\n          <div class=\"app-form-error-message\">\n            <span>Name is required<span class=\"required\">*</span></span>\n          </div>\n        </div>\n      </div>\n      <div class=\"app-form-group\">\n        <div class=\"app-form-label-wrapper\">\n          <label class=\"app-form-label\" for=\"party-contact-name\">Contact Name</label>\n          <span class=\"app-form-label-colon\">:</span>\n        </div>\n        <div class=\"app-form-input-wrapper\">\n          <input\n            type=\"text\"\n            id=\"party-contact-name\"\n            class=\"app-form-input\"\n            formControlName=\"party-contact-name\"\n            appFormInput\n            [readonly]=\"!getDetailFormStatus()\">\n          <i\n            *ngIf=\"signUpForm.get('userData.party-contact-name').valid\"\n            class=\"fa fa-check\" aria-hidden=\"true\">\n          </i>\n          <i\n            *ngIf=\"!signUpForm.get('userData.party-contact-name').valid\"\n            class=\"fa fa-times\" aria-hidden=\"true\">\n          </i>\n        </div>\n      </div>\n      <div class=\"app-form-group-error\"\n           *ngIf=\"!signUpForm.get('userData.party-contact-name').valid\n           && signUpForm.get('userData.party-contact-name').errors['required']\n           && signUpForm.get('userData.party-contact-name').touched\">\n        <div class=\"app-form-errors-wrapper\">\n          <div class=\"app-form-error-message\">\n            <span>Contact name is required<span class=\"required\">*</span></span>\n          </div>\n        </div>\n      </div>\n      <div class=\"app-form-group\">\n        <div class=\"app-form-label-wrapper\">\n          <label for=\"party-phone\" class=\"app-form-label\">Phone</label>\n          <span class=\"app-form-label-colon\">:</span>\n        </div>\n        <div class=\"app-form-input-wrapper\">\n          <input\n            type=\"text\"\n            id=\"party-phone\"\n            class=\"app-form-input\"\n            formControlName=\"party-phone\"\n            appFormInput\n            [readonly]=\"!getDetailFormStatus()\">\n          <i\n            *ngIf=\"signUpForm.get('userData.party-phone').valid\"\n            class=\"fa fa-check\" aria-hidden=\"true\">\n          </i>\n          <i\n            *ngIf=\"!signUpForm.get('userData.party-phone').valid\"\n            class=\"fa fa-times\" aria-hidden=\"true\">\n          </i>\n        </div>\n      </div>\n      <div class=\"app-form-group-error\"\n           *ngIf=\"!signUpForm.get('userData.party-phone').valid &&\n           signUpForm.get('userData.party-phone').touched && getDetailFormStatus()\">\n        <div class=\"app-form-errors-wrapper\">\n          <div *ngIf=\"signUpForm.get('userData.party-phone').errors['required']\"\n               class=\"app-form-error-message\">\n            <span>Phone number is required !<span class=\"required\">*</span></span>\n          </div>\n          <div *ngIf=\"signUpForm.get('userData.party-phone').errors['InvalidPhone']\">\n            <div class=\"app-form-error-message\">\n              <span>Phone number is not valid !<span class=\"required\">*</span></span>\n            </div>\n          </div>\n        </div>\n      </div>\n      <div class=\"app-form-group\">\n        <div class=\"app-form-label-wrapper\">\n          <label for=\"party-mobile\" class=\"app-form-label\">Mobile</label>\n          <span class=\"app-form-label-colon\">:</span>\n        </div>\n        <div class=\"app-form-input-wrapper\">\n          <input\n            type=\"text\"\n            id=\"party-mobile\"\n            class=\"app-form-input\"\n            formControlName=\"party-mobile\"\n            appFormInput\n            [readonly]=\"!getDetailFormStatus()\">\n          <i\n            *ngIf=\"signUpForm.get('userData.party-mobile').valid\"\n            class=\"fa fa-check\" aria-hidden=\"true\">\n          </i>\n          <i\n            *ngIf=\"!signUpForm.get('userData.party-mobile').valid\"\n            class=\"fa fa-times\" aria-hidden=\"true\">\n          </i>\n        </div>\n      </div>\n      <div class=\"app-form-group-error\"\n           *ngIf=\"!signUpForm.get('userData.party-mobile').valid &&\n           signUpForm.get('userData.party-mobile').touched && getDetailFormStatus()\">\n        <div class=\"app-form-errors-wrapper\">\n          <div *ngIf=\"signUpForm.get('userData.party-mobile').errors['required']\"\n               class=\"app-form-error-message\">\n            <span>Mobile number is required !<span class=\"required\">*</span></span>\n          </div>\n          <div *ngIf=\"signUpForm.get('userData.party-mobile').errors['InvalidMobile']\"\n               class=\"app-form-error-message\">\n            <span>Mobile number is not valid !<span class=\"required\">*</span></span>\n          </div>\n        </div>\n      </div>\n      <div class=\"app-form-group\">\n        <div class=\"app-form-label-wrapper\">\n          <label for=\"party-email\" class=\"app-form-label\">Email</label>\n          <span class=\"app-form-label-colon\">:</span>\n        </div>\n        <div class=\"app-form-input-wrapper\">\n          <input\n            type=\"text\"\n            id=\"party-email\"\n            class=\"app-form-input\"\n            formControlName=\"party-email\"\n            appFormInput\n            [readonly]=\"!getDetailFormStatus()\">\n          <i\n            *ngIf=\"signUpForm.get('userData.party-email').valid\"\n            class=\"fa fa-check\" aria-hidden=\"true\">\n          </i>\n          <i\n            *ngIf=\"!signUpForm.get('userData.party-email').valid\"\n            class=\"fa fa-times\" aria-hidden=\"true\">\n          </i>\n        </div>\n      </div>\n      <div class=\"app-form-group-error\"\n           *ngIf=\"!signUpForm.get('userData.party-email').valid\n           && signUpForm.get('userData.party-email').touched && getDetailFormStatus()\">\n        <div class=\"app-form-errors-wrapper\">\n          <div class=\"app-form-error-message\">\n            <span>Email is not valid !<span class=\"required\">*</span></span>\n          </div>\n        </div>\n      </div>\n      <div *ngFor=\"let address of addressFormArray\">\n        <div class=\"app-form-group\">\n          <div class=\"app-form-label-wrapper\">\n            <label for=\"{{address.name}}\" class=\"app-form-label\">{{address.title}}</label>\n            <span class=\"app-form-label-colon\">:</span>\n          </div>\n          <div class=\"app-form-input-wrapper\">\n            <input\n              type=\"text\"\n              id=\"{{address.name}}\"\n              class=\"app-form-input\"\n              formControlName=\"{{address.name}}\"\n              appFormInput\n              [readonly]=\"!getDetailFormStatus()\"\n              name=\"{{address.name}}\"\n              (focus)=\"onAddressFocus($event, address)\"\n              (blur)=\"onAddressBlur($event, address)\"\n              (keydown)=\"onAddressKeyUp($event, address)\">\n            <img class=\"app-google-logo\" src=\"assets/img/logos/third-party/powered_by_google_on_white_hdpi.png\">\n            <i\n              *ngIf=\"signUpForm.get('userData.' + address.name).valid\"\n              class=\"fa fa-check\" aria-hidden=\"true\">\n            </i>\n            <i\n              *ngIf=\"!signUpForm.get('userData.' + address.name).valid\"\n              class=\"fa fa-times\" aria-hidden=\"true\">\n            </i>\n            <i\n              *ngIf=\"!signUpForm.get('userData.' + address.name).valid\n                    && address.spinner && signUpForm.get('userData.' + address.name).touched\"\n              class=\"fa fa-spinner\" aria-hidden=\"true\">\n            </i>\n          </div>\n        </div>\n        <div class=\"app-form-group-error\"\n             *ngIf=\"!signUpForm.get('userData.' + address.name).valid\n             && signUpForm.get('userData.' + address.name).touched\n                  && getDetailFormStatus()\">\n          <div class=\"app-form-errors-wrapper\">\n            <div class=\"app-form-error-message\"\n                 *ngIf=\"signUpForm.get('userData.' + address.name).errors\n                  && signUpForm.get('userData.' + address.name).errors['required']\">\n              <span>Address is required !<span class=\"required\">*</span></span>\n            </div>\n            <div class=\"app-form-error-message\"\n                 *ngIf=\"signUpForm.get('userData.' + address.name).errors && signUpForm.get('userData.' + address.name).errors['NoAddressFound']\">\n              <span>Address could not be found !<span class=\"required\">*</span></span>\n            </div>\n            <div class=\"app-form-error-message\"\n                 *ngIf=\"signUpForm.get('userData.' + address.name).errors && signUpForm.get('userData.' + address.name).errors['InvalidInput']\">\n              <span>Address entered is not valid !<span class=\"required\">*</span></span>\n            </div>\n            <div class=\"app-form-error-message\"\n                 *ngIf=\"signUpForm.get('userData.' + address.name).errors && signUpForm.get('userData.' + address.name).errors['QueryLimitCrossed']\">\n              <span>Exceeded the maximum query limit allowed by google policies !<span class=\"required\">*</span></span>\n            </div>\n            <div class=\"app-form-error-message\"\n                 *ngIf=\"signUpForm.get('userData.' + address.name).errors && signUpForm.get('userData.' + address.name).errors['RequestDenied']\">\n              <span>Address request rejected by google !<span class=\"required\">*</span></span>\n            </div>\n            <div class=\"app-form-error-message\"\n                 *ngIf=\"signUpForm.get('userData.' + address.name).errors && signUpForm.get('userData.' + address.name).errors['UnknownError']\">\n              <span>Unknown error. Please try again !<span class=\"required\">*</span></span>\n            </div>\n            <!--<div *ngIf=\"!signUpForm.valid && signUpForm.touched\">-->\n            <!--<address>-->\n            <!--<span>Addrees should be of the follwing form</span><br>-->\n            <!--8 Willsmore Street Beverley South Australia 5009<br>-->\n            <!--<span>where</span><br>-->\n            <!--<span>8 -- is the street number,</span><br>-->\n            <!--<span>Willsmore Street -- is the street name,</span><br>-->\n            <!--<span>Beverley -- is the name of the suburb/city/town,</span><br>-->\n            <!--<span>South Australia -- is the name of the state,</span><br>-->\n            <!--<span>5009 -- is the zip/postal code,</span><br>-->\n            <!--</address>-->\n            <!--</div>-->\n          </div>\n        </div>\n      </div>\n      <div class=\"app-form-group\">\n        <div class=\"app-form-label-wrapper\">\n          <label for=\"party-file-upload\" class=\"app-form-label\">File Upload</label>\n          <span class=\"app-form-label-colon\">:</span>\n        </div>\n        <div class=\"app-form-input-wrapper\">\n          <input\n            type=\"file\"\n            id=\"party-file-upload\"\n            class=\"app-form-input app-form-file-upload\"\n            appFormInput\n            (change)=\"fileChange($event)\"\n            placeholder=\"Upload file\"\n            accept=\".pdf,.doc,.docx\"\n            [disabled]=\"!getDetailFormStatus()\">\n        </div>\n      </div>\n      <div class=\"app-form-group-submit\" *ngIf=\"!getDetailFormStatus()\">\n        <div class=\"app-form-submit-wrapper\">\n          <button class=\"btn btn-primary\" type=\"button\" (click)=\"createCustomer()\">Create Customer</button>\n\n          <button class=\"btn btn-primary\" type=\"button\" (click)=\"editCustomer()\">Edit Customer</button>\n        </div>\n      </div>\n\n      <div class=\"app-form-group-submit\" *ngIf=\"getDetailFormStatus()\">\n        <div class=\"app-form-submit-wrapper\">\n          <button class=\"btn btn-primary\" [disabled]=\"!signUpForm.valid\" type=\"submit\">Save</button>\n          <button class=\"btn btn-primary\" type=\"button\" (click)=\"dontSaveCustomer()\">Don't Save</button>\n        </div>\n      </div>\n    </div>\n  </form>\n</div>\n\n"
+module.exports = "<div class=\"app-form-container app-form-container-top\">\n  <form [formGroup]=\"signUpForm\" (ngSubmit)=\"onSubmit()\" class=\"app-form\">\n    <div formGroupName=\"userData\" class=\"app-form-groups-container\">\n      <h3 class=\"app-form-header\">Customer/Supplier Details</h3>\n      <div class=\"app-form-group\" *ngFor=\"let formControl of formGroup\">\n        <div class=\"app-form-label-wrapper \">\n          <label class=\"app-form-label\" for=\"{{formControl.name}}\">{{formControl.title}}\n            <span class=\"app-form-label-colon\">:</span></label>\n        </div>\n        <div class=\"app-form-input-wrapper  \"\n             [ngClass]=\"{'readonly':!getDetailFormStatus()}\">\n          <input\n            type=\"text\"\n            id=\"{{formControl.name}}\"\n            formControlName=\"{{formControl.name}}\"\n            class=\"app-form-input \"\n            appFormInput\n            [readonly]=\"!getDetailFormStatus()\">\n          <i\n            *ngIf=\"signUpForm.get('userData.' + formControl.name).valid\"\n            class=\"fa fa-check\"\n            aria-hidden=\"true\">\n          </i>\n          <i\n            *ngIf=\"!signUpForm.get('userData.' + formControl.name).valid\"\n            class=\"fa fa-times\" aria-hidden=\"true\">\n          </i>\n        </div>\n        <div class=\"app-form-group-error-container\"\n             *ngIf=\"!signUpForm.get('userData.' + formControl.name).valid\n           && signUpForm.get('userData.' + formControl.name).touched\">\n          <div>\n            {{getFirstErrorMessage(formControl.name)}}\n            <i class=\"fa fa-asterisk\"></i>\n          </div>\n        </div>\n      </div>\n      <div *ngFor=\"let address of addressFormArray\" class=\"app-form-group\">\n\n        <div class=\"app-form-label-wrapper \">\n          <label for=\"{{address.name}}\"\n                 class=\"app-form-label \">\n            {{address.title}}\n            <span class=\"app-form-label-colon\">\n              :\n            </span>\n          </label>\n        </div>\n        <div class=\"app-form-address-input-wrapper\"\n             [ngClass]=\"{'readonly':!getDetailFormStatus()}\">\n          <input\n            type=\"text\"\n            id=\"{{address.name}}\"\n            class=\"app-form-input  \"\n            formControlName=\"{{address.name}}\"\n            appFormInput\n            [readonly]=\"!getDetailFormStatus()\"\n            name=\"{{address.name}}\"\n            (focus)=\"onAddressFocus($event, address)\"\n            (blur)=\"onAddressBlur($event, address)\"\n            (keydown)=\"onAddressKeyUp($event, address)\">\n          <img class=\"app-google-logo\" src=\"assets/img/logos/third-party/powered_by_google_on_white_hdpi.png\">\n          <i\n            *ngIf=\"!signUpForm.get('userData.' + address.name).valid\n                    && address.spinner && signUpForm.get('userData.' + address.name).touched\"\n            class=\"fa fa-spinner\" aria-hidden=\"true\">\n          </i>\n          <i\n            *ngIf=\"signUpForm.get('userData.' + address.name).valid\"\n            class=\"fa fa-check\" aria-hidden=\"true\">\n          </i>\n          <i\n            *ngIf=\"!signUpForm.get('userData.' + address.name).valid\"\n            class=\"fa fa-times\" aria-hidden=\"true\">\n          </i>\n        </div>\n        <div class=\"app-form-group-error-container\"\n             *ngIf=\"!signUpForm.get('userData.' + address.name).valid\n             && signUpForm.get('userData.' + address.name).touched\n                  && getDetailFormStatus()\">\n          <div>\n            {{getFirstAddressError(address.name)}}\n            <i class=\"fa fa-asterisk\"></i>\n          </div>\n        </div>\n      </div>\n      <div class=\"app-form-group  \">\n        <div class=\" app-form-label-wrapper\">\n          <label for=\"party-file-upload\"\n                 class=\"app-form-label\">\n            File Upload\n            <span class=\"app-form-label-colon\">\n                :\n              </span>\n          </label>\n        </div>\n        <div class=\"app-form-input-wrapper app-form-file-upload-wrapper\"\n             [ngClass]=\"{'readonly':!getDetailFormStatus()}\">\n          <input\n            type=\"file\"\n            id=\"party-file-upload\"\n            #fileInput\n            appFormInput\n            class=\"app-form-input  app-form-file-upload\"\n            placeholder=\"Upload file\"\n            accept=\".pdf,.doc,.docx\"\n            [disabled]=\"!getDetailFormStatus()\n                        || !signUpForm.valid\n                        || getFileUploadStatus()\n                        || formMode == CREATE_CUSTOMER\">\n          <div class=\"app-form-file-upload-message\" *ngIf=\"getUploadMessage()\">\n            {{this.uploadMessage}}\n          </div>\n          <button class=\"btn btn-primary btn-sm app-form-file-upload-button\"\n                  type=\"button\"\n                  (click)=\"uploadFile()\"\n                  [disabled]=\"!signUpForm.valid\n                              || getFileUploadStatus()\n                              || formMode == CREATE_CUSTOMER\n                              || !(fileInput.files && fileInput.files[0])\">\n            Upload File\n          </button>\n        </div>\n      </div>\n      <div class=\"app-form-group-submit\" *ngIf=\"!getDetailFormStatus()\">\n        <div class=\"app-form-submit-wrapper\">\n          <button class=\"btn btn-primary\"\n                  type=\"button\"\n                  (click)=\"createCustomer()\"\n                  [disabled]=\"getFileUploadStatus()\">\n            Create Customer\n          </button>\n\n          <button class=\"btn btn-primary\"\n                  type=\"button\"\n                  (click)=\"editCustomer()\"\n                  [disabled]=\"getFileUploadStatus()\">\n            Edit Customer\n          </button>\n        </div>\n      </div>\n\n      <div class=\"app-form-group-submit\" *ngIf=\"getDetailFormStatus()\">\n        <div class=\"app-form-submit-wrapper\">\n          <button class=\"btn btn-primary\"\n                  [disabled]=\"!signUpForm.valid || getFileUploadStatus()\"\n                  type=\"submit\">\n            Save\n          </button>\n          <button class=\"btn btn-primary\"\n                  type=\"button\"\n                  (click)=\"dontSaveCustomer()\"\n                  [disabled]=\"getFileUploadStatus()\">\n            Don't Save\n          </button>\n        </div>\n      </div>\n    </div>\n  </form>\n</div>\n\n"
 
 /***/ }),
 
@@ -3089,7 +3723,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".app-form-container {\n  margin: 1rem 0;\n  padding: 1rem 0; }\n\n.app-form-container-top {\n  margin-top: 2rem; }\n\n.app-form-header {\n  font-size: 1.5rem;\n  margin: 0;\n  color: inherit; }\n\n.app-form-group, .app-form-group-error {\n  margin: 0;\n  line-height: 1.2;\n  font-size: 1.5rem;\n  padding: 0.5rem 0; }\n\n.app-form-label-wrapper {\n  display: inline-block;\n  width: 18rem;\n  padding: 0.5rem 0; }\n\n.app-form-label, .app-form-input-wrapper, .app-form-errors-wrapper {\n  border: 2px solid gray;\n  border-radius: 5px;\n  width: 16rem;\n  margin: 3px;\n  padding: 1rem;\n  background-color: #b1ebf8; }\n\n.app-form-label-colon {\n  display: inline; }\n\n.app-form-input-wrapper, .app-form-errors-wrapper {\n  display: inline-block;\n  margin: 5px;\n  width: 80%;\n  background-color: white; }\n\n.app-form-input-wrapper.focus, .focus.app-form-errors-wrapper {\n  border: 2px solid #0275d8;\n  border-radius: 5px; }\n\n.app-form-input {\n  display: inline-block;\n  width: 70%; }\n\n.fa-check, .fa-times {\n  float: right;\n  color: green;\n  margin-right: 10px; }\n\n.fa-times {\n  color: red; }\n\n.app-google-logo {\n  display: inline-block;\n  padding: 0;\n  margin: 0;\n  float: right;\n  height: 1.2rem; }\n\n.fa-spinner {\n  float: right;\n  margin-right: 10px; }\n\n.app-form-group-error:before, .app-form-group-submit:before {\n  display: inline-block;\n  content: '';\n  width: 18rem; }\n\n.app-form-errors-wrapper {\n  border: none;\n  padding: 0; }\n\n.app-form-submit-wrapper {\n  display: inline-block;\n  margin: 1rem 0; }\n\n.app-form-error-message {\n  display: block;\n  width: 100%;\n  height: 100%;\n  padding: 0.5rem;\n  margin: 5px 0;\n  border: 2px solid red;\n  border-radius: 5px; }\n\n.required {\n  float: right;\n  padding-right: 0.5rem; }\n\n.app-form-file-upload {\n  width: auto;\n  font-size: 1rem; }\n", ""]);
+exports.push([module.i, "", ""]);
 
 // exports
 
@@ -3103,6 +3737,7 @@ module.exports = module.exports.toString();
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PartyMainComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__("../../../../rxjs/Observable.js");
@@ -3113,7 +3748,7 @@ module.exports = module.exports.toString();
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__models_party_model__ = __webpack_require__("../../../../../src/app/models/party.model.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_party_service__ = __webpack_require__("../../../../../src/app/services/party.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PartyMainComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__services_app_interaction_service__ = __webpack_require__("../../../../../src/app/services/app-interaction.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3132,7 +3767,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var PartyMainComponent = (function () {
+
+var PartyMainComponent = PartyMainComponent_1 = (function () {
     function PartyMainComponent(serverService, http, activatedRoute, changeDetectorRef, router, partyService, ngbModal) {
         this.serverService = serverService;
         this.http = http;
@@ -3141,15 +3777,45 @@ var PartyMainComponent = (function () {
         this.router = router;
         this.partyService = partyService;
         this.ngbModal = ngbModal;
-        this.party = null;
-        this.paramsReceived = null;
-        this.detailFormActive = false;
-        this.ADDRESS_PHYSICAL = "ADDRESS_PHYSICAL";
-        this.ADDRESS_MAILING = "ADDRESS_MAILING";
-        this.EDIT_CUSTOMER = "EDIT_CUSTOMER";
-        this.CREATE_CUSTOMER = "CREATE_CUSTOMER";
+        this.ADDRESS_PHYSICAL = PartyMainComponent_1.ADDRESS_PHYSICAL;
+        this.ADDRESS_MAILING = PartyMainComponent_1.ADDRESS_MAILING;
+        this.CREATE_CUSTOMER = PartyMainComponent_1.CREATE_CUSTOMER;
+        this.EDIT_CUSTOMER = PartyMainComponent_1.EDIT_CUSTOMER;
         this.formMode = null;
-        this.autoSuggestionMode = null;
+        this.party = null;
+        this.id = null;
+        this.detailFormActive = false;
+        this.uploadingFile = false;
+        this.uploadMessage = null;
+        this.formGroup = [
+            { name: 'party-name', title: 'Name', 'invalid': 'Party name is not valid', 'required': 'Party name is required' },
+            {
+                name: 'party-contact-name',
+                title: 'Contact Name',
+                'invalid': 'Contact name is not valid',
+                'required': 'Contact name is required'
+            },
+            {
+                name: 'party-phone',
+                title: 'Phone',
+                'invalid': 'Phone number is not valid',
+                'required': 'Phone number is required'
+            },
+            {
+                name: 'party-mobile',
+                title: 'Mobile',
+                'invalid': 'Mobile number is not valid',
+                'required': 'Mobile number is required'
+            },
+            {
+                name: 'party-email',
+                title: 'Email',
+                'invalid': 'Email address is not valid',
+                'required': 'Email address is required'
+            },
+        ];
+        this.errorMessages = ["required", "invalid"];
+        this.addressErrorMessages = ["required", "invalid", "not-found", "unknown-error", "request-denied", "query-limit-crossed"];
         this.addressFormArray = [
             {
                 name: 'party-physical-address',
@@ -3157,7 +3823,13 @@ var PartyMainComponent = (function () {
                 type: this.ADDRESS_PHYSICAL,
                 autoAddressesSuggesstion: [],
                 addressSubscription: null,
-                spinner: false
+                spinner: false,
+                'required': 'Physical Address is required',
+                "invalid": 'The input entered is not valid',
+                "not-found": 'Physical Address entered could not be found',
+                'unknown-error': "Unknown error occurred from the server side",
+                'request-denied': "The request was denied by the server",
+                "query-limit-crossed": "You have exceeded the maximum number of allowed queries"
             },
             {
                 name: 'party-mailing-address',
@@ -3165,7 +3837,13 @@ var PartyMainComponent = (function () {
                 type: this.ADDRESS_MAILING,
                 autoAddressesSuggesstion: [],
                 addressSubscription: null,
-                spinner: false
+                spinner: false,
+                'required': 'Mailing Address is required',
+                "invalid": 'The input entered is not valid',
+                "not-found": 'Mailing Address entered could not be found',
+                'unknown-error': "Unknown error occurred from the server side",
+                'request-denied': "The request was denied by the server",
+                "query-limit-crossed": "You have exceeded the maximum number of allowed queries"
             }
         ];
         this.googleAutocompleteService = new google.maps.places.AutocompleteService();
@@ -3176,17 +3854,24 @@ var PartyMainComponent = (function () {
         this.createSignUpForm();
         this.partyServiceSubscription = this.partyService.partySourceObservable
             .subscribe(function (data) {
-            if (data && data.id && data.type === __WEBPACK_IMPORTED_MODULE_7__services_party_service__["a" /* PartyService */].TYPE_MAIN) {
-                console.log(data);
-                _this.paramsReceived = data.id;
-                _this.serverService.getRequestByPartyId(_this.paramsReceived, null, null)
-                    .subscribe(function (data) {
-                    console.log(data);
-                    _this.party = data;
-                    _this.getPartyRequest();
-                }, function (error) {
-                    console.log(error);
-                });
+            if (data && data.type === __WEBPACK_IMPORTED_MODULE_7__services_party_service__["a" /* PartyService */].TYPE_MAIN) {
+                if (data.id == __WEBPACK_IMPORTED_MODULE_9__services_app_interaction_service__["a" /* AppInteractionService */].CREATE_CUSTOMER) {
+                    _this.signUpForm.reset();
+                    _this.detailFormActive = true;
+                    _this.formMode = _this.CREATE_CUSTOMER;
+                    _this.resetMessageStatus();
+                }
+                else {
+                    _this.id = data.id;
+                    _this.serverService.getRequestByPartyId(_this.id, null, null)
+                        .subscribe(function (data) {
+                        console.log(data);
+                        _this.party = data;
+                        _this.getPartyRequest();
+                    }, function (error) {
+                        console.log(error);
+                    });
+                }
             }
         });
     };
@@ -3199,16 +3884,16 @@ var PartyMainComponent = (function () {
         this.initAddressesSubscription(this.addressFormArray[1]);
     };
     PartyMainComponent.prototype.createSignUpForm = function () {
-        this.signUpForm = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["e" /* FormGroup */]({
-            'userData': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["e" /* FormGroup */]({
-                'party-name': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* FormControl */](null, [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required]),
-                'party-contact-name': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* FormControl */](null, [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required]),
-                'party-phone': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* FormControl */](null, [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required, this.validatePhone.bind(this)]),
-                'party-mobile': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* FormControl */](null, [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required, this.validateMobile.bind(this)]),
-                'party-email': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* FormControl */](null, [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].email, this.validateEmail.bind(this)]),
-                'party-physical-address': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* FormControl */](null, [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required], this.validatePhysicalAddress.bind(this)),
-                'party-mailing-address': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* FormControl */](null, [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required], this.validateMailingAddress.bind(this)),
-                'party-file-upload': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* FormControl */]({ value: '', disabled: true })
+        this.signUpForm = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormGroup */]({
+            'userData': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormGroup */]({
+                'party-name': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormControl */](null, [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required]),
+                'party-contact-name': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormControl */](null, [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required]),
+                'party-phone': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormControl */](null, [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required, this.validatePhone.bind(this)]),
+                'party-mobile': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormControl */](null, [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required, this.validateMobile.bind(this)]),
+                'party-email': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormControl */](null, [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].email, this.validateEmail.bind(this)]),
+                'party-physical-address': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormControl */](null, [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required], this.validatePhysicalAddress.bind(this)),
+                'party-mailing-address': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormControl */](null, [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required], this.validateMailingAddress.bind(this)),
+                'party-file-upload': new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormControl */]({ value: '', disabled: true })
             })
         });
         console.log(this.signUpForm);
@@ -3239,47 +3924,6 @@ var PartyMainComponent = (function () {
             this.putExistingCustomer();
         }
     };
-    PartyMainComponent.prototype.patchExistingCustomer = function () {
-        var _this = this;
-        console.log("patchExistingCustomercalled");
-        var party = new __WEBPACK_IMPORTED_MODULE_6__models_party_model__["a" /* PartyModel */]();
-        if (this.signUpForm.valid && this.signUpForm.touched) {
-            if (this.signUpForm.get('userData.party-name').touched) {
-                party.name = this.signUpForm.get('userData.party-name').value;
-            }
-            if (this.signUpForm.get('userData.party-email').touched) {
-                party.email = this.signUpForm.get('userData.party-email').value;
-            }
-            if (this.signUpForm.get('userData.party-phone').touched) {
-                party.phone = this.partyPhone;
-            }
-            if (this.signUpForm.get('userData.party-mobile').touched) {
-                party.mobile = this.partyMobile;
-            }
-            if (this.signUpForm.get('userData.party-contact-name').touched) {
-                party.contactName = this.signUpForm.get('userData.party-contact-name').value;
-            }
-            if (this.signUpForm.get('userData.party-mailing-address').touched) {
-                party.mailingAddress = this.partyMailingAddress;
-            }
-            if (this.signUpForm.get('userData.party-physical-address').touched) {
-                party.physicalAddress = this.partyPhysicalAddress;
-            }
-            this.serverService.patchParty(this.paramsReceived, party).subscribe(function (response) {
-                alert("Successfully Saved");
-                _this.detailFormActive = false;
-                _this.getPartyRequest();
-                _this.signUpForm.markAsUntouched();
-                console.log(response);
-            }, function (error) {
-                alert("Something went wrong !. Couldn't save the form.");
-                console.log(error);
-            });
-        }
-        else {
-            alert("The form is either not edited or it is not valid ! \n Please try again.");
-        }
-    };
     PartyMainComponent.prototype.putExistingCustomer = function () {
         var _this = this;
         console.log("putExistingCustomerCalled");
@@ -3293,7 +3937,7 @@ var PartyMainComponent = (function () {
             party.mailingAddress = this.partyMailingAddress;
             party.physicalAddress = this.partyPhysicalAddress;
             party.uuid = this.party.uuid;
-            this.serverService.putParty(this.paramsReceived, party).subscribe(function (response) {
+            this.serverService.putParty(this.id, party).subscribe(function (response) {
                 _this.open("Successfully Saved");
                 _this.partyService.announceParentComponent({ type: __WEBPACK_IMPORTED_MODULE_7__services_party_service__["a" /* PartyService */].TYPE_MAIN });
                 _this.detailFormActive = false;
@@ -3327,12 +3971,14 @@ var PartyMainComponent = (function () {
                 var href = response.json()._links.self.href;
                 var index = (href.lastIndexOf('/') + 1);
                 var id = href.substr(index);
-                _this.paramsReceived = id;
+                _this.id = id;
                 _this.detailFormActive = false;
                 _this.router.navigate(['parties', id, 'main'])
                     .then(function (value) {
                     console.log(value);
-                }).catch(function (error) { console.log(error); });
+                }).catch(function (error) {
+                    console.log(error);
+                });
             }, function (error) {
                 _this.open("Something went wrong!. Couldn't save the form.");
                 console.log(error);
@@ -3342,21 +3988,35 @@ var PartyMainComponent = (function () {
             this.open("The form is either not edited or it is not valid ! \n Please try again.");
         }
     };
-    PartyMainComponent.prototype.fileChange = function (event) {
-        var fileList = event.target.files;
-        if (fileList.length > 0) {
-            var file = fileList[0];
+    PartyMainComponent.prototype.uploadFile = function () {
+        var _this = this;
+        this.detailFormActive = false;
+        var fileInput = this.fileInput.nativeElement;
+        if (fileInput.files && fileInput.files[0]) {
+            this.uploadingFile = true;
+            var file = fileInput.files[0];
             var formData = new FormData();
-            formData.append('uploadFile', file, file.name);
-            var headers = new Headers();
-            headers.append('Content-Type', 'multipart/form-data');
-            headers.append('Accept', 'application/json');
-            var options = new __WEBPACK_IMPORTED_MODULE_4__angular_http__["e" /* RequestOptions */]({ headers: null });
-            this.http.post("apiEndpoint", formData, options)
-                .map(function (res) { return res.json(); })
-                .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].throw(error); })
-                .subscribe(function (data) { return console.log('success'); }, function (error) { return console.log(error); });
+            formData.append('file', file, file.name);
+            this.serverService.uploadFile(formData)
+                .subscribe(function (data) {
+                _this.uploadMessage = "File successfully saved";
+                _this.resetMessageStatus();
+                console.log(data);
+            }, function (error) {
+                _this.uploadMessage = "Something went wrong, couldn't save the file !";
+                _this.resetMessageStatus();
+                console.log(error);
+            });
         }
+    };
+    PartyMainComponent.prototype.resetMessageStatus = function (timeout) {
+        var _this = this;
+        if (timeout === void 0) { timeout = 2000; }
+        setTimeout(function () {
+            _this.uploadMessage = null;
+            _this.uploadingFile = false;
+            _this.fileInput.nativeElement.value = "";
+        }, timeout);
     };
     PartyMainComponent.prototype.editCustomer = function () {
         this.signUpForm.markAsUntouched();
@@ -3364,6 +4024,14 @@ var PartyMainComponent = (function () {
         this.formMode = this.EDIT_CUSTOMER;
     };
     PartyMainComponent.prototype.dontSaveCustomer = function () {
+        if (this.id != __WEBPACK_IMPORTED_MODULE_9__services_app_interaction_service__["a" /* AppInteractionService */].CREATE_CUSTOMER) {
+            this.router.navigate(['parties', this.id, "main"])
+                .then(function (value) {
+                console.log(value);
+            }).catch(function (error) {
+                console.log(error);
+            });
+        }
         this.setSignUpForm();
         this.signUpForm.markAsUntouched();
         this.addressFormArray[0].autoAddressesSuggesstion.length = 0;
@@ -3374,6 +4042,13 @@ var PartyMainComponent = (function () {
         this.signUpForm.reset();
         this.detailFormActive = true;
         this.formMode = this.CREATE_CUSTOMER;
+        this.resetMessageStatus();
+        this.router.navigate(['parties', __WEBPACK_IMPORTED_MODULE_9__services_app_interaction_service__["a" /* AppInteractionService */].CREATE_CUSTOMER, "main"])
+            .then(function (value) {
+            console.log(value);
+        }).catch(function (error) {
+            console.log(error);
+        });
     };
     PartyMainComponent.prototype.validatePhone = function (control) {
         var regex = /^(0(2|3|7|8))?\d{8}$/;
@@ -3383,7 +4058,7 @@ var PartyMainComponent = (function () {
         if (phone) {
             if (!regex.test(phone.replace(/\(+/g, '').replace(/\)+/g, '').replace(/\s+/g, '').replace(/-+/g, ''))) {
                 console.log("Phone number is invalid");
-                return { 'InvalidPhone': true };
+                return { 'invalid': true };
             }
             else {
                 this.partyPhone = phone.replace(/\(+/g, '').replace(/\)+/g, '').replace(/\s+/g, '').replace(/-+/g, '');
@@ -3398,7 +4073,7 @@ var PartyMainComponent = (function () {
             console.log(regex.exec(mobile.replace(/\(+/g, '').replace(/\)+/g, '').replace(/\s+/g, '').replace(/-+/g, '')));
             if (!regex.test(mobile.replace(/\(+/g, '').replace(/\)+/g, '').replace(/\s+/g, '').replace(/-+/g, ''))) {
                 console.log("Mobile number is invalid");
-                return { 'InvalidMobile': true };
+                return { invalid: true };
             }
             else {
                 this.partyMobile = mobile.replace(/\(+/g, '').replace(/\)+/g, '').replace(/\s+/g, '').replace(/-+/g, '');
@@ -3413,7 +4088,7 @@ var PartyMainComponent = (function () {
             console.log(email);
             if (!regex.test(email.toLowerCase())) {
                 console.log("Email is invalid");
-                return { 'InvalidEmail': true };
+                return { invalid: true };
             }
         }
         return null;
@@ -3468,27 +4143,27 @@ var PartyMainComponent = (function () {
                             tempRef.setAddress(value, addressType);
                         }
                     });
-                    response.next({ 'NoAddressFound': true });
+                    response.next({ 'not-found': true });
                     response.complete();
                 }
                 if (status == tempRef.googleService.maps.places.PlacesServiceStatus.ZERO_RESULTS) {
-                    response.next({ 'NoAddressFound': true });
+                    response.next({ 'not-found': true });
                     response.complete();
                 }
                 if (status == tempRef.googleService.maps.places.PlacesServiceStatus.INVALID_REQUEST) {
-                    response.next({ 'InvalidInput': true });
+                    response.next({ 'invalid': true });
                     response.complete();
                 }
                 if (status == tempRef.googleService.maps.places.PlacesServiceStatus.OVER_QUERY_LIMIT) {
-                    response.next({ 'QueryLimitCrossed': true });
+                    response.next({ 'query-limit-crossed': true });
                     response.complete();
                 }
                 if (status == tempRef.googleService.maps.places.PlacesServiceStatus.REQUEST_DENIED) {
-                    response.next({ 'RequestDenied': true });
+                    response.next({ 'request-denied': true });
                     response.complete();
                 }
                 if (status == tempRef.googleService.maps.places.PlacesServiceStatus.UNKNOWN_ERROR) {
-                    response.next({ 'UnknownError': true });
+                    response.next({ 'unknown-error': true });
                     response.complete();
                 }
             });
@@ -3587,10 +4262,10 @@ var PartyMainComponent = (function () {
         });
     };
     PartyMainComponent.prototype.getDismissReason = function (reason) {
-        if (reason === __WEBPACK_IMPORTED_MODULE_8__ng_bootstrap_ng_bootstrap__["c" /* ModalDismissReasons */].ESC) {
+        if (reason === __WEBPACK_IMPORTED_MODULE_8__ng_bootstrap_ng_bootstrap__["a" /* ModalDismissReasons */].ESC) {
             return 'by pressing ESC';
         }
-        else if (reason === __WEBPACK_IMPORTED_MODULE_8__ng_bootstrap_ng_bootstrap__["c" /* ModalDismissReasons */].BACKDROP_CLICK) {
+        else if (reason === __WEBPACK_IMPORTED_MODULE_8__ng_bootstrap_ng_bootstrap__["a" /* ModalDismissReasons */].BACKDROP_CLICK) {
             return 'by clicking on a backdrop';
         }
         else {
@@ -3600,19 +4275,62 @@ var PartyMainComponent = (function () {
     PartyMainComponent.prototype.ngOnDestroy = function () {
         this.partyServiceSubscription.unsubscribe();
     };
+    PartyMainComponent.prototype.getFirstErrorMessage = function (formControlName) {
+        var formControl = this.signUpForm.get('userData.' + formControlName);
+        for (var i = 0; i < this.errorMessages.length; i++) {
+            if (formControl.errors[this.errorMessages[i]]) {
+                for (var j = 0; j < this.formGroup.length; j++) {
+                    if (formControlName === this.formGroup[j].name) {
+                        return this.formGroup[j][this.errorMessages[i]];
+                    }
+                }
+            }
+        }
+        return "Unknown Error";
+    };
+    PartyMainComponent.prototype.getFirstAddressError = function (formControlName) {
+        console.log(formControlName);
+        var formControl = this.signUpForm.get('userData.' + formControlName);
+        if (formControl.errors) {
+            for (var i = 0; i < this.addressErrorMessages.length; i++) {
+                if (formControl.errors[this.addressErrorMessages[i]]) {
+                    for (var j = 0; j < this.addressFormArray.length; j++) {
+                        if (formControlName === this.addressFormArray[j].name) {
+                            return this.addressFormArray[j][this.addressErrorMessages[i]];
+                        }
+                    }
+                }
+            }
+        }
+        return "Address could not be found !";
+    };
+    PartyMainComponent.prototype.getFileUploadStatus = function () {
+        return this.uploadingFile;
+    };
+    PartyMainComponent.prototype.getUploadMessage = function () {
+        return this.uploadMessage;
+    };
     return PartyMainComponent;
 }());
-PartyMainComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+PartyMainComponent.CREATE_CUSTOMER = 'CREATE_CUSTOMER';
+PartyMainComponent.EDIT_CUSTOMER = 'EDIT_CUSTOMER';
+PartyMainComponent.ADDRESS_PHYSICAL = "ADDRESS_PHYSICAL";
+PartyMainComponent.ADDRESS_MAILING = "ADDRESS_MAILING";
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_16" /* ViewChild */])("fileInput"),
+    __metadata("design:type", Object)
+], PartyMainComponent.prototype, "fileInput", void 0);
+PartyMainComponent = PartyMainComponent_1 = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-party-main',
         template: __webpack_require__("../../../../../src/app/components/parties/party/party-main/party-main.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/parties/party/party-main/party-main.component.scss")],
-        encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewEncapsulation"].None
+        encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_19" /* ViewEncapsulation */].None
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__services_server_service__["a" /* ServerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_server_service__["a" /* ServerService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__angular_http__["d" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_http__["d" /* Http */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_router__["b" /* ActivatedRoute */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_router__["c" /* Router */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_7__services_party_service__["a" /* PartyService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__services_party_service__["a" /* PartyService */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_8__ng_bootstrap_ng_bootstrap__["b" /* NgbModal */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__ng_bootstrap_ng_bootstrap__["b" /* NgbModal */]) === "function" && _g || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__services_server_service__["a" /* ServerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_server_service__["a" /* ServerService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* Http */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_router__["a" /* ActivatedRoute */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["l" /* ChangeDetectorRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["l" /* ChangeDetectorRef */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_router__["b" /* Router */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_7__services_party_service__["a" /* PartyService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__services_party_service__["a" /* PartyService */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_8__ng_bootstrap_ng_bootstrap__["b" /* NgbModal */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__ng_bootstrap_ng_bootstrap__["b" /* NgbModal */]) === "function" && _g || Object])
 ], PartyMainComponent);
 
-var _a, _b, _c, _d, _e, _f, _g;
+var PartyMainComponent_1, _a, _b, _c, _d, _e, _f, _g;
 //# sourceMappingURL=party-main.component.js.map
 
 /***/ }),
@@ -3620,7 +4338,7 @@ var _a, _b, _c, _d, _e, _f, _g;
 /***/ "../../../../../src/app/components/parties/party/party.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h1 class=\"app-party\">{{data?.name}}</h1>\n<ul class=\"nav nav-tabs\">\n  <li class=\"nav-item\">\n    <a class=\"nav-link\" routerLinkActive=\"active\" routerLink=\"main\">Main</a>\n  </li>\n  <li class=\"nav-item\">\n    <a class=\"nav-link\" routerLinkActive=\"active\" routerLink=\"comments\">Comments</a>\n  </li>\n  <li class=\"nav-item\">\n    <a class=\"nav-link\" routerLinkActive=\"active\" routerLink=\"jobs\">Jobs</a>\n  </li>\n  <li *ngIf=\"partyInvoices && partyInvoices.length !=0\"\n      class=\"nav-item\">\n    <a class=\"nav-link\" routerLinkActive=\"active\" routerLink=\"invoices\">Invoices</a>\n  </li>\n  <li *ngIf=\"partyBills && partyBills.length !=0\"\n      class=\"nav-item\">\n    <a class=\"nav-link\" routerLinkActive=\"active\" routerLink=\"bills\">Bills</a>\n  </li>\n</ul>\n<div class=\"app-party-wrapper\">\n  <router-outlet></router-outlet>\n</div>\n"
+module.exports = "\n<div class=\"app-top-bar\" id=\"app-header\">\n  <div class=\"app-header\">\n    <h1>{{data?.name}}</h1>\n  </div>\n  <div class=\"app-user\">\n\n  </div>\n</div>\n<ul class=\"nav nav-tabs\">\n  <li class=\"nav-item\">\n    <a class=\"nav-link\"\n       routerLinkActive=\"active\"\n       routerLink=\"main\">\n      Main\n    </a>\n  </li>\n  <li class=\"nav-item\"\n      *ngIf=\"id != CREATE_CUSTOMER\">\n    <a class=\"nav-link\"\n       routerLinkActive=\"active\"\n       routerLink=\"comments\">\n      Comments</a>\n  </li>\n  <li class=\"nav-item\"\n      *ngIf=\"id != CREATE_CUSTOMER\">\n    <a class=\"nav-link\"\n       routerLinkActive=\"active\"\n       routerLink=\"jobs\">\n      Jobs</a>\n  </li>\n  <li *ngIf=\"partyInvoices\n            && partyInvoices.length !=0\n            && id != CREATE_CUSTOMER\"\n      class=\"nav-item\">\n    <a class=\"nav-link\"\n       routerLinkActive=\"active\"\n       routerLink=\"invoices\">\n      Invoices\n    </a>\n  </li>\n  <li *ngIf=\"partyBills && partyBills.length !=0 && id != CREATE_CUSTOMER\"\n      class=\"nav-item\">\n    <a class=\"nav-link\" routerLinkActive=\"active\" routerLink=\"bills\">Bills</a>\n  </li>\n</ul>\n<div class=\"app-party-wrapper\">\n  <router-outlet></router-outlet>\n</div>\n"
 
 /***/ }),
 
@@ -3632,7 +4350,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "app-party .app-party {\n  margin-bottom: 1rem; }\n\napp-party .nav-item {\n  font-size: 1.3rem;\n  line-height: 1.5;\n  width: 150px;\n  text-align: center; }\n\napp-party .app-party-wrapper {\n  min-height: 100vh; }\n", ""]);
+exports.push([module.i, "", ""]);
 
 // exports
 
@@ -3646,12 +4364,13 @@ module.exports = module.exports.toString();
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PartyComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_server_service__ = __webpack_require__("../../../../../src/app/services/server-service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_party_service__ = __webpack_require__("../../../../../src/app/services/party.service.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PartyComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_app_interaction_service__ = __webpack_require__("../../../../../src/app/services/app-interaction.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3666,6 +4385,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var PartyComponent = (function () {
     function PartyComponent(activatedRoute, router, serverService, location, partyService) {
         this.activatedRoute = activatedRoute;
@@ -3673,38 +4393,38 @@ var PartyComponent = (function () {
         this.serverService = serverService;
         this.location = location;
         this.partyService = partyService;
+        this.CREATE_CUSTOMER = __WEBPACK_IMPORTED_MODULE_5__services_app_interaction_service__["a" /* AppInteractionService */].CREATE_CUSTOMER;
         this.partyBills = null;
         this.partyInvoices = null;
         this.partyJobs = null;
+        this.id = null;
+        this.type = null;
     }
     PartyComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.activatedRoute.params.subscribe(function (params) {
             console.log(params['id']);
-            _this.paramsReceived = params['id'];
-            _this.makeDataRequest();
+            _this.id = params['id'];
+            _this.type = __WEBPACK_IMPORTED_MODULE_5__services_app_interaction_service__["a" /* AppInteractionService */].TYPE_MAIN;
+            if (params['id'] != __WEBPACK_IMPORTED_MODULE_5__services_app_interaction_service__["a" /* AppInteractionService */].CREATE_CUSTOMER) {
+                _this.makeDataRequest();
+            }
+            _this.announceToChildComponents();
         }, function (error) { return console.log(error); });
-    };
-    PartyComponent.prototype.ngAfterViewInit = function () {
-        var _this = this;
         this.childComponentSubscription = this.partyService.childComponentObservable
             .subscribe(function (data) {
-            if (data.type === __WEBPACK_IMPORTED_MODULE_4__services_party_service__["a" /* PartyService */].TYPE_MAIN) {
-                _this.makePartyRequest();
+            if (data && data.id) {
+                _this.id = data.id;
             }
-            if (data.type === __WEBPACK_IMPORTED_MODULE_4__services_party_service__["a" /* PartyService */].TYPE_JOBS) {
-                _this.makeJobsRequest();
+            if (data && data.type) {
+                _this.type = data.type;
             }
-            if (data.type === __WEBPACK_IMPORTED_MODULE_4__services_party_service__["a" /* PartyService */].TYPE_INVOICES) {
-                _this.makeInvoicesRequest();
-            }
-            if (data.type === __WEBPACK_IMPORTED_MODULE_4__services_party_service__["a" /* PartyService */].TYPE_BILLS) {
-                _this.makeBillsRequest();
-            }
-            if (data.type === __WEBPACK_IMPORTED_MODULE_4__services_party_service__["a" /* PartyService */].TYPE_COMMENTS) {
-                _this.makeCommentsRequest();
-            }
+            _this.announceToChildComponents();
+        }, function (error) {
+            console.log(error);
         });
+    };
+    PartyComponent.prototype.ngAfterViewInit = function () {
     };
     PartyComponent.prototype.makeDataRequest = function () {
         this.makePartyRequest();
@@ -3715,42 +4435,38 @@ var PartyComponent = (function () {
     };
     PartyComponent.prototype.makePartyRequest = function () {
         var _this = this;
-        this.serverService.getRequestByPartyId(this.paramsReceived, null, null)
+        this.serverService.getRequestByPartyId(this.id, null, null)
             .subscribe(function (data) {
             console.log(data);
             _this.data = data;
-            _this.partyService.announcePartyDetail({ id: _this.paramsReceived, type: __WEBPACK_IMPORTED_MODULE_4__services_party_service__["a" /* PartyService */].TYPE_MAIN });
         }, function (error) {
             console.log(error);
         });
     };
     PartyComponent.prototype.makeCommentsRequest = function () {
-        this.partyService.announcePartyDetail({ id: this.paramsReceived, type: __WEBPACK_IMPORTED_MODULE_4__services_party_service__["a" /* PartyService */].TYPE_COMMENTS });
     };
     PartyComponent.prototype.makeJobsRequest = function () {
         var _this = this;
-        this.serverService.getRequestByPartyId(this.paramsReceived, '/jobs')
+        this.serverService.getRequestByPartyId(this.id, '/jobs')
             .subscribe(function (jobs) {
             _this.partyJobs = jobs._embedded.jobs;
-            _this.partyService.announcePartyDetail({ id: _this.paramsReceived, type: __WEBPACK_IMPORTED_MODULE_4__services_party_service__["a" /* PartyService */].TYPE_JOBS });
         }, function (error) {
             console.log(error);
         });
     };
     PartyComponent.prototype.makeBillsRequest = function () {
         var _this = this;
-        this.serverService.getRequestByPartyId(this.paramsReceived, '/bills')
+        this.serverService.getRequestByPartyId(this.id, '/bills')
             .subscribe(function (bills) {
             console.log(bills);
             _this.partyBills = bills._embedded.bills;
-            _this.partyService.announcePartyDetail({ id: _this.paramsReceived, type: __WEBPACK_IMPORTED_MODULE_4__services_party_service__["a" /* PartyService */].TYPE_BILLS });
         }, function (error) {
             console.log(error);
         });
     };
     PartyComponent.prototype.makeInvoicesRequest = function () {
         var _this = this;
-        this.serverService.getRequestByPartyId(this.paramsReceived, '/invoices')
+        this.serverService.getRequestByPartyId(this.id, '/invoices')
             .subscribe(function (invoices) {
             if (invoices._embedded) {
                 _this.partyInvoices = invoices._embedded.invoices;
@@ -3758,9 +4474,14 @@ var PartyComponent = (function () {
             else {
                 _this.partyInvoices = null;
             }
-            _this.partyService.announcePartyDetail({ id: _this.paramsReceived, type: __WEBPACK_IMPORTED_MODULE_4__services_party_service__["a" /* PartyService */].TYPE_INVOICES });
         }, function (error) {
             console.log(error);
+        });
+    };
+    PartyComponent.prototype.announceToChildComponents = function () {
+        this.partyService.announcePartyDetail({
+            id: this.id,
+            type: this.type
         });
     };
     PartyComponent.prototype.onTabSelected = function () {
@@ -3768,14 +4489,14 @@ var PartyComponent = (function () {
     return PartyComponent;
 }());
 PartyComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-party',
         template: __webpack_require__("../../../../../src/app/components/parties/party/party.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/parties/party/party.component.scss")],
-        encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewEncapsulation"].None,
+        encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_19" /* ViewEncapsulation */].None,
         providers: [__WEBPACK_IMPORTED_MODULE_4__services_party_service__["a" /* PartyService */]]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_server_service__["a" /* ServerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_server_service__["a" /* ServerService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_common__["g" /* Location */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_common__["g" /* Location */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__services_party_service__["a" /* PartyService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_party_service__["a" /* PartyService */]) === "function" && _e || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_server_service__["a" /* ServerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_server_service__["a" /* ServerService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_common__["f" /* Location */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_common__["f" /* Location */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__services_party_service__["a" /* PartyService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_party_service__["a" /* PartyService */]) === "function" && _e || Object])
 ], PartyComponent);
 
 var _a, _b, _c, _d, _e;
@@ -3783,12 +4504,93 @@ var _a, _b, _c, _d, _e;
 
 /***/ }),
 
+/***/ "../../../../../src/app/components/staff/staff.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"row\">\n  <div class=\"col-3 card-wrapper\" *ngFor=\"let eachStaff of staff\">\n    <div class=\"card\">\n      <div class=\"card-header\">\n        <i class=\"fa fa-user\"></i>{{eachStaff.name}}\n      </div>\n      <div class=\"card-block app-card-content-container\">\n        <div class=\"staff-thmbnail-wrapper\">\n          <i class=\"fa fa-user staff-thumbnail\"></i>\n        </div>\n        <div class=\"app-card-content-wrapper\">\n          <p class=\"card-text\" title=\"email\">\n            {{eachStaff.email}}\n          </p>\n          <p class=\"card-text\" title=\"username\">\n            {{eachStaff.username}}\n          </p>\n          <p class=\"card-text\" title=\"Creation Date\">\n            {{eachStaff.createDate}}\n          </p>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/staff/staff.component.scss":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "app-staff .row {\n  padding: 1rem; }\n\napp-staff .card {\n  padding: 0.5rem 0;\n  border-radius: 0.5rem; }\n\napp-staff .col-3 {\n  margin-bottom: 1rem; }\n\napp-staff .fa-user {\n  padding-right: 1rem; }\n\napp-staff .app-card-content-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  padding-right: 0; }\n\napp-staff .staff-thmbnail-wrapper {\n  -ms-flex-item-align: center;\n      -ms-grid-row-align: center;\n      align-self: center;\n  padding: 0.5rem; }\n\napp-staff .staff-thumbnail {\n  font-size: 5rem;\n  color: #5F4D2C; }\n\napp-staff .card-text {\n  margin: 0;\n  white-space: nowrap; }\n\napp-staff .app-card-content-wrapper {\n  -ms-flex-item-align: center;\n      -ms-grid-row-align: center;\n      align-self: center;\n  padding: 0.5rem; }\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/staff/staff.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StaffComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_server_service__ = __webpack_require__("../../../../../src/app/services/server-service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var StaffComponent = (function () {
+    function StaffComponent(serverService) {
+        this.serverService = serverService;
+    }
+    StaffComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.serverService.getAllStaffMembers()
+            .subscribe(function (response) {
+            console.log(response._embedded);
+            _this.staff = response._embedded.staffs;
+            _this.formatStaffData();
+        }, function (error) {
+            console.log(error);
+        });
+    };
+    StaffComponent.prototype.formatStaffData = function () {
+        for (var i = 0; i < this.staff.length; i++) {
+            var date = new Date(this.staff[i].createDtm);
+            this.staff[i].createDate = date.toDateString().substr(date.toDateString().indexOf(" "));
+        }
+    };
+    return StaffComponent;
+}());
+StaffComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-staff',
+        template: __webpack_require__("../../../../../src/app/components/staff/staff.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/components/staff/staff.component.scss")],
+        encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_19" /* ViewEncapsulation */].None
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_server_service__["a" /* ServerService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_server_service__["a" /* ServerService */]) === "function" && _a || Object])
+], StaffComponent);
+
+var _a;
+//# sourceMappingURL=staff.component.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/directives/form-input.directive.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FormInputDirective; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3823,22 +4625,22 @@ var FormInputDirective = (function () {
     return FormInputDirective;
 }());
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"])('focus', ['$event']),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* HostListener */])('focus', ['$event']),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], FormInputDirective.prototype, "onInputFocus", null);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"])('blur', ['$event']),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* HostListener */])('blur', ['$event']),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], FormInputDirective.prototype, "onInputBlur", null);
 FormInputDirective = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Directive"])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* Directive */])({
         selector: '[appFormInput]'
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer2"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer2"]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* ElementRef */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["_2" /* Renderer2 */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["_2" /* Renderer2 */]) === "function" && _b || Object])
 ], FormInputDirective);
 
 var _a, _b;
@@ -3865,10 +4667,10 @@ var PartyModel = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppInteractionService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__ = __webpack_require__("../../../../rxjs/Subject.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppInteractionService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3908,8 +4710,9 @@ AppInteractionService.TYPE_INVOICES = 'TYPE_INVOICES';
 AppInteractionService.TYPE_COMMENTS = 'TYPE_COMMENTS';
 AppInteractionService.TYPE_SCHEDULES = 'TYPE_SCHEDULES';
 AppInteractionService.TYPE_FIELDWORKS = 'TYPE_FIELDWORKS';
+AppInteractionService.CREATE_CUSTOMER = 'Create Customer';
 AppInteractionService = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
     __metadata("design:paramtypes", [])
 ], AppInteractionService);
 
@@ -3917,12 +4720,85 @@ AppInteractionService = __decorate([
 
 /***/ }),
 
+/***/ "../../../../../src/app/services/app-pager.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppPagerService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_underscore__ = __webpack_require__("../../../../underscore/underscore.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_underscore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_underscore__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+var AppPagerService = (function () {
+    function AppPagerService() {
+    }
+    AppPagerService.prototype.getPager = function (totalItems, currentPage, pageSize) {
+        if (currentPage === void 0) { currentPage = 1; }
+        if (pageSize === void 0) { pageSize = 20; }
+        // calculate total pages
+        var totalPages = Math.ceil(totalItems / pageSize);
+        var startPage, endPage;
+        if (totalPages <= 10) {
+            // less than 10 total pages so show all
+            startPage = 1;
+            endPage = totalPages;
+        }
+        else {
+            // more than 10 total pages so calculate start and end pages
+            if (currentPage <= 6) {
+                startPage = 1;
+                endPage = 10;
+            }
+            else if (currentPage + 4 >= totalPages) {
+                startPage = totalPages - 9;
+                endPage = totalPages;
+            }
+            else {
+                startPage = currentPage - 5;
+                endPage = currentPage + 4;
+            }
+        }
+        // calculate start and end item indexes
+        var startIndex = (currentPage - 1) * pageSize;
+        var endIndex = Math.min(startIndex + pageSize - 1, totalItems - 1);
+        // create an array of pages to ng-repeat in the pager control
+        var pages = __WEBPACK_IMPORTED_MODULE_1_underscore__["range"](startPage, endPage + 1);
+        // return object with all pager properties required by the view
+        return {
+            totalItems: totalItems,
+            currentPage: currentPage,
+            pageSize: pageSize,
+            totalPages: totalPages,
+            startPage: startPage,
+            endPage: endPage,
+            startIndex: startIndex,
+            endIndex: endIndex,
+            pages: pages
+        };
+    };
+    return AppPagerService;
+}());
+AppPagerService = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])()
+], AppPagerService);
+
+//# sourceMappingURL=app-pager.service.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/services/form-validation.service.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FormValidationService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3939,7 +4815,7 @@ var FormValidationService = (function () {
     return FormValidationService;
 }());
 FormValidationService = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
     __metadata("design:paramtypes", [])
 ], FormValidationService);
 
@@ -3951,10 +4827,10 @@ FormValidationService = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return JobService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__ = __webpack_require__("../../../../rxjs/Subject.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return JobService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3992,8 +4868,9 @@ JobService.TYPE_INVOICES = 'TYPE_INVOICES';
 JobService.TYPE_COMMENTS = 'TYPE_COMMENTS';
 JobService.TYPE_SCHEDULES = 'TYPE_SCHEDULES';
 JobService.TYPE_FIELDWORKS = 'TYPE_FIELDWORKS';
+JobService.TYPE_TIMELINE = 'TYPE_TIMELINE';
 JobService = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
     __metadata("design:paramtypes", [])
 ], JobService);
 
@@ -4005,10 +4882,10 @@ JobService = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NavBarService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__ = __webpack_require__("../../../../rxjs/Subject.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NavBarService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4030,7 +4907,7 @@ var NavBarService = (function () {
     return NavBarService;
 }());
 NavBarService = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
     __metadata("design:paramtypes", [])
 ], NavBarService);
 
@@ -4042,10 +4919,10 @@ NavBarService = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PartyService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__ = __webpack_require__("../../../../rxjs/Subject.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PartyService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4082,7 +4959,7 @@ PartyService.TYPE_BILLS = 'TYPE_BILLS';
 PartyService.TYPE_INVOICES = 'TYPE_INVOICES';
 PartyService.TYPE_COMMENTS = 'TYPE_COMMENTS';
 PartyService = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
     __metadata("design:paramtypes", [])
 ], PartyService);
 
@@ -4094,13 +4971,13 @@ PartyService = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ServerService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__ = __webpack_require__("../../../../rxjs/Rx.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__ = __webpack_require__("../../../../rxjs/Observable.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ServerService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4114,14 +4991,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var ServerService = (function () {
+var ServerService = ServerService_1 = (function () {
     function ServerService(http) {
         this.http = http;
-        this.baseUrl = "http://localhost:8080";
-        this.apiUrl = this.baseUrl + "/api";
-        this.partiesUrl = this.apiUrl + "/parties";
-        this.jobsUrl = this.apiUrl + "/jobs";
+        this.baseUrl = ServerService_1.baseUrl;
+        this.apiUrl = ServerService_1.apiUrl;
+        this.partiesUrl = ServerService_1.partiesUrl;
+        this.jobsUrl = ServerService_1.jobsUrl;
+        this.staffUrl = ServerService_1.staffUrl;
+        this.uploadUrl = ServerService_1.uploadUrl;
+        this.commentsUrl = ServerService_1.commentsUrl;
     }
+    ServerService.prototype.uploadFile = function (formData) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
+        headers.append('Content-Type', 'multipart/form-data');
+        var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["e" /* RequestOptions */](headers);
+        return this.http.post(this.uploadUrl, formData, options);
+    };
     ServerService.prototype.getAllParties = function () {
         return this.http.get(this.partiesUrl)
             .map(function (response) {
@@ -4134,6 +5020,16 @@ var ServerService = (function () {
     };
     ServerService.prototype.getAllJobs = function () {
         return this.http.get(this.jobsUrl)
+            .map(function (response) {
+            var data = response.json();
+            console.log(data);
+            return data;
+        }).catch(function (error) {
+            return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["Observable"].throw('Something went wrong');
+        });
+    };
+    ServerService.prototype.getAllStaffMembers = function () {
+        return this.http.get(this.staffUrl)
             .map(function (response) {
             var data = response.json();
             console.log(data);
@@ -4178,43 +5074,73 @@ var ServerService = (function () {
     //* var firstHeaders = new Headers();
     //* firstHeaders.append('Content-Type', 'image/jpeg');
     ServerService.prototype.saveParty = function (party) {
-        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Headers */]();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        return this.http.post("http://localhost:8080/api/parties/", party, { headers: headers });
+        return this.http.post(ServerService_1.partiesUrl, party, { headers: headers });
     };
     ServerService.prototype.patchParty = function (id, party) {
-        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Headers */]();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        return this.http.patch("http://localhost:8080/api/parties/" + id, party, { headers: headers });
+        return this.http.patch(ServerService_1.partiesUrl + '/' + id, party, { headers: headers });
+    };
+    ServerService.prototype.patchCommentWithUploadedFiles = function (fileUuid, comment) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
+        headers.append('Content-Type', 'application/json');
+        return this.http.patch(ServerService_1.uploadedFilesUrl + '/' + fileUuid, comment, { headers: headers });
     };
     ServerService.prototype.putParty = function (id, party) {
-        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Headers */]();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        return this.http.put("http://localhost:8080/api/parties/" + id, party, { headers: headers });
+        return this.http.put(ServerService_1.partiesUrl + '/' + id, party, { headers: headers });
     };
     ServerService.prototype.saveJob = function (job) {
-        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Headers */]();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        return this.http.post("http://localhost:8080/api/jobs/", job, { headers: headers });
+        return this.http.post(ServerService_1.jobsUrl, job, { headers: headers });
+    };
+    ServerService.prototype.postJobStatus = function (jobStatus) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
+        headers.append('Content-Type', 'application/json');
+        return this.http.post(ServerService_1.jobStatusEntriesUrl, jobStatus, { headers: headers });
     };
     ServerService.prototype.putJob = function (id, job) {
-        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Headers */]();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        return this.http.put("http://localhost:8080/api/jobs/" + id, job, { headers: headers });
+        return this.http.put(ServerService_1.jobsUrl + '/' + id, job, { headers: headers });
     };
     ServerService.prototype.saveUserComment = function (userComment) {
-        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Headers */]();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        return this.http.post("http://localhost:8080/api/comments", userComment, { headers: headers });
+        return this.http.post(ServerService_1.commentsUrl, userComment, { headers: headers });
+    };
+    ServerService.prototype.getUploadedFilesFromCommentsId = function (id) {
+        return this.http.get(ServerService_1.commentsUrl + '/' + id + '/uploadedFiles')
+            .map(function (response) {
+            console.log(response);
+            var data = response.json();
+            console.log(data);
+            return data;
+        }).catch(function (error) {
+            return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["Observable"].throw('Something went wrong');
+        });
     };
     return ServerService;
 }());
-ServerService = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* Http */]) === "function" && _a || Object])
+ServerService.baseUrl = "http://localhost:8081";
+ServerService.apiUrl = ServerService_1.baseUrl + "/api";
+ServerService.partiesUrl = ServerService_1.apiUrl + "/parties";
+ServerService.jobsUrl = ServerService_1.apiUrl + "/jobs";
+ServerService.staffUrl = ServerService_1.apiUrl + "/staffs";
+ServerService.uploadUrl = ServerService_1.apiUrl + "/upload";
+ServerService.commentsUrl = ServerService_1.apiUrl + "/comments";
+ServerService.uploadedFilesUrl = ServerService_1.apiUrl + "/uploadedFiles";
+ServerService.jobStatusEntriesUrl = ServerService_1.apiUrl + "/jobStatusEntries";
+ServerService = ServerService_1 = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
 ], ServerService);
 
-var _a;
+var ServerService_1, _a;
 //# sourceMappingURL=server-service.js.map
 
 /***/ }),
@@ -4250,9 +5176,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].production) {
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["enableProdMode"])();
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_23" /* enableProdMode */])();
 }
-__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */]);
+Object(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */]);
 //# sourceMappingURL=main.js.map
 
 /***/ }),

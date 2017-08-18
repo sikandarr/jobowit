@@ -1,6 +1,5 @@
 package com.jobowit;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -13,11 +12,11 @@ import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.ResourceProcessor;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.anahata.myob.api.auth.MyobPlugin;
+import com.jobowit.domain.Bill;
+import com.jobowit.domain.Invoice;
 import com.jobowit.domain.Party;
 import com.jobowit.domain.UploadedFile;
 import com.jobowit.domain.projections.PartyProjection;
-import com.jobowit.repositories.MyobTokenRepository;
 
 @SpringBootApplication
 @RestController
@@ -75,6 +74,34 @@ public class JobowitApplication
 			public Resource<PartyProjection> process(Resource<PartyProjection> resource)
 			{
 				resource.add(new Link(resource.getId().getHref() + "/invoices").withRel("invoices"));
+				return resource;
+			}
+		};
+	}
+	
+	@Bean
+	public ResourceProcessor<Resource<Invoice>> addMyobExportLinkInvoice()
+	{
+		return new ResourceProcessor<Resource<Invoice>>()
+		{
+			@Override
+			public Resource<Invoice> process(Resource<Invoice> resource)
+			{
+				resource.add(new Link(resource.getId().getHref() + "/exportToMyob").withRel("myob"));
+				return resource;
+			}
+		};
+	}
+	
+	@Bean
+	public ResourceProcessor<Resource<Bill>> addMyobExportLinkBill()
+	{
+		return new ResourceProcessor<Resource<Bill>>()
+		{
+			@Override
+			public Resource<Bill> process(Resource<Bill> resource)
+			{
+				resource.add(new Link(resource.getId().getHref() + "/exportToMyob").withRel("myob"));
 				return resource;
 			}
 		};

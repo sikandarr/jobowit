@@ -30,6 +30,6 @@ public interface PartyRepository  extends PagingAndSortingRepository<Party, Long
 	@Query(nativeQuery=true, value="SELECT * FROM jobowit_db.party LIMIT 0, 10;")
 	List<Party> findTop10();
 	
-	@Query(nativeQuery=true, value="SELECT * FROM jobowit_db.party LIMIT 0, 1;")
-	List<Party> findTop1();
+	@Query(nativeQuery=true, value="SELECT * FROM jobowit_db.party LIMIT 0, 2;")
+	List<Party> findTop2();
 }

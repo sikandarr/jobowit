@@ -98,7 +98,7 @@ public class MyobSyncService
 			}
 		}
 
-		List<Party> parties = partyRepo.findTop1();
+		List<Party> parties = partyRepo.findTop2();
 		for (Party p : parties)
 		{
 			Contact c = contactService.find(p.getMyobUid());

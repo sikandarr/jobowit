@@ -5,10 +5,13 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.anahata.myob.api.service.CustomerService;
+import com.anahata.myob.api.service.ServiceInvoiceService;
 import com.anahata.myob.api.service.SupplierService;
 import com.anahata.myob.api.service.generalledger.AccountService;
 import com.anahata.myob.api.service.generalledger.TaxCodeService;
 import com.jobowit.myob.service.ContactService;
+import com.jobowit.myob.service.ItemBillService;
+import com.jobowit.myob.service.ItemService;
 
 @Configuration
 public class MyobServiceBeans
@@ -54,5 +57,29 @@ public class MyobServiceBeans
 		TaxCodeService taxCodeService = new TaxCodeService();
 		taxCodeService.setEndPointProvider(myobEndPointProviderServiceImpl);
 		return taxCodeService;
+	}
+	
+	@Bean
+	public  ServiceInvoiceService getServiceInvoiceService() throws Exception
+	{
+		ServiceInvoiceService serviceInvoiceService = new ServiceInvoiceService();
+		serviceInvoiceService.setEndPointProvider(myobEndPointProviderServiceImpl);
+		return serviceInvoiceService;
+	}
+	
+	@Bean
+	public  ItemBillService getItemBillService() throws Exception
+	{
+		ItemBillService itemBillService = new ItemBillService();
+		itemBillService.setEndPointProvider(myobEndPointProviderServiceImpl);
+		return itemBillService;
+	}
+	
+	@Bean
+	public  ItemService getItemService() throws Exception
+	{
+		ItemService itemService = new ItemService();
+		itemService.setEndPointProvider(myobEndPointProviderServiceImpl);
+		return itemService;
 	}
 }

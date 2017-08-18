@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.anahata.myob.api.domain.v2.contact.CardLink;
 import com.anahata.myob.api.domain.v2.generalledger.Account;
@@ -21,27 +22,35 @@ import com.jobowit.domain.InvoiceLineItem;
 import com.jobowit.domain.Party;
 import com.jobowit.repositories.InvoiceRepository;
 
+@Component
 public class MyobInvoiceService
 {
 	@Autowired
 	private InvoiceRepository invoiceRepo;
-	
+
 	@Autowired
 	private ServiceInvoiceService serviceInvoiceService;
-	
+
 	@Autowired
 	private AccountService accountService;
-	
+
 	@Autowired
 	private TaxCodeService taxCodeService;
-	
-	public void export(int invoiceId)
+
+	public String export(int invoiceId)
 	{
 		Invoice i = invoiceRepo.findOne(invoiceId);
-		ServiceInvoice myobServiceInvoice = create(i);
-		serviceInvoiceService.create(myobServiceInvoice);
+		if (i.getMyobUid() == null || i.getMyobUid().equals(""))
+		{
+			ServiceInvoice myobServiceInvoice = create(i);
+			myobServiceInvoice = serviceInvoiceService.create(myobServiceInvoice);
+			i.setMyobUid(myobServiceInvoice.getUID());
+			invoiceRepo.save(i);
+			return "Success! Invoice exported";
+		}
+		return "Invoice already exported";
 	}
-	
+
 	public ServiceInvoice create(Invoice i)
 	{
 		ServiceInvoice si = new ServiceInvoice();
@@ -53,7 +62,7 @@ public class MyobInvoiceService
 		si.setLines(createLines(i.getInvoiceLineItems()));
 		return si;
 	}
-	
+
 	public ArrayList<ServiceInvoiceLine> createLines(List<InvoiceLineItem> invoiceLineItems)
 	{
 		ArrayList<ServiceInvoiceLine> lines = new ArrayList<ServiceInvoiceLine>();
@@ -62,13 +71,13 @@ public class MyobInvoiceService
 			ServiceInvoiceLine line = new ServiceInvoiceLine();
 			line.setDescription(item.getDescription());
 			line.setTotal(new BigDecimal(item.getUnitPrice() * item.getQuantity()));
-			
+
 			String accountUid = item.getMyobAccount();
 			Account account = accountService.find(accountUid);
 			AccountLink accountLink = new AccountLink();
 			accountLink.setUID(account.getUID());
 			line.setAccount(accountLink);
-			
+
 			String taxCodeUid = item.getMyobTaxCode();
 			TaxCode taxCode = taxCodeService.find(taxCodeUid);
 			TaxCodeLink taxCodeLink = new TaxCodeLink();
@@ -76,7 +85,7 @@ public class MyobInvoiceService
 			line.setTaxCode(taxCodeLink);
 			lines.add(line);
 		}
-		
+
 		return lines;
 	}
 

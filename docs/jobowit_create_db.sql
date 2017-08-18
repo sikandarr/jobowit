@@ -548,6 +548,7 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`invoice` (
   `description` MEDIUMTEXT NULL,
   `invoice_dt` DATE NULL,
   `invoice_due_dt` DATE NULL,
+  `myob_uid` VARCHAR(36) NULL,
   PRIMARY KEY (`invoice_id`),
   INDEX `fk_invoice_job1_idx` (`job_id` ASC),
   UNIQUE INDEX `invoice_number_UNIQUE` (`invoice_number` ASC),

@@ -610,6 +610,7 @@ INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phon
 INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (99,'0d8a3eea-69dc-11e7-931d-001a7dda7113','Hymenaeos Institute','Xerxes Crane','posuere@maurisInteger.org','(06) 1289 7202','(04) 9532 3758',43,287);
 INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (100,'0d8a92a9-69dc-11e7-931d-001a7dda7113','Neque In Foundation','Evan Simmons','Cras.interdum.Nunc@dui.net','(08) 2398 0983','(04) 8731 3839',170,384);
 update party set type = "Supplier" where party_id > 50;
+UPDATE party SET type = 'Supplier' WHERE party_id = '2';
 
 -- -----------------------------------------------------
 -- staff data
@@ -1197,6 +1198,8 @@ INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_pri
 INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (59,"augue ut lacus. Nulla tincidunt, neque vitae semper egestas, urna",2,"8.66");
 INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (53,"augue id ante dictum cursus. Nunc mauris",1,"2.48");
 INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (95,"Sed nunc est, mollis non, cursus non, egestas a, dui.",4,"6.70");
+
+update invoice_line_item set myob_account = '3bd2fbea-54d7-4115-8030-b84360048465', myob_tax_code = 'b2ff345a-2de6-4160-b319-66d01334a5ad' where invoice_id > 0;
 
 -- -----------------------------------------------------
 -- job_schedule mock data

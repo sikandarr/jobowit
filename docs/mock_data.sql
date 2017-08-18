@@ -934,6 +934,8 @@ insert into bill (bill_id, supplier_ref, tax_inclusive, job_id, supplier_id) val
 insert into bill (bill_id, supplier_ref, tax_inclusive, job_id, supplier_id) values (19, 'BDM', 1, 27, 43);
 insert into bill (bill_id, supplier_ref, tax_inclusive, job_id, supplier_id) values (20, 'BDM', 1, 25, 43);
 
+UPDATE `jobowit_db`.`bill` SET `myob_freight_tax_code`='b0613ff1-eabe-4aed-9d35-ec7f66e1aac1' WHERE `bill_id`>'0';
+
 -- -----------------------------------------------------
 -- mock bill line-items
 -- -----------------------------------------------------
@@ -973,6 +975,8 @@ insert into bill_line_item (bill_id, description, quantity, unit_price, sell_pri
 insert into bill_line_item (bill_id, description, quantity, unit_price, sell_price) values (5, 'nam dui proin leo odio porttitor', 9, '142.04', 149);
 insert into bill_line_item (bill_id, description, quantity, unit_price, sell_price) values (5, 'lorem ipsum dolor sit amet consectetuer adipiscing elit', 6, '109.12', 116);
 insert into bill_line_item (bill_id, description, quantity, unit_price, sell_price) values (12, 'cras pellentesque volutpat dui maecenas tristique est et tempus semper est quam pharetra magna ac consequat metus sapien ut nunc', 19, '89.21', 96);
+
+UPDATE `jobowit_db`.`bill_line_item` SET `myob_item`='1561f728-d1cb-4617-9cbd-25438dd8f1c3', `myob_tax_code`='b0613ff1-eabe-4aed-9d35-ec7f66e1aac1' WHERE `line_item_id` > 0;
 
 -- -----------------------------------------------------
 -- user access data

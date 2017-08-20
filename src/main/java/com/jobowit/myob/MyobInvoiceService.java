@@ -29,13 +29,7 @@ public class MyobInvoiceService
 	private InvoiceRepository invoiceRepo;
 
 	@Autowired
-	private ServiceInvoiceService serviceInvoiceService;
-
-	@Autowired
-	private AccountService accountService;
-
-	@Autowired
-	private TaxCodeService taxCodeService;
+	private MyobService m;
 
 	public String export(int invoiceId)
 	{
@@ -43,7 +37,7 @@ public class MyobInvoiceService
 		if (i.getMyobUid() == null || i.getMyobUid().equals(""))
 		{
 			ServiceInvoice myobServiceInvoice = create(i);
-			myobServiceInvoice = serviceInvoiceService.create(myobServiceInvoice);
+			myobServiceInvoice = m.getService(ServiceInvoiceService.class).create(myobServiceInvoice);
 			i.setMyobUid(myobServiceInvoice.getUID());
 			invoiceRepo.save(i);
 			return "Success! Invoice exported";
@@ -73,13 +67,13 @@ public class MyobInvoiceService
 			line.setTotal(new BigDecimal(item.getUnitPrice() * item.getQuantity()));
 
 			String accountUid = item.getMyobAccount();
-			Account account = accountService.find(accountUid);
+			Account account = m.getService(AccountService.class).find(accountUid);
 			AccountLink accountLink = new AccountLink();
 			accountLink.setUID(account.getUID());
 			line.setAccount(accountLink);
 
 			String taxCodeUid = item.getMyobTaxCode();
-			TaxCode taxCode = taxCodeService.find(taxCodeUid);
+			TaxCode taxCode = m.getService(TaxCodeService.class).find(taxCodeUid);
 			TaxCodeLink taxCodeLink = new TaxCodeLink();
 			taxCodeLink.setUID(taxCode.getUID());
 			line.setTaxCode(taxCodeLink);

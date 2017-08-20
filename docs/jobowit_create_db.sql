@@ -328,10 +328,13 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`bill` (
   `tax_inclusive` TINYINT(1) NULL,
   `job_id` INT NOT NULL,
   `supplier_id` BIGINT NOT NULL,
+  `myob_freight_tax_code` VARCHAR(36) NULL,
+  `myob_uid` VARCHAR(36) NULL,
   PRIMARY KEY (`bill_id`),
   INDEX `fk_bill_job1_idx` (`job_id` ASC),
   INDEX `fk_bill_party1_idx` (`supplier_id` ASC),
   UNIQUE INDEX `bill_number_UNIQUE` (`bill_number` ASC),
+  UNIQUE INDEX `myob_uid_UNIQUE` (`myob_uid` ASC),
   CONSTRAINT `fk_bill_job1`
     FOREIGN KEY (`job_id`)
     REFERENCES `jobowit_db`.`job` (`job_id`)
@@ -357,6 +360,8 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`bill_line_item` (
   `quantity` INT NULL,
   `unit_price` DECIMAL(14,2) NULL,
   `sell_price` DECIMAL(14,2) NULL,
+  `myob_item` VARCHAR(36) NULL,
+  `myob_tax_code` VARCHAR(36) NULL,
   PRIMARY KEY (`line_item_id`),
   INDEX `fk_bill_line_items_bill1_idx` (`bill_id` ASC),
   CONSTRAINT `fk_bill_line_items_bill1`

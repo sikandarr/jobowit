@@ -28,13 +28,7 @@ import com.jobowit.repositories.MyobSyncDatesRepository;
 public class MyobSyncService
 {
 	@Autowired
-	private ContactService contactService;
-
-	@Autowired
-	private CustomerService customerService;
-
-	@Autowired
-	private SupplierService supplierService;
+	private MyobService m;
 
 	@Autowired
 	private PartyRepository partyRepo;
@@ -52,6 +46,7 @@ public class MyobSyncService
 
 	public void syncAllContacts()
 	{
+		CustomerService customerService = m.getService(CustomerService.class);
 		List<Customer> customers = customerService.findAll();
 		for (Customer c : customers)
 		{
@@ -75,6 +70,7 @@ public class MyobSyncService
 			}
 		}
 
+		SupplierService supplierService = m.getService(SupplierService.class);
 		List<Supplier> suppliers = supplierService.findAll();
 		for (Supplier s : suppliers)
 		{
@@ -99,6 +95,7 @@ public class MyobSyncService
 		}
 
 		List<Party> parties = partyRepo.findTop2();
+		ContactService contactService = m.getService(ContactService.class);
 		for (Party p : parties)
 		{
 			Contact c = contactService.find(p.getMyobUid());

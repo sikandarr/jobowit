@@ -29,23 +29,16 @@ public class MyobBillService
 {
 	@Autowired
 	private BillRepository billRepo;
-
-	@Autowired
-	ItemBillService ibs;
 	
 	@Autowired
-	private TaxCodeService taxCodeService;
-	
-	@Autowired
-	private ItemService itemService;
+	private MyobService m;
 
 	public String export(int billId)
 	{
 		Bill b = billRepo.findOne(billId);
 		if (b.getMyobUid() == null || b.getMyobUid().equals(""))
 		{
-			ItemBill ib = ibs.create(create(b));
-			System.out.println(ib.getUID());
+			ItemBill ib = m.getService(ItemBillService.class).create(create(b));
 			b.setMyobUid(ib.getUID());
 			billRepo.save(b);
 			return "Success! Bill exported";
@@ -65,7 +58,7 @@ public class MyobBillService
 		ib.setLines(createLines(b.getBillLineItems()));
 		
 		String taxCodeUid = b.getMyobFreightTaxCode();
-		TaxCode taxCode = taxCodeService.find(taxCodeUid);
+		TaxCode taxCode = m.getService(TaxCodeService.class).find(taxCodeUid);
 		TaxCodeLink taxCodeLink = new TaxCodeLink();
 		taxCodeLink.setUID(taxCode.getUID());
 		ib.setFreightTaxCode(taxCodeLink);
@@ -87,13 +80,13 @@ public class MyobBillService
 			line.setDescription(bli.getDescription());
 			
 			String taxCodeUid = bli.getMyobTaxCode();
-			TaxCode taxCode = taxCodeService.find(taxCodeUid);
+			TaxCode taxCode = m.getService(TaxCodeService.class).find(taxCodeUid);
 			TaxCodeLink taxCodeLink = new TaxCodeLink();
 			taxCodeLink.setUID(taxCode.getUID());
 			line.setTaxCode(taxCodeLink);
 			
 			String myobItemUid = bli.getMyobItem();
-			Item item = itemService.find(myobItemUid);
+			Item item = m.getService(ItemService.class).find(myobItemUid);
 			ItemLink itemLink = new ItemLink();
 			itemLink.setUID(item.getUID());
 			line.setItem(itemLink);

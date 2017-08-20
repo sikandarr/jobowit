@@ -1,5 +1,6 @@
 package com.jobowit;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -17,6 +18,7 @@ import com.jobowit.domain.Invoice;
 import com.jobowit.domain.Party;
 import com.jobowit.domain.UploadedFile;
 import com.jobowit.domain.projections.PartyProjection;
+import com.jobowit.repositories.MyobTokenRepository;
 
 @SpringBootApplication
 @RestController
@@ -24,6 +26,9 @@ import com.jobowit.domain.projections.PartyProjection;
 	{ JobowitApplication.class, Jsr310JpaConverters.class })
 public class JobowitApplication
 {
+	@Autowired
+	MyobTokenRepository myobTokenRepo;
+
 	public static void main(String[] args)
 	{
 		System.out.println("Starting Jobowit; please wait for confirmation...");
@@ -50,7 +55,7 @@ public class JobowitApplication
 			}
 		};
 	}
-	
+
 	@Bean
 	public ResourceProcessor<Resource<UploadedFile>> uploadedFileProcessor()
 	{
@@ -78,7 +83,7 @@ public class JobowitApplication
 			}
 		};
 	}
-	
+
 	@Bean
 	public ResourceProcessor<Resource<Invoice>> addMyobExportLinkInvoice()
 	{
@@ -92,7 +97,7 @@ public class JobowitApplication
 			}
 		};
 	}
-	
+
 	@Bean
 	public ResourceProcessor<Resource<Bill>> addMyobExportLinkBill()
 	{
@@ -106,7 +111,6 @@ public class JobowitApplication
 			}
 		};
 	}
-
 	/*
 	 * @RequestMapping("/user") public Principal user(Principal user) { return
 	 * user; }

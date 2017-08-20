@@ -3,39 +3,48 @@ package com.jobowit.myob;
 import java.sql.Timestamp;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import com.anahata.myob.api.MyobEndPoint;
 import com.anahata.myob.api.MyobEndPointProvider;
 import com.anahata.myob.api.auth.DataFileCredentials;
 import com.anahata.myob.api.auth.MyobPlugin;
 import com.anahata.myob.api.auth.OAuthAccessToken;
+import com.anahata.myob.api.domain.CompanyFile;
 import com.anahata.myob.api.service.CompanyFileService;
 import com.jobowit.domain.MyobToken;
+import com.jobowit.exception.MyobAccessException;
 import com.jobowit.repositories.MyobTokenRepository;
 
-@Component
-class MyobEndPointProviderServiceImpl implements MyobEndPointProvider
+public class MyobEndPointProviderServiceImpl implements MyobEndPointProvider
 {
 	private final MyobPlugin plugin = new MyobPlugin("vzbha48uyde74m4xtd9xuduz", "kckU3f6SJbKhe6MNrBTzYKSm",
 			"http://localhost:8082/myob");
 
 	private String uid = "";
-	
+
 	MyobTokenRepository myobTokenRepo;
 
 	@Autowired
-	public MyobEndPointProviderServiceImpl(MyobTokenRepository myobTokenRepo) throws Exception
+	public MyobEndPointProviderServiceImpl(MyobTokenRepository myobTokenRepo)
 	{
+		System.out.println(":::Myob_EndPoint_Provider_Service_Impl:::");
+
 		this.myobTokenRepo = myobTokenRepo;
 		MyobToken myobToken = myobTokenRepo.findLatest();
-		OAuthAccessToken t = new OAuthAccessToken(plugin, myobToken.getAccessToken(), myobToken.getRefreshToken(),
-				myobToken.getCreatedOn(), myobToken.getExpiresIn());
-		this.uid = CompanyFileService.findAll(t)[0].getId();
-	}
 
-	public MyobEndPointProviderServiceImpl(String uid)
-	{
-		this.uid = uid;
+		if (myobToken != null)
+		{
+			OAuthAccessToken t = new OAuthAccessToken(plugin, myobToken.getAccessToken(), myobToken.getRefreshToken(),
+					myobToken.getCreatedOn(), myobToken.getExpiresIn());
+			try
+			{
+				CompanyFile[] companyFile = CompanyFileService.findAll(t);
+				this.uid = companyFile[0].getId();
+			}
+			catch (Exception e)
+			{
+				throw new MyobAccessException("Couldn't retrieve company files");
+			}
+		}
 	}
 
 	@Override
@@ -55,10 +64,4 @@ class MyobEndPointProviderServiceImpl implements MyobEndPointProvider
 				t.getScope(), new Timestamp(t.getCreatedOn().getTime()));
 		myobTokenRepo.save(myobToken);
 	}
-
-	public void setUid(String uid)
-	{
-		this.uid = uid;
-	}
-
 }

@@ -1203,7 +1203,7 @@ INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_pri
 INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (53,"augue id ante dictum cursus. Nunc mauris",1,"2.48");
 INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (95,"Sed nunc est, mollis non, cursus non, egestas a, dui.",4,"6.70");
 
-update invoice_line_item set myob_account = '3bd2fbea-54d7-4115-8030-b84360048465', myob_tax_code = 'b2ff345a-2de6-4160-b319-66d01334a5ad' where invoice_id > 0;
+update invoice_line_item set myob_account = 'ce84af88-225a-4e85-9674-8c269d78d6ca', myob_tax_code = '3bd2fbea-54d7-4115-8030-b84360048465' where invoice_id > 0;
 
 -- -----------------------------------------------------
 -- job_schedule mock data

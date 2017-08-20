@@ -25,8 +25,10 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`address` (
   `city` VARCHAR(50) NULL,
   `state` VARCHAR(45) NULL,
   `state_abr` VARCHAR(4) NULL,
-  `post_code` VARCHAR(4) NULL,
+  `post_code` VARCHAR(12) NULL,
   `country` VARCHAR(45) NULL,
+  `created_dtm` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_dtm` TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`address_id`))
 ENGINE = InnoDB;
 
@@ -39,6 +41,7 @@ DROP TABLE IF EXISTS `jobowit_db`.`party` ;
 CREATE TABLE IF NOT EXISTS `jobowit_db`.`party` (
   `party_id` BIGINT NOT NULL AUTO_INCREMENT,
   `party_uuid` CHAR(36) NOT NULL DEFAULT 'EMPTY',
+  `myob_uid` VARCHAR(36) NULL,
   `name` VARCHAR(100) NOT NULL,
   `contact_name` VARCHAR(100) NULL,
   `email` VARCHAR(50) NULL,
@@ -46,11 +49,15 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`party` (
   `mobile` VARCHAR(45) NULL,
   `mailing_address_id` INT NULL,
   `physical_address_id` INT NULL,
+  `is_individual` TINYINT(1) NOT NULL DEFAULT 0,
+  `type` ENUM('Customer', 'Supplier') NOT NULL DEFAULT 'Customer',
   `created_dtm` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_dtm` TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`party_id`),
   INDEX `fk_Party_address_idx` (`mailing_address_id` ASC),
   INDEX `fk_Party_address1_idx` (`physical_address_id` ASC),
   UNIQUE INDEX `party_uuid_UNIQUE` (`party_uuid` ASC),
+  UNIQUE INDEX `myob_uid_UNIQUE` (`myob_uid` ASC),
   CONSTRAINT `fk_Party_address`
     FOREIGN KEY (`mailing_address_id`)
     REFERENCES `jobowit_db`.`address` (`address_id`)
@@ -321,10 +328,13 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`bill` (
   `tax_inclusive` TINYINT(1) NULL,
   `job_id` INT NOT NULL,
   `supplier_id` BIGINT NOT NULL,
+  `myob_freight_tax_code` VARCHAR(36) NULL,
+  `myob_uid` VARCHAR(36) NULL,
   PRIMARY KEY (`bill_id`),
   INDEX `fk_bill_job1_idx` (`job_id` ASC),
   INDEX `fk_bill_party1_idx` (`supplier_id` ASC),
   UNIQUE INDEX `bill_number_UNIQUE` (`bill_number` ASC),
+  UNIQUE INDEX `myob_uid_UNIQUE` (`myob_uid` ASC),
   CONSTRAINT `fk_bill_job1`
     FOREIGN KEY (`job_id`)
     REFERENCES `jobowit_db`.`job` (`job_id`)
@@ -350,6 +360,8 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`bill_line_item` (
   `quantity` INT NULL,
   `unit_price` DECIMAL(14,2) NULL,
   `sell_price` DECIMAL(14,2) NULL,
+  `myob_item` VARCHAR(36) NULL,
+  `myob_tax_code` VARCHAR(36) NULL,
   PRIMARY KEY (`line_item_id`),
   INDEX `fk_bill_line_items_bill1_idx` (`bill_id` ASC),
   CONSTRAINT `fk_bill_line_items_bill1`
@@ -541,6 +553,7 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`invoice` (
   `description` MEDIUMTEXT NULL,
   `invoice_dt` DATE NULL,
   `invoice_due_dt` DATE NULL,
+  `myob_uid` VARCHAR(36) NULL,
   PRIMARY KEY (`invoice_id`),
   INDEX `fk_invoice_job1_idx` (`job_id` ASC),
   UNIQUE INDEX `invoice_number_UNIQUE` (`invoice_number` ASC),
@@ -563,6 +576,8 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`invoice_line_item` (
   `description` MEDIUMTEXT NULL,
   `quantity` INT NULL,
   `unit_price` DOUBLE(15,2) NULL,
+  `myob_account` VARCHAR(36) NULL,
+  `myob_tax_code` VARCHAR(36) NULL,
   PRIMARY KEY (`invoice_line_item_id`),
   INDEX `fk_invoice_line_item_invoice1_idx` (`invoice_id` ASC),
   CONSTRAINT `fk_invoice_line_item_invoice1`
@@ -645,6 +660,7 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`uploaded_file` (
   `content` MEDIUMBLOB NOT NULL,
   `uuid` VARCHAR(36) NOT NULL DEFAULT 'EMPTY',
   `comment_id` INT NULL,
+  `uploaded_dtm` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`uploaded_file_id`),
   UNIQUE INDEX `uuid_UNIQUE` (`uuid` ASC),
   INDEX `fk_uploaded_file_comment1_idx` (`comment_id` ASC),
@@ -689,6 +705,55 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`job_status_entry` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+
+-- -----------------------------------------------------
+-- Table `jobowit_db`.`myob_code`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `jobowit_db`.`myob_code` ;
+
+CREATE TABLE IF NOT EXISTS `jobowit_db`.`myob_code` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `code` LONGTEXT NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `jobowit_db`.`myob_token`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `jobowit_db`.`myob_token` ;
+
+CREATE TABLE IF NOT EXISTS `jobowit_db`.`myob_token` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `access_token` LONGTEXT NULL,
+  `token_type` VARCHAR(45) NULL,
+  `expires_in` INT NULL,
+  `refresh_token` LONGTEXT NULL,
+  `scope` VARCHAR(45) NULL,
+  `user_uid` VARCHAR(45) NULL,
+  `user_username` VARCHAR(100) NULL,
+  `created_on` TIMESTAMP NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `jobowit_db`.`myob_sync_dates`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `jobowit_db`.`myob_sync_dates` ;
+
+CREATE TABLE IF NOT EXISTS `jobowit_db`.`myob_sync_dates` (
+  `party_id` BIGINT NOT NULL,
+  `last_sync_dtm` TIMESTAMP NULL,
+  `contact_last_sync_dtm` TIMESTAMP NULL,
+  PRIMARY KEY (`party_id`),
+  CONSTRAINT `fk_myob_sync_dates_party1`
+    FOREIGN KEY (`party_id`)
+    REFERENCES `jobowit_db`.`party` (`party_id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
 USE `jobowit_db`;
 
 DELIMITER $$
@@ -701,6 +766,15 @@ BEGIN
 if ( isnull(new.party_uuid) ) then
 SET new.party_uuid = uuid();
 END if;
+END$$
+
+
+USE `jobowit_db`$$
+DROP TRIGGER IF EXISTS `jobowit_db`.`party_AFTER_INSERT` $$
+USE `jobowit_db`$$
+CREATE DEFINER = CURRENT_USER TRIGGER `jobowit_db`.`party_AFTER_INSERT` AFTER INSERT ON `party` FOR EACH ROW
+BEGIN
+insert into myob_sync_dates (`party_id`) values (new.party_id);
 END$$
 
 

@@ -28,6 +28,30 @@ public class InvoiceLineItem implements Serializable {
 
 	@Column(name="unit_price")
 	private double unitPrice;
+	
+	private String myobAccount;
+	
+	private String myobTaxCode;
+
+	public String getMyobTaxCode()
+	{
+		return myobTaxCode;
+	}
+
+	public void setMyobTaxCode(String myobTaxCode)
+	{
+		this.myobTaxCode = myobTaxCode;
+	}
+
+	public String getMyobAccount()
+	{
+		return myobAccount;
+	}
+
+	public void setMyobAccount(String myobAccount)
+	{
+		this.myobAccount = myobAccount;
+	}
 
 	//bi-directional many-to-one association to Invoice
 	@ManyToOne

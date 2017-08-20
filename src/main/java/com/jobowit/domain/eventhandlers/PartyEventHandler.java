@@ -5,6 +5,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.core.annotation.HandleAfterCreate;
+import org.springframework.data.rest.core.annotation.HandleAfterSave;
 import org.springframework.data.rest.core.annotation.RepositoryEventHandler;
 import org.springframework.stereotype.Component;
 
@@ -20,6 +21,12 @@ public class PartyEventHandler
 
 	@HandleAfterCreate
 	public void handleAfterCreates(Party p)
+	{
+		em.refresh(p);
+	}
+	
+	@HandleAfterSave
+	public void hadleAfterSave(Party p)
 	{
 		em.refresh(p);
 	}

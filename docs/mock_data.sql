@@ -609,6 +609,8 @@ INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phon
 INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (98,'0d89e6b5-69dc-11e7-931d-001a7dda7113','Luctus Ipsum PC','Kim Reeves','vitae.velit@aptent.com','(05) 0864 7385','(04) 8683 2879',5,386);
 INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (99,'0d8a3eea-69dc-11e7-931d-001a7dda7113','Hymenaeos Institute','Xerxes Crane','posuere@maurisInteger.org','(06) 1289 7202','(04) 9532 3758',43,287);
 INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (100,'0d8a92a9-69dc-11e7-931d-001a7dda7113','Neque In Foundation','Evan Simmons','Cras.interdum.Nunc@dui.net','(08) 2398 0983','(04) 8731 3839',170,384);
+update party set type = "Supplier" where party_id > 50;
+UPDATE party SET type = 'Supplier' WHERE party_id = '2';
 
 -- -----------------------------------------------------
 -- staff data
@@ -932,6 +934,8 @@ insert into bill (bill_id, supplier_ref, tax_inclusive, job_id, supplier_id) val
 insert into bill (bill_id, supplier_ref, tax_inclusive, job_id, supplier_id) values (19, 'BDM', 1, 27, 43);
 insert into bill (bill_id, supplier_ref, tax_inclusive, job_id, supplier_id) values (20, 'BDM', 1, 25, 43);
 
+UPDATE `jobowit_db`.`bill` SET `myob_freight_tax_code`='b0613ff1-eabe-4aed-9d35-ec7f66e1aac1' WHERE `bill_id`>'0';
+
 -- -----------------------------------------------------
 -- mock bill line-items
 -- -----------------------------------------------------
@@ -971,6 +975,8 @@ insert into bill_line_item (bill_id, description, quantity, unit_price, sell_pri
 insert into bill_line_item (bill_id, description, quantity, unit_price, sell_price) values (5, 'nam dui proin leo odio porttitor', 9, '142.04', 149);
 insert into bill_line_item (bill_id, description, quantity, unit_price, sell_price) values (5, 'lorem ipsum dolor sit amet consectetuer adipiscing elit', 6, '109.12', 116);
 insert into bill_line_item (bill_id, description, quantity, unit_price, sell_price) values (12, 'cras pellentesque volutpat dui maecenas tristique est et tempus semper est quam pharetra magna ac consequat metus sapien ut nunc', 19, '89.21', 96);
+
+UPDATE `jobowit_db`.`bill_line_item` SET `myob_item`='1561f728-d1cb-4617-9cbd-25438dd8f1c3', `myob_tax_code`='b0613ff1-eabe-4aed-9d35-ec7f66e1aac1' WHERE `line_item_id` > 0;
 
 -- -----------------------------------------------------
 -- user access data
@@ -1196,6 +1202,8 @@ INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_pri
 INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (59,"augue ut lacus. Nulla tincidunt, neque vitae semper egestas, urna",2,"8.66");
 INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (53,"augue id ante dictum cursus. Nunc mauris",1,"2.48");
 INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (95,"Sed nunc est, mollis non, cursus non, egestas a, dui.",4,"6.70");
+
+update invoice_line_item set myob_account = 'ce84af88-225a-4e85-9674-8c269d78d6ca', myob_tax_code = '3bd2fbea-54d7-4115-8030-b84360048465' where invoice_id > 0;
 
 -- -----------------------------------------------------
 -- job_schedule mock data

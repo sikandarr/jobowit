@@ -22,7 +22,7 @@ curl -v -X POST -d \
 		"post_code": "5037",
 		"country": "Australia"
 	}
-}' "localhost:8080/api/parties/101" --header "Content-Type:application/json"
+}' "localhost:8080/api/parties/" --header "Content-Type:application/json"
 
 
 ## POST new data with the child object assigned in a single property (single-String argument constructor)
@@ -58,7 +58,7 @@ curl -X PUT -d \
 		"post_code": "5037",
 		"country": "Australia"
 	}
-}' "localhost:8080/api/parties/101" -H "Content-Type:application/json"
+}' "localhost:8080/api/parties/100" -H "Content-Type:application/json"
 
 ## POST new comment for a Party
 curl -X POST -d \

@@ -1,5 +1,6 @@
 package com.jobowit;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -11,9 +12,13 @@ import org.springframework.hateoas.Link;
 import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.ResourceProcessor;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.jobowit.domain.Bill;
+import com.jobowit.domain.Invoice;
 import com.jobowit.domain.Party;
 import com.jobowit.domain.UploadedFile;
 import com.jobowit.domain.projections.PartyProjection;
+import com.jobowit.repositories.MyobTokenRepository;
 
 @SpringBootApplication
 @RestController
@@ -21,6 +26,9 @@ import com.jobowit.domain.projections.PartyProjection;
 	{ JobowitApplication.class, Jsr310JpaConverters.class })
 public class JobowitApplication
 {
+	@Autowired
+	MyobTokenRepository myobTokenRepo;
+
 	public static void main(String[] args)
 	{
 		System.out.println("Starting Jobowit; please wait for confirmation...");
@@ -47,7 +55,7 @@ public class JobowitApplication
 			}
 		};
 	}
-	
+
 	@Bean
 	public ResourceProcessor<Resource<UploadedFile>> uploadedFileProcessor()
 	{
@@ -76,6 +84,33 @@ public class JobowitApplication
 		};
 	}
 
+	@Bean
+	public ResourceProcessor<Resource<Invoice>> addMyobExportLinkInvoice()
+	{
+		return new ResourceProcessor<Resource<Invoice>>()
+		{
+			@Override
+			public Resource<Invoice> process(Resource<Invoice> resource)
+			{
+				resource.add(new Link(resource.getId().getHref() + "/exportToMyob").withRel("myob"));
+				return resource;
+			}
+		};
+	}
+
+	@Bean
+	public ResourceProcessor<Resource<Bill>> addMyobExportLinkBill()
+	{
+		return new ResourceProcessor<Resource<Bill>>()
+		{
+			@Override
+			public Resource<Bill> process(Resource<Bill> resource)
+			{
+				resource.add(new Link(resource.getId().getHref() + "/exportToMyob").withRel("myob"));
+				return resource;
+			}
+		};
+	}
 	/*
 	 * @RequestMapping("/user") public Principal user(Principal user) { return
 	 * user; }

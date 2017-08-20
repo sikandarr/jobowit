@@ -1,6 +1,8 @@
 package com.jobowit.domain;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
+
 import javax.persistence.*;
 
 /**
@@ -35,6 +37,10 @@ public class Address implements Serializable
 
 	@Column(length = 150)
 	private String street1;
+	
+	private Timestamp createdDtm;
+	
+	private Timestamp updatedDtm;
 
 	public Address(){}
 
@@ -109,6 +115,16 @@ public class Address implements Serializable
 	public void setStreet1(String street1)
 	{
 		this.street1 = street1;
+	}
+
+	public Timestamp getCreatedDtm()
+	{
+		return createdDtm;
+	}
+
+	public Timestamp getUpdatedDtm()
+	{
+		return updatedDtm == null ? createdDtm : updatedDtm;
 	}
 
 	@Override

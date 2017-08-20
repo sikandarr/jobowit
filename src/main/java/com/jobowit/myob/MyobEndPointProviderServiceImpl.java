@@ -9,9 +9,9 @@ import com.anahata.myob.api.auth.DataFileCredentials;
 import com.anahata.myob.api.auth.MyobPlugin;
 import com.anahata.myob.api.auth.OAuthAccessToken;
 import com.anahata.myob.api.domain.CompanyFile;
-import com.anahata.myob.api.service.CompanyFileService;
 import com.jobowit.domain.MyobToken;
 import com.jobowit.exception.MyobAccessException;
+import com.jobowit.myob.service.CompanyFileService;
 import com.jobowit.repositories.MyobTokenRepository;
 
 public class MyobEndPointProviderServiceImpl implements MyobEndPointProvider
@@ -38,7 +38,7 @@ public class MyobEndPointProviderServiceImpl implements MyobEndPointProvider
 			try
 			{
 				CompanyFile[] companyFile = CompanyFileService.findAll(t);
-				this.uid = companyFile[0].getId();
+				this.uid = companyFile[0].getId();	
 			}
 			catch (Exception e)
 			{

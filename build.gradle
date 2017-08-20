@@ -20,6 +20,9 @@ sourceCompatibility = 1.8
 
 repositories {
 	mavenCentral()
+	maven {
+        url "http://artifactory.anahata-it.com.au/artifactory/anahata-public/"
+    }
 }
 
 
@@ -33,6 +36,8 @@ dependencies {
 	compile('javax.mail:mail:1.5.0-b01')
 	compile('org.apache.httpcomponents:httpclient:4.5.3')
 	compile('com.google.code.gson:gson:2.8.0')
+	compile('com.anahata:myob-api:1.5.8-SNAPSHOT')
+	compile('com.anahata:anahata-util:1.5.10-SNAPSHOT')
 	compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
 	compile group: 'org.projectlombok', name: 'lombok', version: '1.16.18'
 	

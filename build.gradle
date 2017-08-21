@@ -40,12 +40,6 @@ dependencies {
 	compile('com.anahata:anahata-util:1.5.10-SNAPSHOT')
 	compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
 	compile group: 'org.projectlombok', name: 'lombok', version: '1.16.18'
-	
-	
-	
-	
-	
-	
 	testCompile("junit:junit")
 	runtime('mysql:mysql-connector-java')
 	testCompile('org.springframework.boot:spring-boot-starter-test')

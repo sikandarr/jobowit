@@ -2,16 +2,11 @@ package com.jobowit.domain;
 
 import java.io.Serializable;
 import javax.persistence.*;
-
-<<<<<<< HEAD
 import com.jobowit.access.AccessControl;
 import com.jobowit.access.AccessRole;
-=======
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
-//import org.springframework.security.core.GrantedAuthority;
-//import org.springframework.security.core.userdetails.UserDetails;
->>>>>>> master
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import java.util.Date;
 import java.util.List;
@@ -22,6 +17,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "staff")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "staffId")
 public class Staff implements Serializable
 {
 	private static final long serialVersionUID = 1L;

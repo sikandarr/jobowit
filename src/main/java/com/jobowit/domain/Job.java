@@ -2,10 +2,10 @@ package com.jobowit.domain;
 
 import java.io.Serializable;
 import javax.persistence.*;
-
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-
 import java.util.List;
 
 /**
@@ -14,7 +14,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "job")
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "job_id")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "jobId")
 public class Job implements Serializable
 {
 	private static final long serialVersionUID = 1L;
@@ -24,8 +24,25 @@ public class Job implements Serializable
 	@Column(name = "job_id", unique = true, nullable = false)
 	private int jobId;
 
+	@Column(name = "job_uuid", columnDefinition = "CHAR", unique = true)
+	private String uuid;
+
+	@Column(name = "job_number", columnDefinition = "CHAR", length = 6, unique = true)
+	private String jobNumber;
+
 	@Lob
 	private String description;
+
+	@Column
+	private String referral;
+
+	@Column
+	private String priority;
+
+	// one-to-one association to Address
+	@OneToOne(optional = false, cascade = CascadeType.ALL)
+	@JoinColumn(name = "address_id")
+	private Address address;
 
 	// bi-directional many-to-one association to Bill
 	@OneToMany(mappedBy = "job")
@@ -43,19 +60,17 @@ public class Job implements Serializable
 	@OneToMany(mappedBy = "job")
 	private List<Invoice> invoices;
 
-	// bi-directional many-to-one association to JobStatus
-	@ManyToOne
-	@JoinColumn(name = "job_status_id", nullable = false)
-	private JobStatus jobStatus;
+	@OneToMany(mappedBy = "job")
+	private List<JobStatusEntry> statusEntries;
 
 	// bi-directional many-to-one association to JobType
 	@ManyToOne
-	@JoinColumn(name = "initial_type", nullable = false)
+	@JoinColumn(name = "initial_type")
 	private JobType initialType;
 
 	// bi-directional many-to-one association to JobType
 	@ManyToOne
-	@JoinColumn(name = "current_type", nullable = false)
+	@JoinColumn(name = "current_type")
 	private JobType currentType;
 
 	// bi-directional many-to-one association to Party
@@ -93,6 +108,30 @@ public class Job implements Serializable
 		this.jobId = jobId;
 	}
 
+	@JsonProperty
+	public String getUuid()
+	{
+		return uuid;
+	}
+
+	@JsonIgnore
+	public void setUuid(String uuid)
+	{
+		this.uuid = uuid;
+	}
+
+	@JsonProperty
+	public String getJobNumber()
+	{
+		return jobNumber;
+	}
+
+	@JsonIgnore
+	public void setJobNumber(String jobNumber)
+	{
+		this.jobNumber = jobNumber;
+	}
+
 	public String getDescription()
 	{
 		return this.description;
@@ -101,6 +140,41 @@ public class Job implements Serializable
 	public void setDescription(String description)
 	{
 		this.description = description;
+	}
+
+	public String getReferral()
+	{
+		return referral;
+	}
+
+	public void setReferral(String referral)
+	{
+		this.referral = referral;
+	}
+
+	public String getPriority()
+	{
+		return priority;
+	}
+
+	public void setPriority(String priority)
+	{
+		this.priority = priority;
+	}
+
+	public Address getAddress()
+	{
+		return address;
+	}
+
+	public void setAddress(Address address)
+	{
+		this.address = address;
+	}
+
+	public String getAddressStr()
+	{
+		return getAddress().toString();
 	}
 
 	public List<Bill> getBills()
@@ -207,16 +281,6 @@ public class Job implements Serializable
 		return invoice;
 	}
 
-	public JobStatus getJobStatus()
-	{
-		return this.jobStatus;
-	}
-
-	public void setJobStatus(JobStatus jobStatus)
-	{
-		this.jobStatus = jobStatus;
-	}
-
 	public JobType getInitialType()
 	{
 		return this.initialType;
@@ -225,6 +289,32 @@ public class Job implements Serializable
 	public void setInitialType(JobType initialType)
 	{
 		this.initialType = initialType;
+	}
+
+	public List<JobStatusEntry> getStatusEntries()
+	{
+		return statusEntries;
+	}
+
+	public void setStatusEntries(List<JobStatusEntry> statusEntries)
+	{
+		this.statusEntries = statusEntries;
+	}
+
+	public JobStatusEntry addStatusEntry(JobStatusEntry statusEntry)
+	{
+		getStatusEntries().add(statusEntry);
+		statusEntry.setJob(this);
+
+		return statusEntry;
+	}
+
+	public JobStatusEntry removeStatusEntry(JobStatusEntry statusEntry)
+	{
+		getStatusEntries().remove(statusEntry);
+		statusEntry.setJob(null);
+
+		return statusEntry;
 	}
 
 	public JobType getCurrentType()
@@ -349,6 +439,49 @@ public class Job implements Serializable
 		salesStaffInJob.setJob(null);
 
 		return salesStaffInJob;
+	}
+
+	public String getCustomerName()
+	{
+		return getCustomer().getName();
+	}
+
+	public String getCustomerUid()
+	{
+		return getCustomer().getUuid();
+	}
+
+	public String getType()
+	{
+		return getCurrentType().getJobType();
+	}
+	
+	@JsonIgnore
+	public JobStatus getCurrentStatus()
+	{
+		return getStatusEntries().stream()
+				.max((s1, s2) -> Long.compare(s1.getEntryDtm().getTime(), s2.getEntryDtm().getTime())).orElse(null)
+				.getStatus();
+	}
+
+	public String getStatus()
+	{
+		return getCurrentStatus().getStatus();
+	}
+
+	public boolean getActive()
+	{
+		return getCurrentStatus().isActive();
+	}
+
+	public JobSchedule getLatestSchedule()
+	{
+		if (getJobSchedules() != null && getJobSchedules().size() > 0)
+		{
+			getJobSchedules().sort((s1, s2) -> s2.getStartDtm().compareTo(s1.getStartDtm()));
+			return getJobSchedules().get(0);
+		}
+		return null;
 	}
 
 }

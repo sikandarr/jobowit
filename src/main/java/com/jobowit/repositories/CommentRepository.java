@@ -2,10 +2,12 @@ package com.jobowit.repositories;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
-import com.jobowit.domain.Comment;
-import com.jobowit.domain.projections.CommentProjection;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
-@RepositoryRestResource(excerptProjection = CommentProjection.class)
+import com.jobowit.domain.Comment;
+
+@RepositoryRestResource
+@CrossOrigin
 public interface CommentRepository extends PagingAndSortingRepository<Comment, Integer>
 {
 

@@ -3,8 +3,15 @@ package com.jobowit.domain;
 import java.io.Serializable;
 import javax.persistence.*;
 
+<<<<<<< HEAD
 import com.jobowit.access.AccessControl;
 import com.jobowit.access.AccessRole;
+=======
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+//import org.springframework.security.core.GrantedAuthority;
+//import org.springframework.security.core.userdetails.UserDetails;
+>>>>>>> master
 
 import java.util.Date;
 import java.util.List;
@@ -34,6 +41,7 @@ public class Staff implements Serializable
 	@Column(length = 100)
 	private String name;
 
+	@JsonIgnore
 	@Column(nullable = false, length = 32)
 	private String password;
 
@@ -41,7 +49,7 @@ public class Staff implements Serializable
 	private String username;
 
 	// bi-directional many-to-one association to Comment
-	@OneToMany(mappedBy = "staff")
+	@OneToMany(mappedBy = "staffUser")
 	private List<Comment> comments;
 
 	// bi-directional many-to-one association to ExtraAvailability
@@ -165,7 +173,7 @@ public class Staff implements Serializable
 	public Comment addComment(Comment comment)
 	{
 		getComments().add(comment);
-		comment.setStaff(this);
+		comment.setStaffUser(this);
 
 		return comment;
 	}
@@ -173,7 +181,7 @@ public class Staff implements Serializable
 	public Comment removeComment(Comment comment)
 	{
 		getComments().remove(comment);
-		comment.setStaff(null);
+		comment.setStaffUser(null);
 
 		return comment;
 	}

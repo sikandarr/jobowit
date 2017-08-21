@@ -31,6 +31,10 @@ public class BillLineItem implements Serializable
 
 	@Column(name = "unit_price", precision = 10, scale = 2)
 	private BigDecimal unitPrice;
+	
+	private String myobTaxCode;
+	
+	private String myobItem;
 
 	// bi-directional many-to-one association to Bill
 	@ManyToOne
@@ -89,6 +93,26 @@ public class BillLineItem implements Serializable
 	public void setUnitPrice(BigDecimal unitPrice)
 	{
 		this.unitPrice = unitPrice;
+	}
+
+	public String getMyobTaxCode()
+	{
+		return myobTaxCode;
+	}
+
+	public void setMyobTaxCode(String taxCodeUid)
+	{
+		this.myobTaxCode = taxCodeUid;
+	}
+
+	public String getMyobItem()
+	{
+		return myobItem;
+	}
+
+	public void setMyobItem(String myobItem)
+	{
+		this.myobItem = myobItem;
 	}
 
 	public Bill getBill()

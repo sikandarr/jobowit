@@ -13,13 +13,10 @@ import java.util.List;
 public class JobType implements Serializable
 {
 	private static final long serialVersionUID = 1L;
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "job_type_id", unique = true, nullable = false)
-	private int jobTypeId;
-
-	@Column(name="description", nullable = false, length = 45)
+	@Column(name = "job_type", nullable = false, length = 45)
 	private String jobType;
 
 	// bi-directional many-to-one association to JobStatus
@@ -28,16 +25,6 @@ public class JobType implements Serializable
 
 	public JobType()
 	{
-	}
-
-	public int getJobTypeId()
-	{
-		return this.jobTypeId;
-	}
-
-	public void setJobTypeId(int jobTypeId)
-	{
-		this.jobTypeId = jobTypeId;
 	}
 
 	public String getJobType()

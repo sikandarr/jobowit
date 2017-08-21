@@ -35,6 +35,8 @@ public class Invoice implements Serializable
 	
 	@Column(name="invoice_due_dt")
 	private Date invoiceDueDate;
+	
+	private String myobUid;
 
 	// bi-directional many-to-one association to InvoiceLineItem
 	@OneToMany(mappedBy = "invoice")
@@ -92,6 +94,16 @@ public class Invoice implements Serializable
 	public void setInvoiceDueDate(Date invoiceDueDate)
 	{
 		this.invoiceDueDate = invoiceDueDate;
+	}
+
+	public String getMyobUid()
+	{
+		return myobUid;
+	}
+
+	public void setMyobUid(String myobUid)
+	{
+		this.myobUid = myobUid;
 	}
 
 	public List<InvoiceLineItem> getInvoiceLineItems()

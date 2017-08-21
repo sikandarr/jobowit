@@ -28,11 +28,15 @@ public class Bill implements Serializable {
 	@Column(name="due_dt")
 	private Timestamp dueDt;
 
-	@Column(length=45)
+	@Column(name="supplier_ref", length=45)
 	private String ref;
 
 	@Column(name="tax_inclusive")
 	private boolean taxInclusive;
+	
+	private String myobUid;
+	
+	private String myobFreightTaxCode;
 
 	//bi-directional many-to-one association to Job
 	@ManyToOne
@@ -89,6 +93,26 @@ public class Bill implements Serializable {
 
 	public void setTaxInclusive(boolean taxInclusive) {
 		this.taxInclusive = taxInclusive;
+	}
+
+	public String getMyobUid()
+	{
+		return myobUid;
+	}
+
+	public void setMyobUid(String myobUid)
+	{
+		this.myobUid = myobUid;
+	}
+
+	public String getMyobFreightTaxCode()
+	{
+		return myobFreightTaxCode;
+	}
+
+	public void setMyobFreightTaxCode(String myobFreightTaxCode)
+	{
+		this.myobFreightTaxCode = myobFreightTaxCode;
 	}
 
 	public Job getJob() {

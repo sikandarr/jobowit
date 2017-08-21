@@ -4,9 +4,9 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+//import org.springframework.context.ApplicationContext;
+//import org.springframework.context.ConfigurableApplicationContext;
+//import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -16,8 +16,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.stereotype.Component;
 
-import com.jobowit.domain.Party;
-import com.jobowit.service.PartyService;
+//import com.jobowit.domain.Party;
 
 @Component
 @ComponentScan
@@ -49,12 +48,12 @@ public class TestRuns
 
 	private void start()
 	{
-		ApplicationContext ctx = new AnnotationConfigApplicationContext(TestRuns.class);
-		PartyService partyService = ctx.getBean(PartyService.class);
+		//ApplicationContext ctx = new AnnotationConfigApplicationContext(TestRuns.class);
+		/*PartyService partyService = ctx.getBean(PartyService.class);
 		for (Party parties : partyService.findAllParties())
 		{
 			System.out.println(parties.toString());
 		}
-		((ConfigurableApplicationContext)ctx).close();
+		((ConfigurableApplicationContext)ctx).close();*/
 	}
 }

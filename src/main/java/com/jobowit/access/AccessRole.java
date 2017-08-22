@@ -10,11 +10,16 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 @Entity
 @Table(name = "access_role")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "roleName")
 public class AccessRole implements Serializable
 {
 	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@Column(name = "role_name")
 	private String roleName;

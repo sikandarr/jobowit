@@ -2,14 +2,16 @@ package com.jobowit.access;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import com.jobowit.domain.Staff;
 import org.springframework.security.core.GrantedAuthority;
+
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name = "access_control", uniqueConstraints =
 	{ @UniqueConstraint(columnNames =
-				{ "table_name", "staff_id" }), @UniqueConstraint(columnNames =
 				{ "table_name", "role_name" }) })
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "accessControlId")
 public class AccessControl implements GrantedAuthority, Serializable
 {
 	private static final long serialVersionUID = 1L;
@@ -22,10 +24,6 @@ public class AccessControl implements GrantedAuthority, Serializable
 	@ManyToOne
 	@JoinColumn(name = "table_name", referencedColumnName = "table_name", nullable = false)
 	DbTable dbTable;
-	
-	@ManyToOne
-	@JoinColumn(name = "staff_id", referencedColumnName = "staff_id", nullable = true)
-	Staff staff;
 
 	@ManyToOne
 	@JoinColumn(name = "role_name", referencedColumnName = "role_name", nullable = true)
@@ -48,21 +46,6 @@ public class AccessControl implements GrantedAuthority, Serializable
 	public void setAccessControlId(int accessControlId)
 	{
 		this.accessControlId = accessControlId;
-	}
-
-	public Staff getStaff()
-	{
-		return staff;
-	}
-
-	public void setStaff(Staff staff)
-	{
-		this.staff = staff;
-	}
-
-	public DbTable getDbTable()
-	{
-		return dbTable;
 	}
 
 	public void setDbTable(DbTable dbTable)

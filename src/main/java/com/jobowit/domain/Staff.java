@@ -2,10 +2,8 @@ package com.jobowit.domain;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import com.jobowit.access.AccessControl;
 import com.jobowit.access.AccessRole;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import java.util.Date;
@@ -36,13 +34,6 @@ public class Staff implements Serializable
 
 	@Column(length = 100)
 	private String name;
-
-	@JsonIgnore
-	@Column(nullable = false, length = 32)
-	private String password;
-
-	@Column(nullable = false, length = 16)
-	private String username;
 
 	// bi-directional many-to-one association to Comment
 	@OneToMany(mappedBy = "staffUser")
@@ -75,9 +66,6 @@ public class Staff implements Serializable
 	// bi-directional many-to-one association to SalesStaffInJob
 	@OneToMany(mappedBy = "staff")
 	private List<SalesStaffInJob> salesStaffInJobs;
-
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "staff")
-	private List<AccessControl> accessControl;
 
 	// bi-directional many-to-one association to Address
 	@ManyToOne
@@ -134,26 +122,6 @@ public class Staff implements Serializable
 	public void setName(String name)
 	{
 		this.name = name;
-	}
-
-	public String getPassword()
-	{
-		return this.password;
-	}
-
-	public void setPassword(String password)
-	{
-		this.password = password;
-	}
-
-	public String getUsername()
-	{
-		return this.username;
-	}
-
-	public void setUsername(String username)
-	{
-		this.username = username;
 	}
 
 	public List<Comment> getComments()
@@ -362,30 +330,6 @@ public class Staff implements Serializable
 		salesStaffInJob.setStaff(null);
 
 		return salesStaffInJob;
-	}
-
-	public List<AccessControl> getAccessControl()
-	{
-		return accessControl;
-	}
-
-	public void setAccessControl(List<AccessControl> accessControl)
-	{
-		this.accessControl = accessControl;
-	}
-	
-	public AccessControl addAccessControl(AccessControl accessControl)
-	{
-		getAccessControl().add(accessControl);
-		accessControl.setStaff(this);
-		return accessControl;
-	}
-	
-	public AccessControl removeAccessControl(AccessControl accessControl)
-	{
-		getAccessControl().remove(accessControl);
-		accessControl.setStaff(null);
-		return accessControl;
 	}
 
 	public Address getAddress()

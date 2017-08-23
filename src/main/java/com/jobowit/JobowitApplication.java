@@ -17,10 +17,10 @@ import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.ResourceProcessor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.jobowit.access.StaffUser;
 import com.jobowit.domain.Bill;
 import com.jobowit.domain.Invoice;
 import com.jobowit.domain.Party;
@@ -30,6 +30,7 @@ import com.jobowit.repositories.MyobTokenRepository;
 
 @SpringBootApplication
 @RestController
+@EnableResourceServer
 @EntityScan(basePackageClasses =
 	{ JobowitApplication.class, Jsr310JpaConverters.class })
 public class JobowitApplication

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.jobowit.repositories.StaffUserRepository;
 
-@Service
+@Service("userDetailsService")
 public class StaffUserDetailsService implements UserDetailsService
 {
 	@Autowired

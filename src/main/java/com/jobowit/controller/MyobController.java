@@ -1,6 +1,5 @@
 package com.jobowit.controller;
 
-import java.io.IOException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
@@ -13,7 +12,6 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.message.BasicNameValuePair;
-import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,10 +19,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
-
 import com.anahata.myob.api.domain.v2.contact.Contact;
 import com.anahata.myob.api.domain.v2.generalledger.Account;
 import com.anahata.myob.api.domain.v2.generalledger.TaxCode;
@@ -43,7 +38,6 @@ import com.jobowit.domain.MyobToken;
 import com.jobowit.exception.MyobAccessException;
 import com.jobowit.exception.MyobServiceException;
 import com.jobowit.myob.MyobBillService;
-import com.jobowit.myob.MyobEndPointProviderServiceImpl;
 import com.jobowit.myob.MyobError;
 import com.jobowit.myob.MyobInvoiceService;
 import com.jobowit.myob.MyobService;

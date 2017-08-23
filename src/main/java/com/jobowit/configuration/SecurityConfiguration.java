@@ -1,4 +1,4 @@
-package com.jobowit.configuration;
+/*package com.jobowit.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -31,4 +31,4 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter
 		http.httpBasic();
 		http.csrf().disable();
 	}
-}
+}*/

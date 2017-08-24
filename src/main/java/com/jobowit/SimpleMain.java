@@ -3,14 +3,12 @@ package com.jobowit;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import com.anahata.myob.api.domain.v2.sale.ServiceInvoice;
 import com.google.gson.GsonBuilder;
 
 public class SimpleMain
 {
+	@SuppressWarnings("resource")
 	public static void main(String[] args) throws FileNotFoundException
 	{
 		final String DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss";

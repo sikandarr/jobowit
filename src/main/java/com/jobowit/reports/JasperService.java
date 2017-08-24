@@ -6,7 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.sql.SQLException;
-import java.util.HashMap;
+import java.util.Map;
 
 import javax.sql.DataSource;
 
@@ -30,21 +30,16 @@ public class JasperService
 	@Autowired
 	DataSource dataSource;
 
-	private static String location = "jasper\\jrxml\\";
-	
-	public JasperService(){}
-
-	public void createInvoicePdf(int invoiceId, OutputStream out) throws FileNotFoundException, JRException, SQLException
+	public JasperService()
 	{
-		String jrxmlFile = "Invoice.jrxml";
+	}
 
-		File file = new File(location + jrxmlFile);
-		InputStream reportStream = new FileInputStream(file);
-		JasperReport jasperReport = JasperCompileManager.compileReport(reportStream);
-		
-		HashMap<String, Object> parameters = new HashMap<>();
-		parameters.put("invoiceId", invoiceId);
+	public void exportToPdf(String jrxmlFile, Map<String, Object> parameters, OutputStream out)
+			throws FileNotFoundException, JRException, SQLException
+	{
+		JasperReport jasperReport = compile(jrxmlFile);
 		JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource.getConnection());
+
 		JRPdfExporter exporter = new JRPdfExporter();
 
 		exporter.setExporterInput(new SimpleExporterInput(jasperPrint));
@@ -63,5 +58,13 @@ public class JasperService
 		exporter.setConfiguration(exportConfig);
 
 		exporter.exportReport();
+	}
+
+	public JasperReport compile(String jrxmlFile) throws JRException, FileNotFoundException
+	{
+		String location = "jasper\\jrxml\\";
+		File file = new File(location + jrxmlFile);
+		InputStream reportStream = new FileInputStream(file);
+		return JasperCompileManager.compileReport(reportStream);
 	}
 }

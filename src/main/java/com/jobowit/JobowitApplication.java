@@ -9,6 +9,7 @@ import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
 import org.springframework.data.projection.ProjectionFactory;
 import org.springframework.data.projection.SpelAwareProxyProjectionFactory;
 import org.springframework.hateoas.Link;
+import org.springframework.hateoas.PagedResources;
 import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.ResourceProcessor;
 import org.springframework.web.bind.annotation.RestController;
@@ -53,6 +54,24 @@ public class JobowitApplication
 				resource.add(new Link(resource.getId().getHref() + "/invoices").withRel("invoices"));
 				return resource;
 			}
+		};
+	}
+
+	@Bean
+	public ResourceProcessor<PagedResources<Resource<Party>>> partyProcessor()
+	{
+		return new ResourceProcessor<PagedResources<Resource<Party>>>()
+		{
+			@Override
+			public PagedResources<Resource<Party>> process(PagedResources<Resource<Party>> pagedResources)
+			{
+				String selfLink = pagedResources.getId().getHref();
+				selfLink = selfLink.substring(0, selfLink.indexOf('{'));
+				pagedResources.add(new Link(selfLink + "/customerReport/pdf").withRel("downloads"));
+				pagedResources.add(new Link(selfLink + "/supplierReport/pdf").withRel("downloads"));
+				return pagedResources;
+			}
+
 		};
 	}
 

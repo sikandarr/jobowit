@@ -85,7 +85,7 @@ public class JobowitApplication
 	}
 
 	@Bean
-	public ResourceProcessor<Resource<Invoice>> addMyobExportLinkInvoice()
+	public ResourceProcessor<Resource<Invoice>> addLinksToInvoice()
 	{
 		return new ResourceProcessor<Resource<Invoice>>()
 		{
@@ -93,6 +93,7 @@ public class JobowitApplication
 			public Resource<Invoice> process(Resource<Invoice> resource)
 			{
 				resource.add(new Link(resource.getId().getHref() + "/exportToMyob").withRel("myob"));
+				resource.add(new Link(resource.getId().getHref() + "/pdf").withRel("downloads"));
 				return resource;
 			}
 		};

@@ -48,6 +48,11 @@ public class AccessControl implements GrantedAuthority, Serializable
 		this.accessControlId = accessControlId;
 	}
 
+	public DbTable getDbTable()
+	{
+		return dbTable;
+	}
+
 	public void setDbTable(DbTable dbTable)
 	{
 		this.dbTable = dbTable;

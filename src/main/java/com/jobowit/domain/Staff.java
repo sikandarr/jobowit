@@ -2,7 +2,7 @@ package com.jobowit.domain;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import com.jobowit.access.AccessRole;
+import com.jobowit.access.JobowitUser;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
@@ -76,9 +76,9 @@ public class Staff implements Serializable
 	@OneToMany(mappedBy = "staff")
 	private List<StaffRole> staffRoles;
 	
-	@ManyToOne
-	@JoinColumn(name = "access_role", nullable = true)
-	private AccessRole accessRole;
+	@OneToOne(optional = true, cascade = CascadeType.ALL)
+	@JoinColumn(name = "user_id", nullable = true)
+	private JobowitUser user;
 
 	public Staff()
 	{
@@ -368,14 +368,14 @@ public class Staff implements Serializable
 		return staffRole;
 	}
 
-	public AccessRole getAccessRole()
+	public JobowitUser getUser()
 	{
-		return accessRole;
+		return user;
 	}
 
-	public void setAccessRole(AccessRole accessRole)
+	public void setUser(JobowitUser user)
 	{
-		this.accessRole = accessRole;
+		this.user = user;
 	}
 
 }

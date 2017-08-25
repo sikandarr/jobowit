@@ -15,4 +15,8 @@ public class DbTable implements Serializable
 	@Id
 	@Column(name="table_name")
 	String tableName;
+	public String getTableName()
+	{
+		return tableName;
+	}
 }

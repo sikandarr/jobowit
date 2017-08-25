@@ -12,7 +12,7 @@ public class AccessControlEvaluator implements PermissionEvaluator
 	public boolean hasPermission(Authentication auth, Object targetDomainObject, Object permission)
 	{
 		if ((auth == null) || (targetDomainObject == null) || !(permission instanceof String)) return false;
-		StaffUser user = (StaffUser) auth.getPrincipal();
+		JobowitUser user = (JobowitUser) auth.getPrincipal();
 		List<AccessControl> roleGrantedAuthority = user.getAccessRole().getAccessControl();
 		
 		for (AccessControl accessControl : roleGrantedAuthority)

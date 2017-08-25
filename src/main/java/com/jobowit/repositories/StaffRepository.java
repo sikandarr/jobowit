@@ -10,4 +10,5 @@ import com.jobowit.domain.Staff;
 @CrossOrigin
 public interface StaffRepository extends PagingAndSortingRepository<Staff, Integer>
 {
+	Staff findByUserUsername(String username);
 }

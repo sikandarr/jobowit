@@ -12,15 +12,17 @@ import javax.persistence.Table;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import com.jobowit.domain.Staff;
 
 @Entity
-@Table(name = "staff_user")
+@Table(name = "user")
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-public class StaffUser implements UserDetails
+public class JobowitUser implements UserDetails
 {
 	private static final long serialVersionUID = 1L;
 	
@@ -39,34 +41,17 @@ public class StaffUser implements UserDetails
 	
 	private boolean enabled;
 	
-	@OneToOne
-	@JoinColumn(name = "staff_id", nullable = false)
-	Staff staff;
-	
-	public StaffUser(){}
-	
-	public StaffUser (Staff staff)
-	{
-		this.staff = staff;
-	}
-
-	public Staff getStaff()
-	{
-		return staff;
-	}
-
-	public void setStaff(Staff staff)
-	{
-		this.staff = staff;
-	}
+	public JobowitUser(){}
 
 	@Override
+	@JsonIgnore
 	public Collection<? extends GrantedAuthority> getAuthorities()
 	{
 		return accessRole.getAccessControl();
 	}
 
 	@Override
+	@JsonIgnore
 	public String getPassword()
 	{
 		return password;
@@ -79,18 +64,21 @@ public class StaffUser implements UserDetails
 	}
 
 	@Override
+	@JsonIgnore
 	public boolean isAccountNonExpired()
 	{
 		return true;
 	}
 
 	@Override
+	@JsonIgnore
 	public boolean isAccountNonLocked()
 	{
 		return true;
 	}
 
 	@Override
+	@JsonIgnore
 	public boolean isCredentialsNonExpired()
 	{
 		return true;
@@ -127,9 +115,11 @@ public class StaffUser implements UserDetails
 		this.username = username;
 	}
 
+	@JsonProperty
 	public void setPassword(String password)
 	{
-		this.password = password;
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		this.password = encoder.encode(password);
 	}
 
 	public void setEnabled(boolean enabled)

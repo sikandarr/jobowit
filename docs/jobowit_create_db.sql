@@ -72,6 +72,39 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `jobowit_db`.`access_role`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `jobowit_db`.`access_role` ;
+
+CREATE TABLE IF NOT EXISTS `jobowit_db`.`access_role` (
+  `role_name` VARCHAR(100) NOT NULL,
+  PRIMARY KEY (`role_name`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `jobowit_db`.`user`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `jobowit_db`.`user` ;
+
+CREATE TABLE IF NOT EXISTS `jobowit_db`.`user` (
+  `user_id` INT NOT NULL AUTO_INCREMENT,
+  `access_role` VARCHAR(100) NOT NULL,
+  `username` VARCHAR(45) NULL,
+  `password` VARCHAR(200) NULL,
+  `created_dtm` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `enabled` TINYINT(1) NOT NULL DEFAULT 1,
+  PRIMARY KEY (`user_id`),
+  INDEX `fk_staff_user_access_role1_idx` (`access_role` ASC),
+  CONSTRAINT `fk_staff_user_access_role1`
+    FOREIGN KEY (`access_role`)
+    REFERENCES `jobowit_db`.`access_role` (`role_name`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `jobowit_db`.`staff`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `jobowit_db`.`staff` ;
@@ -87,13 +120,20 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`staff` (
   `password` VARCHAR(32) NOT NULL,
   `create_dtm` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
   `access_role` VARCHAR(45) NULL,
+  `user_id` INT NULL,
   PRIMARY KEY (`staff_id`),
   INDEX `fk_staff_address1_idx` (`address_id` ASC),
   UNIQUE INDEX `staff_uuid_UNIQUE` (`staff_uuid` ASC),
   UNIQUE INDEX `username_UNIQUE` (`username` ASC),
+  INDEX `fk_staff_user1_idx` (`user_id` ASC),
   CONSTRAINT `fk_staff_address1`
     FOREIGN KEY (`address_id`)
     REFERENCES `jobowit_db`.`address` (`address_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_staff_user1`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `jobowit_db`.`user` (`user_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
@@ -579,17 +619,6 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `jobowit_db`.`access_role`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `jobowit_db`.`access_role` ;
-
-CREATE TABLE IF NOT EXISTS `jobowit_db`.`access_role` (
-  `role_name` VARCHAR(100) NOT NULL,
-  PRIMARY KEY (`role_name`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `jobowit_db`.`access_control`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `jobowit_db`.`access_control` ;
@@ -734,35 +763,6 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`myob_sync_dates` (
     REFERENCES `jobowit_db`.`party` (`party_id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `jobowit_db`.`staff_user`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `jobowit_db`.`staff_user` ;
-
-CREATE TABLE IF NOT EXISTS `jobowit_db`.`staff_user` (
-  `user_id` INT NOT NULL AUTO_INCREMENT,
-  `staff_id` INT NOT NULL,
-  `access_role` VARCHAR(100) NOT NULL,
-  `username` VARCHAR(45) NULL,
-  `password` VARCHAR(45) NULL,
-  `created_dtm` VARCHAR(45) NULL DEFAULT 'CURRENT_TIMESTAMP',
-  `enabled` TINYINT(1) NOT NULL DEFAULT 1,
-  PRIMARY KEY (`user_id`),
-  INDEX `fk_staff_user_staff1_idx` (`staff_id` ASC),
-  INDEX `fk_staff_user_access_role1_idx` (`access_role` ASC),
-  CONSTRAINT `fk_staff_user_staff1`
-    FOREIGN KEY (`staff_id`)
-    REFERENCES `jobowit_db`.`staff` (`staff_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_staff_user_access_role1`
-    FOREIGN KEY (`access_role`)
-    REFERENCES `jobowit_db`.`access_role` (`role_name`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 USE `jobowit_db`;

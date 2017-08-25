@@ -6,18 +6,18 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.jobowit.repositories.StaffUserRepository;
+import com.jobowit.repositories.StaffRepository;
 
 @Service("userDetailsService")
-public class StaffUserDetailsService implements UserDetailsService
+public class JobowitUserDetailsService implements UserDetailsService
 {
 	@Autowired
-	private StaffUserRepository userRepository;
+	private StaffRepository userRepository;
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException
 	{
-		StaffUser user = userRepository.findByUsername(username);
+		JobowitUser user = userRepository.findByUserUsername(username).getUser();
 		if (user == null)
 		{
 			throw new UsernameNotFoundException("Username " + username + " not found");

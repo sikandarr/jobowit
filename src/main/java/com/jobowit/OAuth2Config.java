@@ -26,7 +26,7 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter
 	@Autowired
 	private AuthenticationManager authenticationManager;
 
-	@Value("${gigy.oauth.tokenTimeout:3600}")
+	@Value("${gigy.oauth.tokenTimeout:1200}")
 	private int expiration;
 
 	@Bean

@@ -640,7 +640,7 @@ INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`address_id`,`access_role`,`
 INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`address_id`,`access_role`,`username`,`email`,`password`) VALUES (19,'271b3c1a-6b1b-11e7-931d-001a7dda7113','Sergei Eburne',452,'NO ACCESS','seburnei','seburnei@rambler.ru','WMJb5GEaQmA');
 INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`address_id`,`access_role`,`username`,`email`,`password`) VALUES (20,'271baa8d-6b1b-11e7-931d-001a7dda7113','Karon Yesenev',453,'NO ACCESS','kyesenevj','kyesenevj@disqus.com','kWouK7tN8');
 
-INSERT INTO `staff_user` (`staff_id`, `access_role`,`username`, `password`, `enabled`) VALUES (1, 'ADMIN', 'motion6', 'motion6', 1);
+INSERT INTO `user` (`access_role`,`username`, `password`, `enabled`) VALUES ('ADMIN', 'motion6', '$2a$10$D4OLKI6yy68crm.3imC9X.P2xqKHs5TloWUcr6z5XdOqnTrAK84ri', 1);
 
 
 -- -----------------------------------------------------

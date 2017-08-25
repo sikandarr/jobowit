@@ -8,6 +8,6 @@ import com.jobowit.access.AccessRole;
 
 @RepositoryRestResource
 @CrossOrigin
-public interface AccessRoleRepository extends PagingAndSortingRepository<AccessRole, Integer>
+public interface AccessRoleRepository extends PagingAndSortingRepository<AccessRole, String>
 {
 }

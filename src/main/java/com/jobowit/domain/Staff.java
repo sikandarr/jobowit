@@ -79,6 +79,9 @@ public class Staff implements Serializable
 	@OneToOne(optional = true, cascade = CascadeType.ALL)
 	@JoinColumn(name = "user_id", nullable = true)
 	private JobowitUser user;
+	
+	@Column(name = "staff_uuid")
+	private String uuid;
 
 	public Staff()
 	{
@@ -376,6 +379,16 @@ public class Staff implements Serializable
 	public void setUser(JobowitUser user)
 	{
 		this.user = user;
+	}
+
+	public String getUuid()
+	{
+		return uuid;
+	}
+
+	public void setUuid(String staffUuid)
+	{
+		this.uuid = staffUuid;
 	}
 
 }

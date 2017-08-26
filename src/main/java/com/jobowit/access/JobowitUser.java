@@ -18,6 +18,7 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.jobowit.domain.Staff;
 
 @Entity
 @Table(name = "user")
@@ -25,6 +26,10 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 public class JobowitUser implements UserDetails
 {
 	private static final long serialVersionUID = 1L;
+	
+	@OneToOne(mappedBy = "user")
+	@JsonIgnore
+	Staff staff;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -125,6 +130,11 @@ public class JobowitUser implements UserDetails
 	public void setEnabled(boolean enabled)
 	{
 		this.enabled = enabled;
+	}
+	
+	public String getStaffUuid()
+	{
+		return this.staff.getUuid();
 	}
 
 }

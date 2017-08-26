@@ -31,6 +31,8 @@ public class AccessControlEvaluator implements PermissionEvaluator
 		{
 			return false;
 		}
+		JobowitUser user = (JobowitUser) auth.getPrincipal();
+		System.out.println(user.getId() + " " + targetId + " " + targetType + " " + permission);
 		return false;
 	}
 }

@@ -2,7 +2,6 @@ package com.jobowit;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -26,9 +25,6 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter
 	@Autowired
 	private AuthenticationManager authenticationManager;
 
-	@Value("${gigy.oauth.tokenTimeout:1200}")
-	private int expiration;
-
 	@Bean
 	public PasswordEncoder passwordEncoder()
 	{
@@ -45,7 +41,12 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter
 	@Override
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception
 	{
-		clients.inMemory().withClient("gigy").secret("secret").accessTokenValiditySeconds(expiration)
-				.scopes("read", "write").authorizedGrantTypes("password", "refresh_token").resourceIds("resource");
+		clients.inMemory()
+		.withClient("orange_grove")
+		.secret("jobowit_client")
+		.accessTokenValiditySeconds(1200)
+		.scopes("read", "write")
+		.authorizedGrantTypes("password", "refresh_token")
+		.resourceIds("resource");
 	}
 }

@@ -16,7 +16,6 @@ import com.jobowit.domain.Party;
 import com.jobowit.domain.projections.PartyProjection;
 
 @RepositoryRestResource(excerptProjection = PartyProjection.class)
-@CrossOrigin
 public interface PartyRepository  extends JpaRepository<Party, Integer>
 {
 	@Override

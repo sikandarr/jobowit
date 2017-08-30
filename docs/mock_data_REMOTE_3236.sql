@@ -616,7 +616,7 @@ UPDATE party SET type = 'Supplier' WHERE party_id = '2';
 -- staff data
 -- -----------------------------------------------------
 
-INSERT INTO `access_role` (`role_name`) VALUES ("ADMIN");
+INSERT INTO `access_role` (`role_name`) VALUES ("DEFAULT");
 INSERT INTO `access_role` (`role_name`) VALUES ("NO ACCESS");
 
 INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`address_id`,`access_role`,`username`,`email`,`password`) VALUES (1,'27146d49-6b1b-11e7-931d-001a7dda7113','Sikandar & Mearaj',457,'NO ACCESS','motion6','info@motion.six','motion6');
@@ -639,9 +639,6 @@ INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`address_id`,`access_role`,`
 INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`address_id`,`access_role`,`username`,`email`,`password`) VALUES (18,'271ad93f-6b1b-11e7-931d-001a7dda7113','Julianna Ralston',442,'NO ACCESS','jralstonh','jralstonh@newyorker.com','89GROHSb');
 INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`address_id`,`access_role`,`username`,`email`,`password`) VALUES (19,'271b3c1a-6b1b-11e7-931d-001a7dda7113','Sergei Eburne',452,'NO ACCESS','seburnei','seburnei@rambler.ru','WMJb5GEaQmA');
 INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`address_id`,`access_role`,`username`,`email`,`password`) VALUES (20,'271baa8d-6b1b-11e7-931d-001a7dda7113','Karon Yesenev',453,'NO ACCESS','kyesenevj','kyesenevj@disqus.com','kWouK7tN8');
-
-INSERT INTO `user` (`access_role`,`username`, `password`, `enabled`) VALUES ('ADMIN', 'motion6', '$2a$10$pDMaM7/PtG61nVxYOvvf0uCh83IkZZmpBa1M048OPNq4daZ43meMG', 1);
-UPDATE `jobowit_db`.`staff` SET `user_id`='1' WHERE `staff_id`='1';
 
 
 -- -----------------------------------------------------
@@ -989,7 +986,10 @@ INSERT INTO `db_table` (`table_name`) VALUES ("Party");
 INSERT INTO `db_table` (`table_name`) VALUES ("Job");
 INSERT INTO `db_table` (`table_name`) VALUES ("Staff");
 INSERT INTO `db_table` (`table_name`) VALUES ("JobWorks");
-INSERT INTO `access_control` (`role_name`, `table_name`, `can_read`, `can_delete`, `can_write`) VALUES ('ADMIN',"Party",1,1,1);
+INSERT INTO `access_control` (`staff_id`, `table_name`, `can_read`, `can_delete`, `can_write`) VALUES (1,"Party",1,1,1);
+INSERT INTO `access_control` (`staff_id`, `table_name`, `can_read`, `can_delete`, `can_write`) VALUES (2,"Party",1,0,0);
+INSERT INTO `access_control` (`staff_id`, `table_name`, `can_read`, `can_delete`, `can_write`) VALUES (3,"Party",1,0,1);
+INSERT INTO `access_control` (`staff_id`, `table_name`, `can_read`, `can_delete`, `can_write`) VALUES (4,"Party",1,1,1);
 
 -- -----------------------------------------------------
 -- invoice mock data

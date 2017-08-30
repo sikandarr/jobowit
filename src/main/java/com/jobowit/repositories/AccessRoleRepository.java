@@ -2,10 +2,12 @@ package com.jobowit.repositories;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
-import com.jobowit.access.AccessControl;
+import org.springframework.web.bind.annotation.CrossOrigin;
+
+import com.jobowit.access.AccessRole;
 
 @RepositoryRestResource
-public interface AccessControlRepository extends PagingAndSortingRepository<AccessControl, Integer>
+@CrossOrigin
+public interface AccessRoleRepository extends PagingAndSortingRepository<AccessRole, String>
 {
-
 }

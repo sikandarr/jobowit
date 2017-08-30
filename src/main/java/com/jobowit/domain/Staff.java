@@ -2,15 +2,10 @@ package com.jobowit.domain;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import com.jobowit.access.JobowitUser;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-//import org.springframework.security.core.GrantedAuthority;
-//import org.springframework.security.core.userdetails.UserDetails;
-
-//import com.jobowit.access.AccessControl;
-
-//import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -20,7 +15,8 @@ import java.util.List;
  */
 @Entity
 @Table(name = "staff")
-public class Staff implements /*UserDetails,*/ Serializable
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "staffId")
+public class Staff implements Serializable
 {
 	private static final long serialVersionUID = 1L;
 
@@ -38,13 +34,6 @@ public class Staff implements /*UserDetails,*/ Serializable
 
 	@Column(length = 100)
 	private String name;
-
-	@JsonIgnore
-	@Column(nullable = false, length = 32)
-	private String password;
-
-	@Column(nullable = false, length = 16)
-	private String username;
 
 	// bi-directional many-to-one association to Comment
 	@OneToMany(mappedBy = "staffUser")
@@ -78,9 +67,6 @@ public class Staff implements /*UserDetails,*/ Serializable
 	@OneToMany(mappedBy = "staff")
 	private List<SalesStaffInJob> salesStaffInJobs;
 
-	//@OneToMany(fetch = FetchType.EAGER, mappedBy = "staff")
-	//private List<AccessControl> accessControl;
-
 	// bi-directional many-to-one association to Address
 	@ManyToOne
 	@JoinColumn(name = "address_id", nullable = false)
@@ -89,6 +75,13 @@ public class Staff implements /*UserDetails,*/ Serializable
 	// bi-directional many-to-one association to StaffRole
 	@OneToMany(mappedBy = "staff")
 	private List<StaffRole> staffRoles;
+	
+	@OneToOne(optional = true, cascade = CascadeType.ALL)
+	@JoinColumn(name = "user_id", nullable = true)
+	private JobowitUser user;
+	
+	@Column(name = "staff_uuid", updatable=false)
+	private String uuid;
 
 	public Staff()
 	{
@@ -132,26 +125,6 @@ public class Staff implements /*UserDetails,*/ Serializable
 	public void setName(String name)
 	{
 		this.name = name;
-	}
-
-	public String getPassword()
-	{
-		return this.password;
-	}
-
-	public void setPassword(String password)
-	{
-		this.password = password;
-	}
-
-	public String getUsername()
-	{
-		return this.username;
-	}
-
-	public void setUsername(String username)
-	{
-		this.username = username;
 	}
 
 	public List<Comment> getComments()
@@ -362,30 +335,6 @@ public class Staff implements /*UserDetails,*/ Serializable
 		return salesStaffInJob;
 	}
 
-	/*public List<AccessControl> getAccessControl()
-	{
-		return accessControl;
-	}
-
-	public void setAccessControl(List<AccessControl> accessControl)
-	{
-		this.accessControl = accessControl;
-	}
-	
-	public AccessControl addAccessControl(AccessControl accessControl)
-	{
-		getAccessControl().add(accessControl);
-		accessControl.getId().staffId = this.staffId;
-		return accessControl;
-	}
-	
-	public AccessControl removeAccessControl(AccessControl accessControl)
-	{
-		getAccessControl().remove(accessControl);
-		accessControl.getId().staffId = -1;
-		return accessControl;
-	}*/
-
 	public Address getAddress()
 	{
 		return this.address;
@@ -422,34 +371,24 @@ public class Staff implements /*UserDetails,*/ Serializable
 		return staffRole;
 	}
 
-	/*@Override
-	public Collection<? extends GrantedAuthority> getAuthorities()
+	public JobowitUser getUser()
 	{
-		return this.accessControl;
+		return user;
 	}
 
-	@Override
-	public boolean isAccountNonExpired()
+	public void setUser(JobowitUser user)
 	{
-		return true;
+		this.user = user;
 	}
 
-	@Override
-	public boolean isAccountNonLocked()
+	public String getUuid()
 	{
-		return true;
+		return uuid;
 	}
 
-	@Override
-	public boolean isCredentialsNonExpired()
+	public void setUuid(String staffUuid)
 	{
-		return true;
+		this.uuid = staffUuid;
 	}
-
-	@Override
-	public boolean isEnabled()
-	{
-		return true;
-	}*/
 
 }

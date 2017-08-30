@@ -1,16 +1,15 @@
 package com.jobowit.access;
 
-/*import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.jobowit.domain.Staff;
 import com.jobowit.repositories.StaffRepository;
 
-@Service
-public class StaffUserDetailsService implements UserDetailsService
+@Service("userDetailsService")
+public class JobowitUserDetailsService implements UserDetailsService
 {
 	@Autowired
 	private StaffRepository userRepository;
@@ -18,11 +17,11 @@ public class StaffUserDetailsService implements UserDetailsService
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException
 	{
-		Staff staff = userRepository.findByUsername(username);
-		if (staff == null)
+		JobowitUser user = userRepository.findByUserUsername(username).getUser();
+		if (user == null)
 		{
 			throw new UsernameNotFoundException("Username " + username + " not found");
 		}
-		return staff;
+		return user;
 	}
-}*/
+}

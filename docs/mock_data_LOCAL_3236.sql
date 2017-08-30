@@ -509,254 +509,273 @@ insert into address (`street1`,`city`,`state`,`state_abr`,`post_code`,`country`)
 -- party data
 -- -----------------------------------------------------
 
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (1,'0d5f5918-69dc-11e7-931d-001a7dda7113','Placerat Cras Dictum Limited','Philip Harper','Morbi.metus@augueutlacus.net','(08) 5913 7797','(04) 1022 7116',134,329);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (2,'0d5fde0c-69dc-11e7-931d-001a7dda7113','Ligula Institute','Mari Lancaster','Donec.vitae@aliquet.ca','(04) 8904 4282','(04) 8041 9700',84,418);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (3,'0d603ab1-69dc-11e7-931d-001a7dda7113','Ullamcorper Magna Sed Consulting','Griffin Chaney','cursus@aliquetmetusurna.com','(09) 1570 7081','(04) 8241 4403',69,309);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (4,'0d609363-69dc-11e7-931d-001a7dda7113','Consequat Auctor Ltd','Yasir Hubbard','eu.nulla@egetvarius.edu','(02) 6668 6946','(04) 2081 4870',135,335);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (5,'0d60e4ca-69dc-11e7-931d-001a7dda7113','Rutrum Industries','Francesca Weber','cursus.vestibulum@feugiat.org','(07) 1270 0106','(04) 1323 4714',4,397);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (6,'0d614cc0-69dc-11e7-931d-001a7dda7113','Bibendum PC','Kareem Carter','aliquet@orciUt.com','(01) 1271 3596','(04) 3397 1829',181,408);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (7,'0d61afd7-69dc-11e7-931d-001a7dda7113','Eu Industries','Hayfa Mckinney','fringilla@nunc.edu','(02) 2650 1911','(04) 4833 4628',118,372);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (8,'0d621198-69dc-11e7-931d-001a7dda7113','Ligula Consectetuer Ltd','Leilani Hinton','Proin@mauris.net','(08) 7887 2283','(04) 2822 0745',135,256);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (9,'0d62776f-69dc-11e7-931d-001a7dda7113','Sit Amet Consulting','Cameran Hendricks','Maecenas.ornare@vulputateposuere.org','(02) 6542 5832','(04) 9021 8717',148,403);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (10,'0d62d4b0-69dc-11e7-931d-001a7dda7113','Morbi Metus PC','Drake Welch','egestas@nisi.co.uk','(09) 2757 8170','(04) 5019 8231',33,340);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (11,'0d6333cc-69dc-11e7-931d-001a7dda7113','Et Magnis Ltd','Ariana Mueller','pretium@Proin.co.uk','(09) 4817 6464','(04) 4157 8048',238,402);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (12,'0d639962-69dc-11e7-931d-001a7dda7113','Natoque Corp.','Morgan Fischer','tellus.Suspendisse.sed@tincidunt.net','(07) 5591 8897','(04) 2728 9999',100,370);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (13,'0d64ec76-69dc-11e7-931d-001a7dda7113','Aliquam Company','Evangeline Kaufman','Mauris@vitae.ca','(07) 3286 0259','(04) 0695 2940',167,472);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (14,'0d654332-69dc-11e7-931d-001a7dda7113','Sodales PC','Freya Acevedo','erat.Etiam@liberoDonec.org','(07) 4517 2175','(04) 4137 0142',244,305);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (15,'0d659de5-69dc-11e7-931d-001a7dda7113','Vitae Industries','Cassady Harrison','tristique@cursusInteger.org','(08) 9179 9881','(04) 0871 9753',205,406);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (16,'0d65f579-69dc-11e7-931d-001a7dda7113','Est Consulting','Noel Schmidt','fames.ac@Nuncmauriselit.co.uk','(01) 1856 0874','(04) 7688 6707',113,463);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (17,'0d66537c-69dc-11e7-931d-001a7dda7113','Congue In Company','Hashim Olsen','aliquam@est.org','(07) 0605 4221','(04) 2095 0918',60,367);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (18,'0d66ad56-69dc-11e7-931d-001a7dda7113','Elit Pede Malesuada Foundation','Julie Carver','dui.Cum@Nuncquis.org','(09) 2986 4450','(04) 6296 4853',92,486);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (19,'0d67e03f-69dc-11e7-931d-001a7dda7113','Et Industries','Elton Ayala','libero.dui.nec@felisNulla.co.uk','(04) 0354 2494','(04) 3581 0123',41,410);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (20,'0d683cd1-69dc-11e7-931d-001a7dda7113','Felis Nulla Tempor Institute','Lars Hoffman','cursus@ultriciesornare.co.uk','(03) 3364 4213','(04) 1466 8685',200,476);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (21,'0d68923e-69dc-11e7-931d-001a7dda7113','Magna Phasellus LLC','Mikayla Dyer','Mauris.quis@nonquam.ca','(05) 9548 0378','(04) 6778 4709',180,286);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (22,'0d68eda8-69dc-11e7-931d-001a7dda7113','Rhoncus Donec Industries','Julian Sellers','nisi@vitaealiquet.com','(02) 4318 3679','(04) 8632 7485',92,381);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (23,'0d694d99-69dc-11e7-931d-001a7dda7113','Nisi A Incorporated','Ocean Payne','turpis@dolorsit.org','(05) 5551 9409','(04) 4457 7056',177,338);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (24,'0d69a3c1-69dc-11e7-931d-001a7dda7113','Mollis Lectus Company','Phoebe Elliott','Sed.congue.elit@Maurismolestie.ca','(04) 9448 2539','(04) 3866 1450',167,258);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (25,'0d6a0325-69dc-11e7-931d-001a7dda7113','Fusce Dolor Limited','Steven Key','faucibus@dui.ca','(05) 4884 6965','(04) 2232 8608',78,499);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (26,'0d6a600f-69dc-11e7-931d-001a7dda7113','Sed Leo Institute','Wylie Noel','euismod@anteNuncmauris.org','(03) 8234 9559','(04) 0752 9565',168,498);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (27,'0d6ac19a-69dc-11e7-931d-001a7dda7113','Curae; Phasellus Ornare Corp.','Flynn Cervantes','rhoncus.Nullam.velit@magnaseddui.co.uk','(03) 9267 5088','(04) 8501 5007',161,322);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (28,'0d6b1951-69dc-11e7-931d-001a7dda7113','Nec Metus Company','Maris Curtis','lacinia@rhoncusid.edu','(01) 4296 8148','(04) 3521 7820',177,448);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (29,'0d6b7b25-69dc-11e7-931d-001a7dda7113','Auctor Nunc Company','Melanie Valdez','Morbi.non@parturientmontesnascetur.ca','(06) 3062 5981','(04) 0272 8968',17,421);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (30,'0d6bd0de-69dc-11e7-931d-001a7dda7113','Egestas Limited','Keelie Wise','metus.Aliquam.erat@nonantebibendum.ca','(08) 1452 7064','(04) 2715 4063',187,470);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (31,'0d6c7e4e-69dc-11e7-931d-001a7dda7113','Ac Feugiat Associates','Charlotte Marquez','mi.pede@gravidanon.co.uk','(02) 6237 4689','(04) 6381 3283',30,360);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (32,'0d6ce112-69dc-11e7-931d-001a7dda7113','Vel Arcu Eu Company','Jamal Lancaster','natoque@eget.ca','(07) 1130 2589','(04) 7706 6258',120,391);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (33,'0d6d39b1-69dc-11e7-931d-001a7dda7113','Vel Corp.','Brennan Carter','Morbi.non.sapien@ipsum.com','(08) 3224 5332','(04) 1482 2176',241,432);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (34,'0d6da135-69dc-11e7-931d-001a7dda7113','Maecenas Malesuada Fringilla LLC','Georgia Moon','lorem@In.co.uk','(09) 4234 1860','(04) 1787 5484',135,373);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (35,'0d6dfb94-69dc-11e7-931d-001a7dda7113','Nullam Associates','Lacey Gilliam','cursus.diam@etmagnis.com','(05) 4100 5153','(04) 6359 6525',84,293);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (36,'0d6e61a4-69dc-11e7-931d-001a7dda7113','Quis Diam Corporation','Jillian Cotton','nibh.Quisque@Curabiturut.com','(09) 2113 0015','(04) 1222 2188',148,374);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (37,'0d6eb934-69dc-11e7-931d-001a7dda7113','Nulla Integer Vulputate LLP','Galvin Cardenas','ornare@facilisisvitaeorci.edu','(01) 6871 6175','(04) 8826 6001',77,296);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (38,'0d6f1a02-69dc-11e7-931d-001a7dda7113','Proin Corporation','Dexter Sawyer','egestas.Duis.ac@Nunc.net','(03) 4998 7853','(04) 8509 8759',138,428);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (39,'0d6f7232-69dc-11e7-931d-001a7dda7113','Aenean Sed Limited','Kay Newman','elementum.purus@pedenec.com','(01) 6463 1198','(04) 3463 2360',205,387);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (40,'0d6fd743-69dc-11e7-931d-001a7dda7113','Donec Est Associates','Laura Burnett','erat.Sed@sit.edu','(07) 7524 9635','(04) 7255 8937',24,461);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (41,'0d703138-69dc-11e7-931d-001a7dda7113','Massa Ltd','Idona Colon','Nulla.facilisis@feugiat.co.uk','(08) 2186 9294','(04) 5012 6702',212,478);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (42,'0d708897-69dc-11e7-931d-001a7dda7113','Cum Inc.','Clayton Acevedo','nisi@enimNuncut.net','(03) 7219 4867','(04) 7518 4332',182,346);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (43,'0d70dc26-69dc-11e7-931d-001a7dda7113','Eu Euismod Ltd','Xaviera Mckenzie','mauris.blandit@ultricies.com','(04) 7420 9562','(04) 3540 0583',173,398);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (44,'0d713456-69dc-11e7-931d-001a7dda7113','Semper Limited','Brody Gonzalez','Curae@Nuncuterat.ca','(06) 4316 8061','(04) 6627 8281',178,311);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (45,'0d7188fe-69dc-11e7-931d-001a7dda7113','Amet Limited','Brynn Jensen','id@Phasellus.co.uk','(06) 8236 0002','(04) 0916 4677',10,381);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (46,'0d71e590-69dc-11e7-931d-001a7dda7113','Nascetur Ridiculus Mus Corp.','Berk Ramos','non.dapibus.rutrum@venenatis.com','(06) 3734 2793','(04) 4368 1195',204,388);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (47,'0d723ae2-69dc-11e7-931d-001a7dda7113','Elit Associates','Michael Gay','quis@tempusnonlacinia.edu','(06) 4347 6442','(04) 1998 4883',24,284);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (48,'0d7293c9-69dc-11e7-931d-001a7dda7113','Amet Lorem Industries','Illiana Joseph','lacus@ornareliberoat.co.uk','(02) 3639 8520','(04) 2145 8149',159,260);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (49,'0d73e7fb-69dc-11e7-931d-001a7dda7113','Penatibus Et Magnis Corp.','Lewis Morrow','Nunc.ullamcorper.velit@leo.com','(07) 4120 0775','(04) 8250 8725',8,474);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (50,'0d744a89-69dc-11e7-931d-001a7dda7113','Nunc Associates','Hector Jensen','quis@natoquepenatibus.co.uk','(07) 9817 3949','(04) 9439 6097',208,395);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (51,'0d74b4ae-69dc-11e7-931d-001a7dda7113','Erat Volutpat Corp.','Faith Murphy','Quisque@velit.com','(02) 1085 5803','(04) 7754 8018',4,317);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (52,'0d751617-69dc-11e7-931d-001a7dda7113','Massa Foundation','Kameko Whitley','ipsum@nuncsitamet.co.uk','(09) 3748 9768','(04) 4074 1946',63,405);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (53,'0d757c1f-69dc-11e7-931d-001a7dda7113','Id Sapien Cras Incorporated','Keane Stark','tellus@Morbivehicula.net','(07) 4460 8343','(04) 9146 2612',171,398);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (54,'0d75df27-69dc-11e7-931d-001a7dda7113','Sagittis Nullam Vitae Foundation','Kenyon Beach','Vivamus@diamluctus.co.uk','(05) 6814 9934','(04) 7434 3230',78,316);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (55,'0d764511-69dc-11e7-931d-001a7dda7113','Augue Ac Ipsum LLC','Lydia Ware','sit@sit.org','(06) 6015 0071','(04) 1727 5366',212,306);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (56,'0d76af27-69dc-11e7-931d-001a7dda7113','Auctor Non Foundation','Frances Burke','enim.gravida.sit@arcu.org','(09) 1049 8682','(04) 7284 6043',157,447);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (57,'0d781922-69dc-11e7-931d-001a7dda7113','Phasellus Corporation','Salvador Dickerson','natoque.penatibus.et@semperetlacinia.net','(08) 3278 1929','(04) 4586 2798',118,401);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (58,'0d78843a-69dc-11e7-931d-001a7dda7113','Ligula Donec Ltd','Cassidy Francis','Morbi.accumsan.laoreet@arcu.ca','(05) 4295 3768','(04) 8892 7846',132,448);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (59,'0d78f310-69dc-11e7-931d-001a7dda7113','Libero Proin Sed Company','Inga Whitney','mi.eleifend.egestas@cubiliaCuraeDonec.co.uk','(09) 5547 4761','(04) 6461 8463',67,340);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (60,'0d795a39-69dc-11e7-931d-001a7dda7113','Dolor Corporation','Portia Bradley','orci@nasceturridiculus.net','(05) 9704 0876','(04) 5298 6752',209,350);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (61,'0d79befe-69dc-11e7-931d-001a7dda7113','Sed Sem Foundation','Lillian Kirby','enim@etmalesuadafames.co.uk','(01) 6790 6286','(04) 2882 6395',209,251);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (62,'0d7a12ba-69dc-11e7-931d-001a7dda7113','Proin Dolor Inc.','Kylynn Hood','lectus@eutellus.com','(04) 5773 5772','(04) 0113 2571',193,262);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (63,'0d7a662e-69dc-11e7-931d-001a7dda7113','Mauris Sit Foundation','Karleigh Hooper','laoreet.posuere@enim.co.uk','(06) 6040 3830','(04) 3170 9854',164,344);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (64,'0d7ab920-69dc-11e7-931d-001a7dda7113','Interdum Enim Non Consulting','Eden Griffith','mollis.Duis@ac.org','(03) 2037 6899','(04) 2706 7663',222,263);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (65,'0d7b0cba-69dc-11e7-931d-001a7dda7113','Bibendum Donec Felis Foundation','Sloane Mcmahon','nisl@luctusipsumleo.org','(08) 1227 0962','(04) 5747 4843',4,351);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (66,'0d7b617c-69dc-11e7-931d-001a7dda7113','Elit Company','Clayton Clemons','at@nisinibh.edu','(01) 4494 6433','(04) 8877 2512',24,359);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (67,'0d7bbd63-69dc-11e7-931d-001a7dda7113','Amet Consectetuer Adipiscing Institute','Nichole Patrick','nibh.dolor@Namac.net','(08) 8721 8355','(04) 6765 6553',203,360);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (68,'0d7c10bf-69dc-11e7-931d-001a7dda7113','Nunc Institute','Leroy Valentine','mauris@DonectinciduntDonec.ca','(05) 0708 0568','(04) 8689 8163',86,421);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (69,'0d7c718d-69dc-11e7-931d-001a7dda7113','Ornare Lectus Ante Corp.','Gareth Robbins','mi@senectuset.ca','(01) 7525 7232','(04) 8599 1840',115,302);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (70,'0d7cc96a-69dc-11e7-931d-001a7dda7113','Dolor LLC','Vance Morton','natoque.penatibus@risus.edu','(09) 9648 0432','(04) 4428 3333',29,294);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (71,'0d7d26fe-69dc-11e7-931d-001a7dda7113','Pede Incorporated','Eleanor Garrison','neque@iaculis.edu','(05) 3515 9270','(04) 9392 2248',244,322);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (72,'0d7d899c-69dc-11e7-931d-001a7dda7113','Semper Rutrum Fusce Industries','Sloane Price','consectetuer.cursus.et@magnis.co.uk','(01) 6266 6276','(04) 6852 7471',117,279);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (73,'0d7dea4f-69dc-11e7-931d-001a7dda7113','Hendrerit Foundation','Astra Kirk','vitae.sodales@Nullamvitaediam.com','(05) 5149 6788','(04) 7580 3973',249,344);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (74,'0d7f25e4-69dc-11e7-931d-001a7dda7113','Nunc PC','Thaddeus Langley','erat.volutpat@egetmetus.net','(01) 7666 0490','(04) 9480 8328',34,469);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (75,'0d7f7f91-69dc-11e7-931d-001a7dda7113','Per Conubia Nostra Corp.','Dana Dunn','Donec@liberoat.com','(02) 8316 8044','(04) 2952 8441',185,443);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (76,'0d7fd62a-69dc-11e7-931d-001a7dda7113','Fusce Feugiat Lorem Institute','Jolene Berger','elit.pede@ipsumnunc.com','(09) 9980 0297','(04) 6971 1476',135,437);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (77,'0d802b39-69dc-11e7-931d-001a7dda7113','Mi Pede Nonummy Corporation','Cheryl Fields','semper.egestas@Utsagittis.co.uk','(04) 4643 6579','(04) 6451 2692',129,410);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (78,'0d8082b3-69dc-11e7-931d-001a7dda7113','Nascetur LLP','Hadley Cabrera','a@sedest.org','(01) 7585 8403','(04) 0722 6350',186,498);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (79,'0d81cf49-69dc-11e7-931d-001a7dda7113','Nec Ante Company','Lesley Dickson','sociosqu@ultriciesadipiscingenim.com','(02) 3916 7876','(04) 2435 1117',186,279);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (80,'0d823747-69dc-11e7-931d-001a7dda7113','Proin Velit Consulting','Jacob Nelson','sed.pede.nec@Intinciduntcongue.net','(04) 7019 7206','(04) 1781 3553',105,437);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (81,'0d829c50-69dc-11e7-931d-001a7dda7113','Cursus Purus Nullam Institute','Dale Nguyen','mattis.Integer@faucibusut.net','(09) 3473 7100','(04) 3181 6053',19,357);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (82,'0d82f0ce-69dc-11e7-931d-001a7dda7113','Tellus Non Incorporated','Alan Briggs','Vestibulum.ut@ipsumnon.com','(04) 7611 2300','(04) 8944 0864',205,286);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (83,'0d834674-69dc-11e7-931d-001a7dda7113','Proin Eget Limited','Erasmus Weaver','vitae.nibh.Donec@velit.co.uk','(03) 0278 6778','(04) 3458 0700',233,360);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (84,'0d8397f6-69dc-11e7-931d-001a7dda7113','Turpis Nulla Aliquet Company','Rana Espinoza','iaculis.quis@nonummyac.co.uk','(04) 9147 3347','(04) 4740 0969',234,432);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (85,'0d83f16d-69dc-11e7-931d-001a7dda7113','Orci Phasellus Corporation','Armand Meyer','Ut.tincidunt@lectus.edu','(07) 7480 2665','(04) 9247 9497',165,458);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (86,'0d8444bb-69dc-11e7-931d-001a7dda7113','Nunc Mauris Consulting','Velma Foley','non.bibendum.sed@posuere.co.uk','(05) 7601 3826','(04) 6333 1764',174,378);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (87,'0d849ddf-69dc-11e7-931d-001a7dda7113','Convallis Est Vitae LLP','Fiona Bishop','Cras.pellentesque@odio.com','(04) 0883 3498','(04) 1167 3603',89,429);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (88,'0d84fbce-69dc-11e7-931d-001a7dda7113','Convallis Incorporated','Olga Best','interdum.enim@Proinvelnisl.ca','(01) 4236 3673','(04) 4820 4167',141,453);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (89,'0d8550b7-69dc-11e7-931d-001a7dda7113','Iaculis Nec Corp.','Amena Franklin','sit.amet.ultricies@Maecenaslibero.net','(06) 4528 0689','(04) 8799 8847',5,454);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (90,'0d85aaf0-69dc-11e7-931d-001a7dda7113','Ipsum Suspendisse Incorporated','Herrod Mckee','quis.pede.Suspendisse@lobortistellus.com','(05) 2925 0532','(04) 6706 4950',76,328);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (91,'0d86ff71-69dc-11e7-931d-001a7dda7113','Aliquam Adipiscing Lobortis Limited','Josiah Blevins','dignissim.pharetra.Nam@vulputateduinec.co.uk','(06) 5968 3119','(04) 2158 4197',43,459);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (92,'0d87bda2-69dc-11e7-931d-001a7dda7113','Risus Limited','Randall Best','nunc.sed@faucibusid.org','(07) 4164 7536','(04) 4727 7069',223,263);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (93,'0d881a12-69dc-11e7-931d-001a7dda7113','Faucibus Institute','Guy Ruiz','justo@diamdictumsapien.edu','(02) 8555 8971','(04) 2763 0680',36,427);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (94,'0d88716d-69dc-11e7-931d-001a7dda7113','Lectus Nullam Suscipit Foundation','Cailin Albert','condimentum.eget.volutpat@blanditmattisCras.ca','(05) 8480 5706','(04) 2681 9412',3,385);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (95,'0d88d552-69dc-11e7-931d-001a7dda7113','Semper Foundation','Lael Martin','lacus.Nulla@rutrumurnanec.co.uk','(04) 2677 2572','(04) 7849 9400',50,326);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (96,'0d892c70-69dc-11e7-931d-001a7dda7113','Et Industries','Fiona Clements','est.ac@temporeratneque.net','(09) 2128 3899','(04) 4908 5177',35,434);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (97,'0d898c43-69dc-11e7-931d-001a7dda7113','Integer Vulputate Risus Institute','Kadeem Waller','In@Pellentesquetincidunttempus.co.uk','(03) 7482 5920','(04) 9007 9402',225,411);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (98,'0d89e6b5-69dc-11e7-931d-001a7dda7113','Luctus Ipsum PC','Kim Reeves','vitae.velit@aptent.com','(05) 0864 7385','(04) 8683 2879',5,386);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (99,'0d8a3eea-69dc-11e7-931d-001a7dda7113','Hymenaeos Institute','Xerxes Crane','posuere@maurisInteger.org','(06) 1289 7202','(04) 9532 3758',43,287);
-INSERT INTO `party` (`party_id`,`party_uuid`,`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES (100,'0d8a92a9-69dc-11e7-931d-001a7dda7113','Neque In Foundation','Evan Simmons','Cras.interdum.Nunc@dui.net','(08) 2398 0983','(04) 8731 3839',170,384);
-update party set type = "Supplier" where party_id > 50;
-UPDATE party SET type = 'Supplier' WHERE party_id = '2';
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Placerat Cras Dictum Limited","Philip Harper","Morbi.metus@augueutlacus.net","(08) 5913 7797","(04) 1022 7116",134,329);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Ligula Institute","Mari Lancaster","Donec.vitae@aliquet.ca","(04) 8904 4282","(04) 8041 9700",84,418);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Ullamcorper Magna Sed Consulting","Griffin Chaney","cursus@aliquetmetusurna.com","(09) 1570 7081","(04) 8241 4403",69,309);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Consequat Auctor Ltd","Yasir Hubbard","eu.nulla@egetvarius.edu","(02) 6668 6946","(04) 2081 4870",135,335);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Rutrum Industries","Francesca Weber","cursus.vestibulum@feugiat.org","(07) 1270 0106","(04) 1323 4714",4,397);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Bibendum PC","Kareem Carter","aliquet@orciUt.com","(01) 1271 3596","(04) 3397 1829",181,408);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Eu Industries","Hayfa Mckinney","fringilla@nunc.edu","(02) 2650 1911","(04) 4833 4628",118,372);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Ligula Consectetuer Ltd","Leilani Hinton","Proin@mauris.net","(08) 7887 2283","(04) 2822 0745",135,256);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Sit Amet Consulting","Cameran Hendricks","Maecenas.ornare@vulputateposuere.org","(02) 6542 5832","(04) 9021 8717",148,403);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Morbi Metus PC","Drake Welch","egestas@nisi.co.uk","(09) 2757 8170","(04) 5019 8231",33,340);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Et Magnis Ltd","Ariana Mueller","pretium@Proin.co.uk","(09) 4817 6464","(04) 4157 8048",238,402);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Natoque Corp.","Morgan Fischer","tellus.Suspendisse.sed@tincidunt.net","(07) 5591 8897","(04) 2728 9999",100,370);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Aliquam Company","Evangeline Kaufman","Mauris@vitae.ca","(07) 3286 0259","(04) 0695 2940",167,472);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Sodales PC","Freya Acevedo","erat.Etiam@liberoDonec.org","(07) 4517 2175","(04) 4137 0142",244,305);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Vitae Industries","Cassady Harrison","tristique@cursusInteger.org","(08) 9179 9881","(04) 0871 9753",205,406);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Est Consulting","Noel Schmidt","fames.ac@Nuncmauriselit.co.uk","(01) 1856 0874","(04) 7688 6707",113,463);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Congue In Company","Hashim Olsen","aliquam@est.org","(07) 0605 4221","(04) 2095 0918",60,367);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Elit Pede Malesuada Foundation","Julie Carver","dui.Cum@Nuncquis.org","(09) 2986 4450","(04) 6296 4853",92,486);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Et Industries","Elton Ayala","libero.dui.nec@felisNulla.co.uk","(04) 0354 2494","(04) 3581 0123",41,410);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Felis Nulla Tempor Institute","Lars Hoffman","cursus@ultriciesornare.co.uk","(03) 3364 4213","(04) 1466 8685",200,476);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Magna Phasellus LLC","Mikayla Dyer","Mauris.quis@nonquam.ca","(05) 9548 0378","(04) 6778 4709",180,286);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Rhoncus Donec Industries","Julian Sellers","nisi@vitaealiquet.com","(02) 4318 3679","(04) 8632 7485",92,381);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Nisi A Incorporated","Ocean Payne","turpis@dolorsit.org","(05) 5551 9409","(04) 4457 7056",177,338);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Mollis Lectus Company","Phoebe Elliott","Sed.congue.elit@Maurismolestie.ca","(04) 9448 2539","(04) 3866 1450",167,258);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Fusce Dolor Limited","Steven Key","faucibus@dui.ca","(05) 4884 6965","(04) 2232 8608",78,499);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Sed Leo Institute","Wylie Noel","euismod@anteNuncmauris.org","(03) 8234 9559","(04) 0752 9565",168,498);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Curae; Phasellus Ornare Corp.","Flynn Cervantes","rhoncus.Nullam.velit@magnaseddui.co.uk","(03) 9267 5088","(04) 8501 5007",161,322);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Nec Metus Company","Maris Curtis","lacinia@rhoncusid.edu","(01) 4296 8148","(04) 3521 7820",177,448);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Auctor Nunc Company","Melanie Valdez","Morbi.non@parturientmontesnascetur.ca","(06) 3062 5981","(04) 0272 8968",17,421);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Egestas Limited","Keelie Wise","metus.Aliquam.erat@nonantebibendum.ca","(08) 1452 7064","(04) 2715 4063",187,470);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Ac Feugiat Associates","Charlotte Marquez","mi.pede@gravidanon.co.uk","(02) 6237 4689","(04) 6381 3283",30,360);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Vel Arcu Eu Company","Jamal Lancaster","natoque@eget.ca","(07) 1130 2589","(04) 7706 6258",120,391);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Vel Corp.","Brennan Carter","Morbi.non.sapien@ipsum.com","(08) 3224 5332","(04) 1482 2176",241,432);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Maecenas Malesuada Fringilla LLC","Georgia Moon","lorem@In.co.uk","(09) 4234 1860","(04) 1787 5484",135,373);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Nullam Associates","Lacey Gilliam","cursus.diam@etmagnis.com","(05) 4100 5153","(04) 6359 6525",84,293);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Quis Diam Corporation","Jillian Cotton","nibh.Quisque@Curabiturut.com","(09) 2113 0015","(04) 1222 2188",148,374);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Nulla Integer Vulputate LLP","Galvin Cardenas","ornare@facilisisvitaeorci.edu","(01) 6871 6175","(04) 8826 6001",77,296);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Proin Corporation","Dexter Sawyer","egestas.Duis.ac@Nunc.net","(03) 4998 7853","(04) 8509 8759",138,428);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Aenean Sed Limited","Kay Newman","elementum.purus@pedenec.com","(01) 6463 1198","(04) 3463 2360",205,387);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Donec Est Associates","Laura Burnett","erat.Sed@sit.edu","(07) 7524 9635","(04) 7255 8937",24,461);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Massa Ltd","Idona Colon","Nulla.facilisis@feugiat.co.uk","(08) 2186 9294","(04) 5012 6702",212,478);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Cum Inc.","Clayton Acevedo","nisi@enimNuncut.net","(03) 7219 4867","(04) 7518 4332",182,346);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Eu Euismod Ltd","Xaviera Mckenzie","mauris.blandit@ultricies.com","(04) 7420 9562","(04) 3540 0583",173,398);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Semper Limited","Brody Gonzalez","Curae@Nuncuterat.ca","(06) 4316 8061","(04) 6627 8281",178,311);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Amet Limited","Brynn Jensen","id@Phasellus.co.uk","(06) 8236 0002","(04) 0916 4677",10,381);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Nascetur Ridiculus Mus Corp.","Berk Ramos","non.dapibus.rutrum@venenatis.com","(06) 3734 2793","(04) 4368 1195",204,388);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Elit Associates","Michael Gay","quis@tempusnonlacinia.edu","(06) 4347 6442","(04) 1998 4883",24,284);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Amet Lorem Industries","Illiana Joseph","lacus@ornareliberoat.co.uk","(02) 3639 8520","(04) 2145 8149",159,260);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Penatibus Et Magnis Corp.","Lewis Morrow","Nunc.ullamcorper.velit@leo.com","(07) 4120 0775","(04) 8250 8725",8,474);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Nunc Associates","Hector Jensen","quis@natoquepenatibus.co.uk","(07) 9817 3949","(04) 9439 6097",208,395);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Erat Volutpat Corp.","Faith Murphy","Quisque@velit.com","(02) 1085 5803","(04) 7754 8018",4,317);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Massa Foundation","Kameko Whitley","ipsum@nuncsitamet.co.uk","(09) 3748 9768","(04) 4074 1946",63,405);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Id Sapien Cras Incorporated","Keane Stark","tellus@Morbivehicula.net","(07) 4460 8343","(04) 9146 2612",171,398);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Sagittis Nullam Vitae Foundation","Kenyon Beach","Vivamus@diamluctus.co.uk","(05) 6814 9934","(04) 7434 3230",78,316);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Augue Ac Ipsum LLC","Lydia Ware","sit@sit.org","(06) 6015 0071","(04) 1727 5366",212,306);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Auctor Non Foundation","Frances Burke","enim.gravida.sit@arcu.org","(09) 1049 8682","(04) 7284 6043",157,447);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Phasellus Corporation","Salvador Dickerson","natoque.penatibus.et@semperetlacinia.net","(08) 3278 1929","(04) 4586 2798",118,401);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Ligula Donec Ltd","Cassidy Francis","Morbi.accumsan.laoreet@arcu.ca","(05) 4295 3768","(04) 8892 7846",132,448);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Libero Proin Sed Company","Inga Whitney","mi.eleifend.egestas@cubiliaCuraeDonec.co.uk","(09) 5547 4761","(04) 6461 8463",67,340);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Dolor Corporation","Portia Bradley","orci@nasceturridiculus.net","(05) 9704 0876","(04) 5298 6752",209,350);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Sed Sem Foundation","Lillian Kirby","enim@etmalesuadafames.co.uk","(01) 6790 6286","(04) 2882 6395",209,251);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Proin Dolor Inc.","Kylynn Hood","lectus@eutellus.com","(04) 5773 5772","(04) 0113 2571",193,262);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Mauris Sit Foundation","Karleigh Hooper","laoreet.posuere@enim.co.uk","(06) 6040 3830","(04) 3170 9854",164,344);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Interdum Enim Non Consulting","Eden Griffith","mollis.Duis@ac.org","(03) 2037 6899","(04) 2706 7663",222,263);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Bibendum Donec Felis Foundation","Sloane Mcmahon","nisl@luctusipsumleo.org","(08) 1227 0962","(04) 5747 4843",4,351);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Elit Company","Clayton Clemons","at@nisinibh.edu","(01) 4494 6433","(04) 8877 2512",24,359);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Amet Consectetuer Adipiscing Institute","Nichole Patrick","nibh.dolor@Namac.net","(08) 8721 8355","(04) 6765 6553",203,360);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Nunc Institute","Leroy Valentine","mauris@DonectinciduntDonec.ca","(05) 0708 0568","(04) 8689 8163",86,421);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Ornare Lectus Ante Corp.","Gareth Robbins","mi@senectuset.ca","(01) 7525 7232","(04) 8599 1840",115,302);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Dolor LLC","Vance Morton","natoque.penatibus@risus.edu","(09) 9648 0432","(04) 4428 3333",29,294);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Pede Incorporated","Eleanor Garrison","neque@iaculis.edu","(05) 3515 9270","(04) 9392 2248",244,322);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Semper Rutrum Fusce Industries","Sloane Price","consectetuer.cursus.et@magnis.co.uk","(01) 6266 6276","(04) 6852 7471",117,279);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Hendrerit Foundation","Astra Kirk","vitae.sodales@Nullamvitaediam.com","(05) 5149 6788","(04) 7580 3973",249,344);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Nunc PC","Thaddeus Langley","erat.volutpat@egetmetus.net","(01) 7666 0490","(04) 9480 8328",34,469);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Per Conubia Nostra Corp.","Dana Dunn","Donec@liberoat.com","(02) 8316 8044","(04) 2952 8441",185,443);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Fusce Feugiat Lorem Institute","Jolene Berger","elit.pede@ipsumnunc.com","(09) 9980 0297","(04) 6971 1476",135,437);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Mi Pede Nonummy Corporation","Cheryl Fields","semper.egestas@Utsagittis.co.uk","(04) 4643 6579","(04) 6451 2692",129,410);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Nascetur LLP","Hadley Cabrera","a@sedest.org","(01) 7585 8403","(04) 0722 6350",186,498);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Nec Ante Company","Lesley Dickson","sociosqu@ultriciesadipiscingenim.com","(02) 3916 7876","(04) 2435 1117",186,279);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Proin Velit Consulting","Jacob Nelson","sed.pede.nec@Intinciduntcongue.net","(04) 7019 7206","(04) 1781 3553",105,437);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Cursus Purus Nullam Institute","Dale Nguyen","mattis.Integer@faucibusut.net","(09) 3473 7100","(04) 3181 6053",19,357);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Tellus Non Incorporated","Alan Briggs","Vestibulum.ut@ipsumnon.com","(04) 7611 2300","(04) 8944 0864",205,286);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Proin Eget Limited","Erasmus Weaver","vitae.nibh.Donec@velit.co.uk","(03) 0278 6778","(04) 3458 0700",233,360);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Turpis Nulla Aliquet Company","Rana Espinoza","iaculis.quis@nonummyac.co.uk","(04) 9147 3347","(04) 4740 0969",234,432);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Orci Phasellus Corporation","Armand Meyer","Ut.tincidunt@lectus.edu","(07) 7480 2665","(04) 9247 9497",165,458);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Nunc Mauris Consulting","Velma Foley","non.bibendum.sed@posuere.co.uk","(05) 7601 3826","(04) 6333 1764",174,378);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Convallis Est Vitae LLP","Fiona Bishop","Cras.pellentesque@odio.com","(04) 0883 3498","(04) 1167 3603",89,429);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Convallis Incorporated","Olga Best","interdum.enim@Proinvelnisl.ca","(01) 4236 3673","(04) 4820 4167",141,453);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Iaculis Nec Corp.","Amena Franklin","sit.amet.ultricies@Maecenaslibero.net","(06) 4528 0689","(04) 8799 8847",5,454);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Ipsum Suspendisse Incorporated","Herrod Mckee","quis.pede.Suspendisse@lobortistellus.com","(05) 2925 0532","(04) 6706 4950",76,328);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Aliquam Adipiscing Lobortis Limited","Josiah Blevins","dignissim.pharetra.Nam@vulputateduinec.co.uk","(06) 5968 3119","(04) 2158 4197",43,459);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Risus Limited","Randall Best","nunc.sed@faucibusid.org","(07) 4164 7536","(04) 4727 7069",223,263);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Faucibus Institute","Guy Ruiz","justo@diamdictumsapien.edu","(02) 8555 8971","(04) 2763 0680",36,427);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Lectus Nullam Suscipit Foundation","Cailin Albert","condimentum.eget.volutpat@blanditmattisCras.ca","(05) 8480 5706","(04) 2681 9412",3,385);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Semper Foundation","Lael Martin","lacus.Nulla@rutrumurnanec.co.uk","(04) 2677 2572","(04) 7849 9400",50,326);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Et Industries","Fiona Clements","est.ac@temporeratneque.net","(09) 2128 3899","(04) 4908 5177",35,434);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Integer Vulputate Risus Institute","Kadeem Waller","In@Pellentesquetincidunttempus.co.uk","(03) 7482 5920","(04) 9007 9402",225,411);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Luctus Ipsum PC","Kim Reeves","vitae.velit@aptent.com","(05) 0864 7385","(04) 8683 2879",5,386);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Hymenaeos Institute","Xerxes Crane","posuere@maurisInteger.org","(06) 1289 7202","(04) 9532 3758",43,287);
+INSERT INTO `party` (`name`,`contact_name`,`email`,`phone`,`mobile`,`mailing_address_id`,`physical_address_id`) VALUES ("Neque In Foundation","Evan Simmons","Cras.interdum.Nunc@dui.net","(08) 2398 0983","(04) 8731 3839",170,384);
+
+-- -----------------------------------------------------
+-- Access Roles data
+-- -----------------------------------------------------
+
+INSERT INTO `access_role` (`role_name`) VALUES ("NO ACCESS");
+INSERT INTO `access_role` (`role_name`) VALUES ("ADMIN");
+INSERT INTO `access_role` (`role_name`) VALUES ("LIMITED");
 
 -- -----------------------------------------------------
 -- staff data
 -- -----------------------------------------------------
 
-INSERT INTO `access_role` (`role_name`) VALUES ("ADMIN");
-INSERT INTO `access_role` (`role_name`) VALUES ("NO ACCESS");
-
-INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`address_id`,`access_role`,`username`,`email`,`password`) VALUES (1,'27146d49-6b1b-11e7-931d-001a7dda7113','Sikandar & Mearaj',457,'NO ACCESS','motion6','info@motion.six','motion6');
-INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`address_id`,`access_role`,`username`,`email`,`password`) VALUES (2,'2714f2ec-6b1b-11e7-931d-001a7dda7113','Rafe Robus',456,'NO ACCESS','rrobus1','rrobus1@sbwire.com','16EfMURm');
-INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`address_id`,`access_role`,`username`,`email`,`password`) VALUES (3,'2715509f-6b1b-11e7-931d-001a7dda7113','Dorelia Graham',450,'NO ACCESS','dgraham2','dgraham2@e-recht24.de','nVzKazzJ4c');
-INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`address_id`,`access_role`,`username`,`email`,`password`) VALUES (4,'2715ad16-6b1b-11e7-931d-001a7dda7113','Alicea Keford',445,'NO ACCESS','akeford3','akeford3@columbia.edu','fekgx9kY6');
-INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`address_id`,`access_role`,`username`,`email`,`password`) VALUES (5,'271600da-6b1b-11e7-931d-001a7dda7113','Everett Wilse',441,'NO ACCESS','ewilse4','ewilse4@sphinn.com','KTrHrm4');
-INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`address_id`,`access_role`,`username`,`email`,`password`) VALUES (6,'27165d14-6b1b-11e7-931d-001a7dda7113','Ole Malenfant',440,'NO ACCESS','omalenfant5','omalenfant5@photobucket.com','yJS2nC');
-INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`address_id`,`access_role`,`username`,`email`,`password`) VALUES (7,'2716c068-6b1b-11e7-931d-001a7dda7113','Robbie Godsell',449,'NO ACCESS','rgodsell6','rgodsell6@ed.gov','Dcj6uS03eWSi');
-INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`address_id`,`access_role`,`username`,`email`,`password`) VALUES (8,'27171532-6b1b-11e7-931d-001a7dda7113','Gibbie Delea',449,'NO ACCESS','gdelea7','gdelea7@timesonline.co.uk','oMqfgXZfMgJ');
-INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`address_id`,`access_role`,`username`,`email`,`password`) VALUES (9,'271775f8-6b1b-11e7-931d-001a7dda7113','Nikoletta Segeswoeth',454,'NO ACCESS','nsegeswoeth8','nsegeswoeth8@google.com','gNRBEK');
-INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`address_id`,`access_role`,`username`,`email`,`password`) VALUES (10,'2717cd7a-6b1b-11e7-931d-001a7dda7113','Darrel Chattell',448,'NO ACCESS','dchattell9','dchattell9@unblog.fr','QweLQdZj2hw');
-INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`address_id`,`access_role`,`username`,`email`,`password`) VALUES (11,'27183219-6b1b-11e7-931d-001a7dda7113','Jeffrey Jenteau',446,'NO ACCESS','jjenteaua','jjenteaua@rediff.com','jektvzNTsmjq');
-INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`address_id`,`access_role`,`username`,`email`,`password`) VALUES (12,'27189327-6b1b-11e7-931d-001a7dda7113','Marve Tarney',452,'NO ACCESS','mtarneyb','mtarneyb@ibm.com','w8A6XsD5ixI');
-INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`address_id`,`access_role`,`username`,`email`,`password`) VALUES (13,'2718fbe3-6b1b-11e7-931d-001a7dda7113','Gayel Fleischmann',458,'NO ACCESS','gfleischmannc','gfleischmannc@elegantthemes.com','me84BY');
-INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`address_id`,`access_role`,`username`,`email`,`password`) VALUES (14,'27195139-6b1b-11e7-931d-001a7dda7113','Davin Crimin',449,'NO ACCESS','dcrimind','dcrimind@webmd.com','gV0zX2');
-INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`address_id`,`access_role`,`username`,`email`,`password`) VALUES (15,'2719b229-6b1b-11e7-931d-001a7dda7113','Killie Proudley',449,'NO ACCESS','kproudleye','kproudleye@ovh.net','rkgTkK');
-INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`address_id`,`access_role`,`username`,`email`,`password`) VALUES (16,'271a0536-6b1b-11e7-931d-001a7dda7113','Miranda Anscombe',444,'NO ACCESS','manscombef','manscombef@ca.gov','19Pbs3e8');
-INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`address_id`,`access_role`,`username`,`email`,`password`) VALUES (17,'271a7b81-6b1b-11e7-931d-001a7dda7113','Clair Gamblin',456,'NO ACCESS','cgambling','cgambling@cisco.com','Wv1680oprU');
-INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`address_id`,`access_role`,`username`,`email`,`password`) VALUES (18,'271ad93f-6b1b-11e7-931d-001a7dda7113','Julianna Ralston',442,'NO ACCESS','jralstonh','jralstonh@newyorker.com','89GROHSb');
-INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`address_id`,`access_role`,`username`,`email`,`password`) VALUES (19,'271b3c1a-6b1b-11e7-931d-001a7dda7113','Sergei Eburne',452,'NO ACCESS','seburnei','seburnei@rambler.ru','WMJb5GEaQmA');
-INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`address_id`,`access_role`,`username`,`email`,`password`) VALUES (20,'271baa8d-6b1b-11e7-931d-001a7dda7113','Karon Yesenev',453,'NO ACCESS','kyesenevj','kyesenevj@disqus.com','kWouK7tN8');
-
-INSERT INTO `user` (`access_role`,`username`, `password`, `enabled`) VALUES ('ADMIN', 'motion6', '$2a$10$pDMaM7/PtG61nVxYOvvf0uCh83IkZZmpBa1M048OPNq4daZ43meMG', 1);
-UPDATE `jobowit_db`.`staff` SET `user_id`='1' WHERE `staff_id`='1';
-
+insert into staff (username, email, password, name, address_id, access_role) values ('motion6', 'info@motion.six', 'motion6', 'Sikandar & Mearaj', 457, 'ADMIN');
+insert into staff (username, email, password, name, address_id, access_role) values ('rrobus1', 'rrobus1@sbwire.com', '16EfMURm', 'Rafe Robus', 456, 'LIMITED');
+insert into staff (username, email, password, name, address_id, access_role) values ('dgraham2', 'dgraham2@e-recht24.de', 'nVzKazzJ4c', 'Dorelia Graham', 450, 'LIMITED');
+insert into staff (username, email, password, name, address_id) values ('akeford3', 'akeford3@columbia.edu', 'fekgx9kY6', 'Alicea Keford', 445);
+insert into staff (username, email, password, name, address_id) values ('ewilse4', 'ewilse4@sphinn.com', 'KTrHrm4', 'Everett Wilse', 441);
+insert into staff (username, email, password, name, address_id) values ('omalenfant5', 'omalenfant5@photobucket.com', 'yJS2nC', 'Ole Malenfant', 440);
+insert into staff (username, email, password, name, address_id) values ('rgodsell6', 'rgodsell6@ed.gov', 'Dcj6uS03eWSi', 'Robbie Godsell', 449);
+insert into staff (username, email, password, name, address_id) values ('gdelea7', 'gdelea7@timesonline.co.uk', 'oMqfgXZfMgJ', 'Gibbie Delea', 449);
+insert into staff (username, email, password, name, address_id) values ('nsegeswoeth8', 'nsegeswoeth8@google.com', 'gNRBEK', 'Nikoletta Segeswoeth', 454);
+insert into staff (username, email, password, name, address_id) values ('dchattell9', 'dchattell9@unblog.fr', 'QweLQdZj2hw', 'Darrel Chattell', 448);
+insert into staff (username, email, password, name, address_id) values ('jjenteaua', 'jjenteaua@rediff.com', 'jektvzNTsmjq', 'Jeffrey Jenteau', 446);
+insert into staff (username, email, password, name, address_id) values ('mtarneyb', 'mtarneyb@ibm.com', 'w8A6XsD5ixI', 'Marve Tarney', 452);
+insert into staff (username, email, password, name, address_id) values ('gfleischmannc', 'gfleischmannc@elegantthemes.com', 'me84BY', 'Gayel Fleischmann', 458);
+insert into staff (username, email, password, name, address_id) values ('dcrimind', 'dcrimind@webmd.com', 'gV0zX2', 'Davin Crimin', 449);
+insert into staff (username, email, password, name, address_id) values ('kproudleye', 'kproudleye@ovh.net', 'rkgTkK', 'Killie Proudley', 449);
+insert into staff (username, email, password, name, address_id) values ('manscombef', 'manscombef@ca.gov', '19Pbs3e8', 'Miranda Anscombe', 444);
+insert into staff (username, email, password, name, address_id) values ('cgambling', 'cgambling@cisco.com', 'Wv1680oprU', 'Clair Gamblin', 456);
+insert into staff (username, email, password, name, address_id) values ('jralstonh', 'jralstonh@newyorker.com', '89GROHSb', 'Julianna Ralston', 442);
+insert into staff (username, email, password, name, address_id) values ('seburnei', 'seburnei@rambler.ru', 'WMJb5GEaQmA', 'Sergei Eburne', 452);
+insert into staff (username, email, password, name, address_id) values ('kyesenevj', 'kyesenevj@disqus.com', 'kWouK7tN8', 'Karon Yesenev', 453);
 
 -- -----------------------------------------------------
 -- job type data
 -- -----------------------------------------------------
 
-INSERT INTO `jobowit_db`.`job_type` (`job_type`) VALUES ("Service Request");
-INSERT INTO `jobowit_db`.`job_type` (`job_type`) VALUES ("Quote Request");
+INSERT INTO `jobowit_db`.`job_type` (`job_type_id`, `description`) VALUES (1, "Service Request");
+INSERT INTO `jobowit_db`.`job_type` (`job_type_id`, `description`) VALUES (2, "Quote Request");
 
 -- -----------------------------------------------------
 -- job status data
 -- -----------------------------------------------------
 
-INSERT INTO `job_status` (`status_desc`, `job_type`) VALUES ("Awaiting Scope", 'Quote Request');
-INSERT INTO `job_status` (`status_desc`, `job_type`) VALUES ("Awaiting Customer Approval", 'Quote Request');
-INSERT INTO `job_status` (`status_desc`, `job_type`) VALUES ("Customer Rejected", 'Quote Request');
-INSERT INTO `job_status` (`status_desc`, `job_type`) VALUES ("Under Negotiation", 'Quote Request');
-INSERT INTO `job_status` (`status_desc`, `job_type`) VALUES ("Awaiting Schedule", 'Service Request');
-INSERT INTO `job_status` (`status_desc`, `job_type`) VALUES ("Scheduled", 'Service Request');
-INSERT INTO `job_status` (`status_desc`, `job_type`) VALUES ("In Progress", 'Service Request');
-INSERT INTO `job_status` (`status_desc`, `job_type`, `indicates_active_job`) VALUES ("Customer Accepted", 'Quote Request', 0);
-INSERT INTO `job_status` (`status_desc`, `job_type`, `indicates_active_job`) VALUES ("Canceled", 'Quote Request', 0);
-INSERT INTO `job_status` (`status_desc`, `job_type`, `indicates_active_job`) VALUES ("Completed", 'Service Request', 0);
-INSERT INTO `job_status` (`status_desc`, `job_type`, `indicates_active_job`) VALUES ("Canceled", 'Service Request', 0);
+INSERT INTO `job_status` (`description`, `job_type_id`) VALUES ("Awaiting Scope", 2);
+INSERT INTO `job_status` (`description`, `job_type_id`) VALUES ("Awaiting Customer Approval", 2);
+INSERT INTO `job_status` (`description`, `job_type_id`) VALUES ("Customer Rejected", 2);
+INSERT INTO `job_status` (`description`, `job_type_id`) VALUES ("Under Negotiation", 2);
+INSERT INTO `job_status` (`description`, `job_type_id`) VALUES ("Customer Accepted", 2);
+INSERT INTO `job_status` (`description`, `job_type_id`) VALUES ("Canceled", 2);
+INSERT INTO `job_status` (`description`, `job_type_id`) VALUES ("Awaiting Schedule", 1);
+INSERT INTO `job_status` (`description`, `job_type_id`) VALUES ("Scheduled", 1);
+INSERT INTO `job_status` (`description`, `job_type_id`) VALUES ("In Progress", 1);
+INSERT INTO `job_status` (`description`, `job_type_id`) VALUES ("Completed", 1);
+INSERT INTO `job_status` (`description`, `job_type_id`) VALUES ("CXLD", 1);
 
 -- -----------------------------------------------------
 -- job data
 -- -----------------------------------------------------
 
-INSERT INTO `job` (`job_uuid`,`job_number`,`customer_id`,`description`,`initial_type`,`current_type`,`referral`,`address_id`,`priority`,`contact_name`,`phone`,`mobile`,`email`,`created_dtm`) VALUES ('a9ba4364-6577-44dc-9266-1fa5484944cf','CIXJOM',1,'ac nulla sed vel enim sit amet nunc viverra dapibus nulla suscipit ligula in lacus curabitur at','Quote Request','Quote Request','Sales-team',113,'Urgent',NULL,NULL,NULL,NULL,'2017-07-24 18:52:51');
-INSERT INTO `job` (`job_uuid`,`job_number`,`customer_id`,`description`,`initial_type`,`current_type`,`referral`,`address_id`,`priority`,`contact_name`,`phone`,`mobile`,`email`,`created_dtm`) VALUES ('59bb7aa8-6b65-4541-bb46-f519953148d8','VPDMQG',79,'vel est donec odio justo sollicitudin ut suscipit a feugiat et','Quote Request','Quote Request','Email',153,'Normal',NULL,NULL,NULL,NULL,'2017-07-24 18:52:51');
-INSERT INTO `job` (`job_uuid`,`job_number`,`customer_id`,`description`,`initial_type`,`current_type`,`referral`,`address_id`,`priority`,`contact_name`,`phone`,`mobile`,`email`,`created_dtm`) VALUES ('bbb911b9-2bd8-4885-835d-e5df17ac42fe','VOUQWC',53,'hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt','Service Request','Quote Request','Publication',209,'Important',NULL,NULL,NULL,NULL,'2017-07-24 18:52:51');
-INSERT INTO `job` (`job_uuid`,`job_number`,`customer_id`,`description`,`initial_type`,`current_type`,`referral`,`address_id`,`priority`,`contact_name`,`phone`,`mobile`,`email`,`created_dtm`) VALUES ('c8ad2b80-6ebf-43c5-ae2e-5705bff8ba64','IUNTVG',3,'suspendisse potenti cras in purus eu magna vulputate luctus cum','Quote Request','Service Request','Radio',170,'Important',NULL,NULL,NULL,NULL,'2017-07-24 18:52:51');
-INSERT INTO `job` (`job_uuid`,`job_number`,`customer_id`,`description`,`initial_type`,`current_type`,`referral`,`address_id`,`priority`,`contact_name`,`phone`,`mobile`,`email`,`created_dtm`) VALUES ('c7cc82b7-076b-4494-b3d8-d9d68d28a054','SHXBMR',47,'aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea','Quote Request','Service Request','Sales-team',184,'Normal',NULL,NULL,NULL,NULL,'2017-07-24 18:52:51');
-INSERT INTO `job` (`job_uuid`,`job_number`,`customer_id`,`description`,`initial_type`,`current_type`,`referral`,`address_id`,`priority`,`contact_name`,`phone`,`mobile`,`email`,`created_dtm`) VALUES ('c34c3c89-2cf4-4e15-b44a-687327d07056','ISWTDA',2,'aenean fermentum donec ut mauris eget massa tempor convallis nulla neque libero convallis','Service Request','Service Request','Publication',191,'Normal',NULL,NULL,NULL,NULL,'2017-07-24 18:52:51');
-INSERT INTO `job` (`job_uuid`,`job_number`,`customer_id`,`description`,`initial_type`,`current_type`,`referral`,`address_id`,`priority`,`contact_name`,`phone`,`mobile`,`email`,`created_dtm`) VALUES ('f30c5564-1929-48a3-9095-eb2789e6c142','AQSPFV',6,'eu est congue elementum in hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum','Quote Request','Service Request','Internal',250,'Important',NULL,NULL,NULL,NULL,'2017-07-24 18:52:51');
-INSERT INTO `job` (`job_uuid`,`job_number`,`customer_id`,`description`,`initial_type`,`current_type`,`referral`,`address_id`,`priority`,`contact_name`,`phone`,`mobile`,`email`,`created_dtm`) VALUES ('8878d42a-d178-4e0d-a73e-0adcd2cefb5c','RYIBWU',68,'et ultrices posuere cubilia curae duis faucibus accumsan odio curabitur convallis duis consequat','Service Request','Service Request','Publication',169,'Urgent',NULL,NULL,NULL,NULL,'2017-07-24 18:52:51');
-INSERT INTO `job` (`job_uuid`,`job_number`,`customer_id`,`description`,`initial_type`,`current_type`,`referral`,`address_id`,`priority`,`contact_name`,`phone`,`mobile`,`email`,`created_dtm`) VALUES ('54cf32c0-24ee-44a3-9cf8-01a20ebf5424','YCRFJD',96,'quis orci nullam molestie nibh in lectus pellentesque at nulla suspendisse potenti cras in purus eu magna vulputate','Service Request','Quote Request','Publication',287,'Normal',NULL,NULL,NULL,NULL,'2017-07-24 18:52:51');
-INSERT INTO `job` (`job_uuid`,`job_number`,`customer_id`,`description`,`initial_type`,`current_type`,`referral`,`address_id`,`priority`,`contact_name`,`phone`,`mobile`,`email`,`created_dtm`) VALUES ('c90edc7e-052b-4981-ac30-3f684bea8080','HNJITC',95,'ullamcorper purus sit amet nulla quisque arcu libero rutrum ac lobortis vel dapibus at','Quote Request','Quote Request','Internal',200,'Important',NULL,NULL,NULL,NULL,'2017-07-24 18:52:51');
-INSERT INTO `job` (`job_uuid`,`job_number`,`customer_id`,`description`,`initial_type`,`current_type`,`referral`,`address_id`,`priority`,`contact_name`,`phone`,`mobile`,`email`,`created_dtm`) VALUES ('ad844bfe-4790-45d3-b257-2b6d364d7b78','HZBTPL',75,'lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio','Quote Request','Quote Request','Internal',200,'Normal',NULL,NULL,NULL,NULL,'2017-07-24 18:52:51');
-INSERT INTO `job` (`job_uuid`,`job_number`,`customer_id`,`description`,`initial_type`,`current_type`,`referral`,`address_id`,`priority`,`contact_name`,`phone`,`mobile`,`email`,`created_dtm`) VALUES ('3018c072-455f-476b-9df5-fbf71dc25d42','SCGARH',49,'mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla sed vel enim sit amet','Service Request','Service Request','Publication',178,'Urgent',NULL,NULL,NULL,NULL,'2017-07-24 18:52:51');
-INSERT INTO `job` (`job_uuid`,`job_number`,`customer_id`,`description`,`initial_type`,`current_type`,`referral`,`address_id`,`priority`,`contact_name`,`phone`,`mobile`,`email`,`created_dtm`) VALUES ('dac93435-c0bf-4142-a28a-fa84d112169a','VLEBDA',75,'ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti','Quote Request','Service Request','Radio',241,'Normal',NULL,NULL,NULL,NULL,'2017-07-24 18:52:51');
-INSERT INTO `job` (`job_uuid`,`job_number`,`customer_id`,`description`,`initial_type`,`current_type`,`referral`,`address_id`,`priority`,`contact_name`,`phone`,`mobile`,`email`,`created_dtm`) VALUES ('37b97b21-cf29-47f6-945d-1f9d35c61200','QBJUOC',39,'rutrum neque aenean auctor gravida sem praesent id massa id nisl venenatis','Service Request','Service Request','Internal',206,'Urgent',NULL,NULL,NULL,NULL,'2017-07-24 18:52:51');
-INSERT INTO `job` (`job_uuid`,`job_number`,`customer_id`,`description`,`initial_type`,`current_type`,`referral`,`address_id`,`priority`,`contact_name`,`phone`,`mobile`,`email`,`created_dtm`) VALUES ('f118735e-9f54-4c10-8c21-4cd4dfb3f463','BXKPMS',16,'sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh in quis justo maecenas','Service Request','Service Request','Publication',276,'Important',NULL,NULL,NULL,NULL,'2017-07-24 18:52:51');
-INSERT INTO `job` (`job_uuid`,`job_number`,`customer_id`,`description`,`initial_type`,`current_type`,`referral`,`address_id`,`priority`,`contact_name`,`phone`,`mobile`,`email`,`created_dtm`) VALUES ('b32f8526-bc84-4cb3-8f85-964dac1329a3','WFUYDI',5,'nullam molestie nibh in lectus pellentesque at nulla suspendisse potenti cras in purus eu magna vulputate','Quote Request','Quote Request','Internal',252,'Normal',NULL,NULL,NULL,NULL,'2017-07-24 18:52:51');
-INSERT INTO `job` (`job_uuid`,`job_number`,`customer_id`,`description`,`initial_type`,`current_type`,`referral`,`address_id`,`priority`,`contact_name`,`phone`,`mobile`,`email`,`created_dtm`) VALUES ('36d89c01-9fcd-4186-864c-f29c1123e720','JZDUAV',81,'morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui','Quote Request','Service Request','Sales-team',202,'Important',NULL,NULL,NULL,NULL,'2017-07-24 18:52:51');
-INSERT INTO `job` (`job_uuid`,`job_number`,`customer_id`,`description`,`initial_type`,`current_type`,`referral`,`address_id`,`priority`,`contact_name`,`phone`,`mobile`,`email`,`created_dtm`) VALUES ('63c6c8eb-af50-41ba-89df-e304f5974c6f','WKIHTZ',44,'fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet cursus id turpis integer aliquet massa id','Quote Request','Service Request','Sales-team',288,'Important',NULL,NULL,NULL,NULL,'2017-07-24 18:52:51');
-INSERT INTO `job` (`job_uuid`,`job_number`,`customer_id`,`description`,`initial_type`,`current_type`,`referral`,`address_id`,`priority`,`contact_name`,`phone`,`mobile`,`email`,`created_dtm`) VALUES ('5ce3ea49-6f10-4ce3-a93c-75f2d1a7182f','PKMRXF',52,'tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam','Service Request','Service Request','Outside',275,'Urgent',NULL,NULL,NULL,NULL,'2017-07-24 18:52:51');
-INSERT INTO `job` (`job_uuid`,`job_number`,`customer_id`,`description`,`initial_type`,`current_type`,`referral`,`address_id`,`priority`,`contact_name`,`phone`,`mobile`,`email`,`created_dtm`) VALUES ('5dfe31ac-1af1-433b-bca9-c6f66b298d98','ZBPAYE',6,'libero ut massa volutpat convallis morbi odio odio elementum eu interdum eu tincidunt in leo maecenas','Quote Request','Service Request','Sales-team',220,'Normal',NULL,NULL,NULL,NULL,'2017-07-24 18:52:51');
-INSERT INTO `job` (`job_uuid`,`job_number`,`customer_id`,`description`,`initial_type`,`current_type`,`referral`,`address_id`,`priority`,`contact_name`,`phone`,`mobile`,`email`,`created_dtm`) VALUES ('092dc52a-2cb7-4abe-b510-c6d0709b0d67','YIQEPK',2,'lacinia aenean sit amet justo morbi ut odio cras mi pede malesuada in','Quote Request','Quote Request','Sales-team',280,'Important',NULL,NULL,NULL,NULL,'2017-07-24 18:52:51');
-INSERT INTO `job` (`job_uuid`,`job_number`,`customer_id`,`description`,`initial_type`,`current_type`,`referral`,`address_id`,`priority`,`contact_name`,`phone`,`mobile`,`email`,`created_dtm`) VALUES ('c58830d7-cc1b-4297-af32-7639f7fef139','DQMPRW',64,'nulla tellus in sagittis dui vel nisl duis ac nibh fusce lacus purus aliquet at','Quote Request','Quote Request','Email',214,'Important',NULL,NULL,NULL,NULL,'2017-07-24 18:52:51');
-INSERT INTO `job` (`job_uuid`,`job_number`,`customer_id`,`description`,`initial_type`,`current_type`,`referral`,`address_id`,`priority`,`contact_name`,`phone`,`mobile`,`email`,`created_dtm`) VALUES ('a231f516-f721-46b7-bb9b-ccc7164fa192','RVLBHZ',63,'mi integer ac neque duis bibendum morbi non quam nec dui','Quote Request','Service Request','Outside',291,'Important',NULL,NULL,NULL,NULL,'2017-07-24 18:52:51');
-INSERT INTO `job` (`job_uuid`,`job_number`,`customer_id`,`description`,`initial_type`,`current_type`,`referral`,`address_id`,`priority`,`contact_name`,`phone`,`mobile`,`email`,`created_dtm`) VALUES ('34a2955b-e99a-4cd5-bb8d-02062f52ada0','NDQJKR',14,'ac nibh fusce lacus purus aliquet at feugiat non pretium quis lectus','Quote Request','Quote Request','Sales-team',104,'Important',NULL,NULL,NULL,NULL,'2017-07-24 18:52:51');
-INSERT INTO `job` (`job_uuid`,`job_number`,`customer_id`,`description`,`initial_type`,`current_type`,`referral`,`address_id`,`priority`,`contact_name`,`phone`,`mobile`,`email`,`created_dtm`) VALUES ('deb63528-19ef-4121-a4c8-0941b1dbb33a','KAIEVS',74,'id turpis integer aliquet massa id lobortis convallis tortor risus dapibus augue','Service Request','Quote Request','Outside',208,'Important',NULL,NULL,NULL,NULL,'2017-07-24 18:52:51');
-INSERT INTO `job` (`job_uuid`,`job_number`,`customer_id`,`description`,`initial_type`,`current_type`,`referral`,`address_id`,`priority`,`contact_name`,`phone`,`mobile`,`email`,`created_dtm`) VALUES ('ca37b9a8-3632-4002-abe0-3f306954ab90','JGMUTB',87,'donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit amet lobortis sapien sapien non','Service Request','Service Request','Outside',141,'Urgent',NULL,NULL,NULL,NULL,'2017-07-24 18:52:51');
-INSERT INTO `job` (`job_uuid`,`job_number`,`customer_id`,`description`,`initial_type`,`current_type`,`referral`,`address_id`,`priority`,`contact_name`,`phone`,`mobile`,`email`,`created_dtm`) VALUES ('47cb2aba-120b-48da-b815-e595a30523d9','HUOYKW',86,'enim in tempor turpis nec euismod scelerisque quam turpis adipiscing','Quote Request','Quote Request','Sales-team',291,'Urgent',NULL,NULL,NULL,NULL,'2017-07-24 18:52:51');
-INSERT INTO `job` (`job_uuid`,`job_number`,`customer_id`,`description`,`initial_type`,`current_type`,`referral`,`address_id`,`priority`,`contact_name`,`phone`,`mobile`,`email`,`created_dtm`) VALUES ('0d58ee2a-f194-45f2-b20f-86cb136c307d','BJGRES',63,'aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis turpis sed ante vivamus tortor','Quote Request','Service Request','Radio',285,'Urgent',NULL,NULL,NULL,NULL,'2017-07-24 18:52:51');
-INSERT INTO `job` (`job_uuid`,`job_number`,`customer_id`,`description`,`initial_type`,`current_type`,`referral`,`address_id`,`priority`,`contact_name`,`phone`,`mobile`,`email`,`created_dtm`) VALUES ('9fc7db2b-b5ee-4558-aa4d-67405f4d9ed6','BAQSLH',84,'in purus eu magna vulputate luctus cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus','Service Request','Quote Request','Internal',178,'Urgent',NULL,NULL,NULL,NULL,'2017-07-24 18:52:51');
-INSERT INTO `job` (`job_uuid`,`job_number`,`customer_id`,`description`,`initial_type`,`current_type`,`referral`,`address_id`,`priority`,`contact_name`,`phone`,`mobile`,`email`,`created_dtm`) VALUES ('9118a060-defc-43fb-b1a4-771ca57d9935','VXLBWC',48,'magna vulputate luctus cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus','Service Request','Quote Request','Radio',141,'Normal',NULL,NULL,NULL,NULL,'2017-07-24 18:52:51');
-INSERT INTO `job` (`job_uuid`,`job_number`,`customer_id`,`description`,`initial_type`,`current_type`,`referral`,`address_id`,`priority`,`contact_name`,`phone`,`mobile`,`email`,`created_dtm`) VALUES ('913b83e9-deb1-463b-af04-43db9c5124e2','NAKTGU',50,'libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla','Quote Request','Quote Request','Radio',242,'Urgent',NULL,NULL,NULL,NULL,'2017-07-24 18:52:51');
-INSERT INTO `job` (`job_uuid`,`job_number`,`customer_id`,`description`,`initial_type`,`current_type`,`referral`,`address_id`,`priority`,`contact_name`,`phone`,`mobile`,`email`,`created_dtm`) VALUES ('8175d22b-65d4-45c8-b8ce-b319745141af','FTSBXK',77,'sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus','Service Request','Service Request','Publication',186,'Normal',NULL,NULL,NULL,NULL,'2017-07-24 18:52:51');
-INSERT INTO `job` (`job_uuid`,`job_number`,`customer_id`,`description`,`initial_type`,`current_type`,`referral`,`address_id`,`priority`,`contact_name`,`phone`,`mobile`,`email`,`created_dtm`) VALUES ('57cb3d4b-b2a8-45c9-9f30-b9922bfc987b','GBRPUX',71,'augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante','Quote Request','Service Request','Publication',299,'Important',NULL,NULL,NULL,NULL,'2017-07-24 18:52:51');
-INSERT INTO `job` (`job_uuid`,`job_number`,`customer_id`,`description`,`initial_type`,`current_type`,`referral`,`address_id`,`priority`,`contact_name`,`phone`,`mobile`,`email`,`created_dtm`) VALUES ('ac189b19-d21f-4d7b-954f-afac19190395','BQFMVG',77,'venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium','Quote Request','Service Request','Outside',172,'Urgent',NULL,NULL,NULL,NULL,'2017-07-24 18:52:51');
-INSERT INTO `job` (`job_uuid`,`job_number`,`customer_id`,`description`,`initial_type`,`current_type`,`referral`,`address_id`,`priority`,`contact_name`,`phone`,`mobile`,`email`,`created_dtm`) VALUES ('e4f0ec45-ed2d-437e-8b86-67456f092359','YATZCR',91,'convallis duis consequat dui nec nisi volutpat eleifend donec ut dolor morbi','Quote Request','Quote Request','Outside',280,'Important',NULL,NULL,NULL,NULL,'2017-07-24 18:52:51');
-INSERT INTO `job` (`job_uuid`,`job_number`,`customer_id`,`description`,`initial_type`,`current_type`,`referral`,`address_id`,`priority`,`contact_name`,`phone`,`mobile`,`email`,`created_dtm`) VALUES ('c3241e54-e2c0-4df7-a051-acb086a8cc83','WQASHJ',29,'quam suspendisse potenti nullam porttitor lacus at turpis donec posuere metus vitae ipsum aliquam non mauris morbi','Quote Request','Service Request','Sales-team',167,'Normal',NULL,NULL,NULL,NULL,'2017-07-24 18:52:51');
-INSERT INTO `job` (`job_uuid`,`job_number`,`customer_id`,`description`,`initial_type`,`current_type`,`referral`,`address_id`,`priority`,`contact_name`,`phone`,`mobile`,`email`,`created_dtm`) VALUES ('680a7aee-b40d-47fb-a0a2-53d0b24829d6','XMAKYB',30,'pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis','Quote Request','Service Request','Radio',252,'Urgent',NULL,NULL,NULL,NULL,'2017-07-24 18:52:51');
-INSERT INTO `job` (`job_uuid`,`job_number`,`customer_id`,`description`,`initial_type`,`current_type`,`referral`,`address_id`,`priority`,`contact_name`,`phone`,`mobile`,`email`,`created_dtm`) VALUES ('2935aaa5-9078-4c5d-8b01-6df31335192d','ZKVMQI',84,'pede lobortis ligula sit amet eleifend pede libero quis orci','Service Request','Quote Request','Internal',276,'Urgent',NULL,NULL,NULL,NULL,'2017-07-24 18:52:51');
-INSERT INTO `job` (`job_uuid`,`job_number`,`customer_id`,`description`,`initial_type`,`current_type`,`referral`,`address_id`,`priority`,`contact_name`,`phone`,`mobile`,`email`,`created_dtm`) VALUES ('6b9d2c21-ff38-41ac-a9ee-d639c17ef7fc','TSLRZG',73,'cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum pellentesque','Quote Request','Quote Request','Internal',121,'Important',NULL,NULL,NULL,NULL,'2017-07-24 18:52:51');
-INSERT INTO `job` (`job_uuid`,`job_number`,`customer_id`,`description`,`initial_type`,`current_type`,`referral`,`address_id`,`priority`,`contact_name`,`phone`,`mobile`,`email`,`created_dtm`) VALUES ('68476898-2b63-41ce-871b-b429becfa61c','ERUXKV',1,'Paint','Service Request','Service Request','Phone',500,'Normal',NULL,NULL,NULL,NULL,'2017-07-24 18:52:51');
+insert into job (customer_id, description, initial_type, current_type, job_status_id) values (22, 'Fusce consequat. Nulla nisl. Nunc nisl.
 
--- -----------------------------------------------------
--- mock data for job_status_entry
--- -----------------------------------------------------
+Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.', 2, 2, 1);
+insert into job (customer_id, description, initial_type, current_type, job_status_id) values (81, 'Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.', 2, 2, 1);
+insert into job (customer_id, description, initial_type, current_type, job_status_id) values (94, 'In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.
 
-INSERT INTO `job_status_entry` (`job_id`,`job_status`,`staff_id`,`comment`) VALUES (19,2,8,'Mock status');
-INSERT INTO `job_status_entry` (`job_id`,`job_status`,`staff_id`,`comment`) VALUES (22,2,18,'Mock status');
-INSERT INTO `job_status_entry` (`job_id`,`job_status`,`staff_id`,`comment`) VALUES (29,2,9,'Mock status');
-INSERT INTO `job_status_entry` (`job_id`,`job_status`,`staff_id`,`comment`) VALUES (33,2,10,'Mock status');
-INSERT INTO `job_status_entry` (`job_id`,`job_status`,`staff_id`,`comment`) VALUES (40,2,5,'Mock status');
-INSERT INTO `job_status_entry` (`job_id`,`job_status`,`staff_id`,`comment`) VALUES (12,3,17,'Mock status');
-INSERT INTO `job_status_entry` (`job_id`,`job_status`,`staff_id`,`comment`) VALUES (5,4,5,'Mock status');
-INSERT INTO `job_status_entry` (`job_id`,`job_status`,`staff_id`,`comment`) VALUES (7,4,11,'Mock status');
-INSERT INTO `job_status_entry` (`job_id`,`job_status`,`staff_id`,`comment`) VALUES (27,4,2,'Mock status');
-INSERT INTO `job_status_entry` (`job_id`,`job_status`,`staff_id`,`comment`) VALUES (36,4,16,'Mock status');
-INSERT INTO `job_status_entry` (`job_id`,`job_status`,`staff_id`,`comment`) VALUES (37,4,14,'Mock status');
-INSERT INTO `job_status_entry` (`job_id`,`job_status`,`staff_id`,`comment`) VALUES (38,4,5,'Mock status');
-INSERT INTO `job_status_entry` (`job_id`,`job_status`,`staff_id`,`comment`) VALUES (23,5,1,'Mock status');
-INSERT INTO `job_status_entry` (`job_id`,`job_status`,`staff_id`,`comment`) VALUES (31,5,10,'Mock status');
-INSERT INTO `job_status_entry` (`job_id`,`job_status`,`staff_id`,`comment`) VALUES (6,6,7,'Mock status');
-INSERT INTO `job_status_entry` (`job_id`,`job_status`,`staff_id`,`comment`) VALUES (9,6,8,'Mock status');
-INSERT INTO `job_status_entry` (`job_id`,`job_status`,`staff_id`,`comment`) VALUES (15,6,18,'Mock status');
-INSERT INTO `job_status_entry` (`job_id`,`job_status`,`staff_id`,`comment`) VALUES (3,7,5,'Mock status');
-INSERT INTO `job_status_entry` (`job_id`,`job_status`,`staff_id`,`comment`) VALUES (13,7,15,'Mock status');
-INSERT INTO `job_status_entry` (`job_id`,`job_status`,`staff_id`,`comment`) VALUES (18,7,18,'Mock status');
-INSERT INTO `job_status_entry` (`job_id`,`job_status`,`staff_id`,`comment`) VALUES (24,7,7,'Mock status');
-INSERT INTO `job_status_entry` (`job_id`,`job_status`,`staff_id`,`comment`) VALUES (30,7,3,'Mock status');
-INSERT INTO `job_status_entry` (`job_id`,`job_status`,`staff_id`,`comment`) VALUES (35,7,11,'Mock status');
-INSERT INTO `job_status_entry` (`job_id`,`job_status`,`staff_id`,`comment`) VALUES (17,8,8,'Mock status');
-INSERT INTO `job_status_entry` (`job_id`,`job_status`,`staff_id`,`comment`) VALUES (32,8,8,'Mock status');
-INSERT INTO `job_status_entry` (`job_id`,`job_status`,`staff_id`,`comment`) VALUES (34,8,15,'Mock status');
-INSERT INTO `job_status_entry` (`job_id`,`job_status`,`staff_id`,`comment`) VALUES (1,9,14,'Mock status');
-INSERT INTO `job_status_entry` (`job_id`,`job_status`,`staff_id`,`comment`) VALUES (2,9,4,'Mock status');
-INSERT INTO `job_status_entry` (`job_id`,`job_status`,`staff_id`,`comment`) VALUES (4,9,17,'Mock status');
-INSERT INTO `job_status_entry` (`job_id`,`job_status`,`staff_id`,`comment`) VALUES (10,9,13,'Mock status');
-INSERT INTO `job_status_entry` (`job_id`,`job_status`,`staff_id`,`comment`) VALUES (20,9,15,'Mock status');
-INSERT INTO `job_status_entry` (`job_id`,`job_status`,`staff_id`,`comment`) VALUES (21,9,19,'Mock status');
-INSERT INTO `job_status_entry` (`job_id`,`job_status`,`staff_id`,`comment`) VALUES (28,9,8,'Mock status');
-INSERT INTO `job_status_entry` (`job_id`,`job_status`,`staff_id`,`comment`) VALUES (16,10,5,'Mock status');
-INSERT INTO `job_status_entry` (`job_id`,`job_status`,`staff_id`,`comment`) VALUES (8,11,3,'Mock status');
-INSERT INTO `job_status_entry` (`job_id`,`job_status`,`staff_id`,`comment`) VALUES (11,11,19,'Mock status');
-INSERT INTO `job_status_entry` (`job_id`,`job_status`,`staff_id`,`comment`) VALUES (14,11,9,'Mock status');
-INSERT INTO `job_status_entry` (`job_id`,`job_status`,`staff_id`,`comment`) VALUES (25,11,6,'Mock status');
-INSERT INTO `job_status_entry` (`job_id`,`job_status`,`staff_id`,`comment`) VALUES (26,11,2,'Mock status');
-INSERT INTO `job_status_entry` (`job_id`,`job_status`,`staff_id`,`comment`) VALUES (39,11,14,'Mock status');
+Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.', 2, 2, 4);
+insert into job (customer_id, description, initial_type, current_type, job_status_id) values (94, 'Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.', 2, 2, 1);
+insert into job (customer_id, description, initial_type, current_type, job_status_id) values (82, 'Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.
 
+Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.', 2, 2, 4);
+insert into job (customer_id, description, initial_type, current_type, job_status_id) values (88, 'Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.
+
+Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.', 2, 2, 3);
+insert into job (customer_id, description, initial_type, current_type, job_status_id) values (45, 'Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.
+
+Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.', 2, 2, 5);
+insert into job (customer_id, description, initial_type, current_type, job_status_id) values (35, 'Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.
+
+Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.', 2, 2, 3);
+insert into job (customer_id, description, initial_type, current_type, job_status_id) values (93, 'Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.', 2, 2, 5);
+insert into job (customer_id, description, initial_type, current_type, job_status_id) values (85, 'Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.
+
+Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.
+
+Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.', 2, 2, 5);
+insert into job (customer_id, description, initial_type, current_type, job_status_id) values (84, 'Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.', 2, 2, 5);
+insert into job (customer_id, description, initial_type, current_type, job_status_id) values (78, 'Sed ante. Vivamus tortor. Duis mattis egestas metus.
+
+Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.
+
+Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.', 2, 2, 4);
+insert into job (customer_id, description, initial_type, current_type, job_status_id) values (3, 'Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.', 2, 2, 2);
+insert into job (customer_id, description, initial_type, current_type, job_status_id) values (78, 'Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.
+
+Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.', 2, 2, 3);
+insert into job (customer_id, description, initial_type, current_type, job_status_id) values (9, 'Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.', 2, 2, 2);
+insert into job (customer_id, description, initial_type, current_type, job_status_id) values (65, 'Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.', 2, 2, 2);
+insert into job (customer_id, description, initial_type, current_type, job_status_id) values (74, 'In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.
+
+Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.', 2, 2, 2);
+insert into job (customer_id, description, initial_type, current_type, job_status_id) values (80, 'Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.
+
+Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.', 2, 2, 6);
+insert into job (customer_id, description, initial_type, current_type, job_status_id) values (10, 'Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.', 2, 2, 5);
+insert into job (customer_id, description, initial_type, current_type, job_status_id) values (78, 'Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.
+
+Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.
+
+Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.', 2, 2, 3);
+insert into job (customer_id, description, initial_type, current_type, job_status_id) values (33, 'Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.
+
+Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.', 1, 1, 11);
+insert into job (customer_id, description, initial_type, current_type, job_status_id) values (12, 'Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.
+
+Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.', 1, 1, 11);
+insert into job (customer_id, description, initial_type, current_type, job_status_id) values (47, 'Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.
+
+Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.', 2, 1, 10);
+insert into job (customer_id, description, initial_type, current_type, job_status_id) values (58, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus.
+
+Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.', 2, 1, 9);
+insert into job (customer_id, description, initial_type, current_type, job_status_id) values (77, 'Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.
+
+Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.
+
+Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.', 2, 1, 11);
+insert into job (customer_id, description, initial_type, current_type, job_status_id) values (63, 'Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.', 2, 1, 11);
+insert into job (customer_id, description, initial_type, current_type, job_status_id) values (48, 'Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.
+
+Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.', 2, 1, 9);
+insert into job (customer_id, description, initial_type, current_type, job_status_id) values (38, 'Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.', 2, 1, 7);
+insert into job (customer_id, description, initial_type, current_type, job_status_id) values (12, 'Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.', 1, 1, 9);
+insert into job (customer_id, description, initial_type, current_type, job_status_id) values (42, 'Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.
+
+In congue. Etiam justo. Etiam pretium iaculis justo.', 2, 1, 8);
+insert into job (customer_id, description, initial_type, current_type, job_status_id) values (13, 'Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.
+
+Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.
+
+Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.', 1, 1, 7);
+insert into job (customer_id, description, initial_type, current_type, job_status_id) values (10, 'Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.', 2, 1, 10);
+insert into job (customer_id, description, initial_type, current_type, job_status_id) values (3, 'Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.', 2, 1, 11);
+insert into job (customer_id, description, initial_type, current_type, job_status_id) values (50, 'In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.
+
+Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.', 2, 1, 9);
+insert into job (customer_id, description, initial_type, current_type, job_status_id) values (78, 'In congue. Etiam justo. Etiam pretium iaculis justo.
+
+In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.', 1, 1, 8);
+insert into job (customer_id, description, initial_type, current_type, job_status_id) values (83, 'Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.
+
+Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.
+
+Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.', 1, 1, 7);
+insert into job (customer_id, description, initial_type, current_type, job_status_id) values (6, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus.
+
+Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.', 1, 1, 7);
+insert into job (customer_id, description, initial_type, current_type, job_status_id) values (74, 'Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+
+Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.
+
+Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.', 1, 1, 9);
+insert into job (customer_id, description, initial_type, current_type, job_status_id) values (74, 'Sed ante. Vivamus tortor. Duis mattis egestas metus.
+
+Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.', 1, 1, 11);
+insert into job (customer_id, description, initial_type, current_type, job_status_id) values (94, 'Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.', 2, 1, 7);
 
 -- -----------------------------------------------------
 -- mock comments for job
@@ -916,28 +935,26 @@ insert into quotation_line_item (details, unit_price, quotation_id) values ('Cur
 -- mock bills from supplier (suppliers are party)
 -- -----------------------------------------------------
 
-insert into bill (bill_id, supplier_ref, tax_inclusive, job_id, supplier_id) values (1, 'Phone', 1, 8, 14);
-insert into bill (bill_id, supplier_ref, tax_inclusive, job_id, supplier_id) values (2, 'External', 1, 39, 24);
-insert into bill (bill_id, supplier_ref, tax_inclusive, job_id, supplier_id) values (3, 'Email', 1, 32, 69);
-insert into bill (bill_id, supplier_ref, tax_inclusive, job_id, supplier_id) values (4, 'Email', 1, 38, 94);
-insert into bill (bill_id, supplier_ref, tax_inclusive, job_id, supplier_id) values (5, 'Internal-staff', 1, 16, 86);
-insert into bill (bill_id, supplier_ref, tax_inclusive, job_id, supplier_id) values (6, 'Internal-staff', 1, 1, 78);
-insert into bill (bill_id, supplier_ref, tax_inclusive, job_id, supplier_id) values (7, 'Email', 1, 40, 17);
-insert into bill (bill_id, supplier_ref, tax_inclusive, job_id, supplier_id) values (8, 'Phone', 1, 10, 98);
-insert into bill (bill_id, supplier_ref, tax_inclusive, job_id, supplier_id) values (9, 'External', 1, 35, 98);
-insert into bill (bill_id, supplier_ref, tax_inclusive, job_id, supplier_id) values (10, 'Phone', 1, 39, 48);
-insert into bill (bill_id, supplier_ref, tax_inclusive, job_id, supplier_id) values (11, 'External', 1, 19, 60);
-insert into bill (bill_id, supplier_ref, tax_inclusive, job_id, supplier_id) values (12, 'BDM', 1, 37, 42);
-insert into bill (bill_id, supplier_ref, tax_inclusive, job_id, supplier_id) values (13, 'Phone', 1, 36, 91);
-insert into bill (bill_id, supplier_ref, tax_inclusive, job_id, supplier_id) values (14, 'Email', 1, 34, 73);
-insert into bill (bill_id, supplier_ref, tax_inclusive, job_id, supplier_id) values (15, 'Email', 1, 15, 34);
-insert into bill (bill_id, supplier_ref, tax_inclusive, job_id, supplier_id) values (16, 'Email', 1, 11, 25);
-insert into bill (bill_id, supplier_ref, tax_inclusive, job_id, supplier_id) values (17, 'Internal-staff', 1, 18, 19);
-insert into bill (bill_id, supplier_ref, tax_inclusive, job_id, supplier_id) values (18, 'Internal-staff', 1, 20, 82);
-insert into bill (bill_id, supplier_ref, tax_inclusive, job_id, supplier_id) values (19, 'BDM', 1, 27, 43);
-insert into bill (bill_id, supplier_ref, tax_inclusive, job_id, supplier_id) values (20, 'BDM', 1, 25, 43);
-
-UPDATE `jobowit_db`.`bill` SET `myob_freight_tax_code`='b0613ff1-eabe-4aed-9d35-ec7f66e1aac1' WHERE `bill_id`>'0';
+insert into bill (bill_id, ref, tax_inclusive, job_id, supplier_id) values (1, 'Phone', 1, 8, 14);
+insert into bill (bill_id, ref, tax_inclusive, job_id, supplier_id) values (2, 'External', 1, 39, 24);
+insert into bill (bill_id, ref, tax_inclusive, job_id, supplier_id) values (3, 'Email', 1, 32, 69);
+insert into bill (bill_id, ref, tax_inclusive, job_id, supplier_id) values (4, 'Email', 1, 38, 94);
+insert into bill (bill_id, ref, tax_inclusive, job_id, supplier_id) values (5, 'Internal-staff', 1, 16, 86);
+insert into bill (bill_id, ref, tax_inclusive, job_id, supplier_id) values (6, 'Internal-staff', 1, 1, 78);
+insert into bill (bill_id, ref, tax_inclusive, job_id, supplier_id) values (7, 'Email', 1, 40, 17);
+insert into bill (bill_id, ref, tax_inclusive, job_id, supplier_id) values (8, 'Phone', 1, 10, 98);
+insert into bill (bill_id, ref, tax_inclusive, job_id, supplier_id) values (9, 'External', 1, 35, 98);
+insert into bill (bill_id, ref, tax_inclusive, job_id, supplier_id) values (10, 'Phone', 1, 39, 48);
+insert into bill (bill_id, ref, tax_inclusive, job_id, supplier_id) values (11, 'External', 1, 19, 60);
+insert into bill (bill_id, ref, tax_inclusive, job_id, supplier_id) values (12, 'BDM', 1, 37, 42);
+insert into bill (bill_id, ref, tax_inclusive, job_id, supplier_id) values (13, 'Phone', 1, 36, 91);
+insert into bill (bill_id, ref, tax_inclusive, job_id, supplier_id) values (14, 'Email', 1, 34, 73);
+insert into bill (bill_id, ref, tax_inclusive, job_id, supplier_id) values (15, 'Email', 1, 15, 34);
+insert into bill (bill_id, ref, tax_inclusive, job_id, supplier_id) values (16, 'Email', 1, 11, 25);
+insert into bill (bill_id, ref, tax_inclusive, job_id, supplier_id) values (17, 'Internal-staff', 1, 18, 19);
+insert into bill (bill_id, ref, tax_inclusive, job_id, supplier_id) values (18, 'Internal-staff', 1, 20, 82);
+insert into bill (bill_id, ref, tax_inclusive, job_id, supplier_id) values (19, 'BDM', 1, 27, 43);
+insert into bill (bill_id, ref, tax_inclusive, job_id, supplier_id) values (20, 'BDM', 1, 25, 43);
 
 -- -----------------------------------------------------
 -- mock bill line-items
@@ -979,8 +996,6 @@ insert into bill_line_item (bill_id, description, quantity, unit_price, sell_pri
 insert into bill_line_item (bill_id, description, quantity, unit_price, sell_price) values (5, 'lorem ipsum dolor sit amet consectetuer adipiscing elit', 6, '109.12', 116);
 insert into bill_line_item (bill_id, description, quantity, unit_price, sell_price) values (12, 'cras pellentesque volutpat dui maecenas tristique est et tempus semper est quam pharetra magna ac consequat metus sapien ut nunc', 19, '89.21', 96);
 
-UPDATE `jobowit_db`.`bill_line_item` SET `myob_item`='1561f728-d1cb-4617-9cbd-25438dd8f1c3', `myob_tax_code`='b0613ff1-eabe-4aed-9d35-ec7f66e1aac1' WHERE `line_item_id` > 0;
-
 -- -----------------------------------------------------
 -- user access data
 -- -----------------------------------------------------
@@ -989,7 +1004,14 @@ INSERT INTO `db_table` (`table_name`) VALUES ("Party");
 INSERT INTO `db_table` (`table_name`) VALUES ("Job");
 INSERT INTO `db_table` (`table_name`) VALUES ("Staff");
 INSERT INTO `db_table` (`table_name`) VALUES ("JobWorks");
-INSERT INTO `access_control` (`role_name`, `table_name`, `can_read`, `can_delete`, `can_write`) VALUES ('ADMIN',"Party",1,1,1);
+
+INSERT INTO `access_control` (`role_name`, `table_name`, `can_read`, `can_delete`, `can_write`) VALUES ("ADMIN", "Party",1,1,1);
+INSERT INTO `access_control` (`role_name`, `table_name`, `can_read`, `can_delete`, `can_write`) VALUES ("LIMITED", "Party",1,0,0);
+
+INSERT INTO `access_control` (`staff_id`, `table_name`, `can_read`, `can_delete`, `can_write`) VALUES (1, "Party",1,1,1);
+INSERT INTO `access_control` (`staff_id`, `table_name`, `can_read`, `can_delete`, `can_write`) VALUES (2, "Party",1,0,0);
+INSERT INTO `access_control` (`staff_id`, `table_name`, `can_read`, `can_delete`, `can_write`) VALUES (3, "Party",1,0,1);
+INSERT INTO `access_control` (`staff_id`, `table_name`, `can_read`, `can_delete`, `can_write`) VALUES (4, "Party",1,1,1);
 
 -- -----------------------------------------------------
 -- invoice mock data
@@ -1202,417 +1224,5 @@ INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_pri
 INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (59,"augue ut lacus. Nulla tincidunt, neque vitae semper egestas, urna",2,"8.66");
 INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (53,"augue id ante dictum cursus. Nunc mauris",1,"2.48");
 INSERT INTO `invoice_line_item` (`invoice_id`,`description`,`quantity`,`unit_price`) VALUES (95,"Sed nunc est, mollis non, cursus non, egestas a, dui.",4,"6.70");
-
-update invoice_line_item set myob_account = 'ce84af88-225a-4e85-9674-8c269d78d6ca', myob_tax_code = '3bd2fbea-54d7-4115-8030-b84360048465' where invoice_id > 0;
-
--- -----------------------------------------------------
--- job_schedule mock data
--- -----------------------------------------------------
-
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-01 11:04:44', 1, '2017-05-01 12:04:44', 40, 20);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-07 21:17:31', 3, '2017-07-08 00:17:31', 9, 7);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-02 11:21:13', 6, '2017-06-02 17:21:13', 16, 14);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-09 22:15:09', 7, '2017-07-10 05:15:09', 37, 2);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-30 11:21:22', 7, '2017-06-30 18:21:22', 28, 4);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-15 01:07:37', 7, '2017-06-15 08:07:37', 38, 14);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-28 09:18:01', 7, '2017-05-28 16:18:01', 34, 5);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-05 12:25:06', 4, '2017-05-05 16:25:06', 35, 6);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-20 19:14:05', 3, '2017-04-20 22:14:05', 8, 12);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-28 01:56:53', 1, '2017-05-28 02:56:53', 1, 3);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-29 12:59:32', 3, '2017-06-29 15:59:32', 34, 14);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-04 21:08:56', 3, '2017-06-05 00:08:56', 25, 3);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-24 11:41:41', 4, '2017-06-24 15:41:41', 30, 4);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-05 13:30:53', 4, '2017-05-05 17:30:53', 10, 15);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-12 17:52:20', 6, '2017-06-12 23:52:20', 36, 14);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-05 12:56:15', 5, '2017-05-05 17:56:15', 21, 20);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-03 12:52:23', 2, '2017-04-03 14:52:23', 7, 2);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-21 00:20:32', 2, '2017-06-21 02:20:32', 9, 4);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-29 18:00:25', 7, '2017-04-30 01:00:25', 23, 8);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-06 22:56:07', 6, '2017-07-07 04:56:07', 5, 13);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-04 00:52:34', 5, '2017-04-04 05:52:34', 18, 15);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-28 03:21:35', 1, '2017-06-28 04:21:35', 26, 6);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-24 07:10:06', 5, '2017-05-24 12:10:06', 39, 4);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-23 00:31:00', 5, '2017-04-23 05:31:00', 40, 2);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-11 02:19:13', 6, '2017-04-11 08:19:13', 30, 6);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-10 06:05:27', 4, '2017-06-10 10:05:27', 5, 14);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-01 12:35:29', 2, '2017-04-01 14:35:29', 16, 18);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-10 02:01:58', 6, '2017-04-10 08:01:58', 22, 7);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-25 21:20:18', 3, '2017-05-26 00:20:18', 33, 18);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-25 08:15:29', 6, '2017-05-25 14:15:29', 4, 3);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-07 13:06:41', 6, '2017-06-07 19:06:41', 24, 5);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-31 20:24:29', 7, '2017-06-01 03:24:29', 26, 13);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-15 23:02:52', 2, '2017-04-16 01:02:52', 20, 3);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-04 01:45:35', 6, '2017-05-04 07:45:35', 12, 3);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-30 21:19:56', 3, '2017-07-01 00:19:56', 10, 18);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-15 09:25:29', 2, '2017-05-15 11:25:29', 20, 2);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-07 12:25:39', 5, '2017-04-07 17:25:39', 14, 3);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-05 10:44:40', 1, '2017-07-05 11:44:40', 5, 16);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-25 15:59:01', 7, '2017-06-25 22:59:01', 32, 4);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-13 04:49:58', 7, '2017-06-13 11:49:58', 29, 19);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-20 00:16:40', 6, '2017-05-20 06:16:40', 21, 8);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-01 02:09:34', 4, '2017-04-01 06:09:34', 10, 17);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-25 09:07:08', 5, '2017-05-25 14:07:08', 11, 8);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-02 10:08:37', 3, '2017-04-02 13:08:37', 2, 19);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-08 11:02:18', 2, '2017-04-08 13:02:18', 16, 5);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-10 04:44:21', 6, '2017-06-10 10:44:21', 31, 11);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-25 16:25:41', 5, '2017-05-25 21:25:41', 15, 16);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-14 22:18:32', 4, '2017-04-15 02:18:32', 12, 2);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-14 23:13:40', 2, '2017-06-15 01:13:40', 32, 1);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-03 13:11:09', 7, '2017-07-03 20:11:09', 38, 10);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-07 23:48:42', 7, '2017-06-08 06:48:42', 10, 6);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-02 04:24:29', 2, '2017-06-02 06:24:29', 26, 15);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-07 13:37:51', 4, '2017-05-07 17:37:51', 6, 3);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-17 14:17:35', 3, '2017-05-17 17:17:35', 12, 6);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-27 15:53:48', 5, '2017-04-27 20:53:48', 30, 1);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-10 04:52:38', 6, '2017-05-10 10:52:38', 34, 19);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-06 08:34:33', 7, '2017-05-06 15:34:33', 7, 8);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-11 15:23:04', 2, '2017-05-11 17:23:04', 32, 16);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-04 17:37:02', 7, '2017-05-05 00:37:02', 32, 15);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-17 21:32:36', 5, '2017-05-18 02:32:36', 40, 15);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-06 01:09:50', 3, '2017-07-06 04:09:50', 11, 13);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-18 15:27:04', 7, '2017-06-18 22:27:04', 8, 9);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-02 04:21:19', 1, '2017-05-02 05:21:19', 32, 13);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-06 02:57:13', 7, '2017-06-06 09:57:13', 34, 9);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-23 12:42:57', 5, '2017-04-23 17:42:57', 28, 15);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-06 17:52:34', 3, '2017-06-06 20:52:34', 37, 16);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-08 23:44:59', 2, '2017-05-09 01:44:59', 29, 10);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-29 12:16:55', 2, '2017-06-29 14:16:55', 9, 5);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-09 06:42:04', 6, '2017-07-09 12:42:04', 8, 5);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-31 19:40:49', 6, '2017-06-01 01:40:49', 19, 3);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-23 02:17:41', 7, '2017-05-23 09:17:41', 35, 19);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-28 02:04:25', 5, '2017-04-28 07:04:25', 28, 8);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-12 07:19:38', 6, '2017-04-12 13:19:38', 32, 6);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-06 19:31:11', 1, '2017-05-06 20:31:11', 30, 17);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-13 00:12:10', 3, '2017-05-13 03:12:10', 33, 11);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-12 01:32:18', 6, '2017-04-12 07:32:18', 35, 18);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-17 18:32:08', 2, '2017-04-17 20:32:08', 3, 10);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-30 18:40:45', 2, '2017-06-30 20:40:45', 16, 12);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-30 10:35:16', 4, '2017-04-30 14:35:16', 34, 15);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-04 02:42:14', 3, '2017-07-04 05:42:14', 15, 20);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-09 04:35:54', 1, '2017-07-09 05:35:54', 22, 16);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-29 05:47:00', 1, '2017-05-29 06:47:00', 24, 3);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-13 15:16:32', 4, '2017-06-13 19:16:32', 1, 4);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-03 14:02:40', 3, '2017-05-03 17:02:40', 29, 2);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-03 15:57:03', 3, '2017-05-03 18:57:03', 39, 12);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-23 01:59:35', 6, '2017-04-23 07:59:35', 17, 8);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-28 20:54:52', 1, '2017-05-28 21:54:52', 38, 12);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-06 00:50:15', 3, '2017-07-06 03:50:15', 13, 13);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-07 14:23:12', 5, '2017-06-07 19:23:12', 7, 7);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-03 22:25:23', 6, '2017-05-04 04:25:23', 18, 5);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-02 04:01:44', 7, '2017-06-02 11:01:44', 35, 18);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-07 01:55:41', 6, '2017-06-07 07:55:41', 4, 3);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-21 15:38:24', 2, '2017-05-21 17:38:24', 17, 13);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-29 03:43:33', 4, '2017-04-29 07:43:33', 16, 3);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-05 23:03:16', 6, '2017-04-06 05:03:16', 29, 1);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-07 22:18:43', 1, '2017-05-07 23:18:43', 20, 13);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-10 17:50:41', 3, '2017-07-10 20:50:41', 4, 20);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-11 06:03:07', 4, '2017-05-11 10:03:07', 16, 3);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-06 20:40:20', 7, '2017-07-07 03:40:20', 3, 15);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-22 22:39:08', 5, '2017-05-23 03:39:08', 36, 17);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-09 07:47:24', 6, '2017-04-09 13:47:24', 12, 6);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-17 13:49:15', 1, '2017-04-17 14:49:15', 32, 3);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-01 11:31:34', 4, '2017-05-01 15:31:34', 1, 9);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-23 13:50:45', 5, '2017-04-23 18:50:45', 16, 17);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-10 02:20:19', 5, '2017-05-10 07:20:19', 1, 5);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-31 17:54:54', 3, '2017-05-31 20:54:54', 10, 11);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-15 02:10:53', 6, '2017-05-15 08:10:53', 33, 2);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-04 00:27:47', 5, '2017-05-04 05:27:47', 9, 12);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-05 07:11:05', 4, '2017-07-05 11:11:05', 40, 14);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-09 08:35:49', 6, '2017-04-09 14:35:49', 3, 8);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-17 00:45:55', 1, '2017-06-17 01:45:55', 2, 9);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-22 15:08:30', 3, '2017-04-22 18:08:30', 31, 12);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-10 00:29:22', 6, '2017-04-10 06:29:22', 22, 10);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-30 12:33:38', 7, '2017-04-30 19:33:38', 28, 16);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-16 13:33:25', 6, '2017-05-16 19:33:25', 40, 9);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-24 03:09:18', 2, '2017-04-24 05:09:18', 17, 16);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-23 02:20:07', 6, '2017-04-23 08:20:07', 12, 4);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-09 16:59:50', 4, '2017-06-09 20:59:50', 32, 1);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-25 11:22:34', 7, '2017-06-25 18:22:34', 6, 18);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-04 08:48:59', 6, '2017-04-04 14:48:59', 17, 10);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-10 21:01:58', 4, '2017-07-11 01:01:58', 8, 7);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-19 09:08:52', 3, '2017-05-19 12:08:52', 4, 16);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-05 19:02:47', 7, '2017-06-06 02:02:47', 4, 15);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-26 06:22:30', 3, '2017-04-26 09:22:30', 40, 18);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-02 23:29:38', 1, '2017-04-03 00:29:38', 5, 13);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-22 20:09:58', 6, '2017-05-23 02:09:58', 21, 18);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-28 04:39:18', 3, '2017-06-28 07:39:18', 15, 1);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-30 14:22:57', 1, '2017-04-30 15:22:57', 20, 13);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-15 07:19:23', 5, '2017-04-15 12:19:23', 11, 19);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-02 01:47:27', 3, '2017-06-02 04:47:27', 40, 2);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-09 13:50:40', 3, '2017-05-09 16:50:40', 2, 9);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-26 06:21:44', 1, '2017-05-26 07:21:44', 39, 16);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-10 02:44:53', 2, '2017-05-10 04:44:53', 23, 3);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-29 18:47:01', 7, '2017-04-30 01:47:01', 5, 4);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-23 02:35:28', 4, '2017-05-23 06:35:28', 36, 2);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-18 01:31:44', 1, '2017-06-18 02:31:44', 31, 11);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-07 12:53:57', 7, '2017-04-07 19:53:57', 24, 7);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-02 08:35:18', 4, '2017-06-02 12:35:18', 21, 10);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-14 16:42:49', 4, '2017-06-14 20:42:49', 6, 2);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-19 04:51:33', 4, '2017-04-19 08:51:33', 16, 6);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-30 20:16:58', 1, '2017-06-30 21:16:58', 38, 8);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-16 05:16:09', 5, '2017-05-16 10:16:09', 10, 2);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-14 00:23:18', 6, '2017-04-14 06:23:18', 5, 18);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-19 10:35:17', 5, '2017-05-19 15:35:17', 6, 6);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-04 07:01:48', 4, '2017-06-04 11:01:48', 22, 5);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-11 22:39:36', 1, '2017-05-11 23:39:36', 39, 1);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-24 16:42:07', 2, '2017-05-24 18:42:07', 14, 15);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-23 13:05:43', 5, '2017-04-23 18:05:43', 35, 3);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-09 15:00:02', 4, '2017-04-09 19:00:02', 24, 1);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-01 08:51:30', 6, '2017-06-01 14:51:30', 9, 17);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-26 09:40:12', 3, '2017-04-26 12:40:12', 3, 1);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-17 20:34:07', 2, '2017-04-17 22:34:07', 9, 3);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-25 09:10:28', 1, '2017-06-25 10:10:28', 5, 20);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-18 00:46:10', 3, '2017-04-18 03:46:10', 8, 16);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-15 17:47:15', 3, '2017-04-15 20:47:15', 12, 15);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-04 09:50:17', 6, '2017-05-04 15:50:17', 30, 13);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-18 20:11:31', 5, '2017-05-19 01:11:31', 24, 19);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-29 21:48:15', 4, '2017-06-30 01:48:15', 23, 15);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-10 08:41:02', 3, '2017-06-10 11:41:02', 36, 9);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-05 01:18:04', 1, '2017-07-05 02:18:04', 32, 7);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-09 16:16:16', 2, '2017-04-09 18:16:16', 10, 11);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-26 22:43:26', 7, '2017-05-27 05:43:26', 28, 13);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-25 08:46:15', 7, '2017-04-25 15:46:15', 15, 16);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-14 20:53:32', 1, '2017-05-14 21:53:32', 15, 14);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-03 02:08:36', 5, '2017-04-03 07:08:36', 3, 1);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-08 17:58:04', 2, '2017-04-08 19:58:04', 13, 1);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-06 21:07:07', 6, '2017-05-07 03:07:07', 32, 9);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-16 01:08:46', 2, '2017-06-16 03:08:46', 8, 4);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-30 05:33:11', 6, '2017-05-30 11:33:11', 36, 15);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-21 10:23:43', 7, '2017-04-21 17:23:43', 40, 11);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-03 21:40:03', 2, '2017-04-03 23:40:03', 20, 19);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-20 14:55:51', 6, '2017-04-20 20:55:51', 2, 11);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-20 21:52:56', 2, '2017-06-20 23:52:56', 28, 6);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-06 23:55:14', 1, '2017-05-07 00:55:14', 13, 2);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-07 01:59:57', 3, '2017-06-07 04:59:57', 14, 7);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-12 02:59:18', 7, '2017-06-12 09:59:18', 28, 4);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-24 08:39:14', 2, '2017-04-24 10:39:14', 28, 12);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-16 15:17:17', 5, '2017-06-16 20:17:17', 20, 16);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-06 19:51:51', 2, '2017-07-06 21:51:51', 5, 6);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-21 13:46:10', 3, '2017-05-21 16:46:10', 20, 20);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-08 18:21:17', 3, '2017-05-08 21:21:17', 12, 2);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-13 18:23:33', 4, '2017-04-13 22:23:33', 5, 6);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-16 12:18:39', 3, '2017-04-16 15:18:39', 2, 18);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-27 14:05:05', 6, '2017-04-27 20:05:05', 8, 9);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-04 13:19:19', 3, '2017-07-04 16:19:19', 35, 4);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-28 03:28:29', 7, '2017-05-28 10:28:29', 13, 20);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-03 22:20:33', 5, '2017-05-04 03:20:33', 24, 9);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-23 10:46:29', 5, '2017-04-23 15:46:29', 26, 11);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-08 07:16:12', 7, '2017-06-08 14:16:12', 4, 14);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-29 10:22:21', 7, '2017-04-29 17:22:21', 25, 12);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-02 03:38:39', 5, '2017-05-02 08:38:39', 23, 9);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-23 05:19:09', 5, '2017-06-23 10:19:09', 39, 1);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-20 14:34:33', 1, '2017-04-20 15:34:33', 13, 18);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-16 19:33:54', 7, '2017-05-17 02:33:54', 38, 16);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-06 07:04:58', 3, '2017-04-06 10:04:58', 10, 11);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-14 16:27:41', 3, '2017-06-14 19:27:41', 20, 9);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-03 03:03:10', 3, '2017-07-03 06:03:10', 17, 8);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-17 05:39:30', 1, '2017-04-17 06:39:30', 27, 9);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-16 08:42:54', 4, '2017-06-16 12:42:54', 3, 6);
-insert into job_schedule (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-13 11:58:46', 5, '2017-06-13 16:58:46', 22, 6);
-
--- -----------------------------------------------------
--- field_work schedule mock data
--- -----------------------------------------------------
-
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-01 11:04:44', 1, '2017-05-01 12:04:44', 40, 20);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-07 21:17:31', 3, '2017-07-08 00:17:31', 9, 7);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-02 11:21:13', 6, '2017-06-02 17:21:13', 16, 14);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-09 22:15:09', 7, '2017-07-10 05:15:09', 37, 2);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-30 11:21:22', 7, '2017-06-30 18:21:22', 28, 4);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-15 01:07:37', 7, '2017-06-15 08:07:37', 38, 14);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-28 09:18:01', 7, '2017-05-28 16:18:01', 34, 5);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-05 12:25:06', 4, '2017-05-05 16:25:06', 35, 6);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-20 19:14:05', 3, '2017-04-20 22:14:05', 8, 12);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-28 01:56:53', 1, '2017-05-28 02:56:53', 1, 3);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-29 12:59:32', 3, '2017-06-29 15:59:32', 34, 14);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-04 21:08:56', 3, '2017-06-05 00:08:56', 25, 3);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-24 11:41:41', 4, '2017-06-24 15:41:41', 30, 4);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-05 13:30:53', 4, '2017-05-05 17:30:53', 10, 15);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-12 17:52:20', 6, '2017-06-12 23:52:20', 36, 14);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-05 12:56:15', 5, '2017-05-05 17:56:15', 21, 20);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-03 12:52:23', 2, '2017-04-03 14:52:23', 7, 2);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-21 00:20:32', 2, '2017-06-21 02:20:32', 9, 4);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-29 18:00:25', 7, '2017-04-30 01:00:25', 23, 8);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-06 22:56:07', 6, '2017-07-07 04:56:07', 5, 13);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-04 00:52:34', 5, '2017-04-04 05:52:34', 18, 15);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-28 03:21:35', 1, '2017-06-28 04:21:35', 26, 6);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-24 07:10:06', 5, '2017-05-24 12:10:06', 39, 4);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-23 00:31:00', 5, '2017-04-23 05:31:00', 40, 2);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-11 02:19:13', 6, '2017-04-11 08:19:13', 30, 6);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-10 06:05:27', 4, '2017-06-10 10:05:27', 5, 14);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-01 12:35:29', 2, '2017-04-01 14:35:29', 16, 18);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-10 02:01:58', 6, '2017-04-10 08:01:58', 22, 7);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-25 21:20:18', 3, '2017-05-26 00:20:18', 33, 18);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-25 08:15:29', 6, '2017-05-25 14:15:29', 4, 3);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-07 13:06:41', 6, '2017-06-07 19:06:41', 24, 5);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-31 20:24:29', 7, '2017-06-01 03:24:29', 26, 13);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-15 23:02:52', 2, '2017-04-16 01:02:52', 20, 3);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-04 01:45:35', 6, '2017-05-04 07:45:35', 12, 3);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-30 21:19:56', 3, '2017-07-01 00:19:56', 10, 18);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-15 09:25:29', 2, '2017-05-15 11:25:29', 20, 2);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-07 12:25:39', 5, '2017-04-07 17:25:39', 14, 3);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-05 10:44:40', 1, '2017-07-05 11:44:40', 5, 16);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-25 15:59:01', 7, '2017-06-25 22:59:01', 32, 4);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-13 04:49:58', 7, '2017-06-13 11:49:58', 29, 19);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-20 00:16:40', 6, '2017-05-20 06:16:40', 21, 8);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-01 02:09:34', 4, '2017-04-01 06:09:34', 10, 17);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-25 09:07:08', 5, '2017-05-25 14:07:08', 11, 8);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-02 10:08:37', 3, '2017-04-02 13:08:37', 2, 19);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-08 11:02:18', 2, '2017-04-08 13:02:18', 16, 5);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-10 04:44:21', 6, '2017-06-10 10:44:21', 31, 11);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-25 16:25:41', 5, '2017-05-25 21:25:41', 15, 16);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-14 22:18:32', 4, '2017-04-15 02:18:32', 12, 2);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-14 23:13:40', 2, '2017-06-15 01:13:40', 32, 1);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-03 13:11:09', 7, '2017-07-03 20:11:09', 38, 10);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-07 23:48:42', 7, '2017-06-08 06:48:42', 10, 6);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-02 04:24:29', 2, '2017-06-02 06:24:29', 26, 15);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-07 13:37:51', 4, '2017-05-07 17:37:51', 6, 3);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-17 14:17:35', 3, '2017-05-17 17:17:35', 12, 6);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-27 15:53:48', 5, '2017-04-27 20:53:48', 30, 1);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-10 04:52:38', 6, '2017-05-10 10:52:38', 34, 19);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-06 08:34:33', 7, '2017-05-06 15:34:33', 7, 8);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-11 15:23:04', 2, '2017-05-11 17:23:04', 32, 16);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-04 17:37:02', 7, '2017-05-05 00:37:02', 32, 15);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-17 21:32:36', 5, '2017-05-18 02:32:36', 40, 15);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-06 01:09:50', 3, '2017-07-06 04:09:50', 11, 13);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-18 15:27:04', 7, '2017-06-18 22:27:04', 8, 9);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-02 04:21:19', 1, '2017-05-02 05:21:19', 32, 13);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-06 02:57:13', 7, '2017-06-06 09:57:13', 34, 9);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-23 12:42:57', 5, '2017-04-23 17:42:57', 28, 15);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-06 17:52:34', 3, '2017-06-06 20:52:34', 37, 16);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-08 23:44:59', 2, '2017-05-09 01:44:59', 29, 10);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-29 12:16:55', 2, '2017-06-29 14:16:55', 9, 5);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-09 06:42:04', 6, '2017-07-09 12:42:04', 8, 5);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-31 19:40:49', 6, '2017-06-01 01:40:49', 19, 3);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-23 02:17:41', 7, '2017-05-23 09:17:41', 35, 19);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-28 02:04:25', 5, '2017-04-28 07:04:25', 28, 8);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-12 07:19:38', 6, '2017-04-12 13:19:38', 32, 6);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-06 19:31:11', 1, '2017-05-06 20:31:11', 30, 17);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-13 00:12:10', 3, '2017-05-13 03:12:10', 33, 11);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-12 01:32:18', 6, '2017-04-12 07:32:18', 35, 18);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-17 18:32:08', 2, '2017-04-17 20:32:08', 3, 10);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-30 18:40:45', 2, '2017-06-30 20:40:45', 16, 12);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-30 10:35:16', 4, '2017-04-30 14:35:16', 34, 15);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-04 02:42:14', 3, '2017-07-04 05:42:14', 15, 20);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-09 04:35:54', 1, '2017-07-09 05:35:54', 22, 16);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-29 05:47:00', 1, '2017-05-29 06:47:00', 24, 3);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-13 15:16:32', 4, '2017-06-13 19:16:32', 1, 4);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-03 14:02:40', 3, '2017-05-03 17:02:40', 29, 2);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-03 15:57:03', 3, '2017-05-03 18:57:03', 39, 12);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-23 01:59:35', 6, '2017-04-23 07:59:35', 17, 8);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-28 20:54:52', 1, '2017-05-28 21:54:52', 38, 12);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-06 00:50:15', 3, '2017-07-06 03:50:15', 13, 13);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-07 14:23:12', 5, '2017-06-07 19:23:12', 7, 7);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-03 22:25:23', 6, '2017-05-04 04:25:23', 18, 5);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-02 04:01:44', 7, '2017-06-02 11:01:44', 35, 18);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-07 01:55:41', 6, '2017-06-07 07:55:41', 4, 3);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-21 15:38:24', 2, '2017-05-21 17:38:24', 17, 13);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-29 03:43:33', 4, '2017-04-29 07:43:33', 16, 3);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-05 23:03:16', 6, '2017-04-06 05:03:16', 29, 1);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-07 22:18:43', 1, '2017-05-07 23:18:43', 20, 13);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-10 17:50:41', 3, '2017-07-10 20:50:41', 4, 20);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-11 06:03:07', 4, '2017-05-11 10:03:07', 16, 3);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-06 20:40:20', 7, '2017-07-07 03:40:20', 3, 15);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-22 22:39:08', 5, '2017-05-23 03:39:08', 36, 17);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-09 07:47:24', 6, '2017-04-09 13:47:24', 12, 6);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-17 13:49:15', 1, '2017-04-17 14:49:15', 32, 3);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-01 11:31:34', 4, '2017-05-01 15:31:34', 1, 9);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-23 13:50:45', 5, '2017-04-23 18:50:45', 16, 17);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-10 02:20:19', 5, '2017-05-10 07:20:19', 1, 5);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-31 17:54:54', 3, '2017-05-31 20:54:54', 10, 11);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-15 02:10:53', 6, '2017-05-15 08:10:53', 33, 2);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-04 00:27:47', 5, '2017-05-04 05:27:47', 9, 12);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-05 07:11:05', 4, '2017-07-05 11:11:05', 40, 14);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-09 08:35:49', 6, '2017-04-09 14:35:49', 3, 8);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-17 00:45:55', 1, '2017-06-17 01:45:55', 2, 9);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-22 15:08:30', 3, '2017-04-22 18:08:30', 31, 12);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-10 00:29:22', 6, '2017-04-10 06:29:22', 22, 10);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-30 12:33:38', 7, '2017-04-30 19:33:38', 28, 16);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-16 13:33:25', 6, '2017-05-16 19:33:25', 40, 9);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-24 03:09:18', 2, '2017-04-24 05:09:18', 17, 16);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-23 02:20:07', 6, '2017-04-23 08:20:07', 12, 4);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-09 16:59:50', 4, '2017-06-09 20:59:50', 32, 1);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-25 11:22:34', 7, '2017-06-25 18:22:34', 6, 18);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-04 08:48:59', 6, '2017-04-04 14:48:59', 17, 10);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-10 21:01:58', 4, '2017-07-11 01:01:58', 8, 7);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-19 09:08:52', 3, '2017-05-19 12:08:52', 4, 16);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-05 19:02:47', 7, '2017-06-06 02:02:47', 4, 15);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-26 06:22:30', 3, '2017-04-26 09:22:30', 40, 18);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-02 23:29:38', 1, '2017-04-03 00:29:38', 5, 13);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-22 20:09:58', 6, '2017-05-23 02:09:58', 21, 18);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-28 04:39:18', 3, '2017-06-28 07:39:18', 15, 1);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-30 14:22:57', 1, '2017-04-30 15:22:57', 20, 13);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-15 07:19:23', 5, '2017-04-15 12:19:23', 11, 19);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-02 01:47:27', 3, '2017-06-02 04:47:27', 40, 2);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-09 13:50:40', 3, '2017-05-09 16:50:40', 2, 9);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-26 06:21:44', 1, '2017-05-26 07:21:44', 39, 16);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-10 02:44:53', 2, '2017-05-10 04:44:53', 23, 3);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-29 18:47:01', 7, '2017-04-30 01:47:01', 5, 4);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-23 02:35:28', 4, '2017-05-23 06:35:28', 36, 2);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-18 01:31:44', 1, '2017-06-18 02:31:44', 31, 11);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-07 12:53:57', 7, '2017-04-07 19:53:57', 24, 7);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-02 08:35:18', 4, '2017-06-02 12:35:18', 21, 10);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-14 16:42:49', 4, '2017-06-14 20:42:49', 6, 2);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-19 04:51:33', 4, '2017-04-19 08:51:33', 16, 6);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-30 20:16:58', 1, '2017-06-30 21:16:58', 38, 8);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-16 05:16:09', 5, '2017-05-16 10:16:09', 10, 2);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-14 00:23:18', 6, '2017-04-14 06:23:18', 5, 18);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-19 10:35:17', 5, '2017-05-19 15:35:17', 6, 6);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-04 07:01:48', 4, '2017-06-04 11:01:48', 22, 5);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-11 22:39:36', 1, '2017-05-11 23:39:36', 39, 1);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-24 16:42:07', 2, '2017-05-24 18:42:07', 14, 15);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-23 13:05:43', 5, '2017-04-23 18:05:43', 35, 3);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-09 15:00:02', 4, '2017-04-09 19:00:02', 24, 1);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-01 08:51:30', 6, '2017-06-01 14:51:30', 9, 17);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-26 09:40:12', 3, '2017-04-26 12:40:12', 3, 1);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-17 20:34:07', 2, '2017-04-17 22:34:07', 9, 3);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-25 09:10:28', 1, '2017-06-25 10:10:28', 5, 20);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-18 00:46:10', 3, '2017-04-18 03:46:10', 8, 16);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-15 17:47:15', 3, '2017-04-15 20:47:15', 12, 15);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-04 09:50:17', 6, '2017-05-04 15:50:17', 30, 13);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-18 20:11:31', 5, '2017-05-19 01:11:31', 24, 19);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-29 21:48:15', 4, '2017-06-30 01:48:15', 23, 15);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-10 08:41:02', 3, '2017-06-10 11:41:02', 36, 9);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-05 01:18:04', 1, '2017-07-05 02:18:04', 32, 7);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-09 16:16:16', 2, '2017-04-09 18:16:16', 10, 11);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-26 22:43:26', 7, '2017-05-27 05:43:26', 28, 13);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-25 08:46:15', 7, '2017-04-25 15:46:15', 15, 16);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-14 20:53:32', 1, '2017-05-14 21:53:32', 15, 14);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-03 02:08:36', 5, '2017-04-03 07:08:36', 3, 1);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-08 17:58:04', 2, '2017-04-08 19:58:04', 13, 1);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-06 21:07:07', 6, '2017-05-07 03:07:07', 32, 9);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-16 01:08:46', 2, '2017-06-16 03:08:46', 8, 4);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-30 05:33:11', 6, '2017-05-30 11:33:11', 36, 15);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-21 10:23:43', 7, '2017-04-21 17:23:43', 40, 11);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-03 21:40:03', 2, '2017-04-03 23:40:03', 20, 19);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-20 14:55:51', 6, '2017-04-20 20:55:51', 2, 11);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-20 21:52:56', 2, '2017-06-20 23:52:56', 28, 6);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-06 23:55:14', 1, '2017-05-07 00:55:14', 13, 2);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-07 01:59:57', 3, '2017-06-07 04:59:57', 14, 7);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-12 02:59:18', 7, '2017-06-12 09:59:18', 28, 4);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-24 08:39:14', 2, '2017-04-24 10:39:14', 28, 12);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-16 15:17:17', 5, '2017-06-16 20:17:17', 20, 16);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-06 19:51:51', 2, '2017-07-06 21:51:51', 5, 6);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-21 13:46:10', 3, '2017-05-21 16:46:10', 20, 20);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-08 18:21:17', 3, '2017-05-08 21:21:17', 12, 2);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-13 18:23:33', 4, '2017-04-13 22:23:33', 5, 6);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-16 12:18:39', 3, '2017-04-16 15:18:39', 2, 18);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-27 14:05:05', 6, '2017-04-27 20:05:05', 8, 9);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-04 13:19:19', 3, '2017-07-04 16:19:19', 35, 4);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-28 03:28:29', 7, '2017-05-28 10:28:29', 13, 20);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-03 22:20:33', 5, '2017-05-04 03:20:33', 24, 9);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-23 10:46:29', 5, '2017-04-23 15:46:29', 26, 11);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-08 07:16:12', 7, '2017-06-08 14:16:12', 4, 14);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-29 10:22:21', 7, '2017-04-29 17:22:21', 25, 12);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-02 03:38:39', 5, '2017-05-02 08:38:39', 23, 9);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-23 05:19:09', 5, '2017-06-23 10:19:09', 39, 1);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-20 14:34:33', 1, '2017-04-20 15:34:33', 13, 18);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-05-16 19:33:54', 7, '2017-05-17 02:33:54', 38, 16);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-06 07:04:58', 3, '2017-04-06 10:04:58', 10, 11);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-14 16:27:41', 3, '2017-06-14 19:27:41', 20, 9);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-07-03 03:03:10', 3, '2017-07-03 06:03:10', 17, 8);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-04-17 05:39:30', 1, '2017-04-17 06:39:30', 27, 9);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-16 08:42:54', 4, '2017-06-16 12:42:54', 3, 6);
-insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values ('2017-06-13 11:58:46', 5, '2017-06-13 16:58:46', 22, 6);
 
 

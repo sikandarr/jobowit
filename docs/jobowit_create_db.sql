@@ -83,6 +83,28 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `jobowit_db`.`user`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `jobowit_db`.`user` ;
+
+CREATE TABLE IF NOT EXISTS `jobowit_db`.`user` (
+  `user_id` INT NOT NULL AUTO_INCREMENT,
+  `access_role` VARCHAR(100) NOT NULL,
+  `username` VARCHAR(45) NULL,
+  `password` VARCHAR(200) NULL,
+  `created_dtm` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `enabled` TINYINT(1) NOT NULL DEFAULT 1,
+  PRIMARY KEY (`user_id`),
+  INDEX `fk_staff_user_access_role1_idx` (`access_role` ASC),
+  CONSTRAINT `fk_staff_user_access_role1`
+    FOREIGN KEY (`access_role`)
+    REFERENCES `jobowit_db`.`access_role` (`role_name`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `jobowit_db`.`staff`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `jobowit_db`.`staff` ;
@@ -93,28 +115,25 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`staff` (
   `name` VARCHAR(100) NULL,
   `initials` VARCHAR(3) NULL,
   `address_id` INT NOT NULL,
-  `access_role` VARCHAR(100) NULL DEFAULT 'NO ACCESS',
   `username` VARCHAR(16) NOT NULL,
   `email` VARCHAR(255) NULL,
   `password` VARCHAR(32) NOT NULL,
   `create_dtm` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
-  `account_enabled` TINYINT(1) NOT NULL DEFAULT 1,
-  `account_expired` TINYINT(1) NOT NULL DEFAULT 1,
-  `account_locked` TINYINT(1) NOT NULL DEFAULT 1,
-  `password_expired` TINYINT(1) NOT NULL DEFAULT 1,
+  `access_role` VARCHAR(45) NULL,
+  `user_id` INT NULL,
   PRIMARY KEY (`staff_id`),
   INDEX `fk_staff_address1_idx` (`address_id` ASC),
-  INDEX `fk_staff_access_role1_idx` (`access_role` ASC),
   UNIQUE INDEX `staff_uuid_UNIQUE` (`staff_uuid` ASC),
   UNIQUE INDEX `username_UNIQUE` (`username` ASC),
+  INDEX `fk_staff_user1_idx` (`user_id` ASC),
   CONSTRAINT `fk_staff_address1`
     FOREIGN KEY (`address_id`)
     REFERENCES `jobowit_db`.`address` (`address_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_staff_access_role1`
-    FOREIGN KEY (`access_role`)
-    REFERENCES `jobowit_db`.`access_role` (`role_name`)
+  CONSTRAINT `fk_staff_user1`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `jobowit_db`.`user` (`user_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
@@ -607,25 +626,17 @@ DROP TABLE IF EXISTS `jobowit_db`.`access_control` ;
 CREATE TABLE IF NOT EXISTS `jobowit_db`.`access_control` (
   `access_control_id` INT NOT NULL AUTO_INCREMENT,
   `table_name` VARCHAR(100) NOT NULL,
-  `staff_id` INT NULL DEFAULT NULL,
   `role_name` VARCHAR(100) NULL DEFAULT NULL,
   `can_read` TINYINT(1) NOT NULL DEFAULT 0,
   `can_delete` TINYINT(1) NULL DEFAULT 0,
   `can_write` TINYINT(1) NULL DEFAULT 0,
   INDEX `fk_access_control_table1_idx` (`table_name` ASC),
-  INDEX `fk_access_control_staff1_idx` (`staff_id` ASC),
   INDEX `fk_access_control_access_role1_idx` (`role_name` ASC),
-  UNIQUE INDEX `UNIQUE_STAFF_PER_RESOURCE` (`table_name` ASC, `staff_id` ASC),
   PRIMARY KEY (`access_control_id`),
   UNIQUE INDEX `UNIQUE_ROLE_PER_RESOURCE` (`table_name` ASC, `role_name` ASC),
   CONSTRAINT `fk_access_control_table1`
     FOREIGN KEY (`table_name`)
     REFERENCES `jobowit_db`.`db_table` (`table_name`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_access_control_staff1`
-    FOREIGN KEY (`staff_id`)
-    REFERENCES `jobowit_db`.`staff` (`staff_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_access_control_access_role1`

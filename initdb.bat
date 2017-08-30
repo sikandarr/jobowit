@@ -1,3 +1,4 @@
+@echo off
 echo Deleting the jobowit_db database
 mysql -u root -proot$j0bo@wit < docs/jobowit_drop_db.sql
 mysql -u root -proot$j0bo@wit < docs/jobowit_create_db.sql

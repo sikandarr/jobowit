@@ -1,46 +1,71 @@
 package com.jobowit.access;
 
-/*import java.io.Serializable;
+import java.io.Serializable;
 import javax.persistence.*;
-import com.jobowit.domain.Staff;
 import org.springframework.security.core.GrantedAuthority;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 @Entity
-@Table(name="access_control")
+@Table(name = "access_control", uniqueConstraints =
+	{ @UniqueConstraint(columnNames =
+				{ "table_name", "role_name" }) })
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "accessControlId")
 public class AccessControl implements GrantedAuthority, Serializable
 {
 	private static final long serialVersionUID = 1L;
-	
-	@EmbeddedId
-	private AccessControlId id;
-	
-	@MapsId("table_name")
-    @JoinColumn(name="staff_id", referencedColumnName="staff_id")
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "access_control_id", unique = true, nullable = false)
+	private int accessControlId;
+
 	@ManyToOne
-	Staff staff;
-	
-	@MapsId("table_name")
-    @JoinColumn(name="table_name", referencedColumnName="table_name")
-	@ManyToOne
+	@JoinColumn(name = "table_name", referencedColumnName = "table_name", nullable = false)
 	DbTable dbTable;
-	
-	@Column(name="can_read")
+
+	@ManyToOne
+	@JoinColumn(name = "role_name", referencedColumnName = "role_name", nullable = true)
+	AccessRole accessRole;
+
+	@Column(name = "can_read")
 	private boolean canRead;
-	
-	@Column(name="can_write")
+
+	@Column(name = "can_write")
 	private boolean canWrite;
-	
-	@Column(name="can_delete")
+
+	@Column(name = "can_delete")
 	private boolean canDelete;
-	
-	public AccessControlId getId()
+
+	public int getAccessControlId()
 	{
-		return id;
+		return accessControlId;
 	}
 
-	public void setId(AccessControlId id)
+	public void setAccessControlId(int accessControlId)
 	{
-		this.id = id;
+		this.accessControlId = accessControlId;
+	}
+
+	public DbTable getDbTable()
+	{
+		return dbTable;
+	}
+
+	public void setDbTable(DbTable dbTable)
+	{
+		this.dbTable = dbTable;
+	}
+
+	public AccessRole getAccessRole()
+	{
+		return accessRole;
+	}
+
+	public void setAccessRole(AccessRole accessRole)
+	{
+		this.accessRole = accessRole;
 	}
 
 	public boolean isCanRead()
@@ -76,13 +101,25 @@ public class AccessControl implements GrantedAuthority, Serializable
 	@Override
 	public String getAuthority()
 	{
-		String read="", write="", delete = "";
+		String read = "", write = "", delete = "";
 		boolean noAccess = true;
-		if (isCanRead()) {read = "_READ"; noAccess = false;}
-		if (isCanWrite()) {write = "_WRITE"; noAccess = false;}
-		if (isCanDelete()) {delete = "_DELETE"; noAccess = false;}
-		
-		return this.dbTable.tableName + (noAccess ? "_NO_ACCESS":read + write + delete);
+		if (isCanRead())
+		{
+			read = "_READ";
+			noAccess = false;
+		}
+		if (isCanWrite())
+		{
+			write = "_WRITE";
+			noAccess = false;
+		}
+		if (isCanDelete())
+		{
+			delete = "_DELETE";
+			noAccess = false;
+		}
+
+		return this.dbTable.tableName.toUpperCase() + (noAccess ? "_NO_ACCESS" : read + write + delete);
 	}
 
-}*/
+}

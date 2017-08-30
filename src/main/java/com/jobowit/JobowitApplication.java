@@ -1,5 +1,6 @@
 package com.jobowit;
 
+import java.security.Principal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,6 +13,8 @@ import org.springframework.hateoas.Link;
 import org.springframework.hateoas.PagedResources;
 import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.ResourceProcessor;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jobowit.domain.Bill;
@@ -23,6 +26,7 @@ import com.jobowit.repositories.MyobTokenRepository;
 
 @SpringBootApplication
 @RestController
+@EnableResourceServer
 @EntityScan(basePackageClasses =
 	{ JobowitApplication.class, Jsr310JpaConverters.class })
 public class JobowitApplication
@@ -131,9 +135,11 @@ public class JobowitApplication
 			}
 		};
 	}
-	/*
-	 * @RequestMapping("/user") public Principal user(Principal user) { return
-	 * user; }
-	 */
+
+	@RequestMapping("/user")
+	public Principal user(Principal user)
+	{
+		return user;
+	}
 
 }

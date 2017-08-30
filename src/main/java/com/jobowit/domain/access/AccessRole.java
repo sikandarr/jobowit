@@ -1,4 +1,4 @@
-package com.jobowit.access;
+package com.jobowit.domain.access;
 
 import java.io.Serializable;
 import java.util.List;

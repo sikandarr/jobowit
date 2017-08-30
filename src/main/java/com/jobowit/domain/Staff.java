@@ -2,9 +2,10 @@ package com.jobowit.domain;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import com.jobowit.access.JobowitUser;
+
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.jobowit.domain.access.JobowitUser;
 
 import java.util.Date;
 import java.util.List;

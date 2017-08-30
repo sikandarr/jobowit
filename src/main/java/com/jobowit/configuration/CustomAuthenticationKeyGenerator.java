@@ -1,4 +1,4 @@
-package com.jobowit.access;
+package com.jobowit.configuration;
 
 import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
@@ -24,7 +24,6 @@ public class CustomAuthenticationKeyGenerator implements AuthenticationKeyGenera
 	@Override
 	public String extractKey(OAuth2Authentication authentication)
 	{
-		System.out.println("CUSTOM_AUTHENTICATION_KEY_GENERATOR");
 		Map<String, String> values = new LinkedHashMap<String, String>();
 		OAuth2Request authorizationRequest = authentication.getOAuth2Request();
 		
@@ -63,7 +62,6 @@ public class CustomAuthenticationKeyGenerator implements AuthenticationKeyGenera
 		try
 		{
 			byte[] bytes = digest.digest(values.toString().getBytes("UTF-8"));
-			System.out.println(values.toString());
 			return String.format("%032x", new BigInteger(1, bytes));
 		}
 		catch (UnsupportedEncodingException e)

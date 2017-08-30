@@ -1,4 +1,4 @@
-package com.jobowit;
+package com.jobowit.configuration;
 
 import java.io.IOException;
 

@@ -1,4 +1,4 @@
-package com.jobowit.access;
+package com.jobowit.domain.access;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

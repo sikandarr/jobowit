@@ -1,4 +1,4 @@
-package com.jobowit.access;
+package com.jobowit.domain.access;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -23,7 +23,7 @@ public class AccessControl implements GrantedAuthority, Serializable
 
 	@ManyToOne
 	@JoinColumn(name = "table_name", referencedColumnName = "table_name", nullable = false)
-	DbTable dbTable;
+	ProtectedResource dbTable;
 
 	@ManyToOne
 	@JoinColumn(name = "role_name", referencedColumnName = "role_name", nullable = true)
@@ -48,12 +48,12 @@ public class AccessControl implements GrantedAuthority, Serializable
 		this.accessControlId = accessControlId;
 	}
 
-	public DbTable getDbTable()
+	public ProtectedResource getDbTable()
 	{
 		return dbTable;
 	}
 
-	public void setDbTable(DbTable dbTable)
+	public void setDbTable(ProtectedResource dbTable)
 	{
 		this.dbTable = dbTable;
 	}
@@ -119,7 +119,7 @@ public class AccessControl implements GrantedAuthority, Serializable
 			noAccess = false;
 		}
 
-		return this.dbTable.tableName.toUpperCase() + (noAccess ? "_NO_ACCESS" : read + write + delete);
+		return this.dbTable.name.toUpperCase() + (noAccess ? "_NO_ACCESS" : read + write + delete);
 	}
 
 }

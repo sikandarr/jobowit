@@ -80,7 +80,7 @@ public class Staff implements Serializable
 	@JoinColumn(name = "user_id", nullable = true)
 	private JobowitUser user;
 	
-	@Column(name = "staff_uuid")
+	@Column(name = "staff_uuid", updatable=false)
 	private String uuid;
 
 	public Staff()

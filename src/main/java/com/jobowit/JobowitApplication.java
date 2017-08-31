@@ -13,20 +13,18 @@ import org.springframework.hateoas.Link;
 import org.springframework.hateoas.PagedResources;
 import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.ResourceProcessor;
-import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.handler.MappedInterceptor;
 
 import com.jobowit.domain.Bill;
 import com.jobowit.domain.Invoice;
 import com.jobowit.domain.Party;
 import com.jobowit.domain.UploadedFile;
-import com.jobowit.domain.projections.PartyProjection;
 import com.jobowit.repositories.MyobTokenRepository;
 
 @SpringBootApplication
 @RestController
-@EnableResourceServer
 @EntityScan(basePackageClasses =
 	{ JobowitApplication.class, Jsr310JpaConverters.class })
 public class JobowitApplication
@@ -39,6 +37,13 @@ public class JobowitApplication
 		System.out.println("Starting Jobowit; please wait for confirmation...");
 		SpringApplication.run(JobowitApplication.class, args);
 		System.out.println("application started");
+	}
+
+	@Bean
+	public MappedInterceptor myMappedInterceptor()
+	{
+		return new MappedInterceptor(new String[]
+			{ "/**" }, new AccessTokenInUrl());
 	}
 
 	@Bean
@@ -88,20 +93,6 @@ public class JobowitApplication
 			public Resource<UploadedFile> process(Resource<UploadedFile> resource)
 			{
 				resource.add(new Link(resource.getId().getHref() + "/download").withRel("download"));
-				return resource;
-			}
-		};
-	}
-
-	@Bean
-	public ResourceProcessor<Resource<PartyProjection>> partyProjectionProcessor()
-	{
-		return new ResourceProcessor<Resource<PartyProjection>>()
-		{
-			@Override
-			public Resource<PartyProjection> process(Resource<PartyProjection> resource)
-			{
-				resource.add(new Link(resource.getId().getHref() + "/invoices").withRel("invoices"));
 				return resource;
 			}
 		};

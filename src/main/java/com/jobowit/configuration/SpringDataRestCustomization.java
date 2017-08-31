@@ -24,5 +24,6 @@ public class SpringDataRestCustomization extends RepositoryRestConfigurerAdapter
 		config.withEntityLookup().forRepository(JobRepository.class, Job::getUuid, JobRepository::findByUuid);
 		config.withEntityLookup().forRepository(UploadedFileRepository.class, UploadedFile::getUuid, UploadedFileRepository::findByUuid);
 		config.withEntityLookup().forRepository(StaffRepository.class, Staff::getUuid, StaffRepository::findByUuid);
+		config.setBasePath("/api");
 	}
 }

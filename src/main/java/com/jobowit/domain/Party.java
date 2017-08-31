@@ -10,6 +10,7 @@ import javax.validation.constraints.Pattern;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.validator.constraints.NotBlank;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.jobowit.domain.constraint.Constants;
@@ -33,7 +34,7 @@ public class Party implements Serializable
 	@Column(name = "party_id", unique = true, nullable = false)
 	private Long partyId;
 
-	@Column(name = "party_uuid", columnDefinition = "CHAR", unique = true)
+	@Column(name = "party_uuid", columnDefinition = "CHAR", unique = true, updatable = false)
 	private String uuid;
 
 	@Column(name = "myob_uid", columnDefinition = "CHAR", unique = true)
@@ -67,13 +68,14 @@ public class Party implements Serializable
 	// Australian phone number")
 	private String phone;
 
-	@Column(name = "updated_dtm", insertable = false)
+	@Column(name = "updated_dtm", insertable = false, updatable = false)
 	private Timestamp updatedDtm;
 
-	@Column(name = "created_dtm", insertable = false)
+	@Column(name = "created_dtm", insertable = false, updatable = false)
 	private Timestamp createdDtm;
 
 	@OneToOne(mappedBy = "party")
+	@JsonIgnore
 	private MyobSyncDates syncdates;
 
 	// bi-directional many-to-one association to Bill

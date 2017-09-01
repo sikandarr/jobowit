@@ -619,28 +619,29 @@ UPDATE party SET type = 'Supplier' WHERE party_id = '2';
 INSERT INTO `access_role` (`role_name`) VALUES ("ADMIN");
 INSERT INTO `access_role` (`role_name`) VALUES ("NO ACCESS");
 
-INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`address_id`,`access_role`,`username`,`email`,`password`) VALUES (1,'27146d49-6b1b-11e7-931d-001a7dda7113','Sikandar & Mearaj',457,'NO ACCESS','motion6','info@motion.six','motion6');
-INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`address_id`,`access_role`,`username`,`email`,`password`) VALUES (2,'2714f2ec-6b1b-11e7-931d-001a7dda7113','Rafe Robus',456,'NO ACCESS','rrobus1','rrobus1@sbwire.com','16EfMURm');
-INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`address_id`,`access_role`,`username`,`email`,`password`) VALUES (3,'2715509f-6b1b-11e7-931d-001a7dda7113','Dorelia Graham',450,'NO ACCESS','dgraham2','dgraham2@e-recht24.de','nVzKazzJ4c');
-INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`address_id`,`access_role`,`username`,`email`,`password`) VALUES (4,'2715ad16-6b1b-11e7-931d-001a7dda7113','Alicea Keford',445,'NO ACCESS','akeford3','akeford3@columbia.edu','fekgx9kY6');
-INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`address_id`,`access_role`,`username`,`email`,`password`) VALUES (5,'271600da-6b1b-11e7-931d-001a7dda7113','Everett Wilse',441,'NO ACCESS','ewilse4','ewilse4@sphinn.com','KTrHrm4');
-INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`address_id`,`access_role`,`username`,`email`,`password`) VALUES (6,'27165d14-6b1b-11e7-931d-001a7dda7113','Ole Malenfant',440,'NO ACCESS','omalenfant5','omalenfant5@photobucket.com','yJS2nC');
-INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`address_id`,`access_role`,`username`,`email`,`password`) VALUES (7,'2716c068-6b1b-11e7-931d-001a7dda7113','Robbie Godsell',449,'NO ACCESS','rgodsell6','rgodsell6@ed.gov','Dcj6uS03eWSi');
-INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`address_id`,`access_role`,`username`,`email`,`password`) VALUES (8,'27171532-6b1b-11e7-931d-001a7dda7113','Gibbie Delea',449,'NO ACCESS','gdelea7','gdelea7@timesonline.co.uk','oMqfgXZfMgJ');
-INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`address_id`,`access_role`,`username`,`email`,`password`) VALUES (9,'271775f8-6b1b-11e7-931d-001a7dda7113','Nikoletta Segeswoeth',454,'NO ACCESS','nsegeswoeth8','nsegeswoeth8@google.com','gNRBEK');
-INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`address_id`,`access_role`,`username`,`email`,`password`) VALUES (10,'2717cd7a-6b1b-11e7-931d-001a7dda7113','Darrel Chattell',448,'NO ACCESS','dchattell9','dchattell9@unblog.fr','QweLQdZj2hw');
-INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`address_id`,`access_role`,`username`,`email`,`password`) VALUES (11,'27183219-6b1b-11e7-931d-001a7dda7113','Jeffrey Jenteau',446,'NO ACCESS','jjenteaua','jjenteaua@rediff.com','jektvzNTsmjq');
-INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`address_id`,`access_role`,`username`,`email`,`password`) VALUES (12,'27189327-6b1b-11e7-931d-001a7dda7113','Marve Tarney',452,'NO ACCESS','mtarneyb','mtarneyb@ibm.com','w8A6XsD5ixI');
-INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`address_id`,`access_role`,`username`,`email`,`password`) VALUES (13,'2718fbe3-6b1b-11e7-931d-001a7dda7113','Gayel Fleischmann',458,'NO ACCESS','gfleischmannc','gfleischmannc@elegantthemes.com','me84BY');
-INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`address_id`,`access_role`,`username`,`email`,`password`) VALUES (14,'27195139-6b1b-11e7-931d-001a7dda7113','Davin Crimin',449,'NO ACCESS','dcrimind','dcrimind@webmd.com','gV0zX2');
-INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`address_id`,`access_role`,`username`,`email`,`password`) VALUES (15,'2719b229-6b1b-11e7-931d-001a7dda7113','Killie Proudley',449,'NO ACCESS','kproudleye','kproudleye@ovh.net','rkgTkK');
-INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`address_id`,`access_role`,`username`,`email`,`password`) VALUES (16,'271a0536-6b1b-11e7-931d-001a7dda7113','Miranda Anscombe',444,'NO ACCESS','manscombef','manscombef@ca.gov','19Pbs3e8');
-INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`address_id`,`access_role`,`username`,`email`,`password`) VALUES (17,'271a7b81-6b1b-11e7-931d-001a7dda7113','Clair Gamblin',456,'NO ACCESS','cgambling','cgambling@cisco.com','Wv1680oprU');
-INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`address_id`,`access_role`,`username`,`email`,`password`) VALUES (18,'271ad93f-6b1b-11e7-931d-001a7dda7113','Julianna Ralston',442,'NO ACCESS','jralstonh','jralstonh@newyorker.com','89GROHSb');
-INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`address_id`,`access_role`,`username`,`email`,`password`) VALUES (19,'271b3c1a-6b1b-11e7-931d-001a7dda7113','Sergei Eburne',452,'NO ACCESS','seburnei','seburnei@rambler.ru','WMJb5GEaQmA');
-INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`address_id`,`access_role`,`username`,`email`,`password`) VALUES (20,'271baa8d-6b1b-11e7-931d-001a7dda7113','Karon Yesenev',453,'NO ACCESS','kyesenevj','kyesenevj@disqus.com','kWouK7tN8');
-
 INSERT INTO `user` (`access_role`,`username`, `password`, `enabled`) VALUES ('ADMIN', 'motion6', '$2a$10$pDMaM7/PtG61nVxYOvvf0uCh83IkZZmpBa1M048OPNq4daZ43meMG', 1);
+
+INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`initials`,`address_id`,`email`,`create_dtm`,`user_id`,`bg_color`) VALUES (1,'27146d49-6b1b-11e7-931d-001a7dda7113','Sikandar & Mearaj','SM',457,'info@motion.six','2017-09-02 02:42:19',1,'#a5a4bb');
+INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`initials`,`address_id`,`email`,`create_dtm`,`user_id`,`bg_color`) VALUES (2,'2714f2ec-6b1b-11e7-931d-001a7dda7113','Rafe Robus','RR',456,'rrobus1@sbwire.com','2017-09-02 02:42:19',NULL,NULL);
+INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`initials`,`address_id`,`email`,`create_dtm`,`user_id`,`bg_color`) VALUES (3,'2715509f-6b1b-11e7-931d-001a7dda7113','Dorelia Graham','DG',450,'dgraham2@e-recht24.de','2017-09-02 02:42:19',NULL,NULL);
+INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`initials`,`address_id`,`email`,`create_dtm`,`user_id`,`bg_color`) VALUES (4,'2715ad16-6b1b-11e7-931d-001a7dda7113','Alicea Keford','AK',445,'akeford3@columbia.edu','2017-09-02 02:42:19',NULL,NULL);
+INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`initials`,`address_id`,`email`,`create_dtm`,`user_id`,`bg_color`) VALUES (5,'271600da-6b1b-11e7-931d-001a7dda7113','Everett Wilse','EW',441,'ewilse4@sphinn.com','2017-09-02 02:42:19',NULL,NULL);
+INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`initials`,`address_id`,`email`,`create_dtm`,`user_id`,`bg_color`) VALUES (6,'27165d14-6b1b-11e7-931d-001a7dda7113','Ole Malenfant','OM',440,'omalenfant5@photobucket.com','2017-09-02 02:42:19',NULL,NULL);
+INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`initials`,`address_id`,`email`,`create_dtm`,`user_id`,`bg_color`) VALUES (7,'2716c068-6b1b-11e7-931d-001a7dda7113','Robbie Godsell','RG',449,'rgodsell6@ed.gov','2017-09-02 02:42:19',NULL,NULL);
+INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`initials`,`address_id`,`email`,`create_dtm`,`user_id`,`bg_color`) VALUES (8,'27171532-6b1b-11e7-931d-001a7dda7113','Gibbie Delea','GD',449,'gdelea7@timesonline.co.uk','2017-09-02 02:42:19',NULL,NULL);
+INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`initials`,`address_id`,`email`,`create_dtm`,`user_id`,`bg_color`) VALUES (9,'271775f8-6b1b-11e7-931d-001a7dda7113','Nikoletta Segeswoeth','NS',454,'nsegeswoeth8@google.com','2017-09-02 02:42:19',NULL,NULL);
+INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`initials`,`address_id`,`email`,`create_dtm`,`user_id`,`bg_color`) VALUES (10,'2717cd7a-6b1b-11e7-931d-001a7dda7113','Darrel Chattell','DC',448,'dchattell9@unblog.fr','2017-09-02 02:42:19',NULL,NULL);
+INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`initials`,`address_id`,`email`,`create_dtm`,`user_id`,`bg_color`) VALUES (11,'27183219-6b1b-11e7-931d-001a7dda7113','Jeffrey Jenteau','JJ',446,'jjenteaua@rediff.com','2017-09-02 02:42:19',NULL,NULL);
+INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`initials`,`address_id`,`email`,`create_dtm`,`user_id`,`bg_color`) VALUES (12,'27189327-6b1b-11e7-931d-001a7dda7113','Marve Tarney','MT',452,'mtarneyb@ibm.com','2017-09-02 02:42:19',NULL,NULL);
+INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`initials`,`address_id`,`email`,`create_dtm`,`user_id`,`bg_color`) VALUES (13,'2718fbe3-6b1b-11e7-931d-001a7dda7113','Gayel Fleischmann','GF',458,'gfleischmannc@elegantthemes.com','2017-09-02 02:42:19',NULL,NULL);
+INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`initials`,`address_id`,`email`,`create_dtm`,`user_id`,`bg_color`) VALUES (14,'27195139-6b1b-11e7-931d-001a7dda7113','Davin Crimin','DC',449,'dcrimind@webmd.com','2017-09-02 02:42:19',NULL,NULL);
+INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`initials`,`address_id`,`email`,`create_dtm`,`user_id`,`bg_color`) VALUES (15,'2719b229-6b1b-11e7-931d-001a7dda7113','Killie Proudley','KP',449,'kproudleye@ovh.net','2017-09-02 02:42:19',NULL,NULL);
+INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`initials`,`address_id`,`email`,`create_dtm`,`user_id`,`bg_color`) VALUES (16,'271a0536-6b1b-11e7-931d-001a7dda7113','Miranda Anscombe','MA',444,'manscombef@ca.gov','2017-09-02 02:42:19',NULL,NULL);
+INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`initials`,`address_id`,`email`,`create_dtm`,`user_id`,`bg_color`) VALUES (17,'271a7b81-6b1b-11e7-931d-001a7dda7113','Clair Gamblin','CG',456,'cgambling@cisco.com','2017-09-02 02:42:19',NULL,NULL);
+INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`initials`,`address_id`,`email`,`create_dtm`,`user_id`,`bg_color`) VALUES (18,'271ad93f-6b1b-11e7-931d-001a7dda7113','Julianna Ralston','JR',442,'jralstonh@newyorker.com','2017-09-02 02:42:19',NULL,NULL);
+INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`initials`,`address_id`,`email`,`create_dtm`,`user_id`,`bg_color`) VALUES (19,'271b3c1a-6b1b-11e7-931d-001a7dda7113','Sergei Eburne','SE',452,'seburnei@rambler.ru','2017-09-02 02:42:19',NULL,NULL);
+INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`initials`,`address_id`,`email`,`create_dtm`,`user_id`,`bg_color`) VALUES (20,'271baa8d-6b1b-11e7-931d-001a7dda7113','Karon Yesenev','KY',453,'kyesenevj@disqus.com','2017-09-02 02:42:19',NULL,NULL);
+
 UPDATE `jobowit_db`.`staff` SET `user_id`='1' WHERE `staff_id`='1';
 
 
@@ -990,6 +991,7 @@ INSERT INTO `db_table` (`table_name`) VALUES ("Job");
 INSERT INTO `db_table` (`table_name`) VALUES ("Staff");
 INSERT INTO `db_table` (`table_name`) VALUES ("JobWorks");
 INSERT INTO `access_control` (`role_name`, `table_name`, `can_read`, `can_delete`, `can_write`) VALUES ('ADMIN',"Party",1,1,1);
+INSERT INTO `access_control` (`role_name`, `table_name`, `can_read`, `can_delete`, `can_write`) VALUES ('ADMIN',"Staff",1,1,1);
 
 -- -----------------------------------------------------
 -- invoice mock data

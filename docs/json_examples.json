@@ -1,0 +1,61 @@
+{
+	"type": "Customer",
+	"contactName": "Philip Harper",
+	"email": "Morbi.metus@augueutlacus.net",
+	"mobile": "(04) 1022 7116",
+	"name": "Motion 6 Incorporation",
+	"phone": "(08) 5913 7797",
+	"mailingAddress": {
+		"city": "ILLOWA",
+		"country": "Australia",
+		"postCode": "3282",
+		"state": "Victoria",
+		"street1": "16 Walpole Avenue"
+	},
+	"physicalAddress": {
+		"city": "STONY CROSSING",
+		"country": "Australia",
+		"postCode": "2734",
+		"state": "New South Wales",
+		"street1": "98 Bette McNee Street"
+	},
+	"individual": false
+}
+
+----
+{
+	"description" : "Paint and additonal repair works", 
+	"referral" : "Phone", 
+	"priority" : "Normal", 
+	"address" : "245 Grange Road:Hillford:South Australia:5011:Australia", 
+	"initialType" : "/jobTypes/Quote%20Request", 
+	"customer" : "/parties/0d5f5918-69dc-11e7-931d-001a7dda7113"
+}
+
+----
+{
+	"comment": "Famous first line but doesn\u0027t matter; will always be first",
+	"staffUser": "/staffs/27146d49-6b1b-11e7-931d-001a7dda7113",
+	"party": "/parties/0d5f5918-69dc-11e7-931d-001a7dda7113"
+}
+------
+
+staff POST
+{
+	"email": "sikandar.b@mail.com",
+	"name": "Sikandar Bhagad",
+	"address": "8 willsmore street:Beverley:South Australia:5009:Australia"
+}
+
+--staff PUT (edit: added user)
+{
+	"email": "sikandar.b@mail.com",
+	"name": "Sikandar Bhagad",
+	"address": "8 willsmore street:Beverley:South Australia:5009:Australia",
+	"user": {
+		"username": "sikandar",
+		"password": "thisisapassword",
+		"enabled": true,
+		"accessRole": "/accessRoles/ADMIN"
+	}
+}

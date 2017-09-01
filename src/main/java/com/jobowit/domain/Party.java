@@ -347,6 +347,13 @@ public class Party implements Serializable
 			return this.getJobs().stream().filter(job -> job.getActive() == true).count();
 		return 0;
 	}
+	
+	public long getTotalJobCount()
+	{
+		if (this.getJobs() != null)
+			return this.getJobs().stream().count();
+		return 0;
+	}
 
 	public MyobSyncDates getSyncdates()
 	{

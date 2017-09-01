@@ -27,7 +27,7 @@ public class Staff implements Serializable
 	private int staffId;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "create_dtm")
+	@Column(name = "create_dtm", insertable = false, updatable = false)
 	private Date createDtm;
 
 	@Column(length = 255)
@@ -35,6 +35,10 @@ public class Staff implements Serializable
 
 	@Column(length = 100)
 	private String name;
+	
+	private String initials;
+	
+	private String bgColor;
 
 	// bi-directional many-to-one association to Comment
 	@OneToMany(mappedBy = "staffUser")
@@ -69,8 +73,8 @@ public class Staff implements Serializable
 	private List<SalesStaffInJob> salesStaffInJobs;
 
 	// bi-directional many-to-one association to Address
-	@ManyToOne
-	@JoinColumn(name = "address_id", nullable = false)
+	@OneToOne(optional = true, cascade = CascadeType.ALL)
+	@JoinColumn(name = "address_id")
 	private Address address;
 
 	// bi-directional many-to-one association to StaffRole
@@ -126,6 +130,26 @@ public class Staff implements Serializable
 	public void setName(String name)
 	{
 		this.name = name;
+	}
+
+	public String getInitials()
+	{
+		return initials;
+	}
+
+	public void setInitials(String initials)
+	{
+		this.initials = initials;
+	}
+
+	public String getBgColor()
+	{
+		return bgColor;
+	}
+
+	public void setBgColor(String bgColor)
+	{
+		this.bgColor = bgColor;
 	}
 
 	public List<Comment> getComments()

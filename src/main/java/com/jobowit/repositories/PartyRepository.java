@@ -14,11 +14,11 @@ import com.jobowit.domain.Party;
 public interface PartyRepository  extends JpaRepository<Party, Integer>
 {
 	@Override
-	@PreAuthorize("isAuthenticated() and hasPermission('Party', 'read')")
+	//@PreAuthorize("isAuthenticated() and hasPermission('Party', 'read')")
 	Page<Party> findAll(Pageable pageable);
 	
 	List<Party> findByContactNameContaining(@Param("name") String contactName);
-	@PreAuthorize("hasPermission(returnObject, 'read')")
+	//@PreAuthorize("hasPermission(returnObject, 'read')")
 	Party findByNameContaining(@Param("name") String name);
 	Party findOneByPartyId(Integer id);
 	Optional<Party> findByMyobUid(String myobUid);

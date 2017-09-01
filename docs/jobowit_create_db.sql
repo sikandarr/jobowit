@@ -90,12 +90,13 @@ DROP TABLE IF EXISTS `jobowit_db`.`user` ;
 CREATE TABLE IF NOT EXISTS `jobowit_db`.`user` (
   `user_id` INT NOT NULL AUTO_INCREMENT,
   `access_role` VARCHAR(100) NOT NULL,
-  `username` VARCHAR(45) NULL,
-  `password` VARCHAR(200) NULL,
+  `username` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(200) NOT NULL,
   `created_dtm` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
   `enabled` TINYINT(1) NOT NULL DEFAULT 1,
   PRIMARY KEY (`user_id`),
   INDEX `fk_staff_user_access_role1_idx` (`access_role` ASC),
+  UNIQUE INDEX `username_UNIQUE` (`username` ASC),
   CONSTRAINT `fk_staff_user_access_role1`
     FOREIGN KEY (`access_role`)
     REFERENCES `jobowit_db`.`access_role` (`role_name`)
@@ -115,16 +116,13 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`staff` (
   `name` VARCHAR(100) NULL,
   `initials` VARCHAR(3) NULL,
   `address_id` INT NOT NULL,
-  `username` VARCHAR(16) NOT NULL,
   `email` VARCHAR(255) NULL,
-  `password` VARCHAR(32) NOT NULL,
   `create_dtm` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
-  `access_role` VARCHAR(45) NULL,
   `user_id` INT NULL,
+  `bg_color` VARCHAR(10) NULL,
   PRIMARY KEY (`staff_id`),
   INDEX `fk_staff_address1_idx` (`address_id` ASC),
   UNIQUE INDEX `staff_uuid_UNIQUE` (`staff_uuid` ASC),
-  UNIQUE INDEX `username_UNIQUE` (`username` ASC),
   INDEX `fk_staff_user1_idx` (`user_id` ASC),
   CONSTRAINT `fk_staff_address1`
     FOREIGN KEY (`address_id`)

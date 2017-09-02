@@ -18,7 +18,7 @@ public class Parser
 	private CompanyInfoRepository compInfoRepo0;
 
 	@PostConstruct
-	private void initStaticDao()
+	private void initStatic()
 	{
 		compInfoRepo = this.compInfoRepo0;
 	}

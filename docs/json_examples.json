@@ -27,7 +27,9 @@
 	"description" : "Paint and additonal repair works", 
 	"referral" : "Phone", 
 	"priority" : "Normal", 
-	"address" : "245 Grange Road:Hillford:South Australia:5011:Australia", 
+	"address" : "245 Grange Road:Hillford:South Australia:5011:Australia",
+  	"contactName" : "Philip",
+  	"email" : "sikandar.b@mail.com",
 	"initialType" : "/jobTypes/Quote%20Request", 
 	"customer" : "/parties/0d5f5918-69dc-11e7-931d-001a7dda7113"
 }

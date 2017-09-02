@@ -1,11 +1,13 @@
 package com.jobowit;
 
+import com.jobowit.utils.Encryption;
+
 public class SimpleMain
 {
-	public static void main(String[] args)
+	public static void main(String[] args) throws Exception
 	{
-		String t = "Job# %job_number%";
-		t = t.replaceAll("%job_number%", "CXTLI");
-		System.out.println(t);
+		Encryption e = new Encryption();
+		System.out.println(e.encrypt("Random String"));
+		System.out.println(e.decrypt(e.encrypt("Random String")));
 	}
 }

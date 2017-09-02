@@ -2,6 +2,7 @@ package com.jobowit.utils;
 
 import java.util.Properties;
 
+import javax.annotation.PostConstruct;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
@@ -10,19 +11,36 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.jobowit.domain.EmailSetting;
+import com.jobowit.repositories.EmailSettingRepositories;
+
+@Component
 public class Email
 {
-	public static void send(String subject, String text, String toAddress)
+	private static EmailSettingRepositories es;
+	@Autowired EmailSettingRepositories es0;
+	
+	@PostConstruct
+	private void initStatic()
 	{
+		es = this.es0;
+	}
+	
+	public static void send(String subject, String text, String toAddress) throws Exception
+	{
+		EmailSetting e = es.findTop1();
 
-		final String username = "sikandar@bhagad.com";
-		final String password = "23865278";
+		final String username = e.getEmailAddress();
+		final String password = e.getPassword();
 
 		Properties prop = new Properties();
 		prop.put("mail.smtp.auth", "true");
-		prop.put("mail.smtp.host", "smtp.zoho.com");
-		prop.put("mail.smtp.port", "587");
-		prop.put("mail.smtp.starttls.enable", "true");
+		prop.put("mail.smtp.host", e.getSmtpHost());
+		prop.put("mail.smtp.port", "" + e.getSmtpPort());
+		prop.put("mail.smtp.starttls.enable", "" + e.isSmtpStarttlsEnable());
 		// prop.put("mail.debug", "true");
 
 		Session session = Session.getInstance(prop, new javax.mail.Authenticator()
@@ -43,9 +61,9 @@ public class Email
 			message.setContent(text, "text/html; charset=utf-8");
 			Transport.send(message);
 		}
-		catch (MessagingException e)
+		catch (MessagingException ex)
 		{
-			throw new RuntimeException(e);
+			throw new RuntimeException(ex);
 		}
 	}
 }

@@ -766,11 +766,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `jobowit_db`.`email_settings`
+-- Table `jobowit_db`.`email_setting`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `jobowit_db`.`email_settings` ;
+DROP TABLE IF EXISTS `jobowit_db`.`email_setting` ;
 
-CREATE TABLE IF NOT EXISTS `jobowit_db`.`email_settings` (
+CREATE TABLE IF NOT EXISTS `jobowit_db`.`email_setting` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `email_address` VARCHAR(100) NULL,
   `password` VARCHAR(45) NULL,
@@ -809,6 +809,7 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`company` (
   `phone1` VARCHAR(45) NULL,
   `phone2` VARCHAR(45) NULL,
   `logo` MEDIUMBLOB NULL,
+  `email` VARCHAR(100) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 

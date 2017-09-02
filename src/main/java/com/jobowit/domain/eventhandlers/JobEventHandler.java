@@ -11,6 +11,8 @@ import org.springframework.data.rest.core.annotation.HandleBeforeSave;
 import org.springframework.data.rest.core.annotation.RepositoryEventHandler;
 import org.springframework.stereotype.Component;
 
+import org.apache.log4j.Logger;
+
 import com.jobowit.domain.Job;
 import com.jobowit.domain.JobEmailText;
 import com.jobowit.domain.JobStatus;
@@ -32,6 +34,8 @@ import com.jobowit.utils.Parser;
 @Transactional
 public class JobEventHandler
 {
+	static Logger log = Logger.getLogger(JobEventHandler.class.getName());
+	
 	@Autowired
 	private JobStatusRepository statusRepo;
 
@@ -96,7 +100,14 @@ public class JobEventHandler
 		}
 		em.refresh(job);
 		JobEmailText jet = jetRepo.findOne("Primary");
-		Email.send(Parser.jobEmail(jet.getSubject(), job), Parser.jobEmail(jet.getBody(), job), job.getEmail());
+		try
+		{
+			Email.send(Parser.jobEmail(jet.getSubject(), job), Parser.jobEmail(jet.getBody(), job), job.getEmail());
+		}
+		catch (Exception e)
+		{
+			log.warn("could not send email for new job: " + e.getMessage());
+		}
 	}
 
 	@HandleBeforeSave

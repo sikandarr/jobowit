@@ -36,6 +36,7 @@ public class JobowitUser implements UserDetails
 	@Column(name = "user_id", unique = true, nullable = false)
 	private int id;
 	
+	@Column(unique = true, nullable = false)
 	private String username;
 	
 	private String password;

@@ -5,13 +5,14 @@ import javax.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name = "access_control", uniqueConstraints =
 	{ @UniqueConstraint(columnNames =
 				{ "table_name", "role_name" }) })
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "accessControlId")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class AccessControl implements GrantedAuthority, Serializable
 {
 	private static final long serialVersionUID = 1L;
@@ -19,14 +20,16 @@ public class AccessControl implements GrantedAuthority, Serializable
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "access_control_id", unique = true, nullable = false)
-	private int accessControlId;
+	private int id;
 
 	@ManyToOne
 	@JoinColumn(name = "table_name", referencedColumnName = "table_name", nullable = false)
+	@JsonIgnore
 	ProtectedResource dbTable;
 
 	@ManyToOne
 	@JoinColumn(name = "role_name", referencedColumnName = "role_name", nullable = true)
+	@JsonIgnore
 	AccessRole accessRole;
 
 	@Column(name = "can_read")
@@ -35,17 +38,17 @@ public class AccessControl implements GrantedAuthority, Serializable
 	@Column(name = "can_write")
 	private boolean canWrite;
 
+	@JsonIgnore
 	@Column(name = "can_delete")
 	private boolean canDelete;
 
-	public int getAccessControlId()
+	public int getId()
 	{
-		return accessControlId;
+		return id;
 	}
-
-	public void setAccessControlId(int accessControlId)
+	public void setId(int accessControlId)
 	{
-		this.accessControlId = accessControlId;
+		this.id = accessControlId;
 	}
 
 	public ProtectedResource getDbTable()
@@ -98,6 +101,7 @@ public class AccessControl implements GrantedAuthority, Serializable
 		this.canDelete = canDelete;
 	}
 
+	@JsonIgnore
 	@Override
 	public String getAuthority()
 	{
@@ -120,6 +124,11 @@ public class AccessControl implements GrantedAuthority, Serializable
 		}
 
 		return this.dbTable.name.toUpperCase() + (noAccess ? "_NO_ACCESS" : read + write + delete);
+	}
+	
+	public String getResourceName()
+	{
+		return this.dbTable.getName();
 	}
 
 }

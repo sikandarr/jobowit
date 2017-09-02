@@ -10,4 +10,5 @@ echo "Creating jobowit_db database"
 echo "...and populating it with mock data"
 echo "----------------------------------------"
 mysql -u root -p'root$j0bo@wit' < 'docs/jobowit_create_db.sql'
+mysql -u root -p'root$j0bo@wit' < 'docs/jobowit_create_views.sql'
 mysql -u root -p'root$j0bo@wit' < 'docs/mock_data.sql'

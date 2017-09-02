@@ -25,4 +25,5 @@ public interface PartyRepository  extends JpaRepository<Party, Integer>
 	@Query(nativeQuery=true, value="SELECT * FROM jobowit_db.party LIMIT 0, 2;")
 	List<Party> findTop2();
 	Party findByUuid(String uuid);
+	List<Party> findByType(@Param("type") String type);
 }

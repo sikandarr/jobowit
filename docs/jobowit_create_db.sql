@@ -693,6 +693,7 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`job_status_entry` (
   `staff_id` INT NOT NULL,
   `comment` TEXT NULL,
   `entry_dtm` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `follow_up_dt` DATE NULL,
   PRIMARY KEY (`job_status_entry_id`),
   INDEX `fk_job_status_entry_job1_idx` (`job_id` ASC),
   INDEX `fk_job_status_entry_job_status1_idx` (`job_status` ASC),
@@ -761,6 +762,67 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`myob_sync_dates` (
     REFERENCES `jobowit_db`.`party` (`party_id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `jobowit_db`.`email_settings`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `jobowit_db`.`email_settings` ;
+
+CREATE TABLE IF NOT EXISTS `jobowit_db`.`email_settings` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `email_address` VARCHAR(100) NULL,
+  `password` VARCHAR(45) NULL,
+  `smtp_host` VARCHAR(45) NULL,
+  `smtp_port` INT NULL,
+  `smtp_starttls_enable` TINYINT(1) NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `jobowit_db`.`send_email`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `jobowit_db`.`send_email` ;
+
+CREATE TABLE IF NOT EXISTS `jobowit_db`.`send_email` (
+  `id` INT NOT NULL,
+  `after_job_created` TINYINT(1) NULL,
+  `after_schedule_created` TINYINT(1) NULL,
+  `after_schedule_modified` TINYINT(1) NULL,
+  `to_job_email` TINYINT(1) NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `jobowit_db`.`company`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `jobowit_db`.`company` ;
+
+CREATE TABLE IF NOT EXISTS `jobowit_db`.`company` (
+  `id` ENUM('Primary') NOT NULL DEFAULT 'Primary',
+  `name` VARCHAR(250) NULL,
+  `address_line1` VARCHAR(200) NULL,
+  `address_line2` VARCHAR(200) NULL,
+  `phone1` VARCHAR(45) NULL,
+  `phone2` VARCHAR(45) NULL,
+  `logo` MEDIUMBLOB NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `jobowit_db`.`job_email_text`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `jobowit_db`.`job_email_text` ;
+
+CREATE TABLE IF NOT EXISTS `jobowit_db`.`job_email_text` (
+  `id` ENUM('Primary') NOT NULL DEFAULT 'Primary',
+  `subject` VARCHAR(200) NULL,
+  `body` LONGTEXT NULL,
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
 USE `jobowit_db`;

@@ -20,6 +20,7 @@ import com.jobowit.repositories.JobStatusEntryRepository;
 import com.jobowit.repositories.JobStatusRepository;
 import com.jobowit.repositories.ResourceIdRepository;
 import com.jobowit.repositories.StaffRepository;
+import com.jobowit.utils.Email;
 import com.jobowit.utils.RandomString;
 
 @Component
@@ -29,13 +30,13 @@ public class JobEventHandler
 {
 	@Autowired
 	private JobStatusRepository statusRepo;
-	
+
 	@Autowired
 	private JobStatusEntryRepository statusEntryRepo;
 
 	@Autowired
 	private ResourceIdRepository ridRepo;
-	
+
 	@Autowired
 	StaffRepository staffRepo;
 
@@ -52,7 +53,8 @@ public class JobEventHandler
 		{
 			id = RandomString.generate(6);
 			ResourceId rid = ridRepo.findOne(id);
-			if (rid == null) break;
+			if (rid == null)
+				break;
 		}
 		ResourceId rid = new ResourceId(id);
 		ridRepo.save(rid);
@@ -86,6 +88,15 @@ public class JobEventHandler
 			statusEntryRepo.save(statusEntry);
 		}
 		em.refresh(job);
+		String subject = "Job#" + job.getJobNumber();
+		String text = "Hi, " + job.getCustomerName() + "<br>"
+				+ "We’d like to let you know that your request for service has been registered in our system; below are the details: "
+				+ "<br>" + "Reference#" + job.getJobNumber() + "<br>" + "Description: " + job.getDescription() + "<br>"
+				+ "Contact Details: " + job.getContactName() + " / " + job.getPhone() + "<br>"
+				+ "Site Address: " + job.getAddressStr() + "<br>"
+				+ "We will keep you updated with the schedule details." + "<br>"
+				+ "Thank you for choosing Exalted Property Services for your property services.";
+		Email.send(subject, text, job.getEmail());
 	}
 
 	@HandleBeforeSave

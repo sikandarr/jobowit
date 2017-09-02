@@ -1,5 +1,6 @@
 package com.jobowit.domain;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 
 import javax.persistence.CascadeType;
@@ -40,8 +41,11 @@ public class JobStatusEntry
 	@Column(columnDefinition = "TEXT")
 	private String comment;
 	
-	@Column(name = "entry_dtm", insertable=false)
+	@Column(name = "entry_dtm", insertable=false, updatable=false)
 	private Timestamp entryDtm;
+	
+	@Column
+	private Date followUpDt;
 
 	public int getJobStatusEntryId()
 	{
@@ -106,5 +110,15 @@ public class JobStatusEntry
 	public String getStatusMsg()
 	{
 		return getStatus().getStatus();
+	}
+
+	public Date getFollowUpDt()
+	{
+		return followUpDt;
+	}
+
+	public void setFollowUpDt(Date followUpDtm)
+	{
+		this.followUpDt = followUpDtm;
 	}
 }

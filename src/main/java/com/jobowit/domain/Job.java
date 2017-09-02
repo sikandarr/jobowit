@@ -38,6 +38,48 @@ public class Job implements Serializable
 
 	@Column
 	private String priority;
+	
+	@Column
+	private String contactName;
+	
+	public String getContactName()
+	{
+		return contactName;
+	}
+
+	public void setContactName(String contactName)
+	{
+		this.contactName = contactName;
+	}
+
+	public String getMobile()
+	{
+		return mobile;
+	}
+
+	public void setMobile(String mobile)
+	{
+		this.mobile = mobile;
+	}
+
+	public String getEmail()
+	{
+		return email;
+	}
+
+	public void setEmail(String email)
+	{
+		this.email = email;
+	}
+
+	@Column
+	private String phone;
+	
+	@Column
+	private String mobile;
+	
+	@Column
+	private String email;
 
 	// one-to-one association to Address
 	@OneToOne(optional = false, cascade = CascadeType.ALL)
@@ -160,6 +202,16 @@ public class Job implements Serializable
 	public void setPriority(String priority)
 	{
 		this.priority = priority;
+	}
+
+	public String getPhone()
+	{
+		return phone;
+	}
+
+	public void setPhone(String contactPhone)
+	{
+		this.phone = contactPhone;
 	}
 
 	public Address getAddress()

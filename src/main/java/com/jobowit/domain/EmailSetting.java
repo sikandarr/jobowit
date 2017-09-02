@@ -13,8 +13,6 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import com.jobowit.utils.EncryptionService;
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -40,12 +38,14 @@ public class EmailSetting implements Serializable
 	@JsonProperty
 	public void setPassword(String password) throws Exception
 	{
-		this.password = EncryptionService.encrypt(password);
+		this.password = password;
+		//this.password = EncryptionService.encrypt(password);
 	}
 	
 	@JsonIgnore
 	public String getPassword() throws Exception
 	{
-		return EncryptionService.decrypt(this.password);
+		return this.password;
+		//return EncryptionService.decrypt(this.password);
 	}
 }

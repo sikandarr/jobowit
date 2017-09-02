@@ -15,11 +15,11 @@ import com.jobowit.domain.Staff;
 public interface StaffRepository extends PagingAndSortingRepository<Staff, Integer>
 {
 	@Override
-	//@PreAuthorize("isAuthenticated() and hasPermission('Staff', 'read')")
+	@PreAuthorize("isAuthenticated() and hasPermission('Staff', 'read')")
 	Page<Staff> findAll(Pageable pageable);
 	
 	Staff findByUserUsername(String username);
 	
-	//@PostAuthorize("isAuthenticated() and (returnObject.uuid == principal.staffUuid or hasPermission('Staff', 'read'))")
+	@PostAuthorize("isAuthenticated() and (returnObject.uuid == principal.staffUuid or hasPermission('Staff', 'read'))")
 	Staff findByUuid(String uuid);
 }

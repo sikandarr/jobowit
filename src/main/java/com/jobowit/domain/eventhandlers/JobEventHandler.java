@@ -1,6 +1,7 @@
 package com.jobowit.domain.eventhandlers;
 
 import javax.persistence.EntityManager;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,17 +12,20 @@ import org.springframework.data.rest.core.annotation.RepositoryEventHandler;
 import org.springframework.stereotype.Component;
 
 import com.jobowit.domain.Job;
+import com.jobowit.domain.JobEmailText;
 import com.jobowit.domain.JobStatus;
 import com.jobowit.domain.JobStatusEntry;
 import com.jobowit.domain.JobType;
 import com.jobowit.domain.ResourceId;
 import com.jobowit.domain.Staff;
+import com.jobowit.repositories.JobEmailTextRepository;
 import com.jobowit.repositories.JobStatusEntryRepository;
 import com.jobowit.repositories.JobStatusRepository;
 import com.jobowit.repositories.ResourceIdRepository;
 import com.jobowit.repositories.StaffRepository;
 import com.jobowit.utils.Email;
 import com.jobowit.utils.RandomString;
+import com.jobowit.utils.Parser;
 
 @Component
 @RepositoryEventHandler(Job.class)
@@ -36,6 +40,9 @@ public class JobEventHandler
 
 	@Autowired
 	private ResourceIdRepository ridRepo;
+	
+	@Autowired
+	private JobEmailTextRepository jetRepo;
 
 	@Autowired
 	StaffRepository staffRepo;
@@ -88,15 +95,8 @@ public class JobEventHandler
 			statusEntryRepo.save(statusEntry);
 		}
 		em.refresh(job);
-		String subject = "Job#" + job.getJobNumber();
-		String text = "Hi, " + job.getCustomerName() + "<br>"
-				+ "We’d like to let you know that your request for service has been registered in our system; below are the details: "
-				+ "<br>" + "Reference#" + job.getJobNumber() + "<br>" + "Description: " + job.getDescription() + "<br>"
-				+ "Contact Details: " + job.getContactName() + " / " + job.getPhone() + "<br>"
-				+ "Site Address: " + job.getAddressStr() + "<br>"
-				+ "We will keep you updated with the schedule details." + "<br>"
-				+ "Thank you for choosing Exalted Property Services for your property services.";
-		Email.send(subject, text, job.getEmail());
+		JobEmailText jet = jetRepo.findOne("Primary");
+		Email.send(Parser.jobEmail(jet.getSubject(), job), Parser.jobEmail(jet.getBody(), job), job.getEmail());
 	}
 
 	@HandleBeforeSave

@@ -27,7 +27,7 @@ public class Job implements Serializable
 	@Column(name = "job_uuid", columnDefinition = "CHAR", unique = true, insertable=false, updatable=false)
 	private String uuid;
 
-	@Column(name = "job_number", columnDefinition = "CHAR", length = 6, unique = true)
+	@Column(name = "job_number", columnDefinition = "CHAR", length = 6, unique = true, updatable=false)
 	private String jobNumber;
 
 	@Lob

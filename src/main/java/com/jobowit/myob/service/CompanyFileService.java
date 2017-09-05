@@ -39,4 +39,24 @@ public class CompanyFileService extends AbstractMyobService
 		});
 		return cfs.findAll();
 	}
+	
+	public static CompanyFile[] findAll(OAuthAccessToken token, DataFileCredentials dfc) throws Exception
+	{
+		CompanyFileService cfs = new CompanyFileService();
+		cfs.setEndPointProvider(new MyobEndPointProvider()
+		{
+			@Override
+			public MyobEndPoint getEndPoint()
+			{
+				return new MyobEndPoint(MyobEndPoint.CLOUD_ENDPOINT, dfc, token);
+			}
+
+			@Override
+			public void oauthTokenRefreshed(MyobEndPoint locator)
+			{
+
+			}
+		});
+		return cfs.findAll();
+	}
 }

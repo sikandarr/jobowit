@@ -149,6 +149,20 @@ public class MyobController
 		return ResponseEntity.ok().body(myobBillService.export(id));
 	}
 	
+	@GetMapping("/myob/serviceStatus")
+	public ResponseEntity<String> handleMyobServiceStatus()
+	{
+		try
+		{
+			m.getMyobEndPointProvider();
+			return ResponseEntity.ok().body("Connected");
+		}
+		catch (Exception e)
+		{
+			return ResponseEntity.ok().body("Not connected");
+		}
+	}
+	
 	@ExceptionHandler(Exception.class)
 	public ResponseEntity<MyobError> handleExceptions(RuntimeException e)
 	{

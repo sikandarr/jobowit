@@ -13,7 +13,7 @@ class SecurityConfiguration extends ResourceServerConfigurerAdapter
 	@Override
 	public void configure(HttpSecurity http) throws Exception
 	{
-		http.authorizeRequests().antMatchers("/index.html", "/").permitAll().anyRequest().authenticated();
+		http.authorizeRequests().antMatchers("/index.html", "/", "/myob").permitAll().anyRequest().authenticated();
 	}
 
 	@Override

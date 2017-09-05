@@ -17,18 +17,18 @@ import com.jobowit.repositories.MyobTokenRepository;
 public class MyobEndPointProviderServiceImpl implements MyobEndPointProvider
 {
 	private final MyobPlugin plugin = new MyobPlugin("vzbha48uyde74m4xtd9xuduz", "kckU3f6SJbKhe6MNrBTzYKSm",
-			"http://localhost:8082/myob");
+			"http://localhost:8081/myob");
 
 	private String uid = "";
 
 	MyobTokenRepository myobTokenRepo;
+	DataFileCredentials dfc;
 
 	@Autowired
-	public MyobEndPointProviderServiceImpl(MyobTokenRepository myobTokenRepo)
+	public MyobEndPointProviderServiceImpl(MyobTokenRepository myobTokenRepo, DataFileCredentials dfc)
 	{
-		System.out.println(":::Myob_EndPoint_Provider_Service_Impl:::");
-
 		this.myobTokenRepo = myobTokenRepo;
+		this.dfc = dfc;
 		MyobToken myobToken = myobTokenRepo.findLatest();
 
 		if (myobToken != null)
@@ -37,7 +37,7 @@ public class MyobEndPointProviderServiceImpl implements MyobEndPointProvider
 					myobToken.getCreatedOn(), myobToken.getExpiresIn());
 			try
 			{
-				CompanyFile[] companyFile = CompanyFileService.findAll(t);
+				CompanyFile[] companyFile = CompanyFileService.findAll(t, dfc);
 				this.uid = companyFile[0].getId();	
 			}
 			catch (Exception e)

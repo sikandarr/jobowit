@@ -826,6 +826,19 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`job_email_text` (
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
+
+-- -----------------------------------------------------
+-- Table `jobowit_db`.`myob_credentials`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `jobowit_db`.`myob_credentials` ;
+
+CREATE TABLE IF NOT EXISTS `jobowit_db`.`myob_credentials` (
+  `id` ENUM('Primary') NOT NULL DEFAULT 'Primary',
+  `username` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(200) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
 USE `jobowit_db`;
 
 DELIMITER $$

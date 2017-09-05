@@ -2,10 +2,13 @@ package com.jobowit.repositories;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
-import com.jobowit.domain.MyobCode;
+import org.springframework.web.bind.annotation.CrossOrigin;
+
+import com.jobowit.domain.MyobCredentials;
 
 @RepositoryRestResource(exported=false)
-public interface MyobCodeRepository extends PagingAndSortingRepository<MyobCode, Integer>
+@CrossOrigin
+public interface MyobCredentialsRepository extends PagingAndSortingRepository<MyobCredentials, String>
 {
-
+	
 }

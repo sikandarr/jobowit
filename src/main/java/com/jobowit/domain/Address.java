@@ -38,8 +38,10 @@ public class Address implements Serializable
 	@Column(length = 150)
 	private String street1;
 	
+	@Column(insertable=false, updatable=false)
 	private Timestamp createdDtm;
 	
+	@Column(insertable=false, updatable=false)
 	private Timestamp updatedDtm;
 
 	public Address(){}

@@ -27,6 +27,9 @@ public interface StaffRepository extends PagingAndSortingRepository<Staff, Integ
 	@PostAuthorize("isAuthenticated() and (returnObject.uuid == principal.staffUuid or hasPermission('Staff', 'read'))")
 	Staff findByUuid(String uuid);
 	
-	@RestResource(path="findByOperationsRole", rel="findByOperationsRole")
+	@RestResource(path="findByOperationsRoleName", rel="findByOperationsRoleName")
 	List<Staff> findByStaffRolesStaffJobRoleRoleName(@Param("role") String role);
+	
+	@RestResource(path="findByOperationsRoleId", rel="findByOperationsRoleId")
+	List<Staff> findByStaffRolesStaffJobRoleRoleId(@Param("id") int id);
 }

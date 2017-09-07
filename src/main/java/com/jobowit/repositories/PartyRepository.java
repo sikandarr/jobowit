@@ -18,12 +18,17 @@ public interface PartyRepository  extends JpaRepository<Party, Integer>
 	Page<Party> findAll(Pageable pageable);
 	
 	List<Party> findByContactNameContaining(@Param("name") String contactName);
+	
 	@PreAuthorize("hasPermission(returnObject, 'read')")
 	Party findByNameContaining(@Param("name") String name);
+	
 	Party findOneByPartyId(Integer id);
+	
 	Optional<Party> findByMyobUid(String myobUid);
+	
 	@Query(nativeQuery=true, value="SELECT * FROM jobowit_db.party LIMIT 0, 2;")
 	List<Party> findTop2();
+	
 	Party findByUuid(String uuid);
 	List<Party> findByType(@Param("type") String type);
 }

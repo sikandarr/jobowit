@@ -815,7 +815,6 @@ insert into staff_role (staff_id, role_id) values (19, 3);
 insert into staff_role (staff_id, role_id) values (16, 1);
 insert into staff_role (staff_id, role_id) values (12, 2);
 insert into staff_role (staff_id, role_id) values (9, 3);
-insert into staff_role (staff_id, role_id) values (14, 2);
 insert into staff_role (staff_id, role_id) values (17, 3);
 insert into staff_role (staff_id, role_id) values (4, 1);
 insert into staff_role (staff_id, role_id) values (3, 1);
@@ -823,7 +822,6 @@ insert into staff_role (staff_id, role_id) values (4, 2);
 insert into staff_role (staff_id, role_id) values (14, 1);
 insert into staff_role (staff_id, role_id) values (3, 2);
 insert into staff_role (staff_id, role_id) values (19, 2);
-insert into staff_role (staff_id, role_id) values (17, 3);
 insert into staff_role (staff_id, role_id) values (8, 1);
 insert into staff_role (staff_id, role_id) values (1, 3);
 insert into staff_role (staff_id, role_id) values (6, 3);
@@ -832,7 +830,6 @@ insert into staff_role (staff_id, role_id) values (10, 3);
 insert into staff_role (staff_id, role_id) values (15, 3);
 insert into staff_role (staff_id, role_id) values (7, 3);
 insert into staff_role (staff_id, role_id) values (17, 2);
-insert into staff_role (staff_id, role_id) values (1, 3);
 insert into staff_role (staff_id, role_id) values (5, 2);
 insert into staff_role (staff_id, role_id) values (9, 2);
 insert into staff_role (staff_id, role_id) values (18, 3);
@@ -1619,5 +1616,9 @@ insert into field_work (start_dtm, h, finish_dtm, job_id, field_staff_id) values
 INSERT INTO `job_email_text` (`id`,`subject`,`body`) VALUES ('Primary','Job# %job_number%','<p>Hi, %customer_name%</p>\n<p>We&rsquo;d like to let you know that your request for service has been registered in our system; below are the details:&nbsp;</p>\n<ul>\n<li>Reference# %job_number%</li>\n<li>Description: %job_description%</li>\n<li>Contact Person: %job_contact%</li>\n<li>Contact Phones: %job_phones%</li>\n<li>Email: %job_email%</li>\n<li>Site Address: %job_address%</li>\n</ul>\n<p>We will keep you updated with the schedule details.</p>\n<p>Thank you for choosing %company_name% for your property service needs.</p>\n<p><strong>%company_name%</strong><br />%company_address1%<br />Phone: %company_phone1%<br />Email: %company_email%</p>\n<p>&nbsp;</p>');
 INSERT INTO `company` (`id`,`name`,`address_line1`,`address_line2`,`phone1`,`phone2`,`email`,`logo`) VALUES ('Primary','Exalted Property Services','535 Prospect Rd, GEPPS CROSS SA 5094',NULL,'08 7230 5518',NULL,'accounts@exalted.com.au',NULL);
 INSERT INTO `email_setting` (`id`,`email_address`,`password`,`smtp_host`,`smtp_port`,`smtp_starttls_enable`) VALUES (1,'sikandar@bhagad.com','23865278','smtp.zoho.com',587,1);
+
+INSERT INTO `operation_staff_in_job` (`job_id`,`staff_id`,`staff_job_role_id`,`commision_percentage`) VALUES (1,1,1,0.00);
+INSERT INTO `operation_staff_in_job` (`job_id`,`staff_id`,`staff_job_role_id`,`commision_percentage`) VALUES (1,1,3,11.50);
+INSERT INTO `operation_staff_in_job` (`job_id`,`staff_id`,`staff_job_role_id`,`commision_percentage`) VALUES (1,16,3,3.00);
 
 

@@ -256,6 +256,7 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`staff_role` (
   PRIMARY KEY (`staff_role_id`),
   INDEX `fk_staff_has_job_role_job_role1_idx` (`role_id` ASC),
   INDEX `fk_staff_has_job_role_staff1_idx` (`staff_id` ASC),
+  UNIQUE INDEX `UNIQUE_ROLE_PER_STAFF` (`staff_id` ASC, `role_id` ASC),
   CONSTRAINT `fk_staff_has_job_role_staff1`
     FOREIGN KEY (`staff_id`)
     REFERENCES `jobowit_db`.`staff` (`staff_id`)
@@ -508,32 +509,6 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `jobowit_db`.`sales_staff_in_job`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `jobowit_db`.`sales_staff_in_job` ;
-
-CREATE TABLE IF NOT EXISTS `jobowit_db`.`sales_staff_in_job` (
-  `sales_staff_in_job_id` INT NOT NULL AUTO_INCREMENT,
-  `job_id` INT NOT NULL,
-  `sales_staff_id` INT NOT NULL,
-  `commision_percentage` FLOAT NULL,
-  PRIMARY KEY (`sales_staff_in_job_id`),
-  INDEX `fk_sales_staff_job1_idx` (`job_id` ASC),
-  INDEX `fk_sales_staff_staff1_idx` (`sales_staff_id` ASC),
-  CONSTRAINT `fk_sales_staff_job1`
-    FOREIGN KEY (`job_id`)
-    REFERENCES `jobowit_db`.`job` (`job_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_sales_staff_staff1`
-    FOREIGN KEY (`sales_staff_id`)
-    REFERENCES `jobowit_db`.`staff` (`staff_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `jobowit_db`.`operation_staff_in_job`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `jobowit_db`.`operation_staff_in_job` ;
@@ -541,18 +516,27 @@ DROP TABLE IF EXISTS `jobowit_db`.`operation_staff_in_job` ;
 CREATE TABLE IF NOT EXISTS `jobowit_db`.`operation_staff_in_job` (
   `operation_staff_in_job_id` INT NOT NULL AUTO_INCREMENT,
   `job_id` INT NOT NULL,
-  `operation_staff_id` INT NOT NULL,
+  `staff_id` INT NOT NULL,
+  `staff_job_role_id` INT NOT NULL,
+  `commision_percentage` DECIMAL(10,2) NULL DEFAULT 0,
   PRIMARY KEY (`operation_staff_in_job_id`),
   INDEX `fk_operation_staff_in_job_job1_idx` (`job_id` ASC),
-  INDEX `fk_operation_staff_in_job_staff1_idx` (`operation_staff_id` ASC),
+  INDEX `fk_operation_staff_in_job_staff1_idx` (`staff_id` ASC),
+  INDEX `fk_operation_staff_in_job_staff_job_role1_idx` (`staff_job_role_id` ASC),
+  UNIQUE INDEX `UNIQUE_STAFF_PER_ROLE` (`job_id` ASC, `staff_id` ASC, `staff_job_role_id` ASC),
   CONSTRAINT `fk_operation_staff_in_job_job1`
     FOREIGN KEY (`job_id`)
     REFERENCES `jobowit_db`.`job` (`job_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_operation_staff_in_job_staff1`
-    FOREIGN KEY (`operation_staff_id`)
+    FOREIGN KEY (`staff_id`)
     REFERENCES `jobowit_db`.`staff` (`staff_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_operation_staff_in_job_staff_job_role1`
+    FOREIGN KEY (`staff_job_role_id`)
+    REFERENCES `jobowit_db`.`staff_job_role` (`role_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -713,18 +697,6 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`job_status_entry` (
     REFERENCES `jobowit_db`.`staff` (`staff_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `jobowit_db`.`myob_code`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `jobowit_db`.`myob_code` ;
-
-CREATE TABLE IF NOT EXISTS `jobowit_db`.`myob_code` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `code` LONGTEXT NOT NULL,
-  PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
 

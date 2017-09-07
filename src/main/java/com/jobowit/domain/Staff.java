@@ -40,17 +40,9 @@ public class Staff implements Serializable
 	
 	private String bgColor;
 
-	// bi-directional many-to-one association to Comment
-	@OneToMany(mappedBy = "staffUser")
-	private List<Comment> comments;
-
 	// bi-directional many-to-one association to ExtraAvailability
 	@OneToMany(mappedBy = "staff")
 	private List<ExtraAvailability> extraAvailabilities;
-
-	// bi-directional many-to-one association to FieldWork
-	@OneToMany(mappedBy = "staff")
-	private List<FieldWork> fieldWorks;
 
 	// bi-directional many-to-one association to JobSchedule
 	@OneToMany(mappedBy = "staff")
@@ -60,17 +52,9 @@ public class Staff implements Serializable
 	@OneToMany(mappedBy = "staff")
 	private List<NonAvailability> nonAvailabilities;
 
-	// bi-directional many-to-one association to OperationStaffInJob
-	@OneToMany(mappedBy = "staff")
-	private List<OperationStaffInJob> operationStaffInJobs;
-
 	// bi-directional many-to-one association to RecurringAvailability
 	@OneToMany(mappedBy = "staff")
 	private List<RecurringAvailability> recurringAvailabilities;
-
-	// bi-directional many-to-one association to SalesStaffInJob
-	@OneToMany(mappedBy = "staff")
-	private List<SalesStaffInJob> salesStaffInJobs;
 
 	// bi-directional many-to-one association to Address
 	@OneToOne(optional = true, cascade = CascadeType.ALL)
@@ -152,32 +136,6 @@ public class Staff implements Serializable
 		this.bgColor = bgColor;
 	}
 
-	public List<Comment> getComments()
-	{
-		return this.comments;
-	}
-
-	public void setComments(List<Comment> comments)
-	{
-		this.comments = comments;
-	}
-
-	public Comment addComment(Comment comment)
-	{
-		getComments().add(comment);
-		comment.setStaffUser(this);
-
-		return comment;
-	}
-
-	public Comment removeComment(Comment comment)
-	{
-		getComments().remove(comment);
-		comment.setStaffUser(null);
-
-		return comment;
-	}
-
 	public List<ExtraAvailability> getExtraAvailabilities()
 	{
 		return this.extraAvailabilities;
@@ -195,6 +153,16 @@ public class Staff implements Serializable
 
 		return extraAvailability;
 	}
+	
+	public String[] getJobRoles()
+	{
+		String[] roles = new String[this.getStaffRoles().size()];
+		for (int i=0; i<roles.length; i++)
+		{
+			roles[i] = this.getStaffRoles().get(i).getRoleName();
+		}
+		return roles;
+	}
 
 	public ExtraAvailability removeExtraAvailability(ExtraAvailability extraAvailability)
 	{
@@ -202,32 +170,6 @@ public class Staff implements Serializable
 		extraAvailability.setStaff(null);
 
 		return extraAvailability;
-	}
-
-	public List<FieldWork> getFieldWorks()
-	{
-		return this.fieldWorks;
-	}
-
-	public void setFieldWorks(List<FieldWork> fieldWorks)
-	{
-		this.fieldWorks = fieldWorks;
-	}
-
-	public FieldWork addFieldWork(FieldWork fieldWork)
-	{
-		getFieldWorks().add(fieldWork);
-		fieldWork.setStaff(this);
-
-		return fieldWork;
-	}
-
-	public FieldWork removeFieldWork(FieldWork fieldWork)
-	{
-		getFieldWorks().remove(fieldWork);
-		fieldWork.setStaff(null);
-
-		return fieldWork;
 	}
 
 	public List<JobSchedule> getJobSchedules()
@@ -282,32 +224,6 @@ public class Staff implements Serializable
 		return nonAvailability;
 	}
 
-	public List<OperationStaffInJob> getOperationStaffInJobs()
-	{
-		return this.operationStaffInJobs;
-	}
-
-	public void setOperationStaffInJobs(List<OperationStaffInJob> operationStaffInJobs)
-	{
-		this.operationStaffInJobs = operationStaffInJobs;
-	}
-
-	public OperationStaffInJob addOperationStaffInJob(OperationStaffInJob operationStaffInJob)
-	{
-		getOperationStaffInJobs().add(operationStaffInJob);
-		operationStaffInJob.setStaff(this);
-
-		return operationStaffInJob;
-	}
-
-	public OperationStaffInJob removeOperationStaffInJob(OperationStaffInJob operationStaffInJob)
-	{
-		getOperationStaffInJobs().remove(operationStaffInJob);
-		operationStaffInJob.setStaff(null);
-
-		return operationStaffInJob;
-	}
-
 	public List<RecurringAvailability> getRecurringAvailabilities()
 	{
 		return this.recurringAvailabilities;
@@ -332,32 +248,6 @@ public class Staff implements Serializable
 		recurringAvailability.setStaff(null);
 
 		return recurringAvailability;
-	}
-
-	public List<SalesStaffInJob> getSalesStaffInJobs()
-	{
-		return this.salesStaffInJobs;
-	}
-
-	public void setSalesStaffInJobs(List<SalesStaffInJob> salesStaffInJobs)
-	{
-		this.salesStaffInJobs = salesStaffInJobs;
-	}
-
-	public SalesStaffInJob addSalesStaffInJob(SalesStaffInJob salesStaffInJob)
-	{
-		getSalesStaffInJobs().add(salesStaffInJob);
-		salesStaffInJob.setStaff(this);
-
-		return salesStaffInJob;
-	}
-
-	public SalesStaffInJob removeSalesStaffInJob(SalesStaffInJob salesStaffInJob)
-	{
-		getSalesStaffInJobs().remove(salesStaffInJob);
-		salesStaffInJob.setStaff(null);
-
-		return salesStaffInJob;
 	}
 
 	public Address getAddress()

@@ -6,7 +6,11 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * The persistent class for the job database table.
@@ -131,10 +135,6 @@ public class Job implements Serializable
 	// bi-directional many-to-one association to Quotation
 	@OneToMany(mappedBy = "job")
 	private List<Quotation> quotations;
-
-	// bi-directional many-to-one association to SalesStaffInJob
-	@OneToMany(mappedBy = "job")
-	private List<SalesStaffInJob> salesStaffInJobs;
 
 	public Job()
 	{
@@ -467,32 +467,6 @@ public class Job implements Serializable
 		return quotation;
 	}
 
-	public List<SalesStaffInJob> getSalesStaffInJobs()
-	{
-		return this.salesStaffInJobs;
-	}
-
-	public void setSalesStaffInJobs(List<SalesStaffInJob> salesStaffInJobs)
-	{
-		this.salesStaffInJobs = salesStaffInJobs;
-	}
-
-	public SalesStaffInJob addSalesStaffInJob(SalesStaffInJob salesStaffInJob)
-	{
-		getSalesStaffInJobs().add(salesStaffInJob);
-		salesStaffInJob.setJob(this);
-
-		return salesStaffInJob;
-	}
-
-	public SalesStaffInJob removeSalesStaffInJob(SalesStaffInJob salesStaffInJob)
-	{
-		getSalesStaffInJobs().remove(salesStaffInJob);
-		salesStaffInJob.setJob(null);
-
-		return salesStaffInJob;
-	}
-
 	public String getCustomerName()
 	{
 		return getCustomer().getName();
@@ -534,6 +508,20 @@ public class Job implements Serializable
 			return getJobSchedules().get(0);
 		}
 		return null;
+	}
+	
+	public List<Map<String, String>> getOperationsStaff()
+	{
+		List<Map<String, String>> roles = new ArrayList<Map<String, String>>();
+		for (OperationStaffInJob s : this.getOperationStaffInJobs())
+		{
+			Map<String, String> m = new LinkedHashMap<>();
+			m.put("staffName", s.getStaff().getName());
+			m.put("role", s.getStaffJobRole().getRoleName());
+			m.put("commission", s.getCommisionPercentage().toString());
+			roles.add(m);
+		}
+		return roles;
 	}
 
 }

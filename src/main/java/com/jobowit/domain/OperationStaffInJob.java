@@ -1,59 +1,55 @@
 package com.jobowit.domain;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
+
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
-/**
- * The persistent class for the operation_staff_in_job database table.
- * 
- */
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
-@Table(name="operation_staff_in_job")
-@NamedQuery(name="OperationStaffInJob.findAll", query="SELECT o FROM OperationStaffInJob o")
-public class OperationStaffInJob implements Serializable {
+@Table(name = "operation_staff_in_job")
+@Getter @Setter
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "operationStaffInJobId")
+public class OperationStaffInJob implements Serializable
+{
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="operation_staff_in_job_id", unique=true, nullable=false)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "operation_staff_in_job_id", unique = true, nullable = false)
 	private int operationStaffInJobId;
 
-	//bi-directional many-to-one association to Job
 	@ManyToOne
-	@JoinColumn(name="job_id", nullable=false)
+	@JoinColumn(name = "job_id", nullable = false)
 	private Job job;
 
-	//bi-directional many-to-one association to Staff
 	@ManyToOne
-	@JoinColumn(name="operation_staff_id", nullable=false)
+	@JoinColumn(name = "staff_id", nullable = false)
 	private Staff staff;
+	
+	@Column(name = "commision_percentage")
+	private BigDecimal commisionPercentage;
+	
+	@ManyToOne
+	@JoinColumn(name = "staff_job_role_id", nullable = false)
+	private StaffJobRole staffJobRole;
 
-	public OperationStaffInJob() {
+	public OperationStaffInJob()
+	{
 	}
-
-	public int getOperationStaffInJobId() {
-		return this.operationStaffInJobId;
+	
+	public String getStaffName()
+	{
+		return staff.getName();
 	}
-
-	public void setOperationStaffInJobId(int operationStaffInJobId) {
-		this.operationStaffInJobId = operationStaffInJobId;
+	
+	public String getRoleName()
+	{
+		return staffJobRole.getRoleName();
 	}
-
-	public Job getJob() {
-		return this.job;
-	}
-
-	public void setJob(Job job) {
-		this.job = job;
-	}
-
-	public Staff getStaff() {
-		return this.staff;
-	}
-
-	public void setStaff(Staff staff) {
-		this.staff = staff;
-	}
-
 }

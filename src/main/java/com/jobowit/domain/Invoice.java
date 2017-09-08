@@ -39,20 +39,6 @@ public class Invoice implements Serializable
 
 	@OneToMany(mappedBy = "invoice")
 	private List<InvoiceLineItem> invoiceLineItems;
-
-	public InvoiceLineItem addInvoiceLineItem(InvoiceLineItem invoiceLineItem)
-	{
-		getInvoiceLineItems().add(invoiceLineItem);
-		invoiceLineItem.setInvoice(this);
-		return invoiceLineItem;
-	}
-
-	public InvoiceLineItem removeInvoiceLineItem(InvoiceLineItem invoiceLineItem)
-	{
-		getInvoiceLineItems().remove(invoiceLineItem);
-		invoiceLineItem.setInvoice(null);
-		return invoiceLineItem;
-	}
 	
 	public Double getTotalAmount()
 	{
@@ -64,7 +50,7 @@ public class Invoice implements Serializable
 	@Override
 	public String toString()
 	{
-		return this.getDescription();
+		return "" + this.getInvoiceId();
 	}
 
 }

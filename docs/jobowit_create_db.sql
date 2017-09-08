@@ -584,7 +584,7 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`invoice_line_item` (
   CONSTRAINT `fk_invoice_line_item_invoice1`
     FOREIGN KEY (`invoice_id`)
     REFERENCES `jobowit_db`.`invoice` (`invoice_id`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 

@@ -8,6 +8,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.core.annotation.HandleAfterCreate;
+import org.springframework.data.rest.core.annotation.HandleAfterSave;
 import org.springframework.data.rest.core.annotation.HandleBeforeCreate;
 import org.springframework.data.rest.core.annotation.HandleBeforeSave;
 import org.springframework.data.rest.core.annotation.RepositoryEventHandler;
@@ -31,10 +32,10 @@ public class InvoiceEventHandler
 
 	@Autowired
 	EntityManager em;
-	
+
 	@Autowired
 	private ResourceIdRepository ridRepo;
-	
+
 	@Autowired
 	private InvoiceLineItemRepository invoiceLiRepo;
 
@@ -58,7 +59,7 @@ public class InvoiceEventHandler
 	public void handleAfterCreate(Invoice i)
 	{
 		List<InvoiceLineItem> ils = i.getInvoiceLineItems();
-		for(InvoiceLineItem il : ils)
+		for (InvoiceLineItem il : ils)
 		{
 			il.setInvoice(i);
 			invoiceLiRepo.save(il);
@@ -69,7 +70,37 @@ public class InvoiceEventHandler
 	@HandleBeforeSave
 	public void handleBeforeSave(Invoice i)
 	{
+		List<InvoiceLineItem> ils = i.getInvoiceLineItems();
+		for (InvoiceLineItem il : ils)
+		{
+			System.out.println(il);
+			if (il.getInvoice() == null)
+			{
+				il.setInvoice(i);
+				invoiceLiRepo.save(il);
+			}
+		}
+	}
 
+	@HandleAfterSave
+	public void handleAfterSave(Invoice i)
+	{
+		List<InvoiceLineItem> ils = i.getInvoiceLineItems();
+		List<InvoiceLineItem> oldIls = invoiceLiRepo.findByInvoiceInvoiceId(i.getInvoiceId());
+		if (oldIls.size() > ils.size())
+		{
+			for (InvoiceLineItem li : oldIls)
+			{
+				boolean found = false;
+				for (InvoiceLineItem li2 : ils)
+				{
+					if (li.getInvoiceLineItemId() == li2.getInvoiceLineItemId())
+						found = true;
+				}
+				if (!found)
+					invoiceLiRepo.delete(li);
+			}
+		}
 	}
 
 }

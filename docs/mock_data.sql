@@ -1617,8 +1617,8 @@ INSERT INTO `job_email_text` (`id`,`subject`,`body`) VALUES ('Primary','Job# %jo
 INSERT INTO `company` (`id`,`name`,`address_line1`,`address_line2`,`phone1`,`phone2`,`email`,`logo`) VALUES ('Primary','Exalted Property Services','535 Prospect Rd, GEPPS CROSS SA 5094',NULL,'08 7230 5518',NULL,'accounts@exalted.com.au',NULL);
 INSERT INTO `email_setting` (`id`,`email_address`,`password`,`smtp_host`,`smtp_port`,`smtp_starttls_enable`) VALUES (1,'sikandar@bhagad.com','23865278','smtp.zoho.com',587,1);
 
-INSERT INTO `operation_staff_in_job` (`job_id`,`staff_id`,`staff_job_role_id`,`commision_percentage`) VALUES (1,1,1,0.00);
-INSERT INTO `operation_staff_in_job` (`job_id`,`staff_id`,`staff_job_role_id`,`commision_percentage`) VALUES (1,1,3,11.50);
-INSERT INTO `operation_staff_in_job` (`job_id`,`staff_id`,`staff_job_role_id`,`commision_percentage`) VALUES (1,16,3,3.00);
+INSERT INTO `operation_staff_in_job` (`job_id`,`staff_id`,`staff_job_role_id`,`comission_percentage`) VALUES (1,1,1,0.00);
+INSERT INTO `operation_staff_in_job` (`job_id`,`staff_id`,`staff_job_role_id`,`comission_percentage`) VALUES (1,1,3,11.50);
+INSERT INTO `operation_staff_in_job` (`job_id`,`staff_id`,`staff_job_role_id`,`comission_percentage`) VALUES (1,16,3,3.00);
 
 

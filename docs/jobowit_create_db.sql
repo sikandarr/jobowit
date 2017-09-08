@@ -518,7 +518,7 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`operation_staff_in_job` (
   `job_id` INT NOT NULL,
   `staff_id` INT NOT NULL,
   `staff_job_role_id` INT NOT NULL,
-  `commision_percentage` DECIMAL(10,2) NULL DEFAULT 0,
+  `comission_percentage` DECIMAL(10,2) NULL DEFAULT 0,
   PRIMARY KEY (`operation_staff_in_job_id`),
   INDEX `fk_operation_staff_in_job_job1_idx` (`job_id` ASC),
   INDEX `fk_operation_staff_in_job_staff1_idx` (`staff_id` ASC),

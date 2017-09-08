@@ -518,7 +518,7 @@ public class Job implements Serializable
 			Map<String, String> m = new LinkedHashMap<>();
 			m.put("staffName", s.getStaff().getName());
 			m.put("role", s.getStaffJobRole().getRoleName());
-			m.put("commission", s.getCommisionPercentage().toString());
+			m.put("comission", s.getComissionPercentage() == null ? "0.0" : "" + s.getComissionPercentage());
 			roles.add(m);
 		}
 		return roles;

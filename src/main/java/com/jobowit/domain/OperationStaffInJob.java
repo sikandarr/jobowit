@@ -32,8 +32,8 @@ public class OperationStaffInJob implements Serializable
 	@JoinColumn(name = "staff_id", nullable = false)
 	private Staff staff;
 	
-	@Column(name = "commision_percentage")
-	private BigDecimal commisionPercentage;
+	@Column(name = "comission_percentage")
+	private BigDecimal comissionPercentage;
 	
 	@ManyToOne
 	@JoinColumn(name = "staff_job_role_id", nullable = false)

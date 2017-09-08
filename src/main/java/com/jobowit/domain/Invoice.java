@@ -5,14 +5,12 @@ import java.sql.Date;
 
 import javax.persistence.*;
 
+import lombok.Data;
 import java.util.List;
 
-/**
- * The persistent class for the invoice database table.
- * 
- */
 @Entity
 @Table(name = "invoice")
+@Data
 public class Invoice implements Serializable
 {
 	private static final long serialVersionUID = 1L;
@@ -22,7 +20,6 @@ public class Invoice implements Serializable
 	@Column(name = "invoice_id", unique = true, nullable = false)
 	private int invoiceId;
 
-	// bi-directional many-to-one association to Job
 	@ManyToOne
 	@JoinColumn(name = "job_id", nullable = false)
 	private Job job;
@@ -37,90 +34,16 @@ public class Invoice implements Serializable
 	private Date invoiceDueDate;
 	
 	private String myobUid;
+	
+	private String invoiceNumber;
 
-	// bi-directional many-to-one association to InvoiceLineItem
 	@OneToMany(mappedBy = "invoice")
 	private List<InvoiceLineItem> invoiceLineItems;
-
-	public Invoice()
-	{
-	}
-
-	public int getInvoiceId()
-	{
-		return this.invoiceId;
-	}
-
-	public void setInvoiceId(int invoiceId)
-	{
-		this.invoiceId = invoiceId;
-	}
-
-	public Job getJob()
-	{
-		return this.job;
-	}
-
-	public void setJob(Job job)
-	{
-		this.job = job;
-	}
-
-	public String getDescription()
-	{
-		return description;
-	}
-
-	public void setDescription(String description)
-	{
-		this.description = description;
-	}
-
-	public Date getInvoiceDt()
-	{
-		return invoiceDt;
-	}
-
-	public void setInvoiceDt(Date invoiceDt)
-	{
-		this.invoiceDt = invoiceDt;
-	}
-
-	public Date getInvoiceDueDate()
-	{
-		return invoiceDueDate;
-	}
-
-	public void setInvoiceDueDate(Date invoiceDueDate)
-	{
-		this.invoiceDueDate = invoiceDueDate;
-	}
-
-	public String getMyobUid()
-	{
-		return myobUid;
-	}
-
-	public void setMyobUid(String myobUid)
-	{
-		this.myobUid = myobUid;
-	}
-
-	public List<InvoiceLineItem> getInvoiceLineItems()
-	{
-		return this.invoiceLineItems;
-	}
-
-	public void setInvoiceLineItems(List<InvoiceLineItem> invoiceLineItems)
-	{
-		this.invoiceLineItems = invoiceLineItems;
-	}
 
 	public InvoiceLineItem addInvoiceLineItem(InvoiceLineItem invoiceLineItem)
 	{
 		getInvoiceLineItems().add(invoiceLineItem);
 		invoiceLineItem.setInvoice(this);
-
 		return invoiceLineItem;
 	}
 
@@ -128,7 +51,6 @@ public class Invoice implements Serializable
 	{
 		getInvoiceLineItems().remove(invoiceLineItem);
 		invoiceLineItem.setInvoice(null);
-
 		return invoiceLineItem;
 	}
 	
@@ -137,6 +59,12 @@ public class Invoice implements Serializable
 		if (this.getInvoiceLineItems() != null || this.getInvoiceLineItems().size() !=0)
 			return this.getInvoiceLineItems().stream().mapToDouble(i -> i.getUnitPrice()).sum();
 		return 0d;
+	}
+	
+	@Override
+	public String toString()
+	{
+		return this.getDescription();
 	}
 
 }

@@ -5,12 +5,17 @@ import java.sql.Timestamp;
 
 import javax.persistence.*;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * The persistent class for the address database table.
  * 
  */
 @Entity
 @Table(name = "address")
+@Getter
+@Setter
 public class Address implements Serializable
 {
 	private static final long serialVersionUID = 1L;
@@ -32,96 +37,91 @@ public class Address implements Serializable
 	@Column(length = 45)
 	private String state;
 
-	@Column(name = "state_abr", length = 4)
-	private String stateAbr;
-
 	@Column(length = 150)
 	private String street1;
-	
-	@Column(insertable=false, updatable=false)
+
+	@Column(insertable = false, updatable = false)
 	private Timestamp createdDtm;
-	
-	@Column(insertable=false, updatable=false)
+
+	@Column(insertable = false, updatable = false)
 	private Timestamp updatedDtm;
 
-	public Address(){}
+	public Address()
+	{
+	}
 
 	public Address(String address)
 	{
 		String[] addr = address.split(":");
 
-		if (addr.length != 5) throw new IllegalArgumentException("invalid address string: " + address);
+		if (addr.length != 5)
+			throw new IllegalArgumentException("invalid address string: " + address);
 
 		this.street1 = addr[0];
-		this.city = addr[1];
-		this.state = addr[2];
+		this.setCity(addr[1]);
+		this.setState(addr[2]);
 		this.postCode = addr[3];
-		this.country = addr[4];
-	}
-
-	public int getAddressId()
-	{
-		return this.addressId;
-	}
-
-	public void setAddressId(int addressId)
-	{
-		this.addressId = addressId;
-	}
-
-	public String getCity()
-	{
-		return this.city;
-	}
-
-	public void setCity(String city)
-	{
-		this.city = city;
-	}
-
-	public String getCountry()
-	{
-		return this.country;
-	}
-
-	public void setCountry(String country)
-	{
-		this.country = country;
-	}
-
-	public String getPostCode()
-	{
-		return this.postCode;
-	}
-
-	public void setPostCode(String postCode)
-	{
-		this.postCode = postCode;
-	}
-
-	public String getState()
-	{
-		return this.state;
+		this.setCountry(addr[4]);
 	}
 
 	public void setState(String state)
 	{
-		this.state = state;
+		switch (state.toLowerCase())
+		{
+			case "sa":
+			case "south australia":
+				this.state = "South Australia";
+				break;
+
+			case "nsw":
+			case "new south wales":
+				this.state = "New South wales";
+				break;
+
+			case "qld":
+			case "queensland":
+				this.state = "Queensland";
+				break;
+
+			case "tas":
+			case "tasmania":
+				this.state = "Tasmania";
+				break;
+
+			case "vic":
+			case "victoria":
+				this.state = "Victoria";
+				break;
+
+			case "wa":
+			case "western australia":
+				this.state = "Western Australia";
+				break;
+
+			case "act":
+			case "australian capital territory":
+				this.state = "Australian Capital Territory";
+				break;
+
+			case "nt":
+			case "northern territory":
+				this.state = "Northern Territory";
+				break;
+
+			default:
+				this.state = state.substring(0, 1).toUpperCase() + state.substring(1).toLowerCase();
+				break;
+		}
 	}
 
-	public String getStreet1()
+	public void setCity(String city)
 	{
-		return this.street1;
+		this.city = city.substring(0, 1).toUpperCase() + city.substring(1).toLowerCase();
 	}
 
-	public void setStreet1(String street1)
+	public void setCountry(String country)
 	{
-		this.street1 = street1;
-	}
-
-	public Timestamp getCreatedDtm()
-	{
-		return createdDtm;
+		this.country = country.substring(0, 1).toUpperCase() + country.substring(1).toLowerCase();
 	}
 
 	public Timestamp getUpdatedDtm()
@@ -129,10 +129,43 @@ public class Address implements Serializable
 		return updatedDtm == null ? createdDtm : updatedDtm;
 	}
 
+	public String getStateAbbr()
+	{
+		switch (state.toLowerCase())
+		{
+			case "south australia":
+				return "SA";
+
+			case "new south wales":
+				return "NSW";
+
+			case "queensland":
+				return "QLD";
+
+			case "tasmania":
+				return "TAS";
+
+			case "victoria":
+				return "VIC";
+
+			case "western australia":
+				return "WA";
+
+			case "australian capital territory":
+				return "ACT";
+
+			case "northern territory":
+				return "NT";
+
+			default:
+				return state;
+		}
+	}
+
 	@Override
 	public String toString()
 	{
-		return street1 + " " + city + " " + state + " " + postCode;
+		return street1 + " " + city + " " + getStateAbbr() + " " + postCode;
 	}
 
 }

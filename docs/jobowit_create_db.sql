@@ -872,6 +872,20 @@ END$$
 
 
 USE `jobowit_db`$$
+DROP TRIGGER IF EXISTS `jobowit_db`.`invoice_BEFORE_INSERT` $$
+USE `jobowit_db`$$
+CREATE DEFINER = CURRENT_USER TRIGGER `jobowit_db`.`invoice_BEFORE_INSERT` BEFORE INSERT ON `invoice` FOR EACH ROW
+BEGIN
+if ( isnull(new.invoice_dt) ) then
+ set new.invoice_dt=curdate();
+end if;
+if ( isnull(new.invoice_due_dt) ) then
+ set new.invoice_due_dt=curdate();
+end if;
+END$$
+
+
+USE `jobowit_db`$$
 DROP TRIGGER IF EXISTS `jobowit_db`.`uploaded_file_BEFORE_INSERT` $$
 USE `jobowit_db`$$
 CREATE DEFINER = CURRENT_USER TRIGGER `jobowit_db`.`uploaded_file_BEFORE_INSERT` BEFORE INSERT ON `uploaded_file` FOR EACH ROW

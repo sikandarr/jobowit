@@ -16,7 +16,7 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 import org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore;
 
 @Configuration
-@EnableAuthorizationServer
+//@EnableAuthorizationServer
 public class OAuth2Config extends AuthorizationServerConfigurerAdapter
 {
 

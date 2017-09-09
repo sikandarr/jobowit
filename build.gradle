@@ -1,11 +1,15 @@
-buildscript {
-	ext {
+buildscript 
+{
+	ext 
+	{
 		springBootVersion = '1.5.3.RELEASE'
 	}
-	repositories {
+	repositories 
+	{
 		mavenCentral()
 	}
-	dependencies {
+	dependencies 
+	{
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
 	}
 }
@@ -18,15 +22,17 @@ apply plugin: 'org.springframework.boot'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
-repositories {
+	repositories 
+	{
 	mavenCentral()
-	maven {
-        url "http://jaspersoft.artifactoryonline.com/jaspersoft/third-party-ce-artifacts/"
-    }
+	maven 
+	{
+		url "http://jaspersoft.artifactoryonline.com/jaspersoft/third-party-ce-artifacts/"
+	}
 }
 
-
-dependencies {
+dependencies 
+{
 	compile('org.springframework.boot:spring-boot-starter-security')
 	compile('org.springframework.security.oauth:spring-security-oauth2')
 	compile('org.springframework.session:spring-session')
@@ -41,20 +47,22 @@ dependencies {
 	compile('org.projectlombok:lombok:1.16.18')
 	compile('net.sf.jasperreports:jasperreports:6.4.0')
 	compile('com.lowagie:itext:2.1.7')
-	runtime('mysql:mysql-connector-java')
 	
+	runtime('mysql:mysql-connector-java')
 	testCompile("junit:junit")
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
-repositories {
-	maven {
-        url "http://artifactory.anahata-it.com.au/artifactory/anahata-public/"
-    }
+repositories 
+{
+	maven 
+	{
+		url "http://artifactory.anahata-it.com.au/artifactory/anahata-public/"
+	}
 }
 
-
-dependencies {
+dependencies 
+{
 	compile('com.anahata:myob-api:1.5.8-SNAPSHOT')
 	compile('com.anahata:anahata-util:1.5.10-SNAPSHOT')
-	}
+}

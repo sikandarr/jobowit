@@ -24,14 +24,16 @@
 
 ----
 {
+	"customer" : "/parties/0d5f5918-69dc-11e7-931d-001a7dda7113",
+	"contactName" : "Philip",
+	"phone": null,
+	"mobile": null,
+  	"email" : "sikandar.b@mail.com",
 	"description" : "Paint and additonal repair works", 
 	"referral" : "Phone", 
 	"priority" : "Normal", 
 	"address" : "245 Grange Road:Hillford:South Australia:5011:Australia",
-  	"contactName" : "Philip",
-  	"email" : "sikandar.b@mail.com",
-	"initialType" : "/jobTypes/Quote%20Request", 
-	"customer" : "/parties/0d5f5918-69dc-11e7-931d-001a7dda7113"
+	"initialType" : "/jobTypes/Quote%20Request",
 }
 
 ----
@@ -60,4 +62,11 @@ staff POST
 		"enabled": true,
 		"accessRole": "/accessRoles/ADMIN"
 	}
+}
+
+{
+	"comissionPercentage": 3,
+	"staff":"/staffs/271a0536-6b1b-11e7-931d-001a7dda7113"
+	"staffJobRole":"/api/staffJobRoles/3"
+	"job": "/api/jobs/a9ba4364-6577-44dc-9266-1fa5484944cf"
 }

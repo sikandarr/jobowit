@@ -11,7 +11,7 @@ import com.anahata.myob.api.auth.OAuthAccessToken;
 import com.anahata.myob.api.domain.CompanyFile;
 import com.jobowit.domain.MyobToken;
 import com.jobowit.exception.MyobAccessException;
-import com.jobowit.myob.service.CompanyFileService;
+import com.jobowit.myob.domainservice.CompanyFileService;
 import com.jobowit.repositories.MyobTokenRepository;
 
 public class MyobEndPointProviderServiceImpl implements MyobEndPointProvider

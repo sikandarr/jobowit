@@ -992,109 +992,106 @@ INSERT INTO `access_control` (`role_name`, `table_name`, `can_read`, `can_delete
 -- -----------------------------------------------------
 -- invoice mock data
 -- -----------------------------------------------------
-
-INSERT INTO `invoice` (`invoice_id`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) 
-VALUES 
-(1,13,"16701219-4168","2017-06-08","2016-12-23"),
-(2,31,"16521129-3641","2018-06-23","2018-05-18"),
-(3,12,"16600801-3531","2016-09-15","2017-09-15"),
-(4,5,"16280402-5449","2017-05-04","2016-11-19"),
-(5,31,"16411207-7112","2017-03-10","2017-08-17"),
-(6,4,"16990617-4090","2017-03-11","2017-06-23"),
-(7,9,"16410318-1253","2016-08-10","2018-04-17"),
-(8,36,"16520730-8031","2016-12-17","2016-12-27"),
-(9,20,"16350519-5887","2018-04-11","2017-03-21"),
-(10,2,"16130507-2850","2016-08-08","2018-03-08"),
-(11,16,"16001211-6406","2017-07-30","2018-07-01"),
-(12,10,"16531102-3351","2018-01-27","2016-09-13"),
-(13,17,"16941228-7527","2016-11-23","2016-08-19"),
-(14,32,"16440920-3496","2016-09-04","2018-05-25"),
-(15,24,"16080611-1563","2017-08-11","2017-08-07"),
-(16,40,"16970212-4091","2016-10-25","2016-09-15"),
-(17,19,"16351130-2790","2017-07-19","2016-08-06"),
-(18,29,"16840729-7673","2017-02-06","2017-10-10"),
-(19,22,"16920906-6902","2017-11-24","2018-03-29"),
-(20,28,"16061228-8837","2018-04-20","2017-07-10"),
-(21,25,"16490724-7581","2017-11-01","2018-02-27"),
-(22,7,"16770108-6279","2017-09-22","2018-04-04"),
-(23,30,"16040616-9201","2017-01-07","2016-10-27"),
-(24,20,"16760426-2035","2018-06-29","2016-09-02"),
-(25,11,"16860329-0233","2016-10-13","2018-05-16"),
-(26,21,"16370702-3861","2016-08-12","2018-05-16"),
-(27,5,"16151108-3345","2018-04-30","2018-04-25"),
-(28,12,"16631016-4147","2018-01-03","2018-04-26"),
-(29,25,"16920830-7935","2016-09-06","2017-03-10"),
-(30,7,"16800309-2551","2018-03-21","2018-01-23"),
-(31,29,"16510404-7302","2017-01-19","2017-09-19"),
-(32,12,"16720204-4041","2018-03-03","2016-09-05"),
-(33,1,"16100317-3794","2018-05-29","2017-06-24"),
-(34,4,"16461112-1320","2017-04-21","2016-08-02"),
-(35,6,"16530301-2404","2018-03-11","2016-10-05"),
-(36,27,"16160713-1891","2017-01-26","2017-04-04"),
-(37,36,"16860521-0031","2017-03-04","2018-04-14"),
-(38,8,"16420227-3472","2017-04-04","2018-03-20"),
-(39,6,"16980823-9975","2017-01-14","2018-05-14"),
-(40,17,"16710109-4261","2017-12-02","2018-05-20"),
-(41,37,"16390330-0840","2016-07-19","2016-07-26"),
-(42,22,"16490113-7721","2017-07-08","2017-08-21"),
-(43,2,"16340912-1609","2016-09-16","2017-08-31"),
-(44,18,"16940324-9783","2016-09-16","2017-05-18"),
-(45,17,"16570518-9404","2017-10-28","2016-12-09"),
-(46,22,"16060506-7321","2016-09-06","2017-06-12"),
-(47,15,"16871211-1213","2017-07-09","2016-07-19"),
-(48,6,"16870416-1143","2017-10-30","2016-11-26"),
-(49,19,"16591109-6559","2016-07-12","2017-05-12"),
-(50,20,"16760306-8359","2017-02-10","2018-03-29"),
-(51,4,"16980928-3394","2017-02-20","2016-12-27"),
-(52,13,"16311124-4848","2016-11-28","2017-01-11"),
-(53,29,"16171122-8609","2018-05-08","2017-01-13"),
-(54,37,"16720701-6226","2016-11-08","2018-06-20"),
-(55,24,"16190417-4263","2017-03-03","2017-12-15"),
-(56,24,"16450126-2473","2017-06-01","2018-02-12"),
-(57,24,"16150117-3254","2017-04-17","2017-01-04"),
-(58,38,"16650221-5806","2017-09-30","2016-08-20"),
-(59,20,"16090105-7554","2018-06-21","2017-04-25"),
-(60,38,"16120105-1164","2017-09-03","2017-02-13"),
-(61,8,"16040506-0658","2017-10-30","2018-04-23"),
-(62,5,"16310505-3684","2018-02-23","2016-09-22"),
-(63,21,"16691219-8063","2017-07-22","2017-03-11"),
-(64,5,"16240606-7757","2017-02-01","2018-02-13"),
-(65,2,"16891120-1435","2016-11-29","2018-02-13"),
-(66,3,"16341014-5761","2016-12-17","2018-06-03"),
-(67,28,"16620218-9947","2016-07-31","2017-08-19"),
-(68,3,"16841220-2023","2016-10-27","2017-09-22"),
-(69,21,"16860314-9330","2016-08-30","2016-08-17"),
-(70,3,"16470330-3414","2016-12-26","2018-05-29"),
-(71,27,"16491129-3787","2016-10-29","2018-06-20"),
-(72,20,"16470303-9083","2017-09-14","2017-04-27"),
-(73,34,"16280511-8268","2017-10-19","2016-10-01"),
-(74,12,"16201030-4208","2017-06-21","2018-02-19"),
-(75,22,"16710503-5294","2017-04-26","2017-07-13"),
-(76,10,"16020230-0083","2017-05-08","2017-01-27"),
-(77,6,"16640915-3811","2016-12-26","2016-08-09"),
-(78,17,"16560417-7229","2018-04-23","2017-01-14"),
-(79,14,"16310925-1219","2018-02-07","2017-02-17"),
-(80,28,"16140213-0825","2017-05-29","2016-08-16"),
-(81,28,"16960414-0310","2016-10-20","2018-05-28"),
-(82,40,"16800808-1492","2017-10-19","2018-05-02"),
-(83,12,"16320714-6477","2016-08-04","2017-08-14"),
-(84,8,"16680110-3893","2016-12-05","2018-05-06"),
-(85,10,"16640701-9436","2018-02-24","2016-07-10"),
-(86,23,"16310312-4115","2018-01-10","2018-05-31"),
-(87,39,"16961205-9510","2018-04-03","2018-02-24"),
-(88,8,"16020209-5824","2018-03-30","2017-07-23"),
-(89,30,"16910228-7027","2017-09-10","2017-09-09"),
-(90,30,"16290817-2451","2017-08-10","2016-10-30"),
-(91,4,"16380515-1895","2016-09-06","2018-01-28"),
-(92,30,"16770818-6833","2017-10-13","2017-10-29"),
-(93,40,"16600709-9473","2017-04-05","2017-04-22"),
-(94,39,"16720629-1366","2016-11-05","2016-10-15"),
-(95,21,"16890612-8387","2016-10-23","2017-07-24"),
-(96,25,"16900824-0559","2016-12-25","2018-03-29"),
-(97,30,"16571210-5054","2018-02-06","2017-02-26"),
-(98,38,"16541106-3844","2016-11-15","2016-11-29"),
-(99,22,"16590706-1609","2017-04-29","2017-06-04"),
-(100,6,"16620104-9373","2018-01-28","2017-01-02");
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('UAF9C7',13,'16701219-4168','2017-06-08','2016-12-23');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('EF43I7',31,'16521129-3641','2018-06-23','2018-05-18');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('H8APK8',12,'16600801-3531','2016-09-15','2017-09-15');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('6W59CE',5,'16280402-5449','2017-05-04','2016-11-19');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('IRU635',31,'16411207-7112','2017-03-10','2017-08-17');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('16R2GG',4,'16990617-4090','2017-03-11','2017-06-23');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('LM8U2P',9,'16410318-1253','2016-08-10','2018-04-17');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('WIYZ1Y',36,'16520730-8031','2016-12-17','2016-12-27');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('PS4D3L',20,'16350519-5887','2018-04-11','2017-03-21');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('VBOWDW',2,'16130507-2850','2016-08-08','2018-03-08');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('7A3EON',16,'16001211-6406','2017-07-30','2018-07-01');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('EFECBE',10,'16531102-3351','2018-01-27','2016-09-13');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('EAPHKX',17,'16941228-7527','2016-11-23','2016-08-19');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('S7CF08',32,'16440920-3496','2016-09-04','2018-05-25');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('Q4LMCA',24,'16080611-1563','2017-08-11','2017-08-07');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('A0YUQK',40,'16970212-4091','2016-10-25','2016-09-15');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('7R1EPT',19,'16351130-2790','2017-07-19','2016-08-06');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('8OAHFA',29,'16840729-7673','2017-02-06','2017-10-10');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('K4C70S',22,'16920906-6902','2017-11-24','2018-03-29');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('2KTIVX',28,'16061228-8837','2018-04-20','2017-07-10');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('OJ31F8',25,'16490724-7581','2017-11-01','2018-02-27');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('6WYMI5',7,'16770108-6279','2017-09-22','2018-04-04');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('WZK0AW',30,'16040616-9201','2017-01-07','2016-10-27');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('06W61W',20,'16760426-2035','2018-06-29','2016-09-02');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('9ZSTEQ',11,'16860329-0233','2016-10-13','2018-05-16');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('DEBKXR',21,'16370702-3861','2016-08-12','2018-05-16');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('107GII',5,'16151108-3345','2018-04-30','2018-04-25');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('0U2JT3',12,'16631016-4147','2018-01-03','2018-04-26');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('15QDJV',25,'16920830-7935','2016-09-06','2017-03-10');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('3AG8DV',7,'16800309-2551','2018-03-21','2018-01-23');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('CZ21BM',29,'16510404-7302','2017-01-19','2017-09-19');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('IZXHID',12,'16720204-4041','2018-03-03','2016-09-05');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('K2HBMS',1,'16100317-3794','2018-05-29','2017-06-24');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('7CM5OQ',4,'16461112-1320','2017-04-21','2016-08-02');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('CJMTL4',6,'16530301-2404','2018-03-11','2016-10-05');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('4OBMXB',27,'16160713-1891','2017-01-26','2017-04-04');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('LQPPX4',36,'16860521-0031','2017-03-04','2018-04-14');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('MOLOVG',8,'16420227-3472','2017-04-04','2018-03-20');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('C6VANT',6,'16980823-9975','2017-01-14','2018-05-14');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('SWJEQI',17,'16710109-4261','2017-12-02','2018-05-20');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('ZY35R2',37,'16390330-0840','2016-07-19','2016-07-26');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('L0TKLL',22,'16490113-7721','2017-07-08','2017-08-21');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('X9UDSL',2,'16340912-1609','2016-09-16','2017-08-31');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('VAR782',18,'16940324-9783','2016-09-16','2017-05-18');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('KO8USH',17,'16570518-9404','2017-10-28','2016-12-09');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('9GYOC0',22,'16060506-7321','2016-09-06','2017-06-12');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('LC2TCG',15,'16871211-1213','2017-07-09','2016-07-19');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('69I1S4',6,'16870416-1143','2017-10-30','2016-11-26');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('3B9SX4',19,'16591109-6559','2016-07-12','2017-05-12');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('XRUVB5',20,'16760306-8359','2017-02-10','2018-03-29');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('EXGXU6',4,'16980928-3394','2017-02-20','2016-12-27');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('9BS3BA',13,'16311124-4848','2016-11-28','2017-01-11');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('1UHN3T',29,'16171122-8609','2018-05-08','2017-01-13');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('H93XN2',37,'16720701-6226','2016-11-08','2018-06-20');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('8Q2QXQ',24,'16190417-4263','2017-03-03','2017-12-15');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('RV1XTA',24,'16450126-2473','2017-06-01','2018-02-12');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('551GB6',24,'16150117-3254','2017-04-17','2017-01-04');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('E41G5S',38,'16650221-5806','2017-09-30','2016-08-20');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('J52VXD',20,'16090105-7554','2018-06-21','2017-04-25');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('HDA37B',38,'16120105-1164','2017-09-03','2017-02-13');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('TF5SAA',8,'16040506-0658','2017-10-30','2018-04-23');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('MZYNVF',5,'16310505-3684','2018-02-23','2016-09-22');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('QQBYK5',21,'16691219-8063','2017-07-22','2017-03-11');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('SNRT8C',5,'16240606-7757','2017-02-01','2018-02-13');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('R3V6J3',2,'16891120-1435','2016-11-29','2018-02-13');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('DK0H0B',3,'16341014-5761','2016-12-17','2018-06-03');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('MGGTI5',28,'16620218-9947','2016-07-31','2017-08-19');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('ZMAOJN',3,'16841220-2023','2016-10-27','2017-09-22');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('2Q2Y9P',21,'16860314-9330','2016-08-30','2016-08-17');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('ERIPRD',3,'16470330-3414','2016-12-26','2018-05-29');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('TNCQ1L',27,'16491129-3787','2016-10-29','2018-06-20');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('VY7GZS',20,'16470303-9083','2017-09-14','2017-04-27');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('YSZ6VY',34,'16280511-8268','2017-10-19','2016-10-01');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('669JIB',12,'16201030-4208','2017-06-21','2018-02-19');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('YGE4XI',22,'16710503-5294','2017-04-26','2017-07-13');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('9R626J',10,'16020230-0083','2017-05-08','2017-01-27');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('HENW61',6,'16640915-3811','2016-12-26','2016-08-09');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('LRTACD',17,'16560417-7229','2018-04-23','2017-01-14');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('KN2R9M',14,'16310925-1219','2018-02-07','2017-02-17');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('1VXXCW',28,'16140213-0825','2017-05-29','2016-08-16');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('JIHD1I',28,'16960414-0310','2016-10-20','2018-05-28');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('JWL16Q',40,'16800808-1492','2017-10-19','2018-05-02');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('4ZH2UW',12,'16320714-6477','2016-08-04','2017-08-14');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('17MAS9',8,'16680110-3893','2016-12-05','2018-05-06');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('R3O9ED',10,'16640701-9436','2018-02-24','2016-07-10');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('NVIEP0',23,'16310312-4115','2018-01-10','2018-05-31');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('22J9BT',39,'16961205-9510','2018-04-03','2018-02-24');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('AQ52LU',8,'16020209-5824','2018-03-30','2017-07-23');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('BF3L3O',30,'16910228-7027','2017-09-10','2017-09-09');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('OX2PQQ',30,'16290817-2451','2017-08-10','2016-10-30');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('IC2TGG',4,'16380515-1895','2016-09-06','2018-01-28');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('GX5Y40',30,'16770818-6833','2017-10-13','2017-10-29');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('TLLA8H',40,'16600709-9473','2017-04-05','2017-04-22');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('P8GKWA',39,'16720629-1366','2016-11-05','2016-10-15');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('1DJ1TV',21,'16890612-8387','2016-10-23','2017-07-24');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('369IIA',25,'16900824-0559','2016-12-25','2018-03-29');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('BQQF3O',30,'16571210-5054','2018-02-06','2017-02-26');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('D6VK1F',38,'16541106-3844','2016-11-15','2016-11-29');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('UQ6IXX',22,'16590706-1609','2017-04-29','2017-06-04');
+INSERT INTO `invoice` (`invoice_number`,`job_id`,`description`,`invoice_dt`,`invoice_due_dt`) VALUES ('629YN9',6,'16620104-9373','2018-01-28','2017-01-02');
 
 -- -----------------------------------------------------
 -- invoice-line-item mock data
@@ -1620,5 +1617,7 @@ INSERT INTO `email_setting` (`id`,`email_address`,`password`,`smtp_host`,`smtp_p
 INSERT INTO `operation_staff_in_job` (`job_id`,`staff_id`,`staff_job_role_id`,`comission_percentage`) VALUES (1,1,1,0.00);
 INSERT INTO `operation_staff_in_job` (`job_id`,`staff_id`,`staff_job_role_id`,`comission_percentage`) VALUES (1,1,3,11.50);
 INSERT INTO `operation_staff_in_job` (`job_id`,`staff_id`,`staff_job_role_id`,`comission_percentage`) VALUES (1,16,3,3.00);
+
+INSERT INTO `myob_credentials` (`username`,`password`) VALUES ('Administrator','');
 
 

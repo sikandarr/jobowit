@@ -1,4 +1,4 @@
-package com.jobowit.myob.service;
+package com.jobowit.myob.domainservice;
 
 import com.anahata.myob.api.MyobEndPoint;
 import com.anahata.myob.api.MyobEndPointProvider;

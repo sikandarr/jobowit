@@ -37,11 +37,14 @@ public class InvoiceEventHandler
 	private ResourceIdRepository ridRepo;
 
 	@Autowired
-	private InvoiceLineItemRepository invoiceLiRepo;
+	private InvoiceLineItemRepository invoiceLineItemRepo;
 
 	@HandleBeforeCreate
 	public void handleBeforeCreates(Invoice i)
 	{
+		if (i.getInvoiceLineItems() == null)
+			throw new IllegalArgumentException("at least one line item is required for an invoice");
+
 		String id = null;
 		for (;;)
 		{
@@ -58,11 +61,11 @@ public class InvoiceEventHandler
 	@HandleAfterCreate
 	public void handleAfterCreate(Invoice i)
 	{
-		List<InvoiceLineItem> ils = i.getInvoiceLineItems();
-		for (InvoiceLineItem il : ils)
+		List<InvoiceLineItem> lineItems = i.getInvoiceLineItems();
+		for (InvoiceLineItem lineItem : lineItems)
 		{
-			il.setInvoice(i);
-			invoiceLiRepo.save(il);
+			lineItem.setInvoice(i);
+			invoiceLineItemRepo.save(lineItem);
 		}
 		em.refresh(i);
 	}
@@ -70,14 +73,17 @@ public class InvoiceEventHandler
 	@HandleBeforeSave
 	public void handleBeforeSave(Invoice i)
 	{
-		List<InvoiceLineItem> ils = i.getInvoiceLineItems();
-		for (InvoiceLineItem il : ils)
+		List<InvoiceLineItem> lineItems = i.getInvoiceLineItems();
+		
+		if (lineItems == null)
+			throw new IllegalArgumentException("at least one line item is required for an invoice");
+		
+		for (InvoiceLineItem lineItem : lineItems)
 		{
-			System.out.println(il);
-			if (il.getInvoice() == null)
+			if (lineItem.getInvoice() == null)
 			{
-				il.setInvoice(i);
-				invoiceLiRepo.save(il);
+				lineItem.setInvoice(i);
+				invoiceLineItemRepo.save(lineItem);
 			}
 		}
 	}
@@ -85,20 +91,20 @@ public class InvoiceEventHandler
 	@HandleAfterSave
 	public void handleAfterSave(Invoice i)
 	{
-		List<InvoiceLineItem> ils = i.getInvoiceLineItems();
-		List<InvoiceLineItem> oldIls = invoiceLiRepo.findByInvoiceInvoiceId(i.getInvoiceId());
-		if (oldIls.size() > ils.size())
+		List<InvoiceLineItem> lineItems = i.getInvoiceLineItems();
+		List<InvoiceLineItem> oldLineItems = invoiceLineItemRepo.findByInvoiceInvoiceId(i.getInvoiceId());
+		if (oldLineItems.size() > lineItems.size())
 		{
-			for (InvoiceLineItem li : oldIls)
+			for (InvoiceLineItem oldLineItem : oldLineItems)
 			{
 				boolean found = false;
-				for (InvoiceLineItem li2 : ils)
+				for (InvoiceLineItem lineItem : lineItems)
 				{
-					if (li.getInvoiceLineItemId() == li2.getInvoiceLineItemId())
+					if (oldLineItem.getInvoiceLineItemId() == lineItem.getInvoiceLineItemId())
 						found = true;
 				}
 				if (!found)
-					invoiceLiRepo.delete(li);
+					invoiceLineItemRepo.delete(oldLineItem);
 			}
 		}
 	}

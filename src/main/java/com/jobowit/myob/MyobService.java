@@ -28,6 +28,10 @@ public class MyobService
 	{
 		MyobToken myobToken = myobTokenRepo.findLatest();
 		MyobCredentials myobCredentials = myobCredentialsRepo.findOne("Primary");
+		
+		if (myobCredentials == null)
+			throw new MyobAccessException("Myob data credentials not found");
+		
 		DataFileCredentials dataFileCredentials = new DataFileCredentials();
 		dataFileCredentials.setUser(myobCredentials.getUsername());
 		dataFileCredentials.setPassword(myobCredentials.getPassword());

@@ -31,8 +31,6 @@ import com.anahata.myob.api.service.generalledger.TaxCodeService;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
-import com.jobowit.myob.service.ContactService;
-import com.jobowit.myob.service.ItemService;
 import com.jobowit.repositories.MyobTokenRepository;
 import com.jobowit.domain.MyobToken;
 import com.jobowit.exception.MyobAccessException;
@@ -42,6 +40,8 @@ import com.jobowit.myob.MyobError;
 import com.jobowit.myob.MyobInvoiceService;
 import com.jobowit.myob.MyobService;
 import com.jobowit.myob.MyobSyncService;
+import com.jobowit.myob.domainservice.ContactService;
+import com.jobowit.myob.domainservice.ItemService;
 
 @RestController
 public class MyobController
@@ -155,11 +155,11 @@ public class MyobController
 		try
 		{
 			m.getMyobEndPointProvider();
-			return ResponseEntity.ok().body("Connected");
+			return ResponseEntity.ok().body("+OK Connected");
 		}
 		catch (Exception e)
 		{
-			return ResponseEntity.ok().body("Not connected");
+			return ResponseEntity.ok().body("Not connected: " + e.getMessage());
 		}
 	}
 	
@@ -167,10 +167,10 @@ public class MyobController
 	public ResponseEntity<MyobError> handleExceptions(RuntimeException e)
 	{
 		if (e instanceof MyobAccessException)
-		return ResponseEntity.status(HttpStatus.PRECONDITION_FAILED)
-				.body(new MyobError("Couldn't access Myob", "Try authorizing", MyobError.AUTH_URL));
+		return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+				.body(new MyobError(e.getMessage(), "Try authorizing", MyobError.AUTH_URL));
 		else
-			return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-					.body(new MyobError(e.getLocalizedMessage(), "none", "none"));
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+					.body(new MyobError(e.getMessage(), "none", "none"));
 	}
 }

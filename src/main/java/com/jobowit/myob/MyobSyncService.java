@@ -20,7 +20,7 @@ import com.anahata.myob.api.service.SupplierService;
 import com.jobowit.domain.MyobSyncDates;
 import com.jobowit.domain.Party;
 import com.jobowit.domain.eventhandlers.PartyEventHandler;
-import com.jobowit.myob.service.ContactService;
+import com.jobowit.myob.domainservice.ContactService;
 import com.jobowit.repositories.PartyRepository;
 import com.jobowit.repositories.MyobSyncDatesRepository;
 

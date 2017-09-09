@@ -20,8 +20,8 @@ import com.anahata.myob.api.service.generalledger.TaxCodeService;
 import com.jobowit.domain.Bill;
 import com.jobowit.domain.BillLineItem;
 import com.jobowit.domain.Party;
-import com.jobowit.myob.service.ItemBillService;
-import com.jobowit.myob.service.ItemService;
+import com.jobowit.myob.domainservice.ItemBillService;
+import com.jobowit.myob.domainservice.ItemService;
 import com.jobowit.repositories.BillRepository;
 
 @Component

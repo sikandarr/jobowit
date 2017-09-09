@@ -1,6 +1,5 @@
 package com.jobowit.myob;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,7 +63,7 @@ public class MyobInvoiceService
 		{
 			ServiceInvoiceLine line = new ServiceInvoiceLine();
 			line.setDescription(item.getDescription());
-			line.setTotal(new BigDecimal(item.getUnitPrice() * item.getQuantity()));
+			line.setTotal(item.getTotal());
 
 			String accountUid = item.getMyobAccount();
 			Account account = m.getService(AccountService.class).find(accountUid);

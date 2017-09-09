@@ -1,7 +1,11 @@
 package com.jobowit.domain;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
 import lombok.Data;
 
 /**
@@ -25,7 +29,12 @@ public class InvoiceLineItem implements Serializable
 
 	private int quantity;
 
-	private double unitPrice;
+	@NotNull
+	@Column(precision = 10, scale = 2)
+	private BigDecimal unitPrice;
+	
+	@Column(precision = 10, scale = 2, insertable=false, updatable=false)
+	private BigDecimal total;
 
 	private String myobAccount;
 

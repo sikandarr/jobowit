@@ -1,15 +1,15 @@
-package com.jobowit.myob.service;
+package com.jobowit.myob.domainservice;
 
 import java.util.List;
 
 import com.anahata.myob.api.domain.v2.EntityPage;
-import com.anahata.myob.api.domain.v2.contact.Contact;
+import com.anahata.myob.api.domain.v2.inventory.Item;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper=false)
-public class ContactPage extends EntityPage<Contact>
+public class ItemPage extends EntityPage<Item>
 {
-	public List<Contact> Items;
+	public List<Item> Items;
 }

@@ -10,8 +10,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
-import org.springframework.data.projection.ProjectionFactory;
-import org.springframework.data.projection.SpelAwareProxyProjectionFactory;
 import org.springframework.hateoas.Link;
 import org.springframework.hateoas.PagedResources;
 import org.springframework.hateoas.Resource;
@@ -20,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.handler.MappedInterceptor;
 
+import com.jobowit.configuration.AccessTokenInUrl;
 import com.jobowit.domain.Bill;
 import com.jobowit.domain.Invoice;
 import com.jobowit.domain.Party;
@@ -49,12 +48,6 @@ public class JobowitApplication
 	{
 		return new MappedInterceptor(new String[]
 			{ "/**" }, new AccessTokenInUrl());
-	}
-
-	@Bean
-	public ProjectionFactory getProjectionFactory()
-	{
-		return new SpelAwareProxyProjectionFactory();
 	}
 
 	@Bean

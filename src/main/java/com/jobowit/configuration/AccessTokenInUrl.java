@@ -1,4 +1,4 @@
-package com.jobowit;
+package com.jobowit.configuration;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

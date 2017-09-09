@@ -1,4 +1,4 @@
-package com.jobowit.myob.service;
+package com.jobowit.myob.domainservice;
 
 import com.anahata.myob.api.domain.v2.purchase.ItemBill;
 import com.anahata.myob.api.service.AbstractEntityMyobService;

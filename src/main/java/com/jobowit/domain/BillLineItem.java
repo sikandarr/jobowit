@@ -3,6 +3,8 @@ package com.jobowit.domain;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import lombok.Data;
+
 import java.math.BigDecimal;
 
 /**
@@ -11,7 +13,7 @@ import java.math.BigDecimal;
  */
 @Entity
 @Table(name = "bill_line_item")
-@NamedQuery(name = "BillLineItem.findAll", query = "SELECT b FROM BillLineItem b")
+@Data
 public class BillLineItem implements Serializable
 {
 	private static final long serialVersionUID = 1L;
@@ -32,97 +34,15 @@ public class BillLineItem implements Serializable
 	@Column(name = "unit_price", precision = 10, scale = 2)
 	private BigDecimal unitPrice;
 	
+	@Column(precision = 10, scale = 2, insertable=false, updatable=false)
+	private BigDecimal purchasePrice;
+	
 	private String myobTaxCode;
 	
 	private String myobItem;
 
-	// bi-directional many-to-one association to Bill
 	@ManyToOne
 	@JoinColumn(name = "bill_id", nullable = false)
 	private Bill bill;
-
-	public BillLineItem()
-	{
-	}
-
-	public int getLineItemId()
-	{
-		return this.lineItemId;
-	}
-
-	public void setLineItemId(int lineItemId)
-	{
-		this.lineItemId = lineItemId;
-	}
-
-	public String getDescription()
-	{
-		return this.description;
-	}
-
-	public void setDescription(String description)
-	{
-		this.description = description;
-	}
-
-	public int getQuantity()
-	{
-		return this.quantity;
-	}
-
-	public void setQuantity(int quantity)
-	{
-		this.quantity = quantity;
-	}
-
-	public BigDecimal getSellPrice()
-	{
-		return this.sellPrice;
-	}
-
-	public void setSellPrice(BigDecimal sellPrice)
-	{
-		this.sellPrice = sellPrice;
-	}
-
-	public BigDecimal getUnitPrice()
-	{
-		return this.unitPrice;
-	}
-
-	public void setUnitPrice(BigDecimal unitPrice)
-	{
-		this.unitPrice = unitPrice;
-	}
-
-	public String getMyobTaxCode()
-	{
-		return myobTaxCode;
-	}
-
-	public void setMyobTaxCode(String taxCodeUid)
-	{
-		this.myobTaxCode = taxCodeUid;
-	}
-
-	public String getMyobItem()
-	{
-		return myobItem;
-	}
-
-	public void setMyobItem(String myobItem)
-	{
-		this.myobItem = myobItem;
-	}
-
-	public Bill getBill()
-	{
-		return this.bill;
-	}
-
-	public void setBill(Bill bill)
-	{
-		this.bill = bill;
-	}
 
 }

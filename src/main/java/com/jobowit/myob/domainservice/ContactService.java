@@ -1,4 +1,4 @@
-package com.jobowit.myob.service;
+package com.jobowit.myob.domainservice;
 
 import java.util.List;
 import java.util.Objects;

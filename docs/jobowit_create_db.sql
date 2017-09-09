@@ -380,6 +380,7 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`bill_line_item` (
   `sell_price` DECIMAL(14,2) NULL,
   `myob_item` VARCHAR(36) NULL,
   `myob_tax_code` VARCHAR(36) NULL,
+  `purchase_price` DECIMAL(14,2) GENERATED ALWAYS AS (unit_price * quantity) VIRTUAL,
   PRIMARY KEY (`line_item_id`),
   INDEX `fk_bill_line_items_bill1_idx` (`bill_id` ASC),
   CONSTRAINT `fk_bill_line_items_bill1`
@@ -576,9 +577,10 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`invoice_line_item` (
   `invoice_id` INT NOT NULL,
   `description` MEDIUMTEXT NULL,
   `quantity` INT NULL,
-  `unit_price` DOUBLE(15,2) NULL,
+  `unit_price` DECIMAL(14,2) NULL,
   `myob_account` VARCHAR(36) NULL,
   `myob_tax_code` VARCHAR(36) NULL,
+  `total` DECIMAL(14,2) GENERATED ALWAYS AS (unit_price * quantity) VIRTUAL,
   PRIMARY KEY (`invoice_line_item_id`),
   INDEX `fk_invoice_line_item_invoice1_idx` (`invoice_id` ASC),
   CONSTRAINT `fk_invoice_line_item_invoice1`

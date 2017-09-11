@@ -16,49 +16,48 @@ import org.springframework.stereotype.Component;
 
 import org.apache.log4j.Logger;
 
-import com.jobowit.domain.Bill;
-import com.jobowit.domain.BillLineItem;
+import com.jobowit.domain.Quotation;
+import com.jobowit.domain.QuotationLineItem;
 import com.jobowit.helpers.ManageOneToMany;
 
 @Component
-@RepositoryEventHandler(Bill.class)
+@RepositoryEventHandler(Quotation.class)
 @Transactional
-public class BillEventHandler
+public class QuotationEventHandler
 {
-	static Logger log = Logger.getLogger(BillEventHandler.class.getName());
+	static Logger log = Logger.getLogger(QuotationEventHandler.class.getName());
 
 	@Autowired
 	EntityManager em;
 
 	@HandleBeforeCreate
-	public void handleBeforeCreates(Bill b)
+	public void handleBeforeCreates(Quotation q)
 	{
-		if (b.getBillLineItems() == null)
-			throw new IllegalArgumentException("at least one line item is required for a bill");
+		
 	}
 
 	@HandleAfterCreate
-	public void handleAfterCreate(Bill b)
+	public void handleAfterCreate(Quotation q)
 	{
-		ManageOneToMany.addChildren(b, b.getBillLineItems());
-		em.refresh(b);
+		ManageOneToMany.addChildren(q, q.getLineItems());
+		em.refresh(q);
 	}
 
 	@HandleBeforeSave
-	public void handleBeforeSave(Bill b)
+	public void handleBeforeSave(Quotation q)
 	{
-		List<BillLineItem> lineItems = b.getBillLineItems();
-		
+		List<QuotationLineItem> lineItems = q.getLineItems();
+
 		if (lineItems == null)
-			throw new IllegalArgumentException("at least one line item is required for a bill");
-		
-		ManageOneToMany.addChildren(b, lineItems);
+			throw new IllegalArgumentException("at least one line item is required for an invoice");
+
+		ManageOneToMany.addChildren(q, lineItems);
 	}
 
 	@HandleAfterSave
-	public void handleAfterSave(Bill b)
+	public void handleAfterSave(Quotation q)
 	{
-		ManageOneToMany.syncChildren(b, b.getBillLineItems());
+		ManageOneToMany.syncChildren(q, q.getLineItems());
 	}
 
 }

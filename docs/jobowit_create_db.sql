@@ -298,9 +298,11 @@ DROP TABLE IF EXISTS `jobowit_db`.`quotation_line_item` ;
 
 CREATE TABLE IF NOT EXISTS `jobowit_db`.`quotation_line_item` (
   `line_item_id` INT NOT NULL AUTO_INCREMENT,
-  `details` MEDIUMTEXT NULL,
-  `unit_price` DECIMAL(15,2) NULL,
   `quotation_id` INT NOT NULL,
+  `details` MEDIUMTEXT NULL,
+  `quantity` INT NOT NULL DEFAULT 1,
+  `unit_price` DECIMAL(15,2) NULL,
+  `amount` DECIMAL(15,2) GENERATED ALWAYS AS (unit_price * quantity) VIRTUAL,
   PRIMARY KEY (`line_item_id`),
   INDEX `fk_line_item_quotation1_idx` (`quotation_id` ASC),
   CONSTRAINT `fk_line_item_quotation1`

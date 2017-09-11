@@ -36,6 +36,7 @@ public class Invoice implements Serializable
 	
 	private String myobUid;
 	
+	@Column(updatable=false)
 	private String invoiceNumber;
 
 	@OneToMany(mappedBy = "invoice")
@@ -46,12 +47,6 @@ public class Invoice implements Serializable
 		if (this.getInvoiceLineItems() != null || this.getInvoiceLineItems().size() !=0)
 			return this.getInvoiceLineItems().stream().map(i -> i.getTotal()).reduce(BigDecimal.ZERO, BigDecimal::add);
 		return BigDecimal.ZERO;
-	}
-	
-	@Override
-	public String toString()
-	{
-		return "" + this.getInvoiceId();
 	}
 
 }

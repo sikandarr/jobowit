@@ -19,7 +19,7 @@ import org.apache.log4j.Logger;
 import com.jobowit.domain.Invoice;
 import com.jobowit.domain.InvoiceLineItem;
 import com.jobowit.domain.ResourceId;
-import com.jobowit.repositories.InvoiceLineItemRepository;
+import com.jobowit.helpers.ManageOneToMany;
 import com.jobowit.repositories.ResourceIdRepository;
 import com.jobowit.utils.RandomString;
 
@@ -35,9 +35,6 @@ public class InvoiceEventHandler
 
 	@Autowired
 	private ResourceIdRepository ridRepo;
-
-	@Autowired
-	private InvoiceLineItemRepository invoiceLineItemRepo;
 
 	@HandleBeforeCreate
 	public void handleBeforeCreates(Invoice i)
@@ -61,12 +58,7 @@ public class InvoiceEventHandler
 	@HandleAfterCreate
 	public void handleAfterCreate(Invoice i)
 	{
-		List<InvoiceLineItem> lineItems = i.getInvoiceLineItems();
-		for (InvoiceLineItem lineItem : lineItems)
-		{
-			lineItem.setInvoice(i);
-			invoiceLineItemRepo.save(lineItem);
-		}
+		ManageOneToMany.addChildren(i, i.getInvoiceLineItems());
 		em.refresh(i);
 	}
 
@@ -74,39 +66,17 @@ public class InvoiceEventHandler
 	public void handleBeforeSave(Invoice i)
 	{
 		List<InvoiceLineItem> lineItems = i.getInvoiceLineItems();
-		
+
 		if (lineItems == null)
 			throw new IllegalArgumentException("at least one line item is required for an invoice");
-		
-		for (InvoiceLineItem lineItem : lineItems)
-		{
-			if (lineItem.getInvoice() == null)
-			{
-				lineItem.setInvoice(i);
-				invoiceLineItemRepo.save(lineItem);
-			}
-		}
+
+		ManageOneToMany.addChildren(i, lineItems);
 	}
 
 	@HandleAfterSave
 	public void handleAfterSave(Invoice i)
 	{
-		List<InvoiceLineItem> lineItems = i.getInvoiceLineItems();
-		List<InvoiceLineItem> oldLineItems = invoiceLineItemRepo.findByInvoiceInvoiceId(i.getInvoiceId());
-		if (oldLineItems.size() > lineItems.size())
-		{
-			for (InvoiceLineItem oldLineItem : oldLineItems)
-			{
-				boolean found = false;
-				for (InvoiceLineItem lineItem : lineItems)
-				{
-					if (oldLineItem.getInvoiceLineItemId() == lineItem.getInvoiceLineItemId())
-						found = true;
-				}
-				if (!found)
-					invoiceLineItemRepo.delete(oldLineItem);
-			}
-		}
+		ManageOneToMany.syncChildren(i, i.getInvoiceLineItems());
 	}
 
 }

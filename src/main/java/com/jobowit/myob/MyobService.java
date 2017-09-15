@@ -5,6 +5,8 @@ import org.springframework.stereotype.Component;
 
 import com.anahata.myob.api.MyobEndPointProvider;
 import com.anahata.myob.api.auth.DataFileCredentials;
+import com.anahata.myob.api.domain.v2.BaseEntity;
+import com.anahata.myob.api.domain.v2.EntityPage;
 import com.anahata.myob.api.service.AbstractEntityMyobService;
 import com.jobowit.domain.MyobCredentials;
 import com.jobowit.domain.MyobToken;
@@ -18,7 +20,7 @@ public class MyobService
 {
 	@Autowired
 	MyobTokenRepository myobTokenRepo;
-	
+
 	@Autowired
 	MyobCredentialsRepository myobCredentialsRepo;
 
@@ -28,10 +30,10 @@ public class MyobService
 	{
 		MyobToken myobToken = myobTokenRepo.findLatest();
 		MyobCredentials myobCredentials = myobCredentialsRepo.findOne("Primary");
-		
+
 		if (myobCredentials == null)
 			throw new MyobAccessException("Myob data credentials not found");
-		
+
 		DataFileCredentials dataFileCredentials = new DataFileCredentials();
 		dataFileCredentials.setUser(myobCredentials.getUsername());
 		dataFileCredentials.setPassword(myobCredentials.getPassword());
@@ -43,7 +45,8 @@ public class MyobService
 		return meps;
 	}
 
-	public <T extends AbstractEntityMyobService<?, ?>> T getService(Class<T> myobDomainServiceClass)
+	public <T extends AbstractEntityMyobService<? extends EntityPage<? extends BaseEntity>, ? extends BaseEntity>> T getService(
+			Class<T> myobDomainServiceClass)
 	{
 		T myobDomainService = null;
 		try

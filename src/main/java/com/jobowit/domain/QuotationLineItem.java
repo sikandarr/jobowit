@@ -26,12 +26,14 @@ public class QuotationLineItem implements Serializable
 
 	@Column(name = "unit_price", precision = 10, scale = 2)
 	private BigDecimal unitPrice;
-	
-	@Column(precision = 10, scale = 2, insertable=false, updatable=false)
-	private BigDecimal amount;
 
 	@ManyToOne
 	@JoinColumn(name = "quotation_id", nullable = false)
 	private Quotation quotation;
+	
+	public BigDecimal getAmount()
+	{
+		return unitPrice.multiply(new BigDecimal(quantity));
+	}
 
 }

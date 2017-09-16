@@ -6,13 +6,16 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.core.annotation.HandleAfterCreate;
+import org.springframework.data.rest.core.annotation.HandleAfterSave;
 import org.springframework.data.rest.core.annotation.HandleBeforeCreate;
 import org.springframework.data.rest.core.annotation.HandleBeforeSave;
 import org.springframework.data.rest.core.annotation.RepositoryEventHandler;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
 import org.apache.log4j.Logger;
 
+import com.jobowit.domain.Comment;
 import com.jobowit.domain.Job;
 import com.jobowit.domain.JobEmailText;
 import com.jobowit.domain.JobStatus;
@@ -20,7 +23,10 @@ import com.jobowit.domain.JobStatusEntry;
 import com.jobowit.domain.JobType;
 import com.jobowit.domain.ResourceId;
 import com.jobowit.domain.Staff;
+import com.jobowit.helpers.EditedFields;
+import com.jobowit.repositories.CommentRepository;
 import com.jobowit.repositories.JobEmailTextRepository;
+import com.jobowit.repositories.JobRepository;
 import com.jobowit.repositories.JobStatusEntryRepository;
 import com.jobowit.repositories.JobStatusRepository;
 import com.jobowit.repositories.ResourceIdRepository;
@@ -35,7 +41,8 @@ import com.jobowit.utils.Parser;
 public class JobEventHandler
 {
 	static Logger log = Logger.getLogger(JobEventHandler.class.getName());
-	
+	String editedFields;
+
 	@Autowired
 	private JobStatusRepository statusRepo;
 
@@ -44,12 +51,18 @@ public class JobEventHandler
 
 	@Autowired
 	private ResourceIdRepository ridRepo;
-	
+
 	@Autowired
 	private JobEmailTextRepository jetRepo;
 
 	@Autowired
 	StaffRepository staffRepo;
+
+	@Autowired
+	JobRepository jobRepo;
+
+	@Autowired
+	CommentRepository commentRepo;
 
 	@Autowired
 	EntityManager em;
@@ -113,6 +126,24 @@ public class JobEventHandler
 	@HandleBeforeSave
 	public void handleBeforeSave(Job job)
 	{
+		em.detach(job);
+		Job oldJob = jobRepo.findOne(job.getJobId());
+		editedFields = EditedFields.determine(oldJob, job);
+	}
+
+	@HandleAfterSave
+	public void handleAfterSave(Job job)
+	{
+		if (editedFields != null && !editedFields.isEmpty())
+		{
+			Comment c = new Comment();
+			c.setComment(editedFields);
+			c.setJob(job);
+			c.setStaffUser(
+					staffRepo.findByUserUsername(SecurityContextHolder.getContext().getAuthentication().getName()));
+			// c.setStaffUser(staffRepo.findOne(1));
+			commentRepo.save(c);
+		}
 
 	}
 

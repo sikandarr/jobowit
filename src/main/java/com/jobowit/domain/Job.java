@@ -85,54 +85,43 @@ public class Job implements Serializable
 	@Column
 	private String email;
 
-	// one-to-one association to Address
 	@OneToOne(optional = false, cascade = CascadeType.ALL)
 	@JoinColumn(name = "address_id")
 	private Address address;
 
-	// bi-directional many-to-one association to Bill
 	@OneToMany(mappedBy = "job")
 	private List<Bill> bills;
 
-	// bi-directional many-to-one association to Comment
 	@OneToMany(mappedBy = "job")
 	private List<Comment> comments;
 
-	// bi-directional many-to-one association to FieldWork
 	@OneToMany(mappedBy = "job")
 	private List<FieldWork> fieldWorks;
 
-	// bi-directional many-to-one association to Invoice
 	@OneToMany(mappedBy = "job")
 	private List<Invoice> invoices;
 
 	@OneToMany(mappedBy = "job")
 	private List<JobStatusEntry> statusEntries;
 
-	// bi-directional many-to-one association to JobType
 	@ManyToOne
 	@JoinColumn(name = "initial_type")
 	private JobType initialType;
 
-	// bi-directional many-to-one association to JobType
 	@ManyToOne
 	@JoinColumn(name = "current_type")
 	private JobType currentType;
 
-	// bi-directional many-to-one association to Party
 	@ManyToOne
 	@JoinColumn(name = "customer_id", nullable = false)
 	private Party customer;
 
-	// bi-directional many-to-one association to JobSchedule
 	@OneToMany(mappedBy = "job")
 	private List<JobSchedule> jobSchedules;
 
-	// bi-directional many-to-one association to OperationStaffInJob
 	@OneToMany(mappedBy = "job")
 	private List<OperationStaffInJob> operationStaffInJobs;
 
-	// bi-directional many-to-one association to Quotation
 	@OneToMany(mappedBy = "job")
 	private List<Quotation> quotations;
 

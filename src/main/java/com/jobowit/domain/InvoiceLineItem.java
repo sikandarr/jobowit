@@ -32,9 +32,6 @@ public class InvoiceLineItem implements Serializable
 	@NotNull
 	@Column(precision = 10, scale = 2)
 	private BigDecimal unitPrice;
-	
-	@Column(precision = 10, scale = 2, insertable=false, updatable=false)
-	private BigDecimal total;
 
 	private String myobAccount;
 
@@ -43,4 +40,9 @@ public class InvoiceLineItem implements Serializable
 	@ManyToOne
 	@JoinColumn(name = "invoice_id", nullable = false)
 	private Invoice invoice;
+	
+	public BigDecimal getTotal()
+	{
+		return unitPrice.multiply(new BigDecimal(quantity));
+	}
 }

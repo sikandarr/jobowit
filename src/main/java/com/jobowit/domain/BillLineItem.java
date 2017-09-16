@@ -34,9 +34,6 @@ public class BillLineItem implements Serializable
 	@Column(name = "unit_price", precision = 10, scale = 2)
 	private BigDecimal unitPrice;
 	
-	@Column(precision = 10, scale = 2, insertable=false, updatable=false)
-	private BigDecimal purchasePrice;
-	
 	private String myobTaxCode;
 	
 	private String myobItem;
@@ -44,5 +41,10 @@ public class BillLineItem implements Serializable
 	@ManyToOne
 	@JoinColumn(name = "bill_id", nullable = false)
 	private Bill bill;
+	
+	public BigDecimal getPurchasePrice()
+	{
+		return unitPrice.multiply(new BigDecimal(quantity));
+	}
 
 }

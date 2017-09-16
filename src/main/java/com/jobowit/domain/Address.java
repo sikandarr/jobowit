@@ -5,17 +5,11 @@ import java.sql.Timestamp;
 
 import javax.persistence.*;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-/**
- * The persistent class for the address database table.
- * 
- */
 @Entity
 @Table(name = "address")
-@Getter
-@Setter
+@Data
 public class Address implements Serializable
 {
 	private static final long serialVersionUID = 1L;

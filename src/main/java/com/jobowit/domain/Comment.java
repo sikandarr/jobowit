@@ -51,6 +51,8 @@ public class Comment implements Serializable
 	@JoinColumn(name = "staff_id", nullable = false)
 	private Staff staffUser;
 	
+	private boolean logMessage;
+	
 	@OneToMany(mappedBy = "comment")
 	private List<UploadedFile> uploadedFiles;
 

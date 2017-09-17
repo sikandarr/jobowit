@@ -1,5 +1,6 @@
 package com.jobowit.helpers;
 
+import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -13,10 +14,10 @@ public class EditedFields
 {
 	static Logger log = Logger.getLogger(EditedFields.class.getName());
 
-	public static <T> String determine(T old, T current)
+	public static <T extends Serializable> String determine(T old, T current)
 	{
 
-		Class<? extends Object> klass = current.getClass();
+		Class<? extends Serializable> klass = current.getClass();
 
 		if (!klass.isAnnotationPresent(Entity.class))
 			throw new IllegalArgumentException("not a domain entity class");
@@ -44,7 +45,7 @@ public class EditedFields
 			}
 			catch (SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e)
 			{
-				log.error("exception EditedFields.determin() " + klass.getSimpleName(), e);
+				log.error("exception in EditedFields.determin() " + klass.getSimpleName() + ": " + e.getMessage());
 				continue;
 			}
 			/*@off*/
@@ -63,12 +64,12 @@ public class EditedFields
 			/*@on*/
 			{
 				String fieldName = splitCamelCase(f.getName().substring(0, 1).toUpperCase() + f.getName().substring(1));
-				String value = "from " + oldValue.toString() + " to " + newValue.toString();
-				editedFields += fieldName + ": " + value + "\n";
+				String modified = "from " + oldValue.toString() + " to " + newValue.toString();
+				editedFields += fieldName + ": " + modified + "\n";
 			}
 		}
 
-		return "edited\n" + editedFields;
+		return !editedFields.equals("") ? "edited\n" + editedFields : "";
 	}
 
 	/*

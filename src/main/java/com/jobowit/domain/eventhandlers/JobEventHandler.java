@@ -41,7 +41,7 @@ import com.jobowit.utils.Parser;
 public class JobEventHandler
 {
 	static Logger log = Logger.getLogger(JobEventHandler.class.getName());
-	String editedFields;
+	private String editedFields;
 
 	@Autowired
 	private JobStatusRepository statusRepo;
@@ -121,6 +121,17 @@ public class JobEventHandler
 		{
 			log.warn("could not send email for new job: " + e.getMessage());
 		}
+		
+		if (SecurityContextHolder.getContext().getAuthentication() != null)
+		{
+			Comment c = new Comment();
+			c.setComment("Created new " + job.getCurrentType().getJobType());
+			c.setStaffUser(
+					staffRepo.findByUserUsername(SecurityContextHolder.getContext().getAuthentication().getName()));
+			c.setLogMessage(true);
+			c.setJob(job);
+			commentRepo.save(c);
+		}
 	}
 
 	@HandleBeforeSave
@@ -139,9 +150,11 @@ public class JobEventHandler
 			Comment c = new Comment();
 			c.setComment(editedFields);
 			c.setJob(job);
-			c.setStaffUser(
-					staffRepo.findByUserUsername(SecurityContextHolder.getContext().getAuthentication().getName()));
-			// c.setStaffUser(staffRepo.findOne(1));
+			if (SecurityContextHolder.getContext().getAuthentication() != null)
+				c.setStaffUser(
+						staffRepo.findByUserUsername(SecurityContextHolder.getContext().getAuthentication().getName()));
+			else c.setStaffUser(staffRepo.findOne(1));
+			c.setLogMessage(true);
 			commentRepo.save(c);
 		}
 

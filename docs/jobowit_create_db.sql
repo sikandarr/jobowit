@@ -210,6 +210,7 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`comment` (
   `job_id` INT NULL,
   `comment_dtm` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `staff_id` INT NOT NULL,
+  `log_message` TINYINT(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`comment_id`),
   INDEX `fk_comment_Party1_idx` (`party_id` ASC),
   INDEX `fk_comment_staff1_idx` (`staff_id` ASC),
@@ -824,7 +825,7 @@ DROP TRIGGER IF EXISTS `jobowit_db`.`party_BEFORE_INSERT` $$
 USE `jobowit_db`$$
 CREATE DEFINER = CURRENT_USER TRIGGER `jobowit_db`.`party_BEFORE_INSERT` BEFORE INSERT ON `party` FOR EACH ROW
 BEGIN
-if ( isnull(new.party_uuid) ) then
+if ( isnull(new.party_uuid) OR new.party_uuid = 'EMPTY' ) then
 SET new.party_uuid = uuid();
 END if;
 END$$

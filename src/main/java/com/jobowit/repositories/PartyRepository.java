@@ -5,13 +5,14 @@ import java.util.Optional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.security.access.prepost.PreAuthorize;
+
 import com.jobowit.domain.Party;
 
-public interface PartyRepository  extends JpaRepository<Party, Integer>
+public interface PartyRepository  extends PagingAndSortingRepository<Party, Long>
 {
 	@Override
 	@PreAuthorize("isAuthenticated() and hasPermission('Party', 'read')")
@@ -22,13 +23,14 @@ public interface PartyRepository  extends JpaRepository<Party, Integer>
 	@PreAuthorize("hasPermission(returnObject, 'read')")
 	Party findByNameContaining(@Param("name") String name);
 	
-	Party findOneByPartyId(Integer id);
+	Party findOneByPartyId(Long id);
 	
 	Optional<Party> findByMyobUid(String myobUid);
 	
 	@Query(nativeQuery=true, value="SELECT * FROM jobowit_db.party LIMIT 0, 2;")
 	List<Party> findTop2();
 	
-	Party findByUuid(String uuid);
+	Optional<Party> findByUuid(String uuid);
+	
 	List<Party> findByType(@Param("type") String type);
 }

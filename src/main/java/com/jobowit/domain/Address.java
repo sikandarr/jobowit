@@ -5,11 +5,15 @@ import java.sql.Timestamp;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "address")
 @Data
+@NoArgsConstructor
 public class Address implements Serializable
 {
 	private static final long serialVersionUID = 1L;
@@ -34,15 +38,13 @@ public class Address implements Serializable
 	@Column(length = 150)
 	private String street1;
 
+	@JsonIgnore
 	@Column(insertable = false, updatable = false)
 	private Timestamp createdDtm;
 
+	@JsonIgnore
 	@Column(insertable = false, updatable = false)
 	private Timestamp updatedDtm;
-
-	public Address()
-	{
-	}
 
 	public Address(String address)
 	{
@@ -154,6 +156,11 @@ public class Address implements Serializable
 			default:
 				return state;
 		}
+	}
+	
+	public String getAddr()
+	{
+		return this.toString();
 	}
 
 	@Override

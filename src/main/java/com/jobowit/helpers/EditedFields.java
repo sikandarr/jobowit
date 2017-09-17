@@ -45,7 +45,7 @@ public class EditedFields
 			}
 			catch (SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e)
 			{
-				log.error("exception in EditedFields.determin() " + klass.getSimpleName() + ": " + e.getMessage());
+				log.error("exception in EditedFields.determine() " + klass.getSimpleName() + ": " + e.getMessage());
 				continue;
 			}
 			/*@off*/
@@ -65,11 +65,11 @@ public class EditedFields
 			{
 				String fieldName = splitCamelCase(f.getName().substring(0, 1).toUpperCase() + f.getName().substring(1));
 				String modified = "from " + oldValue.toString() + " to " + newValue.toString();
-				editedFields += fieldName + ": " + modified + "\n";
+				editedFields += fieldName + ": " + modified + "<br />";
 			}
 		}
 
-		return !editedFields.equals("") ? "edited\n" + editedFields : "";
+		return !editedFields.equals("") ? "<p><strong>edited</strong></p>/n<p>" + editedFields + "</p>" : "";
 	}
 
 	/*

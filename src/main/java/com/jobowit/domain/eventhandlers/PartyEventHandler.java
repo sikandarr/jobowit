@@ -50,16 +50,14 @@ public class PartyEventHandler
 	public void handleAfterCreates(Party p)
 	{
 		em.refresh(p);
-		if (SecurityContextHolder.getContext().getAuthentication() != null)
-		{
-			Comment c = new Comment();
-			c.setComment("Created new " + p.getType());
-			c.setStaffUser(
-					staffRepo.findByUserUsername(SecurityContextHolder.getContext().getAuthentication().getName()));
-			c.setParty(p);
-			c.setLogMessage(true);
-			commentRepo.save(c);
-		}
+		Comment c = new Comment();
+		c.setComment("Created new " + p.getType());
+		c.setStaffUser(SecurityContextHolder.getContext().getAuthentication() != null
+				? staffRepo.findByUserUsername(SecurityContextHolder.getContext().getAuthentication().getName())
+				: staffRepo.findOne(1));
+		c.setParty(p);
+		c.setLogMessage(true);
+		commentRepo.save(c);
 	}
 
 	@HandleBeforeSave
@@ -78,10 +76,9 @@ public class PartyEventHandler
 			Comment c = new Comment();
 			c.setComment(editedFields);
 			c.setParty(p);
-			if (SecurityContextHolder.getContext().getAuthentication() != null)
-				c.setStaffUser(
-						staffRepo.findByUserUsername(SecurityContextHolder.getContext().getAuthentication().getName()));
-			else c.setStaffUser(staffRepo.findOne(1));
+			c.setStaffUser(SecurityContextHolder.getContext().getAuthentication() != null
+					? staffRepo.findByUserUsername(SecurityContextHolder.getContext().getAuthentication().getName())
+					: staffRepo.findOne(1));
 			c.setLogMessage(true);
 			commentRepo.save(c);
 		}

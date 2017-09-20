@@ -23,7 +23,7 @@ import java.util.List;
 @DynamicInsert
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "commentId")
 @Getter @Setter
-public class Comment implements Serializable
+public class Comment implements Serializable, Comparable<Comment>
 {
 	private static final long serialVersionUID = 1L;
 
@@ -55,5 +55,11 @@ public class Comment implements Serializable
 	
 	@OneToMany(mappedBy = "comment")
 	private List<UploadedFile> uploadedFiles;
+	
+	@Override
+	public int compareTo(Comment c)
+	{
+		return this.getCommentDtm().compareTo(c.getCommentDtm());
+	}
 
 }

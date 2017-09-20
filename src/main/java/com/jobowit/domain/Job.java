@@ -2,6 +2,7 @@ package com.jobowit.domain;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @Entity
 @Table(name = "job")
@@ -28,10 +30,10 @@ public class Job implements Serializable
 	@Column(name = "job_id", unique = true, nullable = false)
 	private int jobId;
 
-	@Column(name = "job_uuid", columnDefinition = "CHAR", unique = true, insertable=false, updatable=false)
+	@Column(name = "job_uuid", columnDefinition = "CHAR", unique = true, insertable = false, updatable = false)
 	private String uuid;
 
-	@Column(name = "job_number", columnDefinition = "CHAR", length = 6, unique = true, updatable=false)
+	@Column(name = "job_number", columnDefinition = "CHAR", length = 6, unique = true, updatable = false)
 	private String jobNumber;
 
 	@Lob
@@ -42,16 +44,16 @@ public class Job implements Serializable
 
 	@Column
 	private String priority;
-	
+
 	@Column
 	private String contactName;
-	
+
 	@Column
 	private String phone;
-	
+
 	@Column
 	private String mobile;
-	
+
 	@Column
 	private String email;
 
@@ -114,7 +116,7 @@ public class Job implements Serializable
 	{
 		return getCurrentType().getJobType();
 	}
-	
+
 	@JsonIgnore
 	public JobStatus getCurrentStatus()
 	{
@@ -142,7 +144,13 @@ public class Job implements Serializable
 		}
 		return null;
 	}
-	
+
+	public String getLastEditedBy()
+	{
+		Optional<Comment> c = this.getComments().stream().filter((c1) -> c1.isLogMessage()).reduce((first, second) -> second);
+		return c.isPresent() ? c.get().getStaffUser().getName() : "Not available";
+	}
+
 	public List<Map<String, String>> getOperationsStaff()
 	{
 		List<Map<String, String>> roles = new ArrayList<Map<String, String>>();

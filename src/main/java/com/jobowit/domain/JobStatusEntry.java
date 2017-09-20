@@ -16,9 +16,12 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
+import lombok.Data;
+
 @Entity
 @Table(name = "job_status_entry")
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "jobStatusEntryId")
+@Data
 public class JobStatusEntry
 {
 	@Id
@@ -46,79 +49,4 @@ public class JobStatusEntry
 	
 	@Column
 	private Date followUpDt;
-
-	public int getJobStatusEntryId()
-	{
-		return JobStatusEntryId;
-	}
-
-	public void setJobStatusEntryId(int jobStatusEntryId)
-	{
-		JobStatusEntryId = jobStatusEntryId;
-	}
-
-	public Job getJob()
-	{
-		return job;
-	}
-
-	public void setJob(Job job)
-	{
-		this.job = job;
-	}
-
-	public JobStatus getStatus()
-	{
-		return status;
-	}
-
-	public void setStatus(JobStatus status)
-	{
-		this.status = status;
-	}
-
-	public Staff getStaff()
-	{
-		return staff;
-	}
-
-	public void setStaff(Staff staff)
-	{
-		this.staff = staff;
-	}
-
-	public String getComment()
-	{
-		return comment;
-	}
-
-	public void setComment(String comment)
-	{
-		this.comment = comment;
-	}
-
-	public Timestamp getEntryDtm()
-	{
-		return entryDtm;
-	}
-
-	public void setEntryDtm(Timestamp entryDtm)
-	{
-		this.entryDtm = entryDtm;
-	}
-	
-	public String getStatusMsg()
-	{
-		return getStatus().getStatus();
-	}
-
-	public Date getFollowUpDt()
-	{
-		return followUpDt;
-	}
-
-	public void setFollowUpDt(Date followUpDtm)
-	{
-		this.followUpDt = followUpDtm;
-	}
 }

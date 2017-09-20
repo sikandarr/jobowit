@@ -69,7 +69,7 @@ public class EditedFields
 			}
 		}
 
-		return !editedFields.equals("") ? "<p><strong>edited</strong></p>/n<p>" + editedFields + "</p>" : "";
+		return !editedFields.equals("") ? "<p><strong>edited</strong></p>\n<p>" + editedFields + "</p>" : "";
 	}
 
 	/*

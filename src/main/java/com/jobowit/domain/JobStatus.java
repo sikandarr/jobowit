@@ -3,12 +3,15 @@ package com.jobowit.domain;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import lombok.Data;
+
 /**
  * The persistent class for the job_status database table.
  * 
  */
 @Entity
 @Table(name = "job_status")
+@Data
 public class JobStatus implements Serializable
 {
 	private static final long serialVersionUID = 1L;
@@ -23,54 +26,11 @@ public class JobStatus implements Serializable
 
 	@Column(name = "indicates_active_job")
 	private boolean isActive;
+	
+	@Column(columnDefinition="ENUM('Y')")
+	private String initial;
 
-	// bi-directional many-to-one association to JobType
 	@ManyToOne
 	@JoinColumn(name = "job_type", nullable = false)
 	private JobType jobType;
-
-	public JobStatus()
-	{
-	}
-
-	public int getJobStatusId()
-	{
-		return this.jobStatusId;
-	}
-
-	public void setJobStatusId(int jobStatusId)
-	{
-		this.jobStatusId = jobStatusId;
-	}
-
-	public String getStatus()
-	{
-		return this.status;
-	}
-
-	public void setStatus(String status)
-	{
-		this.status = status;
-	}
-
-	public JobType getJobType()
-	{
-		return this.jobType;
-	}
-
-	public void setJobType(JobType jobType)
-	{
-		this.jobType = jobType;
-	}
-
-	public boolean isActive()
-	{
-		return isActive;
-	}
-
-	public void setActive(boolean isAnActiveStatus)
-	{
-		this.isActive = isAnActiveStatus;
-	}
-
 }

@@ -11,5 +11,5 @@ import com.jobowit.domain.JobType;
 @CrossOrigin
 public interface JobStatusRepository extends PagingAndSortingRepository<JobStatus, Integer>
 {
-	JobStatus findOneByStatusAndJobType(String status, JobType type);
+	JobStatus findOneByJobTypeAndInitial(JobType type, char initial);
 }

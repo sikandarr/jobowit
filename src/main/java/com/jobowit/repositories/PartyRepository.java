@@ -15,12 +15,12 @@ import com.jobowit.domain.Party;
 public interface PartyRepository  extends PagingAndSortingRepository<Party, Long>
 {
 	@Override
-	@PreAuthorize("isAuthenticated() and hasPermission('Party', 'read')")
+	//@PreAuthorize("isAuthenticated() and hasPermission('Party', 'read')")
 	Page<Party> findAll(Pageable pageable);
 	
 	List<Party> findByContactNameContaining(@Param("name") String contactName);
 	
-	@PreAuthorize("hasPermission(returnObject, 'read')")
+	//@PreAuthorize("hasPermission(returnObject, 'read')")
 	Party findByNameContaining(@Param("name") String name);
 	
 	Party findOneByPartyId(Long id);

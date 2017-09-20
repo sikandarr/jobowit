@@ -324,9 +324,11 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`job_status` (
   `status_desc` VARCHAR(100) NOT NULL,
   `job_type` VARCHAR(100) NOT NULL,
   `indicates_active_job` TINYINT(1) NOT NULL DEFAULT 1,
+  `initial` ENUM('Y') NULL,
   PRIMARY KEY (`job_status_id`),
   INDEX `fk_job_status_job_type1_idx` (`job_type` ASC),
   UNIQUE INDEX `UNIQUE_STATUS_PER_JOB_TYPE` (`job_type` ASC, `status_desc` ASC),
+  UNIQUE INDEX `UNIQUE_INITIAL_STATUS_PER_JOB_TYPE` (`job_type` ASC, `initial` ASC),
   CONSTRAINT `fk_job_status_job_type1`
     FOREIGN KEY (`job_type`)
     REFERENCES `jobowit_db`.`job_type` (`job_type`)

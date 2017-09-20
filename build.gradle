@@ -47,6 +47,8 @@ dependencies
 	compile('org.projectlombok:lombok:1.16.18')
 	compile('net.sf.jasperreports:jasperreports:6.4.0')
 	compile('com.lowagie:itext:2.1.7')
+	compile('com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.1')
+	
 	
 	runtime('mysql:mysql-connector-java')
 	testCompile("junit:junit")

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
@@ -19,17 +20,23 @@ import com.jobowit.domain.Staff;
 public interface StaffRepository extends PagingAndSortingRepository<Staff, Integer>
 {
 	@Override
-	@PreAuthorize("isAuthenticated() and hasPermission('Staff', 'read')")
+	//@PreAuthorize("isAuthenticated() and hasPermission('Staff', 'read')")
 	Page<Staff> findAll(Pageable pageable);
-	
+
 	Staff findByUserUsername(String username);
-	
+
 	@PostAuthorize("isAuthenticated() and (returnObject.uuid == principal.staffUuid or hasPermission('Staff', 'read'))")
 	Staff findByUuid(String uuid);
-	
-	@RestResource(path="findByOperationsRoleName", rel="findByOperationsRoleName")
+
+	@RestResource(path = "findByOperationsRoleName", rel = "findByOperationsRoleName")
 	List<Staff> findByStaffRolesStaffJobRoleRoleName(@Param("role") String role);
-	
-	@RestResource(path="findByOperationsRoleId", rel="findByOperationsRoleId")
+
+	@RestResource(path = "findByOperationsRoleId", rel = "findByOperationsRoleId")
 	List<Staff> findByStaffRolesStaffJobRoleRoleId(@Param("id") int id);
+
+	@Query(nativeQuery = true, value = "SELECT s.* FROM jobowit_db.staff s "
+			+ "LEFT JOIN staff_not_available na ON na.staff_id = s.staff_id "
+			+ "INNER JOIN staff_role sr ON sr.staff_id = s.staff_id "
+			+ "WHERE ISNULL(na.non_availability_id) AND sr.role_id = 2;")
+	List<Staff> findAvailableStaff();
 }

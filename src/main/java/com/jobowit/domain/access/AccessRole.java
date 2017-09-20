@@ -13,9 +13,12 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
+import lombok.Data;
+
 @Entity
 @Table(name = "access_role")
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "roleName")
+@Data
 public class AccessRole implements Serializable
 {
 	private static final long serialVersionUID = 1L;
@@ -26,37 +29,4 @@ public class AccessRole implements Serializable
 	
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "accessRole")
 	private List<AccessControl> accessControl;
-	
-	public String getRoleName()
-	{
-		return roleName;
-	}
-	public void setRoleName(String roleName)
-	{
-		this.roleName = roleName;
-	}
-	
-	public List<AccessControl> getAccessControl()
-	{
-		return accessControl;
-	}
-
-	public void setAccessControl(List<AccessControl> accessControl)
-	{
-		this.accessControl = accessControl;
-	}
-	
-	public AccessControl addAccessControl(AccessControl accessControl)
-	{
-		getAccessControl().add(accessControl);
-		accessControl.setAccessRole(this);
-		return accessControl;
-	}
-	
-	public AccessControl removeAccessControl(AccessControl accessControl)
-	{
-		getAccessControl().remove(accessControl);
-		accessControl.setAccessRole(null);
-		return accessControl;
-	}
 }

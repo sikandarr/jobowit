@@ -8,6 +8,7 @@ import com.jobowit.domain.Job;
 import com.jobowit.domain.Party;
 import com.jobowit.domain.Staff;
 import com.jobowit.domain.UploadedFile;
+import com.jobowit.domain.access.AccessRole;
 import com.jobowit.repositories.JobRepository;
 import com.jobowit.repositories.PartyRepository;
 import com.jobowit.repositories.StaffRepository;
@@ -25,5 +26,6 @@ public class SpringDataRestCustomization extends RepositoryRestConfigurerAdapter
 		config.withEntityLookup().forRepository(UploadedFileRepository.class, UploadedFile::getUuid, UploadedFileRepository::findByUuid);
 		config.withEntityLookup().forRepository(StaffRepository.class, Staff::getUuid, StaffRepository::findByUuid);
 		config.setBasePath("/api");
+		config.exposeIdsFor(AccessRole.class);
 	}
 }

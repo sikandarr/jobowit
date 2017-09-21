@@ -277,13 +277,13 @@ DROP TABLE IF EXISTS `jobowit_db`.`quotation` ;
 
 CREATE TABLE IF NOT EXISTS `jobowit_db`.`quotation` (
   `quotation_id` INT NOT NULL AUTO_INCREMENT,
-  `quotation_number` VARCHAR(6) NULL,
+  `quotation_number` INT NULL,
   `job_id` INT NOT NULL,
   `billable` TINYINT(1) NOT NULL DEFAULT 0,
   `quotation_dt` DATE NULL,
   PRIMARY KEY (`quotation_id`),
   INDEX `fk_quotation_job1_idx` (`job_id` ASC),
-  UNIQUE INDEX `quotation_number_UNIQUE` (`quotation_number` ASC),
+  UNIQUE INDEX `UNIQUE_QUOTATION_NUMBER_PER_JOB` (`job_id` ASC, `quotation_number` ASC),
   CONSTRAINT `fk_quotation_job1`
     FOREIGN KEY (`job_id`)
     REFERENCES `jobowit_db`.`job` (`job_id`)
@@ -861,6 +861,25 @@ BEGIN
 if ( isnull(new.job_uuid) OR new.job_uuid = 'EMPTY' ) then
 SET new.job_uuid = uuid();
 END if;
+END$$
+
+
+USE `jobowit_db`$$
+DROP TRIGGER IF EXISTS `jobowit_db`.`quotation_BEFORE_INSERT` $$
+USE `jobowit_db`$$
+CREATE DEFINER = CURRENT_USER TRIGGER `jobowit_db`.`quotation_BEFORE_INSERT` BEFORE INSERT ON `quotation` FOR EACH ROW
+BEGIN
+declare q_number int (11);
+SELECT 
+    COUNT(*)
+INTO q_number FROM
+    quotation
+WHERE
+    job_id = new.job_id;
+ SET new.quotation_number = q_number + 1;
+ if ( isnull(new.quotation_dt) ) then
+ set new.quotation_dt=curdate();
+end if;
 END$$
 
 

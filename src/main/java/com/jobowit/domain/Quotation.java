@@ -2,6 +2,7 @@ package com.jobowit.domain;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.sql.Date;
 
 import javax.persistence.*;
 
@@ -20,6 +21,10 @@ public class Quotation implements Serializable
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "quotation_id", unique = true, nullable = false)
 	private int quotationId;
+	
+	private Date quotationDt;
+	
+	private int quotationNumber;
 
 	private boolean billable;
 

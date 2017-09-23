@@ -3,8 +3,6 @@ package com.jobowit.domain;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
-
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -158,8 +156,9 @@ public class Job implements Serializable
 
 	public Flag getFlag()
 	{
+		LocalDate today = LocalDate.now();
 		int daysSinceCreated = (int) java.time.temporal.ChronoUnit.DAYS.between(this.getCreatedDtm().toLocalDate(),
-				LocalDate.now(ZoneId.of("Australia/Adelaide")));
+				today);
 
 		if (this.getCurrentType().getJobType().equals("Service Request"))
 		{
@@ -172,9 +171,8 @@ public class Job implements Serializable
 				return new Flag("#99FF33", "Days since created: ", daysSinceCreated,
 						"Job is scheduled; check schedule for info.", "OK");
 
-			int daysSinceSchedule = (int) java.time.temporal.ChronoUnit.DAYS.between(
-					this.getLatestSchedule().getFinishDtm().toLocalDate(),
-					LocalDate.now(ZoneId.of("Australia/Adelaide")));
+			int daysSinceSchedule = (int) java.time.temporal.ChronoUnit.DAYS
+					.between(this.getLatestSchedule().getFinishDtm().toLocalDate(), today);
 
 			if (daysSinceSchedule > 0 && this.getCurrentStatus().isActive())
 				return new Flag("#FF9933", "Days since latest schedule: ", daysSinceSchedule,

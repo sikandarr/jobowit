@@ -867,12 +867,13 @@ END$$
 USE `jobowit_db`$$
 DROP TRIGGER IF EXISTS `jobowit_db`.`quotation_BEFORE_INSERT` $$
 USE `jobowit_db`$$
-CREATE DEFINER = CURRENT_USER TRIGGER `jobowit_db`.`quotation_BEFORE_INSERT` BEFORE INSERT ON `quotation` FOR EACH ROW
+CREATE DEFINER=`root`@`localhost` TRIGGER `jobowit_db`.`quotation_BEFORE_INSERT` BEFORE INSERT ON `quotation` FOR EACH ROW
 BEGIN
 declare q_number int (11);
 SELECT 
-    COUNT(*)
-INTO q_number FROM
+    IFNULL(MAX(quotation_number), 0)
+    INTO q_number
+FROM
     quotation
 WHERE
     job_id = new.job_id;

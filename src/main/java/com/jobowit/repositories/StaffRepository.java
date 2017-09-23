@@ -24,10 +24,11 @@ public interface StaffRepository extends PagingAndSortingRepository<Staff, Integ
 	// @PreAuthorize("isAuthenticated() and hasPermission('Staff', 'read')")
 	Page<Staff> findAll(Pageable pageable);
 
-	@RestResource(path = "findByUsername", rel="findByUsername")
-	Staff findByUserUsername(@Param ("username") String username);
+	@RestResource(path = "findByUsername", rel = "findByUsername")
+	Staff findByUserUsername(@Param("username") String username);
 
-	//@PostAuthorize("isAuthenticated() and (returnObject.uuid == principal.staffUuid or hasPermission('Staff', 'read'))")
+	// @PostAuthorize("isAuthenticated() and (returnObject.uuid ==
+	// principal.staffUuid or hasPermission('Staff', 'read'))")
 	Staff findByUuid(String uuid);
 
 	@RestResource(path = "findByOperationsRoleName", rel = "findByOperationsRoleName")
@@ -36,6 +37,12 @@ public interface StaffRepository extends PagingAndSortingRepository<Staff, Integ
 	@RestResource(path = "findByOperationsRoleId", rel = "findByOperationsRoleId")
 	List<Staff> findByStaffRolesStaffJobRoleRoleId(@Param("id") int id);
 
+	/*
+	 * only returns field workers that are currently not, not-available this
+	 * does not imply that they are available for a specific date; use
+	 * findBySchedule for precise availabilty at a specific time.
+	 * 
+	 */
 	@Query(nativeQuery = true, value = "SELECT s.* FROM jobowit_db.staff s "
 			+ "LEFT JOIN staff_not_available na ON na.staff_id = s.staff_id "
 			+ "INNER JOIN staff_role sr ON sr.staff_id = s.staff_id "

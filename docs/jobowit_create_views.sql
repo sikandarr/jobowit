@@ -48,3 +48,17 @@ VIEW `job_count_by_type_and_status` AS
         JOIN `job_current_status` `jcs` ON ((`j`.`job_id` = `jcs`.`job_id`)))
     GROUP BY `jcs`.`current_status`;
 
+CREATE 
+    ALGORITHM = UNDEFINED 
+    DEFINER = `root`@`localhost` 
+    SQL SECURITY DEFINER
+VIEW `staff_not_available` AS
+    SELECT 
+        `s`.`staff_id` AS `staff_id`,
+        `na`.`non_availability_id` AS `non_availability_id`
+    FROM
+        (`staff` `s`
+        JOIN `non_availability` `na` ON ((`s`.`staff_id` = `na`.`staff_id`)))
+    WHERE
+        (NOW() BETWEEN `na`.`not_available_from_dtm` AND `na`.`not_available_to_dtm`)
+

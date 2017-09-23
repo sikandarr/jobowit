@@ -103,6 +103,11 @@ public class JobSchedule implements Serializable, Comparable<JobSchedule>
 			return false;
 		return true;
 	}
+	
+	public String getWokerName()
+	{
+		return this.getStaff().getName();
+	}
 
 	@Override
 	public int compareTo(JobSchedule o)

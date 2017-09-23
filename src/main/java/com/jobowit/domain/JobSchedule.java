@@ -6,13 +6,12 @@ import javax.persistence.*;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import lombok.Data;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalField;
 import java.time.temporal.WeekFields;
 import java.util.Locale;
@@ -43,15 +42,15 @@ public class JobSchedule implements Serializable, Comparable<JobSchedule>
 
 	@ManyToOne
 	@JoinColumn(name = "job_id", nullable = false)
-	@JsonIgnore
 	private Job job;
 
 	@ManyToOne
 	@JoinColumn(name = "field_staff_id", nullable = false)
 	private Staff staff;
 
-	public String getLogicalDay()
+	public String getNaturalDayAndTime()
 	{
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
 		LocalDate today = LocalDate.now(ZoneId.of("Australia/Adelaide"));
 		LocalDate schedule = startDtm.toLocalDate();
 		TemporalField wom = WeekFields.of(Locale.getDefault()).weekOfMonth();
@@ -60,17 +59,20 @@ public class JobSchedule implements Serializable, Comparable<JobSchedule>
 		int monthsBetween = today.getMonthValue() - schedule.getMonthValue();
 
 		if (daysBetween == 0)
-			return "Today";
+			return "Today at " + startDtm.format(formatter);
 		if (daysBetween == 1)
-			return "Tomorrow";
+			return "Tomorrow at " + startDtm.format(formatter);
 		if (daysBetween == -1)
-			return "Yesterday";
+			return "Yesterday at " + startDtm.format(formatter);
+
+		if (daysBetween > 1 && daysBetween < 7)
+			return String.format("%ta at " + startDtm.format(formatter), schedule);
+
+		if (daysBetween < 0 && daysBetween > -7)
+			return "Last " + String.format("%ta", schedule);
+
 		if (monthsBetween == 0)
 		{
-			if (weeksBetween == 0)
-				return "Last " + schedule.getDayOfWeek().toString();
-			if (weeksBetween == 0)
-				return "Coming " + schedule.getDayOfWeek().toString();
 			if (weeksBetween == -1)
 				return "Next Week";
 			if (weeksBetween == 1)
@@ -82,7 +84,7 @@ public class JobSchedule implements Serializable, Comparable<JobSchedule>
 			return "Last Month";
 		if (today.getYear() == schedule.getYear())
 		{
-			return schedule.getMonth().toString();
+			return String.format("%tb", schedule);
 		}
 		if (today.getYear() > schedule.getYear())
 			return "Last year";
@@ -105,6 +107,9 @@ public class JobSchedule implements Serializable, Comparable<JobSchedule>
 	@Override
 	public int compareTo(JobSchedule o)
 	{
+		if (!this.isPast() && !o.isPast())
+			return o.getStartDtm().compareTo(this.getStartDtm());
 		return this.getStartDtm().compareTo(o.getStartDtm());
+
 	}
 }

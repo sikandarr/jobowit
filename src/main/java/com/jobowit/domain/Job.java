@@ -1,8 +1,13 @@
 package com.jobowit.domain;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -35,6 +40,10 @@ public class Job implements Serializable
 
 	@Column(name = "job_number", columnDefinition = "CHAR", length = 6, unique = true, updatable = false)
 	private String jobNumber;
+
+	@Column(name = "created_dtm", columnDefinition = "DATETIME", insertable = false, updatable = false)
+	@JsonFormat(pattern = "yyyy-MM-dd")
+	private LocalDateTime createdDtm;
 
 	@Lob
 	private String description;
@@ -135,20 +144,55 @@ public class Job implements Serializable
 		return getCurrentStatus().isActive();
 	}
 
+	public String getFlag()
+	{
+		int daysBetween = (int) java.time.temporal.ChronoUnit.DAYS
+				.between(this.getCreatedDtm().toLocalDate(), LocalDate.now(ZoneId.of("Australia/Adelaide")));
+
+		if (this.getCurrentType().getJobType().equals("Service Request"))
+		{
+			if (daysBetween >= 1)
+				if (this.getJobSchedules() == null || this.getJobSchedules().size() == 0)
+					return "+" + daysBetween + " days past: no schedule";
+
+			if (this.getJobSchedules() != null)
+			{
+				for (JobSchedule s : this.getJobSchedules())
+					if (!s.isPast())
+						return "+OK";
+
+				int daysSinceSchedule = (int) java.time.temporal.ChronoUnit.DAYS.between(
+						this.getLatestSchedule().getFinishDtm().toLocalDate(), LocalDate.now(ZoneId.of("Australia/Adelaide")));
+
+				if (daysSinceSchedule > 0 && this.getCurrentStatus().isActive())
+					return "+" + daysSinceSchedule + " days: still active";
+			}
+		}
+		if (this.getCurrentType().getJobType().equals("Quote Request"))
+		{
+			if (daysBetween >= 1)
+				if ((this.getQuotations() == null || this.getQuotations().size() == 0)
+						&& this.getCurrentStatus().isActive())
+					return "+" + daysBetween + " days past: no quotes";
+		}
+		return "+OK";
+	}
+
 	public JobSchedule getLatestSchedule()
 	{
 		if (getJobSchedules() != null && getJobSchedules().size() > 0)
 		{
-			getJobSchedules().sort((s1, s2) -> s2.getStartDtm().compareTo(s1.getStartDtm()));
-			return getJobSchedules().get(0);
+			getJobSchedules().sort((s1, s2) -> s1.compareTo(s2));
+			return getJobSchedules().get(getJobSchedules().size() - 1);
 		}
 		return null;
 	}
 
 	public String getLastEditedBy()
 	{
-		Optional<Comment> c = this.getComments().stream().filter((c1) -> c1.isLogMessage()).reduce((first, second) -> second);
-		return c.isPresent() ? c.get().getStaffUser().getName() : "Not available";
+		Optional<Comment> comment = this.getComments().stream().filter((c1) -> c1.isLogMessage())
+				.reduce((first, second) -> second);
+		return comment.isPresent() ? comment.get().getStaffUser().getName() : "Not available";
 	}
 
 	public List<Map<String, String>> getOperationsStaff()

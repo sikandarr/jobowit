@@ -12,6 +12,7 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -144,38 +145,51 @@ public class Job implements Serializable
 		return getCurrentStatus().isActive();
 	}
 
-	public String getFlag()
+	@Data
+	@AllArgsConstructor
+	private class Flag
 	{
-		int daysBetween = (int) java.time.temporal.ChronoUnit.DAYS
-				.between(this.getCreatedDtm().toLocalDate(), LocalDate.now(ZoneId.of("Australia/Adelaide")));
+		String bgcolor;
+		String dayLabel;
+		int daysPast;
+		String message;
+		String code;
+	}
+
+	public Flag getFlag()
+	{
+		int daysSinceCreated = (int) java.time.temporal.ChronoUnit.DAYS.between(this.getCreatedDtm().toLocalDate(),
+				LocalDate.now(ZoneId.of("Australia/Adelaide")));
 
 		if (this.getCurrentType().getJobType().equals("Service Request"))
 		{
-			if (daysBetween >= 1)
+			if (daysSinceCreated >= 1)
 				if (this.getJobSchedules() == null || this.getJobSchedules().size() == 0)
-					return "+" + daysBetween + " days past: no schedule";
+					return new Flag("#FF9933", "Days since created: ", daysSinceCreated,
+							"No Schedule created for this Job.", "EXP SCH");
 
-			if (this.getJobSchedules() != null)
-			{
-				for (JobSchedule s : this.getJobSchedules())
-					if (!s.isPast())
-						return "+OK";
+			if (!this.getLatestSchedule().isPast())
+				return new Flag("#99FF33", "Days since created: ", daysSinceCreated,
+						"Job is scheduled; check schedule for info.", "OK");
 
-				int daysSinceSchedule = (int) java.time.temporal.ChronoUnit.DAYS.between(
-						this.getLatestSchedule().getFinishDtm().toLocalDate(), LocalDate.now(ZoneId.of("Australia/Adelaide")));
+			int daysSinceSchedule = (int) java.time.temporal.ChronoUnit.DAYS.between(
+					this.getLatestSchedule().getFinishDtm().toLocalDate(),
+					LocalDate.now(ZoneId.of("Australia/Adelaide")));
 
-				if (daysSinceSchedule > 0 && this.getCurrentStatus().isActive())
-					return "+" + daysSinceSchedule + " days: still active";
-			}
+			if (daysSinceSchedule > 0 && this.getCurrentStatus().isActive())
+				return new Flag("#FF9933", "Days since latest schedule: ", daysSinceSchedule,
+						"Job was scheduled but has not been marked complete.", "NOT COMP");
 		}
 		if (this.getCurrentType().getJobType().equals("Quote Request"))
 		{
-			if (daysBetween >= 1)
+			if (daysSinceCreated >= 1)
 				if ((this.getQuotations() == null || this.getQuotations().size() == 0)
 						&& this.getCurrentStatus().isActive())
-					return "+" + daysBetween + " days past: no quotes";
+					return new Flag("#FF9933", "Days since created: ", daysSinceCreated,
+							"No quotation added for this quote request.", "EXP QUOTE");
 		}
-		return "+OK";
+		return new Flag("#99FF33", "Days since created: ", daysSinceCreated, "Everything seems OK.", "OK");
+
 	}
 
 	public JobSchedule getLatestSchedule()

@@ -22,8 +22,10 @@ public class Quotation implements Serializable
 	@Column(name = "quotation_id", unique = true, nullable = false)
 	private int quotationId;
 	
+	@Column(insertable=false, updatable=false)
 	private Date quotationDt;
 	
+	@Column(insertable=false, updatable=false)
 	private int quotationNumber;
 
 	private boolean billable;

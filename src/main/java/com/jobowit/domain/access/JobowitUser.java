@@ -1,6 +1,7 @@
 package com.jobowit.domain.access;
 
 import java.util.Collection;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Pattern;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -20,15 +22,18 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.jobowit.domain.Staff;
 
+import lombok.Data;
+
 @Entity
 @Table(name = "user")
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+@Data
 public class JobowitUser implements UserDetails
 {
 	private static final long serialVersionUID = 1L;
 	
-	@OneToOne(mappedBy = "user")
-	@JsonIgnore
+	@OneToOne(optional=false)
+	@JoinColumn(name = "staff_id", nullable = false)
 	Staff staff;
 	
 	@Id
@@ -37,6 +42,7 @@ public class JobowitUser implements UserDetails
 	private int id;
 	
 	@Column(unique = true, nullable = false)
+	@Pattern(regexp = "^[a-z][a-z0-9_\\-.]{3,15}[a-z0-9]$", message = "Username is not valid")
 	private String username;
 	
 	private String password;
@@ -96,41 +102,11 @@ public class JobowitUser implements UserDetails
 		return enabled;
 	}
 
-	public int getId()
-	{
-		return id;
-	}
-
-	public void setId(int id)
-	{
-		this.id = id;
-	}
-
-	public AccessRole getAccessRole()
-	{
-		return accessRole;
-	}
-
-	public void setAccessRole(AccessRole accessRole)
-	{
-		this.accessRole = accessRole;
-	}
-
-	public void setUsername(String username)
-	{
-		this.username = username;
-	}
-
 	@JsonProperty
 	public void setPassword(String password)
 	{
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		this.password = encoder.encode(password);
-	}
-
-	public void setEnabled(boolean enabled)
-	{
-		this.enabled = enabled;
 	}
 	
 	public String getStaffUuid()

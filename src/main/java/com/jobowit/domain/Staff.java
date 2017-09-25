@@ -57,8 +57,7 @@ public class Staff implements Serializable
 	@OneToMany(mappedBy = "staff")
 	private List<StaffRole> staffRoles;
 
-	@OneToOne(optional = true, cascade = CascadeType.ALL)
-	@JoinColumn(name = "user_id", nullable = true)
+	@OneToOne(mappedBy = "staff")
 	private JobowitUser user;
 
 	@Column(name = "staff_uuid", updatable = false)

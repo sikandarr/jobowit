@@ -72,40 +72,6 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `jobowit_db`.`access_role`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `jobowit_db`.`access_role` ;
-
-CREATE TABLE IF NOT EXISTS `jobowit_db`.`access_role` (
-  `role_name` VARCHAR(100) NOT NULL,
-  PRIMARY KEY (`role_name`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `jobowit_db`.`user`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `jobowit_db`.`user` ;
-
-CREATE TABLE IF NOT EXISTS `jobowit_db`.`user` (
-  `user_id` INT NOT NULL AUTO_INCREMENT,
-  `access_role` VARCHAR(100) NOT NULL,
-  `username` VARCHAR(45) NOT NULL,
-  `password` VARCHAR(200) NOT NULL,
-  `created_dtm` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
-  `enabled` TINYINT(1) NOT NULL DEFAULT 1,
-  PRIMARY KEY (`user_id`),
-  INDEX `fk_staff_user_access_role1_idx` (`access_role` ASC),
-  UNIQUE INDEX `username_UNIQUE` (`username` ASC),
-  CONSTRAINT `fk_staff_user_access_role1`
-    FOREIGN KEY (`access_role`)
-    REFERENCES `jobowit_db`.`access_role` (`role_name`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `jobowit_db`.`staff`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `jobowit_db`.`staff` ;
@@ -118,20 +84,13 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`staff` (
   `address_id` INT NOT NULL,
   `email` VARCHAR(255) NULL,
   `create_dtm` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
-  `user_id` INT NULL,
   `bg_color` VARCHAR(10) NULL,
   PRIMARY KEY (`staff_id`),
   INDEX `fk_staff_address1_idx` (`address_id` ASC),
   UNIQUE INDEX `staff_uuid_UNIQUE` (`staff_uuid` ASC),
-  INDEX `fk_staff_user1_idx` (`user_id` ASC),
   CONSTRAINT `fk_staff_address1`
     FOREIGN KEY (`address_id`)
     REFERENCES `jobowit_db`.`address` (`address_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_staff_user1`
-    FOREIGN KEY (`user_id`)
-    REFERENCES `jobowit_db`.`user` (`user_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
@@ -608,6 +567,17 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `jobowit_db`.`access_role`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `jobowit_db`.`access_role` ;
+
+CREATE TABLE IF NOT EXISTS `jobowit_db`.`access_role` (
+  `role_name` VARCHAR(100) NOT NULL,
+  PRIMARY KEY (`role_name`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `jobowit_db`.`access_control`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `jobowit_db`.`access_control` ;
@@ -745,6 +715,37 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `jobowit_db`.`user`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `jobowit_db`.`user` ;
+
+CREATE TABLE IF NOT EXISTS `jobowit_db`.`user` (
+  `user_id` INT NOT NULL AUTO_INCREMENT,
+  `staff_id` INT NOT NULL,
+  `access_role` VARCHAR(100) NOT NULL,
+  `username` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(200) NOT NULL,
+  `created_dtm` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  `enabled` TINYINT(1) NOT NULL DEFAULT 1,
+  PRIMARY KEY (`user_id`),
+  INDEX `fk_staff_user_access_role1_idx` (`access_role` ASC),
+  UNIQUE INDEX `username_UNIQUE` (`username` ASC),
+  INDEX `fk_user_staff1_idx` (`staff_id` ASC),
+  UNIQUE INDEX `staff_id_UNIQUE` (`staff_id` ASC),
+  CONSTRAINT `fk_staff_user_access_role1`
+    FOREIGN KEY (`access_role`)
+    REFERENCES `jobowit_db`.`access_role` (`role_name`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_user_staff1`
+    FOREIGN KEY (`staff_id`)
+    REFERENCES `jobowit_db`.`staff` (`staff_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `jobowit_db`.`email_setting`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `jobowit_db`.`email_setting` ;
@@ -867,13 +868,12 @@ END$$
 USE `jobowit_db`$$
 DROP TRIGGER IF EXISTS `jobowit_db`.`quotation_BEFORE_INSERT` $$
 USE `jobowit_db`$$
-CREATE DEFINER=`root`@`localhost` TRIGGER `jobowit_db`.`quotation_BEFORE_INSERT` BEFORE INSERT ON `quotation` FOR EACH ROW
+CREATE DEFINER = CURRENT_USER TRIGGER `jobowit_db`.`quotation_BEFORE_INSERT` BEFORE INSERT ON `quotation` FOR EACH ROW
 BEGIN
 declare q_number int (11);
 SELECT 
-    IFNULL(MAX(quotation_number), 0)
-    INTO q_number
-FROM
+    COUNT(*)
+INTO q_number FROM
     quotation
 WHERE
     job_id = new.job_id;

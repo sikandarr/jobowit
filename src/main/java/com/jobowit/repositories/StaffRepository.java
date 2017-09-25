@@ -43,7 +43,7 @@ public interface StaffRepository extends PagingAndSortingRepository<Staff, Integ
 	 * findBySchedule for precise availabilty at a specific time.
 	 * 
 	 */
-	@Query(nativeQuery = true, value = "SELECT s.* FROM jobowit_db.staff s "
+	@Query(nativeQuery = true, value = "SELECT s.* FROM staff s "
 			+ "LEFT JOIN staff_not_available na ON na.staff_id = s.staff_id "
 			+ "INNER JOIN staff_role sr ON sr.staff_id = s.staff_id "
 			+ "WHERE ISNULL(na.non_availability_id) AND sr.role_id = 2;")

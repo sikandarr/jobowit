@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="operation_staff_job" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="da6d0e0e-c6b3-413f-83ff-23ff091fdb90">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MySQL Data Adapter "/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="id" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[new Integer(0)]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT 
+    os.operation_staff_in_job_id AS id, 
+    os.job_id,
+    s.name,
+    jr.role_name,
+    os.comission_percentage as comm
+FROM
+    jobowit_db.operation_staff_in_job os
+        INNER JOIN
+    staff_job_role jr ON os.staff_job_role_id = jr.role_id
+    inner join 
+    staff  s on s.staff_id = os.staff_id
+    WHERE os.job_id = $P{id}]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="job_id" class="java.lang.Integer"/>
+	<field name="name" class="java.lang.String"/>
+	<field name="role_name" class="java.lang.String"/>
+	<field name="comm" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="3">
+			<staticText>
+				<reportElement x="0" y="-20" width="100" height="14" uuid="a33a8457-5adf-4372-a20e-bdb625b5f0b2">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[People]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="-5" width="50" height="1" uuid="2ef2b187-c40b-4809-98ed-a5e4daa9f161">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+			</line>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="18" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="98" height="18" uuid="9d680480-bd84-41f5-94e9-9123dca74bd8"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="99" y="0" width="100" height="18" uuid="93b71444-3bfe-41ab-bc07-019554be4383"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Business Role]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="b743e8b0-3619-4fdf-b192-36fe2d903b7b"/>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="99" y="0" width="100" height="20" uuid="8c90a420-a75f-4039-8f7b-ce7f5bb16044"/>
+				<textFieldExpression><![CDATA[$F{role_name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

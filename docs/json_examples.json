@@ -48,6 +48,7 @@ staff POST
 {
 	"email": "sikandar.b@mail.com",
 	"name": "Sikandar Bhagad",
+	"initials": "SB"
 	"address": "8 willsmore street:Beverley:South Australia:5009:Australia"
 }
 
@@ -68,5 +69,44 @@ staff POST
 	"comissionPercentage": 3,
 	"staff":"/staffs/271a0536-6b1b-11e7-931d-001a7dda7113"
 	"staffJobRole":"/api/staffJobRoles/3"
+	"job": "/api/jobs/a9ba4364-6577-44dc-9266-1fa5484944cf"
+}
+
+{
+	"username": "rrobus",
+	"enabled": true,
+	"staff": "/api/staffs/2714f2ec-6b1b-11e7-931d-001a7dda7113",
+	"accessRole": "/api/accessRoles/ADMIN",
+	"password": "pass@rrobus"
+}
+
+{
+	"fromTm": "08:00:00",
+	"toTm": "17:30:00",
+	"weekday": "Thursday",
+	"staff": "/api/staffs/5"
+}
+{
+	"fromDtm": "2017-09-01T00:00:00",
+	"toDtm": "2017-09-30T00:00:00",
+	"staff": "/api/staffs/271775f8-6b1b-11e7-931d-001a7dda7113"
+}
+{
+	"fromDtm": "2017-09-01",
+	"toDtm": "2017-09-30",
+	"staff": "/api/staffs/271775f8-6b1b-11e7-931d-001a7dda7113"
+}
+
+{
+	"username": "rrobus",
+	"enabled": true,
+	"staff": "/api/staffs/2714f2ec-6b1b-11e7-931d-001a7dda7113",
+	"accessRole": "/api/accessRoles/ADMIN",
+	"password": "pass@rrobus"
+}
+{
+	"startDtm": "2017-05-01T11:04:44",
+	"finishDtm": "2017-05-01T12:04:44",
+	"staff": "/api/staffs/2714f2ec-6b1b-11e7-931d-001a7dda7113",
 	"job": "/api/jobs/a9ba4364-6577-44dc-9266-1fa5484944cf"
 }

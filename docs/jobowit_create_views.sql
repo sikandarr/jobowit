@@ -66,6 +66,25 @@ CREATE
     ALGORITHM = UNDEFINED 
     DEFINER = `root`@`localhost` 
     SQL SECURITY DEFINER
+VIEW `invoice_total` AS
+    SELECT 
+        `i`.`invoice_id` AS `invoice_id`,
+        `i`.`invoice_number` AS `invoice_number`,
+        `i`.`job_id` AS `job_id`,
+        `i`.`description` AS `description`,
+        `i`.`invoice_dt` AS `invoice_dt`,
+        `i`.`invoice_due_dt` AS `invoice_due_dt`,
+        `i`.`myob_uid` AS `myob_uid`,
+        SUM(`il`.`total`) AS `total`
+    FROM
+        (`invoice` `i`
+        JOIN `invoice_line_item` `il` ON ((`i`.`invoice_id` = `il`.`invoice_id`)))
+    GROUP BY `i`.`invoice_id`;
+		
+CREATE 
+    ALGORITHM = UNDEFINED 
+    DEFINER = `root`@`localhost` 
+    SQL SECURITY DEFINER
 VIEW `comission` AS
     SELECT 
         CONCAT(`j`.`job_id`,

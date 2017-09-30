@@ -60,5 +60,34 @@ VIEW `staff_not_available` AS
         (`staff` `s`
         JOIN `non_availability` `na` ON ((`s`.`staff_id` = `na`.`staff_id`)))
     WHERE
-        (NOW() BETWEEN `na`.`not_available_from_dtm` AND `na`.`not_available_to_dtm`)
+        (NOW() BETWEEN `na`.`not_available_from_dtm` AND `na`.`not_available_to_dtm`);
+		
+CREATE 
+    ALGORITHM = UNDEFINED 
+    DEFINER = `root`@`localhost` 
+    SQL SECURITY DEFINER
+VIEW `comission` AS
+    SELECT 
+        CONCAT(`j`.`job_id`,
+                `i`.`invoice_id`,
+                `s`.`staff_id`) AS `id`,
+        `j`.`job_id` AS `job_id`,
+        `j`.`job_uuid` AS `job_uuid`,
+        `i`.`invoice_id` AS `invoice_id`,
+        `s`.`staff_id` AS `staff_id`,
+        `s`.`name` AS `staff_name`,
+        `r`.`role_id` AS `role_id`,
+        `r`.`role_name` AS `role_name`,
+        CAST(`i`.`total` AS DECIMAL (14 , 2 )) AS `invoice_amount`,
+        CAST(`oj`.`comission_percentage` AS DECIMAL (14 , 2 )) AS `comission_p`,
+        CAST(((`oj`.`comission_percentage` / 100) * `i`.`total`)
+            AS DECIMAL (14 , 2 )) AS `comission_amount`
+    FROM
+        ((((`job` `j`
+        JOIN `operation_staff_in_job` `oj` ON ((`j`.`job_id` = `oj`.`job_id`)))
+        JOIN `staff_job_role` `r` ON ((`r`.`role_id` = `oj`.`staff_job_role_id`)))
+        JOIN `staff` `s` ON ((`oj`.`staff_id` = `s`.`staff_id`)))
+        JOIN `invoice_total` `i` ON ((`i`.`job_id` = `j`.`job_id`)))
+    WHERE
+        (`r`.`role_id` = 3);
 

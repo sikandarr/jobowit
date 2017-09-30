@@ -10,6 +10,8 @@ import javax.persistence.*;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.jobowit.domain.access.JobowitUser;
+import com.jobowit.domain.views.Comission;
+
 import lombok.Data;
 
 @Entity
@@ -49,6 +51,9 @@ public class Staff implements Serializable
 
 	@OneToMany(mappedBy = "staff")
 	private List<RecurringAvailability> recurringAvailabilities;
+	
+	@OneToMany(mappedBy = "staff")
+	private List<Comission> comissions;
 
 	@OneToOne(optional = true, cascade = CascadeType.ALL)
 	@JoinColumn(name = "address_id")

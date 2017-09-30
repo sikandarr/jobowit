@@ -34,7 +34,7 @@ public class JasperReportsController
 			throws IOException, JRException, SQLException
 	{
 		String filename = "invoice_" + new Date().getTime() + ".pdf";
-		response.setContentType("application/octet-stream");
+		response.setContentType("application/pdf");
 		response.setHeader("Content-Disposition", String.format("inline; filename=\"" + filename +"\""));
 		HashMap<String, Object> parameters = new HashMap<>();
 		File file = new File("jasper\\jrxml\\logo.jpg");
@@ -49,7 +49,7 @@ public class JasperReportsController
 			throws IOException, JRException, SQLException
 	{
 		String filename = "customer_report_" + new Date().getTime() + ".pdf";
-		response.setContentType("application/octet-stream");
+		response.setContentType("application/pdf");
 		response.setHeader("Content-Disposition", String.format("inline; filename=\"" + filename +"\""));
 		jasperService.exportToPdf("customer_report.jrxml", null, response.getOutputStream());
 	}
@@ -61,7 +61,7 @@ public class JasperReportsController
 		int id = jobRepo.findByUuid(uuid).get().getJobId();
 		String filename = "job_report_" + new Date().getTime() + ".pdf";
 		JasperReport subReport = jasperService.compile("operation_staff_job.jrxml");
-		response.setContentType("application/octet-stream");
+		response.setContentType("application/pdf");
 		response.setHeader("Content-Disposition", String.format("inline; filename=\"" + filename +"\""));
 		HashMap<String, Object> parameters = new HashMap<>();
 		parameters.put("jobId", id);

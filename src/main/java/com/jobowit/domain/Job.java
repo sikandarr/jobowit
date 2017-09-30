@@ -1,6 +1,7 @@
 package com.jobowit.domain;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -11,6 +12,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.jobowit.domain.views.Comission;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -85,6 +87,9 @@ public class Job implements Serializable
 
 	@OneToMany(mappedBy = "job")
 	private List<JobStatusEntry> statusEntries;
+	
+	@OneToMany(mappedBy = "job")
+	private List<Comission> comissions;
 
 	@ManyToOne
 	@JoinColumn(name = "initial_type")
@@ -143,6 +148,13 @@ public class Job implements Serializable
 	public boolean getActive()
 	{
 		return getCurrentStatus().isActive();
+	}
+	
+	public BigDecimal getComissionAmount()
+	{
+		if (this.getComissions() != null && this.getComissions().size() != 0)
+			return this.getComissions().stream().map(c -> c.getComissionAmount()).reduce(BigDecimal.ZERO, BigDecimal::add);
+		return BigDecimal.ZERO;
 	}
 
 	@Data

@@ -458,7 +458,7 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`field_work` (
   `h` INT NULL,
   `hours_worked` INT GENERATED ALWAYS AS ((time_to_sec(timediff(`finish_dtm`,`start_dtm`)) / 3600)) VIRTUAL,
   `rate` DECIMAL(14,2) NOT NULL DEFAULT 35,
-  `cost` DECIMAL(14,2) GENERATED ALWAYS AS ((`hours_worked` * `rate`)) VIRTUAL,
+  `cost` DECIMAL(14,2) GENERATED ALWAYS AS (((time_to_sec(timediff(`finish_dtm`,`start_dtm`)) / 3600) * `rate`)) VIRTUAL,
   PRIMARY KEY (`field_work_id`),
   INDEX `fk_field_work_job1_idx` (`job_id` ASC),
   INDEX `fk_field_work_staff1_idx` (`field_staff_id` ASC),

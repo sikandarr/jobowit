@@ -13,6 +13,7 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.jobowit.domain.views.Comission;
+import com.jobowit.domain.views.Cost;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -111,6 +112,9 @@ public class Job implements Serializable
 
 	@OneToMany(mappedBy = "job")
 	private List<Quotation> quotations;
+	
+	@OneToOne(mappedBy = "job")
+	private Cost cost;
 
 	public String getAddressStr()
 	{

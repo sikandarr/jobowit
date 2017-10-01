@@ -31,4 +31,8 @@ public class Comission implements Serializable
 	private @Column(precision = 10, scale = 2, columnDefinition = "DECIMAL(14,2)") BigDecimal invoiceAmount;
 	private @Column(name = "comission_p", precision = 10, scale = 2, columnDefinition = "DECIMAL(14,2)") BigDecimal comissionP;
 	private @Column(precision = 10, scale = 2, columnDefinition = "DECIMAL(14,2)") BigDecimal comissionAmount;
+	public String getInvoiceNumber()
+	{
+		return invoice.getInvoiceNumber();
+	}
 }

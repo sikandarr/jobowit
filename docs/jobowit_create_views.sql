@@ -109,4 +109,80 @@ VIEW `comission` AS
         JOIN `invoice_total` `i` ON ((`i`.`job_id` = `j`.`job_id`)))
     WHERE
         (`r`.`role_id` = 3);
+		
+CREATE 
+    ALGORITHM = UNDEFINED 
+    DEFINER = `root`@`localhost` 
+    SQL SECURITY DEFINER
+VIEW `job_labor_cost` AS
+    SELECT 
+        `f`.`job_id` AS `job_id`,
+        SUM(`f`.`hours_worked`) AS `total_hours_worked`,
+        SUM(`f`.`cost`) AS `labor_cost`
+    FROM
+        (`field_work` `f`
+        JOIN `job` `j` ON ((`j`.`job_id` = `f`.`job_id`)))
+    GROUP BY `f`.`job_id`;
+	
+CREATE 
+    ALGORITHM = UNDEFINED 
+    DEFINER = `root`@`localhost` 
+    SQL SECURITY DEFINER
+VIEW `job_material_cost` AS
+    SELECT 
+        `b`.`job_id` AS `job_id`,
+        SUM(`bli`.`purchase_price`) AS `material_cost`
+    FROM
+        (`bill` `b`
+        JOIN `bill_line_item` `bli` ON ((`b`.`bill_id` = `bli`.`bill_id`)))
+    GROUP BY `b`.`job_id`;
+	
+
+CREATE 
+    ALGORITHM = UNDEFINED 
+    DEFINER = `root`@`localhost` 
+    SQL SECURITY DEFINER
+VIEW `job_revenue` AS
+    SELECT 
+        `i`.`job_id` AS `job_id`, SUM(`i`.`total`) AS `revenue`
+    FROM
+        (`invoice_total` `i`
+        JOIN `job` `j` ON ((`i`.`job_id` = `j`.`job_id`)))
+    GROUP BY `i`.`job_id`;
+	
+	
+CREATE 
+    ALGORITHM = UNDEFINED 
+    DEFINER = `root`@`localhost` 
+    SQL SECURITY DEFINER
+VIEW `job_comission_cost` AS
+    SELECT 
+        `c`.`job_id` AS `job_id`,
+        SUM(`c`.`comission_amount`) AS `total_comission`
+    FROM
+        (`comission` `c`
+        JOIN `job` `j` ON ((`j`.`job_id` = `c`.`job_id`)))
+    GROUP BY `c`.`job_id`;
+	
+CREATE 
+    ALGORITHM = UNDEFINED 
+    DEFINER = `root`@`localhost` 
+    SQL SECURITY DEFINER
+VIEW `job_cost` AS
+    SELECT 
+        `j`.`job_id` AS `job_id`,
+        IFNULL(`l`.`labor_cost`, 0) AS `labor`,
+        IFNULL(`m`.`material_cost`, 0) AS `material`,
+        IFNULL(`c`.`total_comission`, 0) AS `comission`,
+        ((IFNULL(`l`.`labor_cost`, 0) + IFNULL(`m`.`material_cost`, 0)) + IFNULL(`c`.`total_comission`, 0)) AS `total_cost`,
+        `r`.`revenue` AS `revenue`,
+        (`r`.`revenue` - ((IFNULL(`l`.`labor_cost`, 0) + IFNULL(`m`.`material_cost`, 0)) + IFNULL(`c`.`total_comission`, 0))) AS `profit`
+    FROM
+        ((((`job` `j`
+        LEFT JOIN `job_labor_cost` `l` ON ((`j`.`job_id` = `l`.`job_id`)))
+        LEFT JOIN `job_material_cost` `m` ON ((`j`.`job_id` = `m`.`job_id`)))
+        LEFT JOIN `job_comission_cost` `c` ON ((`j`.`job_id` = `c`.`job_id`)))
+        JOIN `job_revenue` `r` ON ((`j`.`job_id` = `r`.`job_id`)));
+		
+
 

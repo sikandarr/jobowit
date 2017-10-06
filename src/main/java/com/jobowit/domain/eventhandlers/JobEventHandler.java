@@ -10,24 +10,20 @@ import org.springframework.data.rest.core.annotation.HandleAfterSave;
 import org.springframework.data.rest.core.annotation.HandleBeforeCreate;
 import org.springframework.data.rest.core.annotation.HandleBeforeSave;
 import org.springframework.data.rest.core.annotation.RepositoryEventHandler;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
 import org.apache.log4j.Logger;
 
-import com.jobowit.domain.Comment;
 import com.jobowit.domain.Job;
 import com.jobowit.domain.JobEmailText;
 import com.jobowit.domain.JobStatus;
-import com.jobowit.domain.JobStatusEntry;
 import com.jobowit.domain.JobType;
 import com.jobowit.domain.ResourceId;
-import com.jobowit.domain.Staff;
+import com.jobowit.helpers.AppLogger;
 import com.jobowit.helpers.EditedFields;
 import com.jobowit.repositories.CommentRepository;
 import com.jobowit.repositories.JobEmailTextRepository;
 import com.jobowit.repositories.JobRepository;
-import com.jobowit.repositories.JobStatusEntryRepository;
 import com.jobowit.repositories.JobStatusRepository;
 import com.jobowit.repositories.ResourceIdRepository;
 import com.jobowit.repositories.StaffRepository;
@@ -45,9 +41,6 @@ public class JobEventHandler
 
 	@Autowired
 	private JobStatusRepository statusRepo;
-
-	@Autowired
-	private JobStatusEntryRepository statusEntryRepo;
 
 	@Autowired
 	private ResourceIdRepository ridRepo;
@@ -70,8 +63,7 @@ public class JobEventHandler
 	@HandleBeforeCreate
 	public void handleBeforeCreates(Job job)
 	{
-		JobType type = job.getInitialType();
-		job.setCurrentType(type);
+		job.setCurrentType(job.getInitialType());
 		String id = null;
 		for (;;)
 		{
@@ -90,16 +82,7 @@ public class JobEventHandler
 	{
 		JobType type = job.getInitialType();
 		JobStatus status = statusRepo.findOneByJobTypeAndInitial(type, 'Y');
-		Staff staff = SecurityContextHolder.getContext().getAuthentication() != null
-				? staffRepo.findByUserUsername(SecurityContextHolder.getContext().getAuthentication().getName())
-				: staffRepo.findOne(1);
-		JobStatusEntry statusEntry = new JobStatusEntry();
-		statusEntry.setJob(job);
-		statusEntry.setStatus(status);
-		statusEntry.setStaff(staff);
-		statusEntry.setComment("Created new " + type.getJobType());
-		statusEntryRepo.save(statusEntry);
-
+		AppLogger.createStatusEntry(status, job, "Created new " + type.getJobType());
 		em.refresh(job);
 
 		JobEmailText jet = jetRepo.findOne("Primary");
@@ -111,15 +94,6 @@ public class JobEventHandler
 		{
 			log.warn("could not send email for new job: " + e.getMessage());
 		}
-		Comment c = new Comment();
-		c.setComment(
-				"Created new " + type.getJobType() + "<br />" + "<strong>Auto status:</strong> " + status.getStatus());
-		c.setStaffUser(SecurityContextHolder.getContext().getAuthentication() != null
-				? staffRepo.findByUserUsername(SecurityContextHolder.getContext().getAuthentication().getName())
-				: staffRepo.findOne(1));
-		c.setLogMessage(true);
-		c.setJob(job);
-		commentRepo.save(c);
 	}
 
 	@HandleBeforeSave
@@ -134,16 +108,7 @@ public class JobEventHandler
 	public void handleAfterSave(Job job)
 	{
 		if (editedFields != null && !editedFields.isEmpty())
-		{
-			Comment c = new Comment();
-			c.setComment(editedFields);
-			c.setJob(job);
-			c.setStaffUser(SecurityContextHolder.getContext().getAuthentication() != null
-					? staffRepo.findByUserUsername(SecurityContextHolder.getContext().getAuthentication().getName())
-					: staffRepo.findOne(1));
-			c.setLogMessage(true);
-			commentRepo.save(c);
-		}
+			AppLogger.createComment(editedFields, job);
 
 	}
 

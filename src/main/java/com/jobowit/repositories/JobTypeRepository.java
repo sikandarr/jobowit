@@ -5,7 +5,7 @@ import com.jobowit.domain.JobType;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 @CrossOrigin
-public interface JobTypeRepository extends PagingAndSortingRepository<JobType, String>
+public interface JobTypeRepository extends PagingAndSortingRepository<JobType, Integer>
 {
 
 }

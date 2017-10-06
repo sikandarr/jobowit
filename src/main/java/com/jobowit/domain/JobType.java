@@ -20,7 +20,9 @@ public class JobType implements Serializable
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "job_type", nullable = false, length = 45)
+	@Column(name = "job_type_id", nullable = false, length = 45)
+	private int jobTypeId;
+	
 	private String jobType;
 
 	@OneToMany(mappedBy = "jobType")

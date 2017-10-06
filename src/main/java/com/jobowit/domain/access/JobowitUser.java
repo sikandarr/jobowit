@@ -48,7 +48,7 @@ public class JobowitUser implements UserDetails
 	private String password;
 	
 	@OneToOne
-	@JoinColumn(name = "access_role", nullable = false)
+	@JoinColumn(name = "access_role_id", nullable = false)
 	private AccessRole accessRole;
 	
 	private boolean enabled;

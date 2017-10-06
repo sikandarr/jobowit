@@ -10,5 +10,4 @@ import com.jobowit.domain.Comment;
 @CrossOrigin
 public interface CommentRepository extends PagingAndSortingRepository<Comment, Integer>
 {
-
 }

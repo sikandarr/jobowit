@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 @Entity
 @Table(name = "access_control", uniqueConstraints =
 	{ @UniqueConstraint(columnNames =
-				{ "table_name", "role_name" }) })
+				{ "table_name", "access_role_id" }) })
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class AccessControl implements GrantedAuthority, Serializable
 {
@@ -28,7 +28,7 @@ public class AccessControl implements GrantedAuthority, Serializable
 	ProtectedResource dbTable;
 
 	@ManyToOne
-	@JoinColumn(name = "role_name", referencedColumnName = "role_name", nullable = true)
+	@JoinColumn(name = "access_role_id", referencedColumnName = "access_role_id", nullable = true)
 	@JsonIgnore
 	AccessRole accessRole;
 

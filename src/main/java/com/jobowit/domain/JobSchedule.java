@@ -6,6 +6,9 @@ import javax.persistence.*;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.jobowit.utils.DayOrdinal;
+
 import lombok.Data;
 
 import java.time.LocalDate;
@@ -103,8 +106,8 @@ public class JobSchedule implements Serializable, Comparable<JobSchedule>
 			return false;
 		return true;
 	}
-	
-	public String getWokerName()
+
+	public String getWorkerName()
 	{
 		return this.getStaff().getName();
 	}
@@ -116,5 +119,13 @@ public class JobSchedule implements Serializable, Comparable<JobSchedule>
 			return o.getStartDtm().compareTo(this.getStartDtm());
 		return this.getStartDtm().compareTo(o.getStartDtm());
 
+	}
+
+	@JsonIgnore
+	public String forComment()
+	{
+		return "<strong>Scheduled: </strong>" + getWorkerName() + " at " + startDtm.getHour() + ":"
+				+ startDtm.getMinute() + " to " + finishDtm.getHour() + ":" + finishDtm.getMinute() + " on "
+				+ DayOrdinal.get(startDtm.getDayOfMonth()) + " " + String.format("%tb", startDtm) + ".";
 	}
 }

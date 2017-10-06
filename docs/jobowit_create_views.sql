@@ -185,4 +185,34 @@ VIEW `job_cost` AS
         JOIN `job_revenue` `r` ON ((`j`.`job_id` = `r`.`job_id`)));
 		
 
+CREATE 
+    ALGORITHM = UNDEFINED 
+    DEFINER = `root`@`localhost` 
+    SQL SECURITY DEFINER
+VIEW `comment_union_status` AS
+    SELECT 
+        `comment`.`comment_id` AS `comment_id`,
+        `comment`.`details` AS `details`,
+        `comment`.`party_id` AS `party_id`,
+        `comment`.`job_id` AS `job_id`,
+        `comment`.`comment_dtm` AS `comment_dtm`,
+        `comment`.`staff_id` AS `staff_id`,
+        `comment`.`log_message` AS `log_message`
+    FROM
+        `comment` 
+    UNION SELECT 
+        (200000 + `jse`.`job_status_entry_id`) AS `200000 + job_status_entry_id`,
+        CONCAT('<strong>Status:</strong>',
+                `js`.`status_desc`,
+                '<br /><br />',
+                `jse`.`comment`) AS `Name_exp_9`,
+        NULL AS `NULL`,
+        `jse`.`job_id` AS `job_id`,
+        `jse`.`entry_dtm` AS `entry_dtm`,
+        `jse`.`staff_id` AS `staff_id`,
+        0 AS `0`
+    FROM
+        (`job_status_entry` `jse`
+        JOIN `job_status` `js` ON ((`jse`.`job_status` = `js`.`job_status_id`)))
+    ORDER BY `comment_dtm`
 

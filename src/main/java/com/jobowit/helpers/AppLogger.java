@@ -10,6 +10,7 @@ import com.jobowit.domain.Comment;
 import com.jobowit.domain.Job;
 import com.jobowit.domain.JobStatus;
 import com.jobowit.domain.JobStatusEntry;
+import com.jobowit.domain.Party;
 import com.jobowit.domain.Staff;
 import com.jobowit.repositories.CommentRepository;
 import com.jobowit.repositories.JobStatusEntryRepository;
@@ -44,6 +45,16 @@ public class AppLogger
 		Comment comment = new Comment();
 		comment.setComment(message);
 		comment.setJob(job);
+		comment.setStaffUser(loggedInStaff());
+		comment.setLogMessage(true);
+		commentRepo.save(comment);
+	}
+	
+	public static void createComment(String message, Party party)
+	{
+		Comment comment = new Comment();
+		comment.setComment(message);
+		comment.setParty(party);
 		comment.setStaffUser(loggedInStaff());
 		comment.setLogMessage(true);
 		commentRepo.save(comment);

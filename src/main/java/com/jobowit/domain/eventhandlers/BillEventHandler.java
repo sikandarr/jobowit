@@ -18,6 +18,7 @@ import org.apache.log4j.Logger;
 
 import com.jobowit.domain.Bill;
 import com.jobowit.domain.BillLineItem;
+import com.jobowit.helpers.AppLogger;
 import com.jobowit.helpers.ManageOneToMany;
 
 @Component
@@ -42,6 +43,7 @@ public class BillEventHandler
 	{
 		ManageOneToMany.addChildren(b, b.getBillLineItems());
 		em.refresh(b);
+		AppLogger.createComment("Created new Bill", b.getJob());
 	}
 
 	@HandleBeforeSave
@@ -59,6 +61,7 @@ public class BillEventHandler
 	public void handleAfterSave(Bill b)
 	{
 		ManageOneToMany.syncChildren(b, b.getBillLineItems());
+		AppLogger.createComment("Edited Bill", b.getJob());
 	}
 
 }

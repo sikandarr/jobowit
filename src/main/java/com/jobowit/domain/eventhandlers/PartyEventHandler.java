@@ -10,11 +10,10 @@ import org.springframework.data.rest.core.annotation.HandleAfterSave;
 import org.springframework.data.rest.core.annotation.HandleBeforeCreate;
 import org.springframework.data.rest.core.annotation.HandleBeforeSave;
 import org.springframework.data.rest.core.annotation.RepositoryEventHandler;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
-import com.jobowit.domain.Comment;
 import com.jobowit.domain.Party;
+import com.jobowit.helpers.AppLogger;
 import com.jobowit.helpers.EditedFields;
 import com.jobowit.repositories.CommentRepository;
 import com.jobowit.repositories.PartyRepository;
@@ -50,14 +49,7 @@ public class PartyEventHandler
 	public void handleAfterCreates(Party p)
 	{
 		em.refresh(p);
-		Comment c = new Comment();
-		c.setComment("Created new " + p.getType());
-		c.setStaffUser(SecurityContextHolder.getContext().getAuthentication() != null
-				? staffRepo.findByUserUsername(SecurityContextHolder.getContext().getAuthentication().getName())
-				: staffRepo.findOne(1));
-		c.setParty(p);
-		c.setLogMessage(true);
-		commentRepo.save(c);
+		AppLogger.createComment("Created new " + p.getType(), p);
 	}
 
 	@HandleBeforeSave
@@ -72,16 +64,7 @@ public class PartyEventHandler
 	public void hadleAfterSave(Party p)
 	{
 		if (editedFields != null && !editedFields.isEmpty())
-		{
-			Comment c = new Comment();
-			c.setComment(editedFields);
-			c.setParty(p);
-			c.setStaffUser(SecurityContextHolder.getContext().getAuthentication() != null
-					? staffRepo.findByUserUsername(SecurityContextHolder.getContext().getAuthentication().getName())
-					: staffRepo.findOne(1));
-			c.setLogMessage(true);
-			commentRepo.save(c);
-		}
+			AppLogger.createComment(editedFields, p);
 	}
 
 }

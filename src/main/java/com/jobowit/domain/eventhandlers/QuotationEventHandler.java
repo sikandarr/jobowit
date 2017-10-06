@@ -18,6 +18,7 @@ import org.apache.log4j.Logger;
 
 import com.jobowit.domain.Quotation;
 import com.jobowit.domain.QuotationLineItem;
+import com.jobowit.helpers.AppLogger;
 import com.jobowit.helpers.ManageOneToMany;
 
 @Component
@@ -41,6 +42,7 @@ public class QuotationEventHandler
 	{
 		ManageOneToMany.addChildren(q, q.getLineItems());
 		em.refresh(q);
+		AppLogger.createComment("Created new Quotation: " + q.getQuotationNumber(), q.getJob());
 	}
 
 	@HandleBeforeSave
@@ -58,6 +60,7 @@ public class QuotationEventHandler
 	public void handleAfterSave(Quotation q)
 	{
 		ManageOneToMany.syncChildren(q, q.getLineItems());
+		AppLogger.createComment("Edited Quotation: " + q.getQuotationNumber(), q.getJob());
 	}
 
 }

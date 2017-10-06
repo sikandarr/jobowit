@@ -19,6 +19,7 @@ import org.apache.log4j.Logger;
 import com.jobowit.domain.Invoice;
 import com.jobowit.domain.InvoiceLineItem;
 import com.jobowit.domain.ResourceId;
+import com.jobowit.helpers.AppLogger;
 import com.jobowit.helpers.ManageOneToMany;
 import com.jobowit.repositories.ResourceIdRepository;
 import com.jobowit.utils.RandomString;
@@ -60,6 +61,7 @@ public class InvoiceEventHandler
 	{
 		ManageOneToMany.addChildren(i, i.getInvoiceLineItems());
 		em.refresh(i);
+		AppLogger.createComment("Created new Invoice: " + i.getInvoiceNumber(), i.getJob());
 	}
 
 	@HandleBeforeSave
@@ -77,6 +79,7 @@ public class InvoiceEventHandler
 	public void handleAfterSave(Invoice i)
 	{
 		ManageOneToMany.syncChildren(i, i.getInvoiceLineItems());
+		AppLogger.createComment("Edited Invoice: " + i.getInvoiceNumber(), i.getJob());
 	}
 
 }

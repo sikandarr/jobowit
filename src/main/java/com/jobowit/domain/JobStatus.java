@@ -5,10 +5,6 @@ import javax.persistence.*;
 
 import lombok.Data;
 
-/**
- * The persistent class for the job_status database table.
- * 
- */
 @Entity
 @Table(name = "job_status")
 @Data
@@ -28,7 +24,7 @@ public class JobStatus implements Serializable
 	private boolean isActive;
 	
 	@Column(columnDefinition="ENUM('Y')")
-	private String initial;
+	private char initial;
 
 	@ManyToOne
 	@JoinColumn(name = "job_type", nullable = false)

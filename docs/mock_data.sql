@@ -656,11 +656,11 @@ INSERT INTO `jobowit_db`.`job_type` (`job_type`) VALUES ("Quote");
 -- job status data
 -- -----------------------------------------------------
 
-INSERT INTO `job_status` (`status_desc`, `job_type`) VALUES ("Awaiting Scope", 2);
+INSERT INTO `job_status` (`status_desc`, `job_type`, `initial`) VALUES ("Awaiting Scope", 2, 'Y');
 INSERT INTO `job_status` (`status_desc`, `job_type`) VALUES ("Awaiting Customer Approval", 2);
 INSERT INTO `job_status` (`status_desc`, `job_type`) VALUES ("Customer Rejected", 2);
 INSERT INTO `job_status` (`status_desc`, `job_type`) VALUES ("Under Negotiation", 2);
-INSERT INTO `job_status` (`status_desc`, `job_type`) VALUES ("Awaiting Schedule", 2);
+INSERT INTO `job_status` (`status_desc`, `job_type`, `initial`) VALUES ("Awaiting Schedule", 1, 'Y');
 INSERT INTO `job_status` (`status_desc`, `job_type`) VALUES ("Scheduled", 1);
 INSERT INTO `job_status` (`status_desc`, `job_type`) VALUES ("In Progress", 1);
 INSERT INTO `job_status` (`status_desc`, `job_type`, `indicates_active_job`) VALUES ("Customer Accepted", 2, 0);

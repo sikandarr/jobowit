@@ -81,7 +81,7 @@ public class JobEventHandler
 	public void handleAfterCreate(Job job)
 	{
 		JobType type = job.getInitialType();
-		JobStatus status = statusRepo.findOneByJobTypeAndInitial(type, 'Y');
+		JobStatus status = statusRepo.findOneByJobTypeAndInitial(type, "Y");
 		AppLogger.createStatusEntry(status, job, "Created new " + type.getJobType());
 		em.refresh(job);
 

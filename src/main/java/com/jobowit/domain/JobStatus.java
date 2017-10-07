@@ -24,7 +24,7 @@ public class JobStatus implements Serializable
 	private boolean isActive;
 	
 	@Column(columnDefinition="ENUM('Y')")
-	private char initial;
+	private String initial;
 
 	@ManyToOne
 	@JoinColumn(name = "job_type", nullable = false)

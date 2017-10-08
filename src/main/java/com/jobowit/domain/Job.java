@@ -178,7 +178,7 @@ public class Job implements Serializable
 		int daysSinceCreated = (int) java.time.temporal.ChronoUnit.DAYS.between(this.getCreatedDtm().toLocalDate(),
 				today);
 
-		if (this.getCurrentType().getJobType().equals("Service Request"))
+		if (this.getCurrentType().getJobTypeId() == 1)
 		{
 			if (daysSinceCreated >= 1)
 				if (this.getJobSchedules() == null || this.getJobSchedules().size() == 0)
@@ -196,7 +196,7 @@ public class Job implements Serializable
 				return new Flag("#FF9933", "Days since latest schedule: ", daysSinceSchedule,
 						"Job was scheduled but has not been marked complete.", "NOT COMP");
 		}
-		if (this.getCurrentType().getJobType().equals("Quote Request"))
+		if (this.getCurrentType().getJobTypeId() == 2)
 		{
 			if (daysSinceCreated >= 1)
 				if ((this.getQuotations() == null || this.getQuotations().size() == 0)

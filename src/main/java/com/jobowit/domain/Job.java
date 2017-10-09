@@ -118,7 +118,7 @@ public class Job implements Serializable
 
 	public String getAddressStr()
 	{
-		return getAddress().toString();
+		return address == null ? "" : getAddress().toString();
 	}
 
 	public String getCustomerName()
@@ -168,7 +168,7 @@ public class Job implements Serializable
 	{
 		String bgcolor;
 		String dayLabel;
-		int daysPast;
+		String daysPast;
 		String message;
 		String code;
 	}
@@ -178,32 +178,36 @@ public class Job implements Serializable
 		LocalDate today = LocalDate.now(ZoneId.of("Australia/Adelaide"));
 		int daysSinceCreated = (int) java.time.temporal.ChronoUnit.DAYS.between(this.getCreatedDtm().toLocalDate(),
 				today);
-
+		
+		String daysAgo = daysSinceCreated == 0 ? "Today" : daysSinceCreated + " days ago";
+		
 		if (this.getCurrentType().getJobTypeId() == 1 && daysSinceCreated >= 1)
 		{
 			if (this.getJobSchedules() == null || this.getJobSchedules().size() == 0)
-				return new Flag("#FF9933", "Days since created: ", daysSinceCreated,
+				return new Flag("#FF9933", "Created: ", daysAgo,
 						"No Schedule created for this Job.", "EXP SCH");
 
 			if (!this.getLatestSchedule().isPast())
-				return new Flag("#99FF33", "Days since created: ", daysSinceCreated,
-						"Job is scheduled; check schedule for info.", "OK");
+				return new Flag("#99FF33", "Created: ", daysAgo,
+						"Job is scheduled. Check schedule for details.", "OK");
 
 			int daysSinceSchedule = (int) java.time.temporal.ChronoUnit.DAYS
 					.between(this.getLatestSchedule().getFinishDtm().toLocalDate(), today);
+			
+			String scheduledDaysAgo = daysSinceSchedule == 0 ? "Today" : daysSinceSchedule + " days ago";
 
 			if (daysSinceSchedule > 0 && this.getCurrentStatus().isActive())
-				return new Flag("#FF9933", "Days since latest schedule: ", daysSinceSchedule,
+				return new Flag("#FF9933", "Scheduled: ", scheduledDaysAgo,
 						"Job was scheduled but has not been marked complete.", "NOT COMP");
 		}
 		if (this.getCurrentType().getJobTypeId() == 2 && daysSinceCreated >= 1)
 		{
 			if ((this.getQuotations() == null || this.getQuotations().size() == 0)
 					&& this.getCurrentStatus().isActive())
-				return new Flag("#FF9933", "Days since created: ", daysSinceCreated,
+				return new Flag("#FF9933", "Created: ", daysAgo,
 						"No quotation added for this quote request.", "EXP QUOTE");
 		}
-		return new Flag("#99FF33", "Days since created: ", daysSinceCreated, "Everything seems OK.", "OK");
+		return new Flag("#99FF33", "Created: ", daysAgo, "Everything seems OK.", "OK");
 
 	}
 

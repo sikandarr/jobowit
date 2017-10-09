@@ -88,7 +88,7 @@ public class Job implements Serializable
 
 	@OneToMany(mappedBy = "job")
 	private List<JobStatusEntry> statusEntries;
-	
+
 	@OneToMany(mappedBy = "job")
 	private List<Comission> comissions;
 
@@ -112,7 +112,7 @@ public class Job implements Serializable
 
 	@OneToMany(mappedBy = "job")
 	private List<Quotation> quotations;
-	
+
 	@OneToOne(mappedBy = "job")
 	private Cost cost;
 
@@ -153,11 +153,12 @@ public class Job implements Serializable
 	{
 		return getCurrentStatus().isActive();
 	}
-	
+
 	public BigDecimal getComissionAmount()
 	{
 		if (this.getComissions() != null && this.getComissions().size() != 0)
-			return this.getComissions().stream().map(c -> c.getComissionAmount()).reduce(BigDecimal.ZERO, BigDecimal::add);
+			return this.getComissions().stream().map(c -> c.getComissionAmount()).reduce(BigDecimal.ZERO,
+					BigDecimal::add);
 		return BigDecimal.ZERO;
 	}
 
@@ -178,12 +179,11 @@ public class Job implements Serializable
 		int daysSinceCreated = (int) java.time.temporal.ChronoUnit.DAYS.between(this.getCreatedDtm().toLocalDate(),
 				today);
 
-		if (this.getCurrentType().getJobTypeId() == 1)
+		if (this.getCurrentType().getJobTypeId() == 1 && daysSinceCreated >= 1)
 		{
-			if (daysSinceCreated >= 1)
-				if (this.getJobSchedules() == null || this.getJobSchedules().size() == 0)
-					return new Flag("#FF9933", "Days since created: ", daysSinceCreated,
-							"No Schedule created for this Job.", "EXP SCH");
+			if (this.getJobSchedules() == null || this.getJobSchedules().size() == 0)
+				return new Flag("#FF9933", "Days since created: ", daysSinceCreated,
+						"No Schedule created for this Job.", "EXP SCH");
 
 			if (!this.getLatestSchedule().isPast())
 				return new Flag("#99FF33", "Days since created: ", daysSinceCreated,
@@ -196,13 +196,12 @@ public class Job implements Serializable
 				return new Flag("#FF9933", "Days since latest schedule: ", daysSinceSchedule,
 						"Job was scheduled but has not been marked complete.", "NOT COMP");
 		}
-		if (this.getCurrentType().getJobTypeId() == 2)
+		if (this.getCurrentType().getJobTypeId() == 2 && daysSinceCreated >= 1)
 		{
-			if (daysSinceCreated >= 1)
-				if ((this.getQuotations() == null || this.getQuotations().size() == 0)
-						&& this.getCurrentStatus().isActive())
-					return new Flag("#FF9933", "Days since created: ", daysSinceCreated,
-							"No quotation added for this quote request.", "EXP QUOTE");
+			if ((this.getQuotations() == null || this.getQuotations().size() == 0)
+					&& this.getCurrentStatus().isActive())
+				return new Flag("#FF9933", "Days since created: ", daysSinceCreated,
+						"No quotation added for this quote request.", "EXP QUOTE");
 		}
 		return new Flag("#99FF33", "Days since created: ", daysSinceCreated, "Everything seems OK.", "OK");
 

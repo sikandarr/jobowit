@@ -8,12 +8,10 @@ import javax.persistence.*;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "address")
 @Data
-@NoArgsConstructor
 public class Address implements Serializable
 {
 	private static final long serialVersionUID = 1L;
@@ -46,6 +44,15 @@ public class Address implements Serializable
 	@Column(insertable = false, updatable = false)
 	private Timestamp updatedDtm;
 
+	public Address()
+	{
+		street1 = "";
+		city = "";
+		state = "";
+		postCode = "";
+		country = "";
+	}
+
 	public Address(String address)
 	{
 		String[] addr = address.split(":");
@@ -62,62 +69,68 @@ public class Address implements Serializable
 
 	public void setState(String state)
 	{
-		switch (state.toLowerCase())
-		{
-			case "sa":
-			case "south australia":
-				this.state = "South Australia";
-				break;
+		if (state != null && !state.isEmpty())
+			switch (state.toLowerCase())
+			{
+				case "sa":
+				case "south australia":
+					this.state = "South Australia";
+					break;
 
-			case "nsw":
-			case "new south wales":
-				this.state = "New South wales";
-				break;
+				case "nsw":
+				case "new south wales":
+					this.state = "New South wales";
+					break;
 
-			case "qld":
-			case "queensland":
-				this.state = "Queensland";
-				break;
+				case "qld":
+				case "queensland":
+					this.state = "Queensland";
+					break;
 
-			case "tas":
-			case "tasmania":
-				this.state = "Tasmania";
-				break;
+				case "tas":
+				case "tasmania":
+					this.state = "Tasmania";
+					break;
 
-			case "vic":
-			case "victoria":
-				this.state = "Victoria";
-				break;
+				case "vic":
+				case "victoria":
+					this.state = "Victoria";
+					break;
 
-			case "wa":
-			case "western australia":
-				this.state = "Western Australia";
-				break;
+				case "wa":
+				case "western australia":
+					this.state = "Western Australia";
+					break;
 
-			case "act":
-			case "australian capital territory":
-				this.state = "Australian Capital Territory";
-				break;
+				case "act":
+				case "australian capital territory":
+					this.state = "Australian Capital Territory";
+					break;
 
-			case "nt":
-			case "northern territory":
-				this.state = "Northern Territory";
-				break;
+				case "nt":
+				case "northern territory":
+					this.state = "Northern Territory";
+					break;
 
-			default:
-				this.state = state.substring(0, 1).toUpperCase() + state.substring(1).toLowerCase();
-				break;
-		}
+				default:
+					this.state = state.substring(0, 1).toUpperCase() + state.substring(1).toLowerCase();
+					break;
+			}
+		else this.state = state;
 	}
 
 	public void setCity(String city)
 	{
-		this.city = city.substring(0, 1).toUpperCase() + city.substring(1).toLowerCase();
+		if (city != null && !city.isEmpty())
+			this.city = city.substring(0, 1).toUpperCase() + city.substring(1).toLowerCase();
+		else this.city = city;
 	}
 
 	public void setCountry(String country)
 	{
-		this.country = country.substring(0, 1).toUpperCase() + country.substring(1).toLowerCase();
+		if (country != null && !country.isEmpty())
+			this.country = country.substring(0, 1).toUpperCase() + country.substring(1).toLowerCase();
+		else this.country = country;
 	}
 
 	public Timestamp getUpdatedDtm()
@@ -127,37 +140,39 @@ public class Address implements Serializable
 
 	public String getStateAbbr()
 	{
-		switch (state.toLowerCase())
-		{
-			case "south australia":
-				return "SA";
+		if (state != null)
+			switch (state.toLowerCase())
+			{
+				case "south australia":
+					return "SA";
 
-			case "new south wales":
-				return "NSW";
+				case "new south wales":
+					return "NSW";
 
-			case "queensland":
-				return "QLD";
+				case "queensland":
+					return "QLD";
 
-			case "tasmania":
-				return "TAS";
+				case "tasmania":
+					return "TAS";
 
-			case "victoria":
-				return "VIC";
+				case "victoria":
+					return "VIC";
 
-			case "western australia":
-				return "WA";
+				case "western australia":
+					return "WA";
 
-			case "australian capital territory":
-				return "ACT";
+				case "australian capital territory":
+					return "ACT";
 
-			case "northern territory":
-				return "NT";
+				case "northern territory":
+					return "NT";
 
-			default:
-				return state;
-		}
+				default:
+					return state;
+			}
+		else return "";
 	}
-	
+
 	public String getAddr()
 	{
 		return this.toString();

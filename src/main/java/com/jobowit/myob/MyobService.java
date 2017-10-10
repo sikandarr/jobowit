@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 
 import com.anahata.myob.api.MyobEndPointProvider;
 import com.anahata.myob.api.auth.DataFileCredentials;
+import com.anahata.myob.api.domain.CompanyFile;
 import com.anahata.myob.api.domain.v2.BaseEntity;
 import com.anahata.myob.api.domain.v2.EntityPage;
 import com.anahata.myob.api.service.AbstractEntityMyobService;
@@ -60,5 +61,11 @@ public class MyobService
 					"System error in MyobService::getService: couldn't return myob domain service");
 		}
 		return myobDomainService;
+	}
+	
+	public CompanyFile[] getCompanyFiles()
+	{
+		MyobEndPointProviderServiceImpl meps = (MyobEndPointProviderServiceImpl) getMyobEndPointProvider();
+		return meps.getCompanyFiles();
 	}
 }

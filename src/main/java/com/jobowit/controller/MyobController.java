@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.anahata.myob.api.domain.CompanyFile;
 import com.anahata.myob.api.domain.v2.contact.Contact;
 import com.anahata.myob.api.domain.v2.generalledger.Account;
 import com.anahata.myob.api.domain.v2.generalledger.TaxCode;
@@ -94,6 +96,14 @@ public class MyobController
 		return ResponseEntity.ok().body("Success");
 	}
 
+	@GetMapping("/myob/companyFiles")
+	public ResponseEntity<CompanyFile[]> handleCompanyFileService()
+	{
+		CompanyFile[] files = m.getCompanyFiles();
+		System.out.println(files.length);
+		return ResponseEntity.ok().body(m.getCompanyFiles());
+	}
+	
 	@GetMapping("/myob/cs")
 	public ResponseEntity<List<Contact>> handleCotactService()
 	{

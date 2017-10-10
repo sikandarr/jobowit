@@ -23,6 +23,7 @@ public class MyobEndPointProviderServiceImpl implements MyobEndPointProvider
 
 	MyobTokenRepository myobTokenRepo;
 	DataFileCredentials dfc;
+	CompanyFile[] companyFiles;
 
 	@Autowired
 	public MyobEndPointProviderServiceImpl(MyobTokenRepository myobTokenRepo, DataFileCredentials dfc)
@@ -37,8 +38,8 @@ public class MyobEndPointProviderServiceImpl implements MyobEndPointProvider
 					myobToken.getCreatedOn(), myobToken.getExpiresIn());
 			try
 			{
-				CompanyFile[] companyFile = CompanyFileService.findAll(t, dfc);
-				this.uid = companyFile[0].getId();	
+				companyFiles = CompanyFileService.findAll(t, dfc);
+				this.uid = companyFiles[1].getId();
 			}
 			catch (Exception e)
 			{
@@ -63,5 +64,10 @@ public class MyobEndPointProviderServiceImpl implements MyobEndPointProvider
 		MyobToken myobToken = new MyobToken(t.getAccessToken(), t.getTokenType(), t.getExpiresIn(), t.getRefreshToken(),
 				t.getScope(), new Timestamp(t.getCreatedOn().getTime()));
 		myobTokenRepo.save(myobToken);
+	}
+	
+	public CompanyFile[] getCompanyFiles()
+	{
+		return this.companyFiles;
 	}
 }

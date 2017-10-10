@@ -61,12 +61,12 @@ CREATE TABLE IF NOT EXISTS `jobowit_db`.`party` (
   CONSTRAINT `fk_Party_address`
     FOREIGN KEY (`mailing_address_id`)
     REFERENCES `jobowit_db`.`address` (`address_id`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Party_address1`
     FOREIGN KEY (`physical_address_id`)
     REFERENCES `jobowit_db`.`address` (`address_id`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 

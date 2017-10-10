@@ -182,13 +182,11 @@ public class MyobSyncService
 		return contactAddress;
 	}
 
-	private com.jobowit.domain.Address createAddress(
-			com.anahata.myob.api.domain.v2.contact.Address contactAddress)
+	private com.jobowit.domain.Address createAddress(com.anahata.myob.api.domain.v2.contact.Address contactAddress)
 	{
-		com.jobowit.domain.Address partyAddress = null;
+		com.jobowit.domain.Address partyAddress = new com.jobowit.domain.Address();
 		if (contactAddress != null)
 		{
-			partyAddress = new com.jobowit.domain.Address();
 			partyAddress.setStreet1(contactAddress.getStreet());
 			partyAddress.setCity(contactAddress.getCity());
 			partyAddress.setState(contactAddress.getState());

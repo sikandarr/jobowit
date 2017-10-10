@@ -13,6 +13,7 @@ import org.apache.log4j.Logger;
 import com.jobowit.domain.Job;
 import com.jobowit.domain.JobStatus;
 import com.jobowit.domain.JobStatusEntry;
+import com.jobowit.domain.JobType;
 import com.jobowit.helpers.AppLogger;
 import com.jobowit.repositories.JobRepository;
 import com.jobowit.repositories.JobStatusRepository;
@@ -27,10 +28,10 @@ public class JobStatusEntryEventHandler
 
 	@Autowired
 	private JobTypeRepository typeRepo;
-	
+
 	@Autowired
 	private JobRepository jobRepo;
-	
+
 	@Autowired
 	private JobStatusRepository statusRepo;
 
@@ -48,12 +49,13 @@ public class JobStatusEntryEventHandler
 				+ ((jse.getComment() == null || jse.getComment().isEmpty()) ? ""
 						: "Comment: </strong>" + jse.getComment());
 		AppLogger.createComment(comment, job);
-		
-		if (jse.getStatus().getStatus() == "Customer Accepted" && job.getCurrentType().getJobTypeId() == 2)
+
+		if (jse.getStatus().getStatus().equals("Customer Accepted") && job.getCurrentType().getJobTypeId() == 2)
 		{
-			job.setCurrentType(typeRepo.findOne(1));
+			JobType serviceRequest = typeRepo.findOne(1);
+			job.setCurrentType(serviceRequest);
 			jobRepo.save(job);
-			JobStatus status = statusRepo.findByStatusAndJobType("Awaiting Scope", job.getCurrentType());
+			JobStatus status = statusRepo.findOneByJobTypeAndInitial(serviceRequest, "Y");
 			AppLogger.createStatusEntry(status, job, "Changed Quote Request to Service Request");
 		}
 	}

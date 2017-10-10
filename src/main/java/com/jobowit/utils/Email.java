@@ -54,7 +54,7 @@ public class Email
 		try
 		{
 			Message message = new MimeMessage(session);
-			message.setFrom(new InternetAddress("sikandar@bhagad.com"));
+			message.setFrom(new InternetAddress("sikandar@bhagad.com", "Exalted Property Services"));
 			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toAddress));
 			message.setSubject(subject);
 			message.setText(text);

@@ -82,7 +82,7 @@ public class JobEventHandler
 	{
 		JobType type = job.getInitialType();
 		JobStatus status = statusRepo.findOneByJobTypeAndInitial(type, "Y");
-		AppLogger.createStatusEntry(status, job, "Created new " + type.getJobType());
+		AppLogger.createStatusEntry(status, job, "Created new " + type.getJobType() + " Request");
 		em.refresh(job);
 
 		JobEmailText jet = jetRepo.findOne("Primary");

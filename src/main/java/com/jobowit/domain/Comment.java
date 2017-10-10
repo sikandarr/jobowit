@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -32,8 +32,8 @@ public class Comment implements Serializable, Comparable<Comment>
 	@Column(name = "comment_id", unique = true, nullable = false)
 	private int commentId;
 
-	@Column(name = "comment_dtm", insertable=false, updatable=false)
-	private Timestamp commentDtm;
+	@Column(name = "comment_dtm", insertable=false, updatable=false, columnDefinition = "TIMESTAMP")
+	private LocalDateTime commentDtm;
 
 	@Lob
 	@Column(name = "details")

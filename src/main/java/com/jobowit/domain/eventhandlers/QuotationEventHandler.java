@@ -16,10 +16,12 @@ import org.springframework.stereotype.Component;
 
 import org.apache.log4j.Logger;
 
+import com.jobowit.domain.JobStatus;
 import com.jobowit.domain.Quotation;
 import com.jobowit.domain.QuotationLineItem;
 import com.jobowit.helpers.AppLogger;
 import com.jobowit.helpers.ManageOneToMany;
+import com.jobowit.repositories.JobStatusRepository;
 
 @Component
 @RepositoryEventHandler(Quotation.class)
@@ -30,6 +32,9 @@ public class QuotationEventHandler
 
 	@Autowired
 	EntityManager em;
+	
+	@Autowired
+	private JobStatusRepository statusRepo;
 
 	@HandleBeforeCreate
 	public void handleBeforeCreates(Quotation q)
@@ -42,7 +47,8 @@ public class QuotationEventHandler
 	{
 		ManageOneToMany.addChildren(q, q.getLineItems());
 		em.refresh(q);
-		AppLogger.createComment("Created new Quotation: " + q.getQuotationNumber(), q.getJob());
+		JobStatus status = statusRepo.findByStatusAndJobType("Scoped", q.getJob().getCurrentType());
+		AppLogger.createStatusEntry(status, q.getJob(), "Added new Quotation");
 	}
 
 	@HandleBeforeSave

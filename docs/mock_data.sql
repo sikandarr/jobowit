@@ -28,6 +28,14 @@ INSERT INTO `staff` (`staff_id`,`staff_uuid`,`name`,`initials`,`address_id`,`ema
 INSERT INTO `user` (`staff_id`, `access_role_id`,`username`, `password`, `enabled`) VALUES (1, 1, 'motion6', '$2a$10$pDMaM7/PtG61nVxYOvvf0uCh83IkZZmpBa1M048OPNq4daZ43meMG', 1);
 INSERT INTO `user` (`staff_id`, `access_role_id`,`username`, `password`, `enabled`) VALUES (2, 1, 'peter', '$2a$10$M20LwBqBPipiL3V0koXZyuwVzOgzNUaCGzsl6bj0lq6.Pb4cUbYTi', 1);
 
+-- Staff Office Roles
+INSERT INTO `staff_role` (`staff_id`,`role_id`) VALUES (1,1,1);
+INSERT INTO `staff_role` (`staff_id`,`role_id`) VALUES (2,1,2);
+INSERT INTO `staff_role` (`staff_id`,`role_id`) VALUES (3,1,3);
+INSERT INTO `staff_role` (`staff_id`,`role_id`) VALUES (1,2,1);
+INSERT INTO `staff_role` (`staff_id`,`role_id`) VALUES (2,2,2);
+INSERT INTO `staff_role` (`staff_id`,`role_id`) VALUES (3,2,3);
+
 -- -----------------------------------------------------
 -- Party Data
 -- -----------------------------------------------------
@@ -47,6 +55,7 @@ INSERT INTO `jobowit_db`.`job_type` (`job_type`) VALUES ("Quote");
 -- -----------------------------------------------------
 
 INSERT INTO `job_status` (`status_desc`, `job_type`, `initial`) VALUES ("Awaiting Scope", 2, 'Y');
+INSERT INTO `job_status` (`status_desc`, `job_type`) VALUES ("Scoped", 2);
 INSERT INTO `job_status` (`status_desc`, `job_type`) VALUES ("Awaiting Customer Approval", 2);
 INSERT INTO `job_status` (`status_desc`, `job_type`, `indicates_active_job`) VALUES ("Customer Rejected", 2, 0);
 INSERT INTO `job_status` (`status_desc`, `job_type`) VALUES ("Under Negotiation", 2);

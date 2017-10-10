@@ -10,10 +10,13 @@ import org.springframework.stereotype.Component;
 
 import org.apache.log4j.Logger;
 
+import com.jobowit.domain.Job;
+import com.jobowit.domain.JobStatus;
 import com.jobowit.domain.JobStatusEntry;
 import com.jobowit.helpers.AppLogger;
-import com.jobowit.repositories.CommentRepository;
-import com.jobowit.repositories.StaffRepository;
+import com.jobowit.repositories.JobRepository;
+import com.jobowit.repositories.JobStatusRepository;
+import com.jobowit.repositories.JobTypeRepository;
 
 @Component
 @RepositoryEventHandler(JobStatusEntry.class)
@@ -23,10 +26,13 @@ public class JobStatusEntryEventHandler
 	static Logger log = Logger.getLogger(JobStatusEntryEventHandler.class.getName());
 
 	@Autowired
-	StaffRepository staffRepo;
-
+	private JobTypeRepository typeRepo;
+	
 	@Autowired
-	CommentRepository commentRepo;
+	private JobRepository jobRepo;
+	
+	@Autowired
+	private JobStatusRepository statusRepo;
 
 	@HandleBeforeCreate
 	public void handleBeforeCreate(JobStatusEntry jse)
@@ -37,10 +43,19 @@ public class JobStatusEntryEventHandler
 	@HandleAfterCreate
 	public void handleAfterCreate(JobStatusEntry jse)
 	{
+		Job job = jse.getJob();
 		String comment = "Changed status to: " + jse.getStatus().getStatus() + "<br /><strong>"
 				+ ((jse.getComment() == null || jse.getComment().isEmpty()) ? ""
 						: "Comment: </strong>" + jse.getComment());
-		AppLogger.createComment(comment, jse.getJob());
+		AppLogger.createComment(comment, job);
+		
+		if (jse.getStatus().getStatus() == "Customer Accepted" && job.getCurrentType().getJobTypeId() == 2)
+		{
+			job.setCurrentType(typeRepo.findOne(1));
+			jobRepo.save(job);
+			JobStatus status = statusRepo.findByStatusAndJobType("Awaiting Scope", job.getCurrentType());
+			AppLogger.createStatusEntry(status, job, "Changed Quote Request to Service Request");
+		}
 	}
 
 }

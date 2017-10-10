@@ -178,22 +178,28 @@ public class Job implements Serializable
 		LocalDate today = LocalDate.now(ZoneId.of("Australia/Adelaide"));
 		int daysSinceCreated = (int) java.time.temporal.ChronoUnit.DAYS.between(this.getCreatedDtm().toLocalDate(),
 				today);
-		
+
 		String daysAgo = daysSinceCreated == 0 ? "Today" : daysSinceCreated + " days ago";
-		
+
+		if (this.getCurrentType().getJobTypeId() == 1 && this.getCurrentType().getJobTypeId() == 2)
+		{
+			LocalDate edited = this.getLastEditedDateTime().toLocalDate() != null
+					? this.getLastEditedDateTime().toLocalDate() : today;
+			
+					daysSinceCreated = (int) java.time.temporal.ChronoUnit.DAYS.between(edited, today);
+		}
+
 		if (this.getCurrentType().getJobTypeId() == 1 && daysSinceCreated >= 1)
 		{
 			if (this.getJobSchedules() == null || this.getJobSchedules().size() == 0)
-				return new Flag("#FF9933", "Created: ", daysAgo,
-						"No Schedule created for this Job.", "EXP SCH");
+				return new Flag("#FF9933", "Created: ", daysAgo, "No Schedule created for this Job.", "EXP SCH");
 
 			if (!this.getLatestSchedule().isPast())
-				return new Flag("#99FF33", "Created: ", daysAgo,
-						"Job is scheduled. Check schedule for details.", "OK");
+				return new Flag("#99FF33", "Created: ", daysAgo, "Job is scheduled. Check schedule for details.", "OK");
 
 			int daysSinceSchedule = (int) java.time.temporal.ChronoUnit.DAYS
 					.between(this.getLatestSchedule().getFinishDtm().toLocalDate(), today);
-			
+
 			String scheduledDaysAgo = daysSinceSchedule == 0 ? "Today" : daysSinceSchedule + " days ago";
 
 			if (daysSinceSchedule > 0 && this.getCurrentStatus().isActive())
@@ -204,8 +210,8 @@ public class Job implements Serializable
 		{
 			if ((this.getQuotations() == null || this.getQuotations().size() == 0)
 					&& this.getCurrentStatus().isActive())
-				return new Flag("#FF9933", "Created: ", daysAgo,
-						"No quotation added for this quote request.", "EXP QUOTE");
+				return new Flag("#FF9933", "Created: ", daysAgo, "No quotation added for this quote request.",
+						"EXP QUOTE");
 		}
 		return new Flag("#99FF33", "Created: ", daysAgo, "Everything seems OK.", "OK");
 
@@ -226,6 +232,13 @@ public class Job implements Serializable
 		Optional<Comment> comment = this.getComments().stream().filter((c1) -> c1.isLogMessage())
 				.reduce((first, second) -> second);
 		return comment.isPresent() ? comment.get().getStaffUser().getName() : "Not available";
+	}
+
+	public LocalDateTime getLastEditedDateTime()
+	{
+		Optional<Comment> comment = this.getComments().stream().filter((c1) -> c1.isLogMessage())
+				.reduce((first, second) -> second);
+		return comment.isPresent() ? comment.get().getCommentDtm() : null;
 	}
 
 	public List<Map<String, String>> getOperationsStaff()

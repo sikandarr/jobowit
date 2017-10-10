@@ -72,7 +72,7 @@ public class MyobController
 		arguments.add(new BasicNameValuePair("client_secret", "kckU3f6SJbKhe6MNrBTzYKSm"));
 		arguments.add(new BasicNameValuePair("scope", "CompanyFile"));
 		arguments.add(new BasicNameValuePair("code", code));
-		arguments.add(new BasicNameValuePair("redirect_uri", "http://localhost:8081/myob"));
+		arguments.add(new BasicNameValuePair("redirect_uri", "http://jobowit.com:8081/myob"));
 		arguments.add(new BasicNameValuePair("grant_type", "authorization_code"));
 		
 		ObjectMapper om = new ObjectMapper();

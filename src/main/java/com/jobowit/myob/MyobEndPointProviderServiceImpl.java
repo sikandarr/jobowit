@@ -17,7 +17,7 @@ import com.jobowit.repositories.MyobTokenRepository;
 public class MyobEndPointProviderServiceImpl implements MyobEndPointProvider
 {
 	private final MyobPlugin plugin = new MyobPlugin("vzbha48uyde74m4xtd9xuduz", "kckU3f6SJbKhe6MNrBTzYKSm",
-			"http://localhost:8081/myob");
+			"http://jobowit.com:8081/myob");
 
 	private String uid = "";
 

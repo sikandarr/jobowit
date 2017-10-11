@@ -32,14 +32,14 @@ public class QuotationEventHandler
 
 	@Autowired
 	EntityManager em;
-	
+
 	@Autowired
 	private JobStatusRepository statusRepo;
 
 	@HandleBeforeCreate
 	public void handleBeforeCreates(Quotation q)
 	{
-		
+
 	}
 
 	@HandleAfterCreate
@@ -47,8 +47,13 @@ public class QuotationEventHandler
 	{
 		ManageOneToMany.addChildren(q, q.getLineItems());
 		em.refresh(q);
-		JobStatus status = statusRepo.findByStatusAndJobType("Scoped", q.getJob().getCurrentType());
-		AppLogger.createStatusEntry(status, q.getJob(), "Added new Quotation");
+		if (q.getJob().getCurrentType().getJobTypeId() == 2)
+		{
+			JobStatus status = statusRepo.findByStatusAndJobType("Scoped", q.getJob().getCurrentType());
+			AppLogger.createStatusEntry(status, q.getJob(), "Added new Quotation");
+		}
+		else AppLogger.createComment("Added new Quotation: " + q.getQuotationNumber(), q.getJob());
+			
 	}
 
 	@HandleBeforeSave

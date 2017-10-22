@@ -1,4 +1,4 @@
-package com.jobowit.myob.domainservice;
+/*package com.jobowit.myob.domainservice;
 
 import java.util.List;
 import java.util.Objects;
@@ -25,4 +25,4 @@ public class ContactService extends AbstractEntityMyobService<ContactPage, Conta
 		}
 		return null;
 	}
-}
+}*/

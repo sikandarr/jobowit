@@ -1,4 +1,4 @@
-package com.jobowit.myob;
+/*package com.jobowit.myob;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -96,4 +96,4 @@ public class MyobBillService
 		}
 		return lines;
 	}
-}
+}*/

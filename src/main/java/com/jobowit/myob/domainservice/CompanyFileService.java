@@ -1,4 +1,4 @@
-package com.jobowit.myob.domainservice;
+/*package com.jobowit.myob.domainservice;
 
 import com.anahata.myob.api.MyobEndPoint;
 import com.anahata.myob.api.MyobEndPointProvider;
@@ -59,4 +59,4 @@ public class CompanyFileService extends AbstractMyobService
 		});
 		return cfs.findAll();
 	}
-}
+}*/

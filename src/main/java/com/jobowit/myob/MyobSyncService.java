@@ -1,4 +1,4 @@
-package com.jobowit.myob;
+/*package com.jobowit.myob;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -308,4 +308,4 @@ public class MyobSyncService
 		syncDates.setLastSyncDtm(p.getUpdatedDtm());
 		myobSyncDateRepo.save(syncDates);
 	}
-}
+}*/

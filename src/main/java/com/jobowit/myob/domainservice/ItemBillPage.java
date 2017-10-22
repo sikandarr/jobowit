@@ -1,4 +1,4 @@
-package com.jobowit.myob.domainservice;
+/*package com.jobowit.myob.domainservice;
 
 import java.util.List;
 
@@ -13,4 +13,4 @@ import lombok.EqualsAndHashCode;
 public class ItemBillPage extends EntityPage<ItemBill>
 {
 	public List<ItemBill> Items;
-}
+}*/

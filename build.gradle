@@ -65,6 +65,6 @@ repositories
 
 dependencies 
 {
-	compile('com.anahata:myob-api:1.5.7-SNAPSHOT')
-	compile('com.anahata:anahata-util:1.5.10-SNAPSHOT')
+	//compile('com.anahata:myob-api:1.5.7-SNAPSHOT')
+	//compile('com.anahata:anahata-util:1.5.10-SNAPSHOT')
 }

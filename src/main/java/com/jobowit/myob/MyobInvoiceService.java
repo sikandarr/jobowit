@@ -1,4 +1,4 @@
-package com.jobowit.myob;
+/*package com.jobowit.myob;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -82,4 +82,4 @@ public class MyobInvoiceService
 		return lines;
 	}
 
-}
+}*/

@@ -1,4 +1,4 @@
-package com.jobowit.myob;
+/*package com.jobowit.myob;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -68,4 +68,4 @@ public class MyobService
 		MyobEndPointProviderServiceImpl meps = (MyobEndPointProviderServiceImpl) getMyobEndPointProvider();
 		return meps.getCompanyFiles();
 	}
-}
+}*/

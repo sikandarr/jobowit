@@ -1,4 +1,4 @@
-package com.jobowit.myob;
+/*package com.jobowit.myob;
 
 import java.sql.Timestamp;
 
@@ -70,4 +70,4 @@ public class MyobEndPointProviderServiceImpl implements MyobEndPointProvider
 	{
 		return this.companyFiles;
 	}
-}
+}*/
